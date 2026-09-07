@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { AuthProvider } from './context/AuthContext';
+import { AuthProvider, useAuth } from './context/AuthContext';
 import { EmissionProvider } from './context/EmissionContext';
 import { ConfigProvider } from './context/ConfigContext';
+import { LoginPage } from './components/LoginPage';
 import { Navbar } from './components/Navbar';
 import { FacilityManager } from './components/FacilityManager';
 import { ActivityDataIngestion } from './components/ActivityDataIngestion';
@@ -21,9 +22,14 @@ import {
 } from 'lucide-react';
 
 export const AppContent: React.FC = () => {
+  const { user } = useAuth();
   const [activeView, setActiveView] = useState<
     'analytics' | 'facilities' | 'ingestion' | 'review' | 'config' | 'audit'
   >('analytics');
+
+  if (!user) {
+    return <LoginPage onLoginSuccess={() => setActiveView('analytics')} />;
+  }
 
   return (
     <div className="min-h-screen bg-[#0b0f19] text-gray-100 flex flex-col font-sans">

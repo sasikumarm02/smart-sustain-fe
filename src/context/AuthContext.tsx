@@ -6,6 +6,7 @@ interface AuthContextType {
   currentOrg: Organisation | null;
   activeFacility: Facility | null;
   role: UserRole;
+  login: (email: string, pass: string) => boolean;
   switchOrganisation: (orgId: string) => CommonResponse<UserSession>;
   setActiveFacilityId: (facilityId: string) => void;
   updateUserRole: (newRole: UserRole) => void;
@@ -120,14 +121,33 @@ const defaultSession: UserSession = {
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [session, setSession] = useState<UserSession>(defaultSession);
+  const [session, setSession] = useState<UserSession | null>(defaultSession);
   const [facilitiesMap, setFacilitiesMap] = useState<Record<string, Facility[]>>(initialFacilities);
 
-  const currentOrg = session.organisations.find((o) => o.id === session.currentOrganisationId) || session.organisations[0];
-  const currentOrgFacilities = facilitiesMap[session.currentOrganisationId] || [];
-  const activeFacility = currentOrgFacilities.find((f) => f.id === session.activeFacilityId) || currentOrgFacilities[0] || null;
+  const currentOrg = session ? (session.organisations.find((o) => o.id === session.currentOrganisationId) || session.organisations[0]) : null;
+  const currentOrgFacilities = session ? (facilitiesMap[session.currentOrganisationId] || []) : [];
+  const activeFacility = session ? (currentOrgFacilities.find((f) => f.id === session.activeFacilityId) || currentOrgFacilities[0] || null) : null;
+
+  const login = (email: string, pass: string): boolean => {
+    if (!email || !pass) return false;
+    const newSession: UserSession = {
+      ...defaultSession,
+      email,
+      name: email.split('@')[0].toUpperCase() + ' (ESG User)',
+    };
+    setSession(newSession);
+    return true;
+  };
 
   const switchOrganisation = (targetOrgId: string): CommonResponse<UserSession> => {
+    if (!session) {
+      return {
+        status: 'UNAUTHORIZED',
+        response: { action: 'SwitchOrganisationFailure', data: null as any },
+        message: 'User session not active.',
+      };
+    }
+
     const targetOrg = session.organisations.find((o) => o.id === targetOrgId);
     if (!targetOrg) {
       return {
@@ -174,17 +194,25 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const setActiveFacilityId = (facilityId: string) => {
-    setSession((prev) => ({ ...prev, activeFacilityId: facilityId }));
+    if (session) {
+      setSession((prev) => (prev ? { ...prev, activeFacilityId: facilityId } : null));
+    }
   };
 
   const updateUserRole = (newRole: UserRole) => {
-    setSession((prev) => ({
-      ...prev,
-      role: newRole,
-      organisations: prev.organisations.map((o) =>
-        o.id === prev.currentOrganisationId ? { ...o, role: newRole } : o
-      ),
-    }));
+    if (session) {
+      setSession((prev) =>
+        prev
+          ? {
+              ...prev,
+              role: newRole,
+              organisations: prev.organisations.map((o) =>
+                o.id === prev.currentOrganisationId ? { ...o, role: newRole } : o
+              ),
+            }
+          : null
+      );
+    }
   };
 
   const addFacilityToOrg = (facility: Facility) => {
@@ -198,17 +226,19 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   };
 
   const assignReviewerToFacility = (facilityId: string, reviewerId: string, reviewerName: string) => {
-    setFacilitiesMap((prev) => {
-      const orgFacs = prev[session.currentOrganisationId] || [];
-      const updated = orgFacs.map((f) =>
-        f.id === facilityId ? { ...f, assignedReviewerId: reviewerId, assignedReviewerName: reviewerName } : f
-      );
-      return { ...prev, [session.currentOrganisationId]: updated };
-    });
+    if (session) {
+      setFacilitiesMap((prev) => {
+        const orgFacs = prev[session.currentOrganisationId] || [];
+        const updated = orgFacs.map((f) =>
+          f.id === facilityId ? { ...f, assignedReviewerId: reviewerId, assignedReviewerName: reviewerName } : f
+        );
+        return { ...prev, [session.currentOrganisationId]: updated };
+      });
+    }
   };
 
   const logout = () => {
-    setSession(defaultSession);
+    setSession(null);
   };
 
   return (
@@ -217,7 +247,8 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         user: session,
         currentOrg,
         activeFacility,
-        role: session.role,
+        role: session?.role || 'DATA_PROVIDER',
+        login,
         switchOrganisation,
         setActiveFacilityId,
         updateUserRole,
