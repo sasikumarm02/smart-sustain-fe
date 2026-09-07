@@ -1,0 +1,89 @@
+.tab-style .ant-tabs .ant-tabs-tab.ant-tabs-tab-active .ant-tabs-tab-btn {
+  color: #23456a !important;
+  font-size: 16px !important;
+  background-color: #ddeeeb !important;
+  padding: 5px 10px;
+}
+.tab-style .ant-tabs .ant-tabs-ink-bar {
+  background: none !important;
+}
+.tab-style .ant-tabs-tab-btn:hover {
+  color: #23456a !important;
+}
+.select-sty .ant-select-selector {
+  border: 1px solid #797979 !important;
+  background: none !important;
+  color: #797979 !important;
+  border-radius: 0px !important;
+  font-size: 16px !important;
+}
+.ant-table-wrapper
+  .ant-table.ant-table-bordered
+  > .ant-table-container
+  > .ant-table-content
+  > table
+  > thead
+  > tr:not(:last-child)
+  > th {
+  border-bottom: 1px solid #000000 !important;
+}
+.ant-table-wrapper .ant-table-tbody > tr > td {
+  border-bottom: 1px solid #000000;
+}
+.form-title {
+  color: #2c5c54;
+  font-family: Roboto;
+  font-size: 28px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.ant-table-wrapper .ant-table-tbody > tr > td:nth-last-child(-n+2) {
+  background-color: #DDEEEB; /* Specify your desired background color */
+}
+/* Apply background color to last header column */
+.ant-table-wrapper .ant-table-thead > tr > th:last-child {
+  background-color: #DDEEEB; /* Specify your desired background color */
+}
+
+/* Apply background color to last three subheader columns */
+.ant-table-wrapper .ant-table-thead > tr > th:nth-last-child(-n+2) {
+  background-color: #DDEEEB; /* Specify your desired background color */
+}
+.table-design{
+  border: 1px solid black;
+}
+/* Add border bottom under header row */
+.ant-table-wrapper .ant-table-thead > tr > th {
+  border-bottom: 1px solid #000; /* Specify your desired border color and style */
+}
+
+/* Add border bottom under subheader rows */
+.ant-table-wrapper .ant-table-thead > tr:last-child > th {
+  border-bottom: 1px solid #000; /* Specify your desired border color and style */
+}
+/* Add border inline end (right border) for all header cells */
+.ant-table-wrapper .ant-table-thead > tr > th {
+  border-inline-end: 1px solid #000 !important; /* Specify your desired border color and style */
+}
+
+/* Add border inline end (right border) for all subheader cells */
+.ant-table-wrapper .ant-table-thead > tr:last-child > th {
+  border-inline-end: 1px solid #000 !important; /* Specify your desired border color and style */
+}
+/* Add border inline end (right border) for all header cells */
+.ant-table-wrapper .ant-table-thead > tr > th {
+  border-inline-end: 1px solid #000; /* Specify your desired border color and style */
+}
+
+/* Add border inline end (right border) for all subheader cells */
+.ant-table-wrapper .ant-table-thead > tr:last-child > th {
+  border-inline-end: 1px solid #000; /* Specify your desired border color and style */
+}
+
+/* Remove border inline end (right border) for all other cells */
+.ant-table-wrapper .ant-table-tbody > tr > td {
+  border-inline-end: none !important; /* Remove border inline end for table body cells */
+}
+

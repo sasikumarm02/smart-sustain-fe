@@ -1,0 +1,270 @@
+@import '../../Styles/variables.module.scss';
+
+.empText {
+  color: #3f434a !important;
+  font-size: 24px;
+  font-family: 'Arial';
+  text-align: start !important;
+  padding-bottom: 20px;
+  font-weight: 600;
+}
+
+.ToEmpText {
+  padding-top: 15px;
+  color: #00338d;
+  text-align: center;
+  font-size: 21px;
+  font-family: $font-stack-secondary;
+  font-weight: 600;
+}
+
+.EmpSubText {
+  color: #00338d;
+  text-align: center;
+  font-size: 32px;
+  font-family: $font-stack-secondary;
+  font-weight: 600;
+}
+
+.GenderText {
+  color: #0a0a1f !important;
+  font-size: 24px;
+  font-family: 'Arial';
+  font-weight: 600;
+  text-align: start !important;
+}
+
+.targetVsActual {
+  color: rgba(6, 6, 6, 1);
+  font-weight: 400;
+  font-size: 16px !important;
+  line-height: 17.25px;
+}
+
+.GenderText2 {
+  color: #0a0a1f !important;
+  font-size: 24px;
+  font-family: 'Arial';
+  font-weight: 600;
+  text-align: end !important;
+
+  span {
+    color: #009b3e;
+  }
+}
+
+.paragraphSty {
+  color: #0a0a1f;
+  font-family: 'Arial';
+  font-size: 21px;
+  font-weight: 700;
+  margin: 0px !important;
+}
+
+.paragraphSty1 {
+  color: #25378d;
+  font-family: 'Arial';
+  font-size: 18px;
+  font-weight: 600;
+  margin: 0px !important;
+}
+
+.footer {
+  font-size: 14px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  list-style: none;
+  padding-top: 30px;
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  list-style: none;
+  text-decoration: none;
+  color: #5c5c5c;
+
+  a:hover {
+    text-decoration: underline;
+    color: #00338d !important;
+  }
+}
+
+.footerRights {
+  color: #a3aed0;
+}
+
+.dashboardHeader {
+  font-size: 24px;
+  line-height: 24px;
+  color: #00338d;
+  font-weight: 700;
+  margin-block: 20px;
+}
+
+.dashboardTabs {
+  padding: 4px 0px 10px 0px !important;
+}
+
+.dashboardCardTitle {
+  font-size: 16px;
+  text-align: 'center' !important;
+  color: '#00338D';
+  font-family: 'Arial';
+  font-weight: 700;
+  display: flex !important;
+  justify-content: center;
+  color: #00338d;
+}
+
+.dashboardFatalitiesTitle {
+  font-size: 16px;
+  text-align: 'center';
+  color: '#00338D';
+  font-family: 'Arial';
+  font-weight: 600;
+  display: 'flex';
+  justify-content: 'center';
+  color: #120A08;
+}
+
+.dashboardFatalitiesSubTitle {
+  font-size: 18px;
+  text-align: 'center';
+  font-family: 'Arial';
+  font-weight: 400;
+  color: #3f434a;
+}
+
+.legendAlignment {
+  margin-top: 2px;
+  margin-left: 4px;
+}
+
+.summaryCard {
+  background: white;
+  border-radius: 10px;
+  padding: 4px;
+  border: 0.5px solid rgba(161, 161, 161, 1);
+  width: 100%;
+}
+
+.socialPageCardStyle {
+  min-height: 80vh;
+  padding: 30px;
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  z-index: 3 !important;
+  margin-top: 10px;
+  border: 1px solid #B6B3B2 !important;
+}
+
+.socialSummaryLegend {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  white-space: nowrap;
+  margin-top: '50px';
+}
+
+.socialCharts {
+  display: flex;
+  justify-content: center;
+}
+
+.socialSummaryTitle {
+  font-weight: 700;
+}
+
+.socialSummaryTitleDown {
+  font-weight: 700;
+  margin-top: 5px;
+}
+
+.socialSummaryDesc {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5vw;
+}
+
+.socialSummaryValue {
+  font-size: 24px;
+  color: #00338d;
+}
+
+.topRowStyle {
+  background: white;
+  border-radius: 10px;
+  padding: 4px 4px;
+  border: 0.5px solid rgba(161, 161, 161, 1);
+}
+
+.lineStyle {
+  font-size: 24px;
+  color: #00338d;
+}
+
+.fontStyle {
+  font-weight: 700;
+}
+
+.ColStyleOne {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  white-space: nowrap;
+}
+
+.ColStyleTwo {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1vw;
+}
+
+.ColStyleThree {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5vw;
+}
+
+.lastCol {
+  display: flex;
+  justify-content: center;
+}
+
+.dashboardFatalitiesTitleWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.dashboardFatalitiesStartingText {
+  font-size: 16px;
+  font-size: 400;
+  font-weight: 500;
+}
+
+.pageCardStyle {
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  z-index: 3 !important;
+  margin-top: 10px;
+  border-radius: 10px;
+  border: 1px solid #B6B3B2 !important;
+}
+
+.pageContainer {
+  display: flex;
+  flex-direction: column;
+  min-height: 80vh;
+  /* Ensure the container takes full height of the viewport */
+}
+
+.footer {
+  margin-top: auto;
+  /* Push the footer to the bottom */
+}

@@ -1,0 +1,308 @@
+@import "../../Styles/variables.module.scss";
+
+.headerMain {
+  background-color: #ddeeeb;
+  padding: 4px 0px;
+}
+
+.countrySelect {
+  color: $primary !important;
+  border: 1px solid $primary !important;
+  font-size: 18px !important;
+  font-weight: 500 !important;
+}
+
+.searchIcon {
+  border: none;
+}
+
+.ChanText {
+  font-family: "Arial";
+  font-weight: 400 !important;
+  color: #727983 !important;
+  float: right;
+  font-size: 14px;
+}
+
+.subText {
+  font-family: $font-stack-secondary;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  color: #0a0a1f !important;
+  opacity: 0.5;
+}
+
+.ProfileBack {
+  height: 30px;
+  width: 30px;
+  background: #f5f8ff;
+  border-radius: 6px;
+  color: #00338d;
+  cursor: pointer;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.MesageBack {
+  height: 30px;
+  width: 30px;
+  background: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.MainWrapper {
+  padding: 7px 14px !important;
+  background-color: #ffffff;
+  border-radius: 6px !important;
+  margin: 0 !important;
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  z-index: 999;
+  position: sticky;
+  top: 0;
+}
+
+.lang {
+  color: $primary;
+  font-size: 14px;
+  font-weight: 700;
+  text-align: right;
+  margin: 2px 0px 0px 5px;
+}
+
+
+
+@media (min-width: 2560px) {
+  .headerBrand {
+    font-size: 30px;
+    color: $primary;
+    font-weight: 700;
+    line-height: 28px;
+    padding-top: 34px;
+    padding-bottom: 22px;
+    font-family: Arial, sans-serif;
+  }
+
+  .avatar .avatarIcon {
+    height: 40px;
+    width: 40px;
+  }
+
+}
+
+@media (min-width: 1701px) and (max-width: 1920px) {
+  .ChanText {
+    font-size: 14px;
+  }
+
+  .headerBrand {
+    font-size: 24px;
+    color: $primary;
+    font-weight: 700;
+    line-height: 26px;
+    padding-top: 32px;
+    padding-bottom: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .avatar .avatarIcon {
+    height: 38px;
+    width: 38px;
+  }
+
+}
+
+@media (min-width: 1601px) and (max-width: 1700px) {
+  .ChanText {
+    font-size: 13px;
+  }
+
+  .headerBrand {
+    font-size: 24px;
+    color: $primary;
+    font-weight: 700;
+    line-height: 26px;
+    // padding-top: 30px;
+    // padding-bottom: 18px;
+    font-family: Arial, sans-serif;
+  }
+
+  .avatar .avatarIcon {
+    height: 36px;
+    width: 36px;
+  }
+
+}
+
+@media (min-width: 1421px) and (max-width: 1600px) {
+  .ChanText {
+    font-size: 13px;
+  }
+
+  .lang,
+  .userName {
+    font-size: 14px;
+    line-height: 14px;
+  }
+
+  .header-brand {
+    font-size: 13px;
+  }
+
+  .headerBrand {
+    font-size: 24px;
+    color: $primary;
+    font-weight: 700;
+    line-height: 26px;
+    font-family: Arial, sans-serif;
+  }
+
+  .userName {
+    color: $primary;
+    font-size: 14px;
+    font-weight: 700;
+    text-overflow: "ellipsis";
+    width: 100%;
+    float: right;
+    font-family: $font-stack-primary;
+  }
+
+  .avatar .avatarIcon {
+    height: 34px;
+    width: 34px;
+  }
+
+}
+
+@media (min-width: 1201px) and (max-width: 1420px) {
+  .headerBrand {
+    font-size: 24px;
+    color: $primary;
+    font-weight: 700;
+    line-height: 24px;
+    font-family: Arial, sans-serif;
+  }
+
+  .avatar .avatarIcon {
+    height: 32px;
+    width: 32px;
+  }
+}
+
+
+@media (min-width: 992px) and (max-width: 1200px) {
+
+  .ChanText,
+  .lang {
+    line-height: 11px;
+    font-size: 11px !important;
+  }
+
+  .userName {
+    font-size: 12px !important;
+  }
+
+  .MesageBack,
+  .searchWrap .searchIcon,
+  .langWrap .globeIcon {
+    height: 18px;
+    width: 18px;
+  }
+
+  .avatar .avatarIcon {
+    height: 30px;
+    width: 30px;
+  }
+
+  .headerBrand {
+    font-size: 24px;
+    color: $primary;
+    font-weight: 700;
+    line-height: 22px;
+    font-family: Arial, sans-serif;
+  }
+
+  .ChanText {
+    font-size: 12px;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+
+  .MesageBack,
+  .searchWrap .searchIcon,
+  .langWrap .globeIcon {
+    height: 15px;
+    width: 15px;
+  }
+
+  .avatar .avatarIcon {
+    height: 20px;
+    width: 20px;
+  }
+
+  .ChanText,
+  .lang,
+  .userName {
+    font-size: 8px !important;
+    line-height: 8px;
+  }
+
+  .dropdown .downloadIcon {
+    font-size: 10px;
+  }
+
+  .headerBrand {
+    font-size: 22px;
+    color: $primary;
+    font-weight: 700;
+    line-height: 20px;
+    font-family: Arial, sans-serif;
+  }
+
+  .ChanText {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+
+  .MesageBack,
+  .searchWrap .searchIcon,
+  .langWrap .globeIcon {
+    height: 13px;
+    width: 13px;
+  }
+
+  .avatar .avatarIcon {
+    height: 18px;
+    width: 18px;
+  }
+
+  .ChanText,
+  .lang,
+  .userName {
+    font-size: 8px !important;
+    line-height: 8px;
+  }
+
+  .dropdown .downloadIcon {
+    font-size: 10px;
+  }
+
+  .headerBrand {
+    font-size: 20px;
+    color: $primary;
+    font-weight: 700;
+    line-height: 18px;
+    font-family: Arial, sans-serif;
+  }
+
+  .ChanText {
+    font-size: 10px;
+    color: $primary;
+    font-weight: 700;
+  }
+}

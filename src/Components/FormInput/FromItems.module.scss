@@ -1,0 +1,128 @@
+@import '../../Styles//variables.module.scss';
+
+.formLabel {
+  // color: $primary !important;
+  font-family: $font-stack-secondary;
+
+  font-weight: 500;
+  line-height: normal;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.LoginButton {
+  margin-top: 1vh;
+  background-color: $primary;
+  color: $white;
+  font-family: $font-stack-secondary;
+  font-size: 1vw;
+  font-weight: 500;
+  line-height: 2vh;
+  letter-spacing: 0em;
+  text-align: center;
+  border-radius: 25px;
+  gap: 10px;
+  :disabled {
+    cursor: not-allowed;
+    border-color: #d9d9d9;
+    color: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.04);
+    box-shadow: none;
+  }
+}
+.guestButton {
+  margin-top: 1vh;
+  border: 1px solid $primary;
+  color: $primary;
+  font-family: $font-stack-secondary;
+  font-size: 1vw;
+  font-weight: 500;
+  line-height: 2vh;
+  letter-spacing: 0em;
+  text-align: center;
+  border-radius: 25px;
+  gap: 10px;
+  &:hover {
+    border: 1px solid $primary !important;
+    color: $primary !important;
+  }
+}
+
+.materialTopicsLabel {
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0em;
+  text-align: left;
+  color: #060606;
+}
+.materialTopicsText {
+  font-family: $font-stack-secondary !important;
+  font-weight: 400;
+  line-height: normal;
+  font-size: 14px;
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+  .materialTopicsLabel {
+    font-size: 18px;
+  }
+  .materialTopicsText {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .materialTopicsLabel {
+    font-size: 16px;
+  }
+  .materialTopicsText {
+    font-size: 13px;
+  }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+  .materialTopicsLabel {
+    font-size: 14px;
+  }
+  .materialTopicsText {
+    font-size: 11px;
+  }
+}
+
+@media (max-width: 768px) {
+  .materialTopicsLabel {
+    font-size: 12px;
+  }
+  .materialTopicsText {
+    font-size: 11px;
+  }
+}
+
+/* customStyles.scss */
+.customInput {
+  font-family: Arial !important;
+  width: 100%;
+  height: 50px !important;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  font-weight: 400 !important;
+  border-radius: 8px !important;
+  background-color: #FAF9FF;
+
+  &.ant-input {
+    /* Ensure it targets the Ant Design input */
+    &:hover {
+      border-color: #036323 !important; /* Change this to your desired hover color */
+    }
+    &:focus,
+    &.ant-input-focused {
+      border-color: #036323 !important; /* Change this to your desired focus color */
+    }
+  }
+
+.selectDropDown {
+  width: 250px !important;
+  height: 50px !important;
+}
+
+
+}

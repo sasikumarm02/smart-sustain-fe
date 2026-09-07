@@ -1,0 +1,13 @@
+/* .progress {
+  :where(.css-dev-only-do-not-override-1xg9z9n).ant-progress.ant-progress-circle
+    .ant-progress-inner {
+    position: relative;
+    line-height: 1;
+    background-color: white !important; 
+  }
+} */
+:where(.css-dev-only-do-not-override-1xg9z9n).ant-progress.ant-progress-circle .ant-progress-inner{
+    position: relative;
+    line-height: 1;
+    background-color: white !important; 
+}

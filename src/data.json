@@ -1,0 +1,1173 @@
+{
+  "response1": {
+    "status": "Success",
+    "response": {
+      "action": "fetch water data",
+      "pie_chart_data": [
+        {
+          "title": "Overall Consumption",
+          "data": [
+            {
+              "name": "Surface Water",
+              "value": 20
+            },
+            {
+              "name": "Ground Water",
+              "value": 30
+            },
+            {
+              "name": "Recycled Water",
+              "value": 50
+            }
+          ]
+        }
+      ],
+      "bar_chart_data": [
+        {
+          "title": "Water Consumption Monthly Trend",
+          "data": [
+            {
+              "name": "Jan",
+              "water consumed": 20
+            },
+            {
+              "name": "Feb",
+              "water consumed": 460
+            },
+            {
+              "name": "Mar",
+              "water consumed":650
+            },
+            {
+              "name": "Apr",
+              "water consumed": 360
+            },
+            {
+              "name": "May",
+              "water consumed": 40
+            },
+            {
+              "name": "Jun",
+              "water consumed": 0
+            },
+            {
+              "name": "Jul",
+              "water consumed": 0
+            },
+            {
+              "name": "Aug",
+              "water consumed": 0
+            },
+            {
+              "name": "Sep",
+              "water consumed": 0
+            },
+            {
+              "name": "Oct",
+              "water consumed": 0
+            },
+            {
+              "name": "Nov",
+              "water consumed": 0
+            },
+            {
+              "name": "Dec",
+              "water consumed": 0
+            }
+          ]
+        }
+      ],
+      "status": true
+    },
+    "message": "Data fetched successfully"
+  },
+  "response2": {
+    "status": "Success",
+    "response": {
+        "action": "fetch effluents data",
+        "pie_chart_data": [
+            {
+                "title": "Effluent Treatment",
+                "total_effluents_discharged": 1000,
+                "uom": "cubic metres",
+                "data": [
+                    {
+                        "primary": [
+                            "Screening",
+                            "Sedimentation",
+                            "Floatation",
+                            "Filtration",
+                            "Coagulation and Flocculation",
+                            "Neutralization",
+                            "Disinfection"
+                        ],
+                        "secondry": [
+                            "Activated Sludge Process",
+                            "Anaerobic Digestion",
+                            "Removal of BOD",
+                            "Removal of COD",
+                            "Trickling Filters",
+                            "Constructed Wetlands"
+                        ],
+                        "tertiary": [
+                            "Sand Filtration",
+                            "Membrane Filtration",
+                            "Chlorination",
+                            "Activated Carbon Adsorption",
+                            "Reverse Osmosis"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "bar_chart_data": [
+            {
+                "title": "Effluents Discharge  Monthly Trend",
+                "data": [
+                    {
+                        "name": "Jan",
+                        "effluents discharged": 40
+                    },
+                    {
+                        "name": "Feb",
+                        "effluents discharged": 400
+                    },
+                    {
+                        "name": "Mar",
+                        "effluents discharged": 20
+                    },
+                    {
+                        "name": "Apr",
+                        "effluents discharged": 0
+                    },
+                    {
+                        "name": "May",
+                        "effluents discharged": 70
+                    },
+                    {
+                        "name": "Jun",
+                        "effluents discharged":80
+                    },
+                    {
+                        "name": "Jul",
+                        "effluents discharged": 20
+                    },
+                    {
+                        "name": "Aug",
+                        "effluents discharged": 0
+                    },
+                    {
+                        "name": "Sep",
+                        "effluents discharged": 0
+                    },
+                    {
+                        "name": "Oct",
+                        "effluents discharged": 0
+                    },
+                    {
+                        "name": "Nov",
+                        "effluents discharged": 0
+                    },
+                    {
+                        "name": "Dec",
+                        "effluents discharged": 0
+                    }
+                ]
+            }
+        ],
+        "status": true
+    },
+    "message": "Data fetched successfully"
+},
+  "response3": {
+    "id": 3,
+    "name": "Response 3",
+    "description": "Description for Response 3"
+  },
+
+  "response4" : {
+    "status": "Success",
+    "response": {
+        "action": "Get Dropdown Options",
+        "data": {
+            "Scope 1 - Stationary Combustion": {             
+                    "Butane": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)",
+                        "gallon"
+                    ],
+                    "CNG": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "LNG": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "LPG": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Natural gas": [
+                        "tonnes",
+                        "cubic metres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Natural gas (100% mineral blend)": [
+                        "tonnes",
+                        "cubic metres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Other petroleum gas": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Propane": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)",
+                        "gallon"
+                    ],
+                    "Aviation spirit": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Aviation turbine fuel": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Burning oil": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Diesel (average biofuel blend)": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Diesel (100% mineral diesel)": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Fuel oil": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Gas oil": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Lubricants": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)",
+                        "gallon"
+                    ],
+                    "Naphtha": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Petrol (average biofuel blend)": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Petrol (100% mineral petrol)": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Processed fuel oils - residual oil": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Processed fuel oils - distillate oil": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Refinery miscellaneous": [
+                        "tonnes",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Waste oils": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Marine gas oil": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Marine fuel oil": [
+                        "tonnes",
+                        "litres",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Coal (industrial)": [
+                        "tonnes",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Coal (electricity generation)": [
+                        "tonnes",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Coal (domestic)": [
+                        "tonnes",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Coking coal": [
+                        "tonnes",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Petroleum coke": [
+                        "tonnes",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Coal (electricity generation - home produced coal only)": [
+                        "tonnes",
+                        "kWh (Net CV)",
+                        "kWh (Gross CV)"
+                    ],
+                    "Bioethanol": [
+                        "litres",
+                        "GJ",
+                        "kg"
+                    ],
+                    "Biodiesel ME": [
+                        "litres",
+                        "GJ",
+                        "kg"
+                    ],
+                    "Biomethane (compressed)": [
+                        "GJ",
+                        "kg"
+                    ],
+                    "Biodiesel ME (from used cooking oil)": [
+                        "litres",
+                        "GJ",
+                        "kg"
+                    ],
+                    "Biodiesel ME (from tallow)": [
+                        "litres",
+                        "GJ",
+                        "kg"
+                    ],
+                    "Biodiesel HVO": [
+                        "litres",
+                        "GJ",
+                        "kg"
+                    ],
+                    "Biopropane": [
+                        "litres",
+                        "GJ",
+                        "kg"
+                    ],
+                    "Development diesel": [
+                        "litres",
+                        "GJ",
+                        "kg"
+                    ],
+                    "Development petrol": [
+                        "litres",
+                        "GJ",
+                        "kg"
+                    ],
+                    "Off road biodiesel": [
+                        "litres",
+                        "GJ",
+                        "kg"
+                    ],
+                    "Biomethane (liquified)": [
+                        "GJ",
+                        "kg"
+                    ],
+                    "Methanol (bio)": [
+                        "litres",
+                        "GJ",
+                        "kg"
+                    ],
+                    "Avtur (renewable)": [
+                        "litres",
+                        "GJ",
+                        "kg"
+                    ],
+                    "Wood logs": [
+                        "tonnes",
+                        "kWh"
+                    ],
+                    "Wood chips": [
+                        "tonnes",
+                        "kWh"
+                    ],
+                    "Wood pellets": [
+                        "tonnes",
+                        "kWh"
+                    ],
+                    "Grass/straw": [
+                        "tonnes",
+                        "kWh"
+                    ],
+                    "Biogas": [
+                        "tonnes",
+                        "kWh"
+                    ],
+                    "Landfill gas": [
+                        "tonnes",
+                        "kWh"
+                    ],
+                    "Anthracite": [
+                        "short ton"
+                    ],
+                    "Bituminous": [
+                        "short ton"
+                    ],
+                    "Sub-bituminous": [
+                        "short ton"
+                    ],
+                    "Lignite": [
+                        "short ton"
+                    ],
+                    "Mixed (Commercial Sector)": [
+                        "short ton"
+                    ],
+                    "Mixed (Electric Power Sector)": [
+                        "short ton"
+                    ],
+                    "Mixed (Industrial Coking)": [
+                        "short ton"
+                    ],
+                    "Mixed (Industrial Sector)": [
+                        "short ton"
+                    ],
+                    "Coal Coke": [
+                        "short ton"
+                    ],
+                    "Municipal Solid Waste": [
+                        "short ton"
+                    ],
+                    "Petroleum Coke (Solid)": [
+                        "short ton"
+                    ],
+                    "Plastics": [
+                        "short ton"
+                    ],
+                    "Tires": [
+                        "short ton"
+                    ],
+                    "Agricultural Byproducts": [
+                        "short ton"
+                    ],
+                    "Peat": [
+                        "short ton"
+                    ],
+                    "Solid Byproducts": [
+                        "short ton"
+                    ],
+                    "Wood and Wood Residuals": [
+                        "short ton"
+                    ],
+                    "Natural Gas": [
+                        "scf"
+                    ],
+                    "Blast Furnace Gas": [
+                        "scf"
+                    ],
+                    "Coke Oven Gas": [
+                        "scf"
+                    ],
+                    "Fuel Gas": [
+                        "scf"
+                    ],
+                    "Propane Gas": [
+                        "scf"
+                    ],
+                    "Landfill Gas": [
+                        "scf"
+                    ],
+                    "Other Biomass Gases": [
+                        "scf"
+                    ],
+                    "Asphalt and Road Oil": [
+                        "gallon"
+                    ],
+                    "Aviation Gasoline": [
+                        "gallon"
+                    ],
+                    "Butylene": [
+                        "gallon"
+                    ],
+                    "Crude Oil": [
+                        "gallon"
+                    ],
+                    "Distillate Fuel Oil No. 1": [
+                        "gallon"
+                    ],
+                    "Distillate Fuel Oil No. 2": [
+                        "gallon"
+                    ],
+                    "Distillate Fuel Oil No. 4": [
+                        "gallon"
+                    ],
+                    "Ethane": [
+                        "gallon"
+                    ],
+                    "Ethylene": [
+                        "gallon"
+                    ],
+                    "Heavy Gas Oils": [
+                        "gallon"
+                    ],
+                    "Isobutane": [
+                        "gallon"
+                    ],
+                    "Isobutylene": [
+                        "gallon"
+                    ],
+                    "Kerosene": [
+                        "gallon"
+                    ],
+                    "Kerosene-Type Jet Fuel": [
+                        "gallon"
+                    ],
+                    "Liquefied Petroleum Gases (LPG)": [
+                        "gallon"
+                    ],
+                    "Motor Gasoline": [
+                        "gallon"
+                    ],
+                    "Naphtha (<401 deg F)": [
+                        "gallon"
+                    ],
+                    "Natural Gasoline": [
+                        "gallon"
+                    ],
+                    "Other Oil (>401 deg F)": [
+                        "gallon"
+                    ],
+                    "Pentanes Plus": [
+                        "gallon"
+                    ],
+                    "Petrochemical Feedstocks": [
+                        "gallon"
+                    ],
+                    "Propylene": [
+                        "gallon"
+                    ],
+                    "Residual Fuel Oil No. 5": [
+                        "gallon"
+                    ],
+                    "Residual Fuel Oil No. 6": [
+                        "gallon"
+                    ],
+                    "Special Naphtha": [
+                        "gallon"
+                    ],
+                    "Unfinished Oils": [
+                        "gallon"
+                    ],
+                    "Used Oil": [
+                        "gallon"
+                    ],
+                    "Biodiesel (100%)": [
+                        "gallon"
+                    ],
+                    "Ethanol (100%)": [
+                        "gallon"
+                    ],
+                    "Rendered Animal Fat": [
+                        "gallon"
+                    ],
+                    "Vegetable Oil": [
+                        "gallon"
+                    ]
+                
+            },
+            "Scope 1 - Mobile Combustion": {
+               
+                    "HGV (all diesel) All rigids 50% Laden": [
+                        "km",
+                        "miles"
+                    ],
+                    "HGVs refrigerated (all diesel) All rigids 50% Laden": [
+                        "km",
+                        "miles"
+                    ],
+                    "Unknown": [
+                        "km",
+                        "miles"
+                    ],
+                    "Plug-in Hybrid Electric Vehicle": [
+                        "km",
+                        "miles"
+                    ],
+                    "Hybrid": [
+                        "km",
+                        "miles"
+                    ],
+                    "Battery Electric Vehicle": [
+                        "km",
+                        "miles"
+                    ],
+                    "CNG": [
+                        "km",
+                        "miles"
+                    ],
+                    "LPG": [
+                        "km",
+                        "miles"
+                    ]
+                
+            },
+            "Scope 1 - Fugitive Emissions": {
+                
+                    "Carbon dioxide": [
+                        "kg"
+                    ],
+                    "Methane": [
+                        "kg"
+                    ],
+                    "Nitrous oxide": [
+                        "kg"
+                    ],
+                    "HFC-23": [
+                        "kg"
+                    ],
+                    "HFC-32": [
+                        "kg"
+                    ],
+                    "HFC-41": [
+                        "kg"
+                    ],
+                    "HFC-125": [
+                        "kg"
+                    ],
+                    "HFC-134": [
+                        "kg"
+                    ],
+                    "HFC-134a": [
+                        "kg"
+                    ],
+                    "HFC-143": [
+                        "kg"
+                    ],
+                    "HFC-143a": [
+                        "kg"
+                    ],
+                    "HFC-152a": [
+                        "kg"
+                    ],
+                    "HFC-227ea": [
+                        "kg"
+                    ],
+                    "HFC-236fa": [
+                        "kg"
+                    ],
+                    "HFC-245fa": [
+                        "kg"
+                    ],
+                    "HFC-43-I0mee": [
+                        "kg"
+                    ],
+                    "Perfluoromethane (PFC-14)": [
+                        "kg"
+                    ],
+                    "Perfluoroethane (PFC-116)": [
+                        "kg"
+                    ],
+                    "Perfluoropropane (PFC-218)": [
+                        "kg"
+                    ],
+                    "Perfluorocyclobutane (PFC-318)": [
+                        "kg"
+                    ],
+                    "Perfluorobutane (PFC-3-1-10)": [
+                        "kg"
+                    ],
+                    "Perfluoropentane (PFC-4-1-12)": [
+                        "kg"
+                    ],
+                    "Perfluorohexane (PFC-5-1-14)": [
+                        "kg"
+                    ],
+                    "PFC-9-1-18": [
+                        "kg"
+                    ],
+                    "Perfluorocyclopropane": [
+                        "kg"
+                    ],
+                    "Sulphur hexafluoride (SF6)": [
+                        "kg"
+                    ],
+                    "HFC-152": [
+                        "kg"
+                    ],
+                    "HFC-161": [
+                        "kg"
+                    ],
+                    "HFC-236cb": [
+                        "kg"
+                    ],
+                    "HFC-236ea": [
+                        "kg"
+                    ],
+                    "HFC-245ca": [
+                        "kg"
+                    ],
+                    "HFC-365mfc": [
+                        "kg"
+                    ],
+                    "Nitrogen trifluoride": [
+                        "kg"
+                    ],
+                    "R401A": [
+                        "kg"
+                    ],
+                    "R401B": [
+                        "kg"
+                    ],
+                    "R401C": [
+                        "kg"
+                    ],
+                    "R402A": [
+                        "kg"
+                    ],
+                    "R402B": [
+                        "kg"
+                    ],
+                    "R403A": [
+                        "kg"
+                    ],
+                    "R403B": [
+                        "kg"
+                    ],
+                    "R404A": [
+                        "kg"
+                    ],
+                    "R405A": [
+                        "kg"
+                    ],
+                    "R406A": [
+                        "kg"
+                    ],
+                    "R407A": [
+                        "kg"
+                    ],
+                    "R407B": [
+                        "kg"
+                    ],
+                    "R407C": [
+                        "kg"
+                    ],
+                    "R407D": [
+                        "kg"
+                    ],
+                    "R407E": [
+                        "kg"
+                    ],
+                    "R407F": [
+                        "kg"
+                    ],
+                    "R408A": [
+                        "kg"
+                    ],
+                    "R409A": [
+                        "kg"
+                    ],
+                    "R409B": [
+                        "kg"
+                    ],
+                    "R410A": [
+                        "kg"
+                    ],
+                    "R410B": [
+                        "kg"
+                    ],
+                    "R411A": [
+                        "kg"
+                    ],
+                    "R411B": [
+                        "kg"
+                    ],
+                    "R412A": [
+                        "kg"
+                    ],
+                    "R413A": [
+                        "kg"
+                    ],
+                    "R414A": [
+                        "kg"
+                    ],
+                    "R414B": [
+                        "kg"
+                    ],
+                    "R415A": [
+                        "kg"
+                    ],
+                    "R415B": [
+                        "kg"
+                    ],
+                    "R416A": [
+                        "kg"
+                    ],
+                    "R417A": [
+                        "kg"
+                    ],
+                    "R417B": [
+                        "kg"
+                    ],
+                    "R417C": [
+                        "kg"
+                    ],
+                    "R418A": [
+                        "kg"
+                    ],
+                    "R419A": [
+                        "kg"
+                    ],
+                    "R419B": [
+                        "kg"
+                    ],
+                    "R420A": [
+                        "kg"
+                    ],
+                    "R421A": [
+                        "kg"
+                    ],
+                    "R421B": [
+                        "kg"
+                    ],
+                    "R422A": [
+                        "kg"
+                    ],
+                    "R422B": [
+                        "kg"
+                    ],
+                    "R422C": [
+                        "kg"
+                    ],
+                    "R422D": [
+                        "kg"
+                    ],
+                    "R422E": [
+                        "kg"
+                    ],
+                    "R423A": [
+                        "kg"
+                    ],
+                    "R424A": [
+                        "kg"
+                    ],
+                    "R425A": [
+                        "kg"
+                    ],
+                    "R426A": [
+                        "kg"
+                    ],
+                    "R427A": [
+                        "kg"
+                    ],
+                    "R428A": [
+                        "kg"
+                    ],
+                    "R429A": [
+                        "kg"
+                    ],
+                    "R430A": [
+                        "kg"
+                    ],
+                    "R431A": [
+                        "kg"
+                    ],
+                    "R432A": [
+                        "kg"
+                    ],
+                    "R433A": [
+                        "kg"
+                    ],
+                    "R433B": [
+                        "kg"
+                    ],
+                    "R433C": [
+                        "kg"
+                    ],
+                    "R434A": [
+                        "kg"
+                    ],
+                    "R435A": [
+                        "kg"
+                    ],
+                    "R436A": [
+                        "kg"
+                    ],
+                    "R436B": [
+                        "kg"
+                    ],
+                    "R437A": [
+                        "kg"
+                    ],
+                    "R438A": [
+                        "kg"
+                    ],
+                    "R439A": [
+                        "kg"
+                    ],
+                    "R440A": [
+                        "kg"
+                    ],
+                    "R441A": [
+                        "kg"
+                    ],
+                    "R442A": [
+                        "kg"
+                    ],
+                    "R443A": [
+                        "kg"
+                    ],
+                    "R444A": [
+                        "kg"
+                    ],
+                    "R445A": [
+                        "kg"
+                    ],
+                    "R500": [
+                        "kg"
+                    ],
+                    "R501": [
+                        "kg"
+                    ],
+                    "R502": [
+                        "kg"
+                    ],
+                    "R503": [
+                        "kg"
+                    ],
+                    "R504": [
+                        "kg"
+                    ],
+                    "R505": [
+                        "kg"
+                    ],
+                    "R506": [
+                        "kg"
+                    ],
+                    "R507A": [
+                        "kg"
+                    ],
+                    "R508A": [
+                        "kg"
+                    ],
+                    "R508B": [
+                        "kg"
+                    ],
+                    "R509A": [
+                        "kg"
+                    ],
+                    "R510A": [
+                        "kg"
+                    ],
+                    "R511A": [
+                        "kg"
+                    ],
+                    "R512A": [
+                        "kg"
+                    ],
+                    "CFC-11/R11 = trichlorofluoromethane": [
+                        "kg"
+                    ],
+                    "CFC-12/R12 = dichlorodifluoromethane": [
+                        "kg"
+                    ],
+                    "CFC-13": [
+                        "kg"
+                    ],
+                    "CFC-113": [
+                        "kg"
+                    ],
+                    "CFC-114": [
+                        "kg"
+                    ],
+                    "CFC-115": [
+                        "kg"
+                    ],
+                    "Halon-1211": [
+                        "kg"
+                    ],
+                    "Halon-1301": [
+                        "kg"
+                    ],
+                    "Halon-2402": [
+                        "kg"
+                    ],
+                    "Carbon tetrachloride": [
+                        "kg"
+                    ],
+                    "Methyl bromide": [
+                        "kg"
+                    ],
+                    "Methyl chloroform": [
+                        "kg"
+                    ],
+                    "HCFC-22/R22 = chlorodifluoromethane": [
+                        "kg"
+                    ],
+                    "HCFC-123": [
+                        "kg"
+                    ],
+                    "HCFC-124": [
+                        "kg"
+                    ],
+                    "HCFC-141b": [
+                        "kg"
+                    ],
+                    "HCFC-142b": [
+                        "kg"
+                    ],
+                    "HCFC-225ca": [
+                        "kg"
+                    ],
+                    "HCFC-225cb": [
+                        "kg"
+                    ],
+                    "HCFC-21": [
+                        "kg"
+                    ],
+                    "HFE-125": [
+                        "kg"
+                    ],
+                    "HFE-134": [
+                        "kg"
+                    ],
+                    "HFE-143a": [
+                        "kg"
+                    ],
+                    "HCFE-235da2": [
+                        "kg"
+                    ],
+                    "HFE-245cb2": [
+                        "kg"
+                    ],
+                    "HFE-245fa2": [
+                        "kg"
+                    ],
+                    "HFE-254cb2": [
+                        "kg"
+                    ],
+                    "HFE-347mcc3": [
+                        "kg"
+                    ],
+                    "HFE-347pcf2": [
+                        "kg"
+                    ],
+                    "HFE-356pcc3": [
+                        "kg"
+                    ],
+                    "HFE-449sl (HFE-7100)": [
+                        "kg"
+                    ],
+                    "HFE-569sf2 (HFE-7200)": [
+                        "kg"
+                    ],
+                    "HFE-43-10pccc124 (H-Galden1040x)": [
+                        "kg"
+                    ],
+                    "HFE-236ca12 (HG-10)": [
+                        "kg"
+                    ],
+                    "HFE-338pcc13 (HG-01)": [
+                        "kg"
+                    ],
+                    "Trifluoromethyl sulphur pentafluoride": [
+                        "kg"
+                    ],
+                    "PFPMIE": [
+                        "kg"
+                    ],
+                    "Dimethylether": [
+                        "kg"
+                    ],
+                    "Methylene chloride": [
+                        "kg"
+                    ],
+                    "Methyl chloride": [
+                        "kg"
+                    ],
+                    "R290 = propane": [
+                        "kg"
+                    ],
+                    "R600A = isobutane": [
+                        "kg"
+                    ],
+                    "R600 = butane": [
+                        "kg"
+                    ],
+                    "R601 = pentane": [
+                        "kg"
+                    ],
+                    "R601A = isopentane": [
+                        "kg"
+                    ],
+                    "R170 = ethane": [
+                        "kg"
+                    ],
+                    "R1270 = propene": [
+                        "kg"
+                    ],
+                    "R1234yf*": [
+                        "kg"
+                    ],
+                    "R1234ze*": [
+                        "kg"
+                    ]
+                
+            }
+        },
+        "status": true
+    },
+    "message": "Data fetched successfully"
+}
+}

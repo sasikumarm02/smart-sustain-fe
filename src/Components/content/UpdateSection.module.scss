@@ -1,0 +1,106 @@
+@import '../../Styles/variables.module.scss';
+.heading {
+  font-size: 16px;
+  color: #696f79;
+  fontfamily: 'Arial', serif;
+}
+
+.wrapper {
+  border: 1px solid #bbbbbb;
+  border-radius: 8px;
+  background: #f5f3f3;
+  padding: 16px;
+  height: 180px;
+  overflow: scroll;
+}
+.role-circle {
+  height: 30px;
+  width: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 2px solid #0D304A;
+  font-family: $font-stack-primary;
+  border-radius: 50%;
+  color: #0D304A;
+  font-size: 10px;
+  font-weight: 600;
+}
+.author {
+  color: #333333;
+  font-size: 14px;
+  font-weight: 400;
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  width: 200px;
+  max-width: 100%;
+}
+.comment-text {
+  color: #333333;
+  font-size: 12px;
+  font-weight: 400;
+}
+
+.browse-btn {
+  border: 1px solid #8c8c8c;
+  margin-left: '5px';
+  height: 44px;
+}
+.updateBox {
+  background: #fff;
+  padding: 5px;
+  border: 2px dashed #0D304A;
+  border-radius: 8px;
+  height: 180px;
+  overflow: hidden;
+}
+.commentBox {
+  background: #fff;
+  padding: 5px;
+  border: 1px solid #0D304A !important;
+  border-radius: 8px;
+  height: 180px;
+  overflow: hidden;
+}
+
+.uploadBtn {
+  font-family: $font-stack-primary;
+  font-weight: 400;
+  font-size: 14px;
+  color: #51505d;
+  margin: 0 10px;
+  border: 2px dashed #DDDDDD;
+  border-radius: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.cancel {
+  cursor: pointer;
+  margin: 0 5px;
+}
+.uploadHead {
+  color: #51505d;
+  font-size: 20px;
+  font-weight: 600;
+  display: inline;
+}
+.uploadsubHead {
+  color: #7b7a8c;
+  font-size: 18px;
+  margin: 0;
+}
+
+.updateBox {
+  [class^='ant-upload-wrapper'] [class^='ant-upload'] {
+    width: 100%;
+  }
+}
+.fileName{
+  font-size: 14px;
+  color:#51505D;
+  font-weight: 700;
+  margin: 0 5px;
+  cursor: pointer;
+}

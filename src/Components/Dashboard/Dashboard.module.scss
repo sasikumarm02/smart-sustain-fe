@@ -1,0 +1,185 @@
+@import "../../Styles/variables.module.scss";
+
+.buttonClass {
+  background-color: $primary;
+  color: $white;
+  font-family: $font-stack-secondary;
+  font-weight: 400;
+  letter-spacing: 0em;
+  border-radius: 30px;
+  border: transparent;
+  font-size: 11px;
+  padding: 5px 10px;
+
+  &:hover {
+    background-color: $white !important;
+    color: $primary !important;
+    font-weight: 500;
+  }
+}
+
+.title {
+  color: $primary;
+  font-size: 1.1vw;
+  font-weight: 700;
+  line-height: normal;
+}
+
+.titleHorizontal {
+  color: $white;
+  font-size: 1.3vw;
+  font-weight: 600;
+  line-height: normal;
+}
+
+.actualTitle {
+  color: $primary;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 21.26px;
+}
+
+.actualTitleHorizontal {
+  color: $white;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 21.26px;
+}
+
+.actualvalue {
+  color: $primary;
+  font-size: 1.2vw;
+  font-weight: 700;
+  line-height: 21.26px;
+}
+
+.actualvalueHorizontal {
+  color: #e5e5e5;
+  font-size: 1.5vw;
+  font-weight: 600;
+  line-height: 21.26px;
+}
+
+.before:before {
+  content: "Target";
+  color: $white;
+  font-size: 1vw;
+  bottom: 36px;
+  font-weight: 600;
+  position: absolute;
+  transform: translateX(-16px);
+}
+
+//admin Dashboard
+.admin_backgroud {
+  border-radius: 12px;
+  background-color: $white;
+
+  .admin_img {
+    text-align: center;
+    padding: 14px;
+    border-radius: 12px 0 0 12px;
+  }
+
+  .admin_title {
+    font-family: $font-stack-secondary;
+    font-size: 1.3rem;
+    font-weight: 600;
+    line-height: 30.81px;
+    color: $primary;
+    padding-top: 4px;
+  }
+
+  .admin_count {
+    font-family: $font-stack-secondary;
+    font-size: 1.5rem;
+    font-weight: 600;
+    line-height: 49.77px;
+    color: #f5ca47;
+  }
+
+  .admin_button {
+    color: $primary;
+    font-family: Arial;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 30.81px;
+    text-align: center;
+
+    &:hover {
+      color: $primary !important;
+    }
+  }
+
+  .admin_text {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100%;
+    text-align: start;
+  }
+}
+
+//reports styles
+
+.formats {
+  display: flex;
+  flex-direction: row;
+  gap: 30px;
+  align-items: center;
+}
+
+.reportIcon {
+  padding: 10px;
+}
+
+.reportIcon:hover {
+  background-color: #e8e8e9;
+  opacity: 0.5;
+}
+
+.format {
+  margin-top: 6px;
+}
+
+.pdfFormat {
+  cursor: pointer
+}
+
+.xcelFormat {
+  cursor: pointer
+}
+
+.aboutText {
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: 200;
+}
+
+.reportsDiv {
+  width: 400px;
+  border-radius: 8px;
+  height: 55px;
+  border: 1px solid #E7E7E6 !important;
+  padding: 20px;
+}
+
+.headingRep {
+  font-size: 20px;
+  font-weight: 600;
+  color: black;
+  margin-left: 5px;
+}
+
+.headingRepOne {
+  font-size: 16px;
+  font-weight: 400;
+  color: #605B5A;
+}
+
+.pageStyle {
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #B6B3B2 !important;
+}

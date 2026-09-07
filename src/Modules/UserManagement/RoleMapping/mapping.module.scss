@@ -1,0 +1,101 @@
+.pageCardHeading {
+    min-height: 80vh;
+    padding: 20px;
+}
+
+.pageCardStyle {
+    box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+    z-index: 3 !important;
+    margin-top: 10px;
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.Heading {
+    color: #0D304A;
+    font-family: Arial;
+    font-weight: 700;
+    font-size: 24px;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+
+.subHeading {
+    font-family: Arial;
+    font-weight: 700;
+    font-size: 20px;
+    color: #0D304A;
+}
+
+// .tabComponent{
+//     margin-top: 2vh;
+// }
+
+.tabPadding {
+    padding: 20px;
+}
+
+.tabMargin {
+    margin: 0px !important;
+    padding: 0px !important;
+}
+
+
+.mapBtnUser {
+    margin-top: -20px !important;
+}
+
+
+.your-custom-class .ant-tabs>.ant-tabs-nav {
+    margin-bottom: 15px !important;
+}
+
+.selectNew {
+    height: 50px;
+    background: #FAF9FF !important;
+}
+
+.daApproved {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #797979;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 37px;
+}
+
+.daApprovedTitle {
+    font-weight: 600;
+    font-size: 24px;
+    line-height: 64px;
+    color: #0D304A;
+}
+
+.daApprovedSubTitle {
+    display: block;
+}
+
+.pageCardStyle {
+    box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+    z-index: 3 !important;
+    margin-top: 10px;
+    padding: 20px;
+    border: 1px solid #B6B3B2 !important;
+}
+
+.editSubmitBtn {
+    padding-top: 15px;
+}
+
+.tableMargin {
+    margin-top: -65px;
+}
+
+
+@media (max-width: 768px) {
+    .tableMargin {
+        margin-top: 0px;
+    }
+}

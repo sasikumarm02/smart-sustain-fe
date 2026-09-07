@@ -1,0 +1,456 @@
+@import '../../../Styles/variables.module.scss';
+
+.formBody {
+  background-color: rgba(255, 255, 255, 1);
+  border-radius: 16px;
+  width: 100%;
+  height: 100%;
+  box-shadow: 0px 2px 12px 0px rgba(0, 0, 0, 0.1);
+}
+
+.kpmgLogo {
+  width: 110px;
+  height: 50px;
+  display: block;
+  max-width: 100%;
+  margin: 0;
+  text-align: left !important;
+}
+
+.logoSubHeading {
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  text-align: left;
+  color: #00338d !important;
+  margin-bottom: 10px;
+}
+
+.formBodySignup {
+  background-color: rgba(255, 255, 255, 1);
+  width: 100%;
+  height: 100%;
+}
+
+.customCard {
+  border: none;
+  // height: 85vh;
+}
+
+.loginTitle {
+  margin-top: 1.2vh;
+  color: #101828;
+  font-family: Arial;
+  font-size: 1.7vw;
+  font-weight: 700;
+  line-height: normal;
+  letter-spacing: 0em;
+}
+.loginSubText {
+  margin-top: 2vh;
+  color: $thirdColor;
+  font-family: $font-stack-secondary;
+  font-size: 0.9vw;
+  font-weight: 400;
+  line-height: 1vh;
+  letter-spacing: 0em;
+  span {
+    color: $secondary;
+    cursor: pointer;
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}
+
+.signupButton {
+  width: 120px;
+  height: 50px;
+  padding: 10px 20px;
+  gap: 10px;
+  border-radius: 8px;
+  background: #036323 !important;
+  color: #ffffff !important;
+  margin: 10px;
+  background: #f6fbfd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+}
+
+.LoginButton {
+  background-color: $primary;
+  color: $white;
+  font-family: $font-stack-secondary;
+  font-size: 1vw;
+  font-weight: 500;
+  line-height: 2vh;
+  letter-spacing: 0em;
+  text-align: center;
+  border-radius: 25px;
+  gap: 10px;
+  :disabled {
+    cursor: not-allowed;
+    border-color: #d9d9d9;
+    color: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.04);
+    box-shadow: none;
+  }
+}
+.guestButton {
+  background-color: $secondary;
+  color: $white;
+  font-family: $font-stack-secondary;
+  font-size: 1vw;
+  font-weight: 500;
+  line-height: 2vh;
+  letter-spacing: 0em;
+  text-align: center;
+  border-radius: 25px;
+  gap: 10px;
+  &:hover {
+    background-color: $secondary !important;
+    color: $white !important;
+  }
+}
+.forgotPswd {
+  color: $secondary;
+  font-family: $font-stack-secondary;
+  font-size: 0.9vw;
+  font-weight: 400;
+  line-height: 0.7vh;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.formlabel {
+  font-family: Arial;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  color: #413B39;
+}
+
+.span {
+  color: $primary !important;
+}
+
+.bottomRightImage {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin: 20px;
+  height: auto;
+}
+
+.topLeftImage {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin: 20px;
+  width: 8vw;
+  height: auto;
+}
+
+.bottomRightImage {
+  position: absolute;
+  right: 2% !important;
+  margin: 20px;
+  font-family: Arial, Helvetica, sans-serif;
+  height: auto;
+}
+.Text1 {
+  color: white;
+  font-size: 30px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 33px;
+  font-weight: 700;
+  fill: white;
+}
+
+.Text2 {
+  color: white;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 30px;
+  line-height: 36px;
+  font-weight: 700;
+  fill: white;
+}
+
+.Text3 {
+  color: white;
+  font-size: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 33px;
+  font-weight: 400;
+  fill: white;
+}
+
+@media (min-width: 2560px) {
+  .bottomRightImage {
+    position: absolute;
+    right: 10%;
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: auto;
+  }
+
+  .Text1 {
+    color: white;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 43px;
+    font-weight: 700;
+  }
+
+  .Text2 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    line-height: 36px;
+    font-weight: 700;
+  }
+
+  .Text3 {
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 43px;
+    font-weight: 400;
+  }
+}
+
+@media (min-width: 1921px) and (max-width: 2559px) {
+  .bottomRightImage {
+    position: absolute;
+    right: 10%;
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: auto;
+  }
+
+  .Text1 {
+    color: white;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 43px;
+    font-weight: 700;
+    fill: white;
+  }
+
+  .Text2 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    line-height: 36px;
+    font-weight: 700;
+    fill: white;
+  }
+
+  .Text3 {
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 43px;
+    font-weight: 400;
+    fill: white;
+  }
+}
+
+@media (min-width: 1601px) and (max-width: 1920px) {
+  .bottomRightImage {
+    position: absolute;
+    right: 10%;
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: auto;
+  }
+
+  .Text1 {
+    color: white;
+    font-size: 40px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 43px;
+    font-weight: 700;
+    fill: white;
+  }
+
+  .Text2 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 40px;
+    line-height: 36px;
+    font-weight: 700;
+    fill: white;
+  }
+
+  .Text3 {
+    color: white;
+    font-size: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 43px;
+    font-weight: 400;
+    fill: white;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+  .bottomRightImage {
+    position: absolute;
+    right: 10%;
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: auto;
+  }
+  .Text1 {
+    color: white;
+    font-size: 36px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 33px;
+    font-weight: 700;
+    fill: white;
+  }
+
+  .Text2 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 36px;
+    line-height: 36px;
+    font-weight: 700;
+    fill: white;
+  }
+
+  .Text3 {
+    color: white;
+    font-size: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 33px;
+    font-weight: 400;
+    fill: white;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .bottomRightImage {
+    position: absolute;
+    right: 10%;
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: auto;
+  }
+
+  .Text1 {
+    color: white;
+    font-size: 33px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 33px;
+    font-weight: 700;
+    fill: white;
+  }
+
+  .Text2 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 33px;
+    line-height: 36px;
+    font-weight: 700;
+    fill: white;
+  }
+
+  .Text3 {
+    color: white;
+    font-size: 15px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 43px;
+    font-weight: 400;
+    fill: white;
+  }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+  .bottomRightImage {
+    position: absolute;
+    right: 10%;
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: auto;
+  }
+
+  .Text1 {
+    color: white;
+    font-size: 30px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 43px;
+    font-weight: 700;
+    fill: white;
+  }
+
+  .Text2 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    line-height: 36px;
+    font-weight: 700;
+    fill: white;
+  }
+
+  .Text3 {
+    color: white;
+    font-size: 13px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 43px;
+    font-weight: 400;
+    fill: white;
+  }
+}
+
+@media (max-width: 768px) {
+  .bottomRightImage {
+    position: absolute;
+    right: 10%;
+    margin: 20px;
+    font-family: Arial, Helvetica, sans-serif;
+    height: auto;
+  }
+
+  .Text1 {
+    color: white;
+    font-size: 25px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 43px;
+    font-weight: 700;
+    fill: white;
+  }
+
+  .Text2 {
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 25px;
+    line-height: 36px;
+    font-weight: 700;
+    fill: white;
+  }
+
+  .Text3 {
+    color: white;
+    font-size: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 43px;
+    font-weight: 400;
+    fill: white;
+  }
+}
+
+.backgroundColor {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 5px 10px;
+  border-radius: 2px;
+}
+
+.modalTitle{
+  color: #00338d;
+  font-family: Arial;
+  font-size: 30px;
+  font-weight: 500;
+}

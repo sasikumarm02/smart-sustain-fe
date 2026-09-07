@@ -1,0 +1,81 @@
+@import "../../Styles/variables.module.scss";
+
+.mainLayout {
+  padding: 1.5rem 0;
+}
+.metricSelect {
+  color: $primary;
+  border-radius: 8px;
+  border: 1px solid $primary;
+  & :hover {
+    color: $primary !important;
+    border-radius: 8px;
+  }
+}
+.metricButton {
+  color: $primary !important;
+  border: 1px solid $primary !important;
+}
+.metricTitle {
+  color: $secondary;
+  font-family: Inter;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+
+.ant-table-row:last-child {
+  background-color: $primary !important;
+}
+
+/* Target the last header */
+.customtable th:last-child {
+  background: #ddeeeb !important;
+  text-align: center !important;
+}
+
+.customtable td:nth-last-child(1),
+.customtable td:nth-last-child(2) {
+  background-color: #ddeeeb !important;
+}
+.customtable th:nth-last-child(1),
+.customtable th:nth-last-child(2) {
+  background-color: #ddeeeb !important;
+}
+.customtable th {
+  text-align: center !important;
+}
+
+@media (min-width: 1701px) and (max-width: 1920px) {
+  .metricTitle {
+    font-size: 20px;
+  }
+}
+@media (min-width: 1601px) and (max-width: 1700px) {
+  .metricTitle {
+    font-size: 18px;
+  }
+}
+@media (min-width: 1421px) and (max-width: 1600px) {
+  .metricTitle {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1201px) and (max-width: 1420px) {
+  .metricTitle {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1200px) and (max-width: 992px) {
+  .metricTitle {
+    font-size: 12px;
+  }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+  .metricTitle {
+    font-size: 10px;
+  }
+}
+@media (max-width: 768px) {
+}

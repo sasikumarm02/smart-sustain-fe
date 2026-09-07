@@ -1,0 +1,116 @@
+@import "../../../src/Styles/variables.module.scss";
+
+.pageSubTitle {
+  color: $primary;
+  font-size: 20px;
+  font-family: $font-stack-primary;
+  font-weight: 700;
+  text-align: left;
+  padding-bottom: 15px !important;
+}
+
+.pageTitle {
+  color: $primary;
+  font-size: 24px;
+  font-family: $font-stack-primary;
+  font-weight: 700;
+  text-align: left;
+}
+
+.downloadFactor {
+  font-size: 16px;
+  color: #333333;
+  font-weight: 400;
+  cursor: pointer;
+  z-index: 99;
+}
+
+.addRowButton {
+  float: right;
+  border-radius: 8px !important;
+  color: $primary !important;
+  font-size: 16px !important;
+  border: 1px solid $primary;
+  height: 40px !important;
+  font-weight: 400 !important;
+  padding: 10px 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: $primary !important;
+    border: 1px solid $primary;
+  }
+
+  span {
+    font-family: $font-stack-secondary;
+  }
+}
+
+.resetButton {
+  display: flex;
+  align-items: center;
+  font-weight: 400 !important;
+  color: $primary !important;
+  font-size: 16px !important;
+  height: 40px !important;
+  padding: 10px 20px;
+  border-radius: 8px !important;
+  border: 2px solid #dbe0e8;
+}
+
+.formInput {
+  border-radius: 10px;
+  height: 50px;
+  width: 100%;
+  background: #FAF9FF;
+}
+
+.labelStyle {
+  color: #413B39 !important;
+  font-size: 16px !important;
+  line-height: 16px;
+}
+
+.formSelect {
+  height: 50px;
+}
+
+
+.pageCardStyle {
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  z-index: 3 !important;
+  margin-top: 10px;
+  border-radius: 10px;
+  padding: 10px !important;
+  border: 1px solid #B6B3B2 !important;
+}
+
+.rowMargin {
+  padding-bottom: 0px !important;
+}
+
+.paddingBtn {
+  margin-bottom: 15px !important;
+  margin-left: 15px !important;
+}
+
+.paddingBtntwo {
+  margin-right: 15px;
+}
+
+.padding {
+  padding: 10px;
+}
+
+.pdfButton {
+  cursor: pointer;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  width: 45px !important;
+  height: 45px !important;
+  border: 1px solid #036323;
+  z-index: 99;
+}

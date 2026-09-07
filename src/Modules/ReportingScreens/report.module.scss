@@ -1,0 +1,470 @@
+@import '../../Styles/variables.module.scss';
+
+.reportHead {
+  color: $primary;
+  font-family: $font-stack-primary !important;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: left;
+  margin: 0;
+  padding: 15px 0;
+}
+
+.reportTitle {
+  color: $primary;
+  font-family: $font-stack-primary;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 26.58px;
+}
+
+.subTitle {
+  font-family: $font-stack-secondary;
+  font-size: 14px;
+  line-height: 18.96px;
+  font-weight: 500;
+  color: #333333;
+}
+
+.subInTitle {
+  font-family: $font-stack-secondary;
+  font-size: 14px;
+  line-height: 18.96px;
+  font-weight: 400;
+  color: #333333;
+}
+
+.collapseTitle {
+  font-family: $font-stack-secondary;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 21.33px;
+  text-align: left;
+  color: #333333 !important;
+}
+
+.background {
+  background-image: url('../../assets/image/backgroundEsg.png');
+  padding: 30px 20px;
+  background-position: bottom;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  // width: max-content;
+}
+
+.headingBreak {
+  font-family: Arial;
+  font-size: 21px;
+  line-height: 14px;
+  color: black;
+  margin-bottom: 20px;
+}
+
+.backgroundHeading {
+  font-family: Arial;
+  font-size: 35px;
+  line-height: 40px;
+  font-weight: 300;
+  text-align: left;
+  color: #ffffff;
+
+  padding-bottom: 0;
+}
+
+.backgroundText {
+  font-family: Rubik;
+  font-size: 14px;
+  font-weight: 400;
+  color: #8c8c8c;
+  padding-top: 0;
+}
+
+@media (max-width: 1400px) {
+  .backgroundHeading {
+    font-size: 25px;
+  }
+}
+
+.box {
+  display: flex;
+  gap: 5px;
+}
+
+.checkBox {
+  text-align: center;
+  padding: 10px;
+  border-radius: 10px;
+  height: 40px;
+  width: 40px;
+  border: 1px solid $primary;
+}
+
+.number {
+  font-weight: 700;
+  color: black;
+  font-size: 18px;
+}
+
+.column {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 30px;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 90px;
+}
+
+.progress {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 20px;
+}
+
+.circleText {
+  font-size: 16px;
+  font-weight: 700;
+  padding: 20px;
+}
+
+.text {
+  padding-left: 20px;
+  font-weight: 700px;
+  font-size: 16px;
+}
+
+.footer {
+  font-size: 14px;
+  margin-bottom: 20px;
+  list-style: none;
+  padding-top: 30px;
+}
+
+.footerLinks {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  list-style: none;
+  text-decoration: none;
+  color: #5c5c5c;
+
+  a:hover {
+    text-decoration: underline;
+    color: #00338d !important;
+  }
+}
+
+.footerRights {
+  color: #a3aed0;
+}
+
+.headingBreak2 {
+  font-family: Arial;
+  font-size: 36px;
+  font-weight: 600;
+  color: #0D304A;
+}
+
+.inputText {
+  font-size: 14px;
+  font-weight: 400;
+  color: #413B39;
+}
+
+.titleHeader {
+  // margin-left: 100px;
+  // margin-top: -20px ;
+  color: #120A08;
+  margin-top: 15px;
+}
+
+.tableDiv {
+  margin-top: 15px;
+}
+
+.btnMargin {
+  margin-left: 75vw;
+  margin-bottom: 2vh;
+}
+
+.tableInput {
+  height: 6vh;
+  width: 90%;
+  border: 1px solid #e4e7ec;
+  border-radius: 5px;
+}
+
+.tableInputError {
+  height: 6vh;
+  width: 90%;
+  border: 1px solid red;
+  border-radius: 5px;
+}
+
+.tableFlag {
+  width: 25px;
+  height: 15px;
+  border-radius: 5px;
+}
+
+.lableText {
+  border-radius: 2rem;
+  width: 90%;
+}
+
+.dataNotFoundDesc {
+  font-size: 16px;
+  font-weight: 500;
+  color: $primary;
+  text-align: center;
+}
+
+.spinnerPosition {
+  margin-top: 200px !important;
+}
+
+.pageCardStyle {
+  z-index: 3 !important;
+  margin-top: 10px;
+  padding: 10px;
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  border: 1px solid #B6B3B2 !important;
+}
+
+.pageCardCol {
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+}
+
+.marginTopBtn {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  gap: 15px;
+}
+
+@import '../../Styles/variables.module.scss';
+
+.customBorderRadius15 {
+  border-radius: 15px;
+}
+
+.customfontsize21 {
+  font-size: 21px;
+}
+
+.customfontsize17 {
+  font-size: 17px;
+}
+
+.customTextColorGrey {
+  color: #8c8c8c;
+}
+
+.globeImgDimension {
+  width: 470px;
+  height: 450px;
+}
+
+.w50 {
+  width: 50%;
+}
+
+.fontSize36 {
+  font-size: 36px;
+}
+
+.primeColor {
+  color: #0D304A;
+}
+
+.lineHeight20 {
+  line-height: 20px;
+}
+
+.lineHeight25 {
+  line-height: 25px;
+}
+
+.lineHeight28 {
+  line-height: 28px;
+}
+
+.lineHeight40 {
+  line-height: 40px;
+}
+
+.w30 {
+  width: 30%;
+}
+
+.padding10 {
+  padding: 10px;
+}
+
+.padding5 {
+  padding: 5px;
+}
+
+.borderRadius5 {
+  border-radius: 5px;
+}
+
+.w25vw {
+  width: 25vw;
+}
+
+.paddingCustomTwo {
+  padding: 5px 20px 20px 20px;
+}
+
+.font26 {
+  font-size: 26px;
+}
+
+.height50 {
+  height: 50px;
+}
+
+.positionRelative {
+  position: relative;
+}
+
+.cursorPointer {
+  cursor: pointer;
+}
+
+.padding20 {
+  padding: 20px;
+}
+
+.padding30 {
+  padding: 30px;
+}
+
+.w63vw {
+  width: 63vw;
+}
+
+.customTextDark {
+  color: #060606;
+}
+
+.customFontSize15 {
+  font-size: 15px;
+}
+
+.customFontSize50 {
+  font-size: 50px;
+}
+
+.customMargin60 {
+  margin-top: 60px !important;
+  margin-bottom: 60px !important;
+}
+
+.customBoxShadow {
+  box-shadow: 0px 2px 18px 0px #00000040;
+  border: 1px solid #B6B3B2 !important;
+}
+
+.customBoxpadding {
+  padding: 20px;
+}
+
+.customBorderBottomGrey {
+  border-bottom: 1px solid rgba(128, 128, 128, 0.271);
+}
+
+.customPaddingOne {
+  padding: 15px 0px;
+}
+
+.font-family-esg-maturity {
+  font-family: Arial;
+}
+
+.customMargin100_80 {
+  margin-bottom: 100px;
+  margin-top: 80px;
+}
+
+.customWidth90 {
+  width: 100% !important;
+  margin-top: 10px !important;
+}
+
+.cardIcon {
+  color: black !important;
+  transition: color 0.3s ease;
+}
+
+.cardIconBg {
+  background-color: #faf9ff;
+  border: 1px solid #e6e6e6;
+  transition: color 0.3s ease;
+}
+
+.cardIconBgInner {
+  background-color: #c3d9ff;
+  transition: color 0.3s ease;
+}
+
+.startBtnAss,
+.startBtnAss:hover {
+  background-color: $primary !important;
+  color: #fff !important;
+  font-family: 'Noto Sans', sans-serif !important;
+  font-weight: 400 !important;
+  font-size: 18px !important;
+  line-height: 24.52px;
+  opacity: 0.9;
+  width: 250px;
+  gap: 10px;
+  border-radius: 8px;
+}
+
+.cardIconFont {
+  color: #060606;
+  transition: color 0.3s ease;
+}
+
+.pdfReport {
+  cursor: pointer;
+}
+
+.griReport {
+  font-family: Arial;
+  margin-top: 5px;
+  font-size: 14px;
+}
+
+.cardOneMat {
+  background: linear-gradient(to bottom, #0D304A, #001626);
+  width: 250px;
+  height: 370px;
+  top: 570px;
+  left: 740px;
+  border-radius: 20px;
+  padding: 80px 15px;
+}
+
+.levelText {
+  display: flex;
+  justify-content: space-between;
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 15px;
+  // font-weight: 400;
+}
+
+.levelTextHead {
+  color: #fff;
+  font-size: 20px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}

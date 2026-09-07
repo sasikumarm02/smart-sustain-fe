@@ -1,0 +1,606 @@
+@import '../../../Styles/variables.module.scss';
+
+.pageTitle {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+  font-family: Arial;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+.form-grid {
+  .ant-col {
+    padding: 0;
+  }
+}
+
+.facilityLabel {
+  font-style: Arial;
+  font-size: 14px;
+  margin-top: 10px !important;
+  margin-right: 5px !important;
+}
+
+.facilityDropdown {
+  height: 44px;
+  width: 200px;
+  margin-right: 10px;
+}
+
+.uploadButton {
+  border: 1px solid #00338d;
+  color: #00338d;
+  background-color: white;
+  width: 80px !important;
+  height: 35px;
+  margin-top: '-2vh';
+}
+
+.uploadedFileName1 {
+  color: #4caf50;
+}
+
+.uploadedFileName2 {
+  color: #f44336;
+}
+
+.hiddenText {
+  visibility: hidden;
+}
+
+hr {
+  border: 0;
+  border-top: 1px solid #e8e8e8;
+  margin-top: 40px;
+}
+
+.page-card {
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+}
+
+.ant-btn-dashed {
+  border-style: dashed;
+}
+
+.ant-btn-icon-only {
+  font-size: 16px;
+  padding: 0;
+}
+
+.ant-input {
+  border-radius: 4px;
+}
+
+.disclosure-label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-top: 20px;
+}
+
+.addRowButton {
+  height: 35px;
+  background-color: rgb(0, 51, 141);
+  color: #fff;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 8px !important;
+  padding: 4px 12px !important;
+
+  &:hover {
+    color: #fff !important;
+    background-color: rgb(0, 51, 141) !important;
+  }
+}
+
+.addRowIcon {
+  font-size: 14px;
+  font-weight: bold;
+}
+
+.removeRowButton {
+  height: 35px;
+  border: 1px solid #e22c04 !important;
+  color: #e22c04;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: bold;
+  margin-left: 8px !important;
+  padding: 4px 12px !important;
+
+  &:hover {
+    color: #e22c04 !important;
+    border: 1px solid #e22c04 !important;
+  }
+}
+
+.removeRowIcon {
+  font-size: 12px;
+}
+
+.monthsForCurrentYear-input {
+  width: 7% !important;
+}
+
+.parent-div {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  margin-top: 20px;
+}
+
+.row {
+  flex: 1;
+  display: flex;
+  align-items: flex-start;
+}
+
+.label-col {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: center;
+}
+
+.colon-col {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.month-quantity-col {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+  justify-content: start;
+}
+
+.emissionFormLabel {
+  color: #989898 !important;
+  font-family: 'Rubik' !important;
+  font-size: 16px !important;
+  font-weight: 400 !important;
+  line-height: 24px !important;
+  text-align: left !important;
+}
+
+.wasteColDiv {
+  display: flex;
+  position: absolute;
+  right: 20px;
+  top: 22px;
+}
+
+// Responsive Styles
+@media (max-width: 768px) {
+  .ant-col {
+    padding: 8px;
+  }
+
+  .add-row-button {
+    width: 100%;
+  }
+
+  .uploadButton {
+    width: 100%;
+  }
+
+  .month-quantity-col {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .add-row-button {
+    width: 100%;
+  }
+
+  .uploadButton {
+    width: 100%;
+  }
+}
+
+.statusApproved {
+  background: #ecfdf3;
+  color: #027a48;
+  padding: 5px;
+  border-radius: 50px;
+  font-family: Arial !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 20px !important;
+  text-align: left !important;
+}
+
+.statusForReview {
+  color: #b8961d;
+  background-color: #fdf9ec;
+  padding: 5px;
+  border-radius: 50px;
+  font-family: Arial !important;
+  font-size: 14px !important;
+  font-weight: 500 !important;
+  line-height: 20px !important;
+  text-align: left !important;
+}
+
+.tableCellStyle {
+  font-family: Rubik !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 18.96px !important;
+  text-align: left !important;
+  color: #333333 !important;
+}
+
+.TabsButton {
+  color: #1e5190;
+  border: 2px solid #dbe0e8;
+  font-family: Arial !important;
+  padding: 4px 15px !important;
+  font-family: Rubik !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  margin-left: 8px !important;
+  height: 48px;
+  width: 120px;
+}
+
+.TabsButtons {
+  height: 48px;
+  font-weight: 500 !important;
+  font-family: Rubik !important;
+  font-size: 14px !important;
+  font-weight: 400 !important;
+  line-height: 24px !important;
+}
+
+.BtnDesign {
+  padding: 6px 24px !important;
+  border-radius: 30px !important;
+  background: #00338d !important;
+  color: #ffff !important;
+  font-size: 19px !important;
+  height: 42px !important;
+  font-weight: 400 !important;
+  margin-left: 10px;
+}
+
+.BtnDesign:hover {
+  color: #00338d !important;
+  background: #ffff !important;
+  border: 1px solid #00338d !important;
+}
+
+.BtnDesign1 {
+  padding: 6px 24px !important;
+  border-radius: 30px !important;
+  background: #ffff !important;
+  color: #00338d !important;
+  font-size: 19px !important;
+  height: 42px !important;
+  font-weight: 400 !important;
+  border: 1px solid #00338d;
+}
+
+.uploadedFileName1 {
+  color: gray;
+  font-weight: 500;
+  margin-left: 7px;
+}
+
+.uploadedFileName2 {
+  color: white;
+  font-weight: 500;
+  margin-left: 7px;
+}
+
+.hiddenText {
+  color: white;
+}
+
+.BtnDesign1:hover {
+  color: #ffff !important;
+  background: #00338d !important;
+  border: 1px solid #00b8f5 !important;
+}
+
+.CustomDate .ant-picker-outlined {
+  border-radius: 30px !important;
+  background-color: red !important;
+  padding: 10px 15px !important;
+}
+
+.DisplayButton {
+  display: contents !important;
+}
+
+.FormHeader {
+  font-size: 24px !important;
+  font-weight: 600 !important;
+  font-family: 'Arial';
+  color: #23456a !important;
+  padding-bottom: 1.5rem;
+  padding-top: 1rem;
+}
+
+.FormInputSty .ant-select-selector {
+  border: none !important;
+}
+
+.FormInputSty {
+  padding-right: 10px;
+}
+
+.AnttabSty .ant-tabs-tab {
+  color: blue !important;
+}
+
+.AnttabSty .ant-tabs-tab-active {
+  color: #00338d !important;
+}
+
+.breadCrumbMain {
+  color: #969ba0;
+  font-size: 20px;
+  font-family: $font-stack-secondary;
+
+  span {
+    color: #363062 !important;
+    font-size: 24px;
+    font-family: $font-stack-secondary;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: '1200px') {
+  .breadCrumbMain {
+    font-size: 14px;
+
+    span {
+      font-size: 18px;
+    }
+  }
+}
+
+@media (max-width: '1024px') {
+  .breadCrumbMain {
+    font-size: 14px;
+
+    span {
+      font-size: 16px;
+    }
+  }
+}
+
+.uploadText {
+  color: #898989;
+  font-family: $font-stack-secondary;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 18.96px;
+  text-align: center;
+}
+
+.uploadButton {
+  width: 50px;
+  height: 35px;
+  margin-top: 2vh !important;
+}
+
+.form_submit2 {
+  box-shadow: 'none' !important;
+  height: '5.5vh' !important;
+  color: #00b8f5;
+}
+
+.header {
+  margin-top: 3vh;
+  color: #00338d;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+.marginHeader {
+  margin-top: 2vh;
+}
+
+.fuelTypeHeight {
+  height: 40px;
+}
+
+.boxHeight {
+  margin-top: 20px;
+}
+
+.boxHeightWithWidth {
+  margin-top: 20px;
+  width: 8vw;
+}
+
+.boxWidth {
+  width: 80px;
+}
+
+.rowStyle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lineHeight {
+  margin-top: 0vh;
+}
+
+.addBtnStyle {
+  height: 40px;
+  background-color: #036323;
+  margin-bottom: 10px;
+}
+
+.addBtnStyle:hover {
+  height: 35px;
+  background-color: #036323 !important;
+}
+
+.removeBtnStyle {
+  height: 33px;
+  margin-top: 22px;
+  padding: 0 20px;
+}
+
+.mt-4 {
+  margin-top: 16px;
+}
+
+hr {
+  display: flex !important;
+  gap: 20px !important;
+  justify-content: end !important;
+}
+
+.envMarginTop {
+  margin-top: 15px;
+}
+
+.editBtn {
+  border: none;
+  background: none;
+  box-shadow: none;
+}
+
+.envColEnd {
+  text-align: right !important;
+  margin-top: 2vh !important;
+  display: flex !important;
+  gap: 20px !important;
+  justify-content: end !important;
+}
+
+.qtyHeader {
+  font-weight: 500;
+  color: #333333;
+  font-size: 15px;
+  margin: 16px 0;
+}
+
+.dataLabel {
+  border-right: 2px solid #fff;
+}
+
+.monthData {
+  border-right: 2px solid #fff;
+  width: 100px;
+  text-align: right;
+}
+
+.pageCardStyle {
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  z-index: 3 !important;
+  margin-top: 10px;
+  border: 1px solid #B6B3B2 !important;
+}
+
+.uploadBtn {
+  font-family: $font-stack-primary;
+  font-weight: 400;
+  font-size: 14px;
+  color: #51505d;
+  margin: 0 10px;
+  border-radius: 10px;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.uploadBtn span {
+  margin: 0 5px;
+}
+
+.uploadWrap {
+  display: flex;
+  border: 1px solid #b2b2b2;
+  padding: 5px 2px;
+  border-radius: 10px;
+}
+
+.cancel {
+  cursor: pointer;
+  margin: 0 5px;
+}
+
+.pageCardStyleForm {
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  z-index: 3 !important;
+  margin-top: 10px;
+  padding: 20px !important;
+  border: 1px solid #B6B3B2 !important;
+}
+
+@media (min-width: 2560px) {
+  .cardMargin {
+    margin-top: -15px !important;
+  }
+}
+
+@media (min-width: 1921px) and (max-width: 2559px) {
+  .cardMargin {
+    margin-top: 25px !important;
+  }
+}
+
+@media (min-width: 1601px) and (max-width: 1920px) {
+  .cardMargin {
+    margin-top: 0px !important;
+    background-color: #00338d;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1600px) {
+  .cardMargin {
+    margin-top: 25px !important;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .cardMargin {
+    margin-top: 30px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+  .cardMargin {
+    margin-top: 30px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardMargin {
+    margin-top: 30px !important;
+  }
+}
+
+.pdfButton {
+  cursor: pointer;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  width: 45px !important;
+  height: 45px !important;
+  border: 1px solid #036323;
+  z-index: 99;
+}

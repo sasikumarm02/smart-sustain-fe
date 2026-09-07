@@ -1,0 +1,374 @@
+@import '../../Styles/variables.module.scss';
+
+.quesHeading {
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 23.92px;
+  text-align: left;
+  color: #0D304A;
+}
+
+.addrowMargin {
+  margin-top: 35px;
+}
+
+.addRowButton {
+  float: right;
+}
+
+.peerPdfFont {
+  font-size: 14px;
+}
+
+.paddingTop {
+  padding-top: 15px;
+}
+
+.peeredit {
+  margin: 0px 0 5px 10px;
+}
+
+.subheading {
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 19.2px;
+  text-align: left;
+  color: #0D304A;
+}
+
+.companyName {
+  font-family: Arial;
+  font-size: 18px;
+  font-weight: 400;
+  line-height: 21.33px;
+  text-align: left;
+  color: #0D304A;
+  padding: 10px;
+}
+
+.formSelect {
+  width: 100%;
+  height: 50px !important;
+  font-family: $font-stack-primary !important;
+  font-size: 14px !important;
+  background-color: #FAF9FF !important;
+}
+
+.rowgap {
+  display: flex;
+  gap: 15px;
+}
+
+.paddingInput {
+  padding: 8px;
+  font-family: $font-stack-primary;
+  height: 50px !important;
+  background-color: #FAF9FF !important;
+}
+
+.paddingText {
+  padding: 8px;
+  font-family: $font-stack-primary;
+  height: 150px !important;
+  background-color: #FAF9FF !important;
+}
+
+.pageCardPadding {
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #B6B3B2 !important;
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+}
+
+.pageCardPaddingPeermanage {
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #B6B3B2 !important;
+}
+
+.TableComponentPeerManage {
+  margin-top: 15px !important;
+}
+
+.managePage {
+  min-height: 550px;
+  padding: 20px;
+}
+
+.resetRow {
+  margin-top: 220px;
+}
+
+.dataNotFoundDesc {
+  font-family: $font-stack-primary;
+  font-size: 16px;
+  font-weight: 500;
+  color: $primary;
+  text-align: center;
+}
+
+//admin styles
+
+.selectItem {
+  [class='ant-select-selection-item'] {
+    background-color: #036323 !important;
+    color: white;
+    padding: 14px !important;
+    border-radius: 16px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    font-family: Arial;
+  }
+
+  [class='ant-select-selection-item-remove'] {
+    margin-left: 8px;
+    cursor: pointer;
+    color: #ffffff !important;
+    /* Set remove icon color */
+  }
+
+  [class='ant-select-selector'] {
+    height: auto !important;
+  }
+
+}
+
+.selectItemTwo {
+  [class='ant-select-selection-item'] {
+    background-color: #036323 !important;
+    color: white;
+    padding: 14px !important;
+    border-radius: 16px;
+    margin-right: 8px;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    font-family: Arial;
+  }
+
+  [class='ant-select-selection-item-remove'] {
+    margin-left: 8px;
+    cursor: pointer;
+    color: #ffffff !important;
+    /* Set remove icon color */
+  }
+}
+
+/* Style the remove icon inside each selected option */
+
+.ant-select-selection-item-remove {
+  margin-left: 8px;
+  cursor: pointer;
+  color: #ffffff;
+  /* Set remove icon color */
+}
+
+/* Hover effect for the remove icon */
+
+.ant-select-selection-item-remove:hover {
+  color: #ff4d4f;
+  /* Change color on hover */
+}
+
+// .dropdowncontainer {
+//   width: full;
+//   margin: 20px;
+// }
+.industryTitle {
+  font-family: Arial;
+  font-size: 16px;
+  text-align: left;
+  color: #333333;
+}
+
+.selected-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.selected-item {
+  background-color: #0047ab;
+  color: white;
+  padding: 5px 10px;
+  border-radius: 15px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+}
+
+.remove-icon {
+  margin-left: 8px;
+  cursor: pointer;
+}
+
+.header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.subtitle {
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  letter-spacing: 0.15%;
+  color: #0D304A;
+  font-family: Arial;
+}
+
+.edit {
+  background-color: #0D304A;
+  cursor: pointer;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  border-radius: 10px;
+  align-items: center;
+}
+
+.editp {
+  color: white;
+  margin: 0px;
+}
+
+.removeIcon {
+  cursor: pointer;
+}
+
+.addrow {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.companyItem {
+  background-color: #036323;
+  font-size: 14px !important;
+  font-family: Arial;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 16px;
+  text-align: center;
+  display: inline-block;
+  margin-right: 15px;
+  /* Adjust spacing between items */
+  margin-bottom: 15px;
+  /* Adjust spacing between rows */
+}
+
+.editpsvg {
+  margin: 0px 0 5px 10px;
+}
+
+.reportrow {
+  display: flex;
+  flex-direction: column;
+  align-items: end;
+}
+
+.reportdiv {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  font-weight: 400;
+  gap: 15px;
+  font-family: Arial;
+  margin-top: 45px;
+}
+
+.reporticon {
+  cursor: pointer;
+}
+
+.dataPointItem {
+  background-color: #036323;
+  color: white;
+  padding: 6px 12px;
+  border-radius: 16px;
+  display: inline-block;
+  margin-right: 8px;
+  margin-bottom: 8px;
+  font-family: Arial;
+}
+
+.viewMore {
+  color: rgb(178, 175, 175);
+  cursor: pointer;
+  margin-left: 8px;
+  font-size: 13px;
+}
+
+.greenSwitch {
+  background-color: #269924 !important;
+}
+
+.rowsDiv {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  margin-top: 30px;
+}
+
+.rowsHeading {
+  font-family: Arial;
+  font-size: 16px;
+  font-weight: 400;
+  margin-top: 10px;
+  text-align: left;
+  color: #0D304A;
+}
+
+.rowsSelect {
+  width: 100px;
+  height: 50px;
+  margin-left: 10px;
+}
+
+.checkboxRow {
+  margin-top: 30px;
+}
+
+.freportMargin {
+  margin-right: 15px;
+}
+
+.checkboxGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.leftOutlined {
+  margin-left: 30px;
+}
+
+.pageCardStyle {
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  z-index: 3 !important;
+  margin-top: 10px;
+  padding: 10px !important;
+  border-radius: 10px;
+}
+
+.pdfButton {
+  cursor: pointer;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  width: 45px !important;
+  height: 50px !important;
+  border: 1px solid #036323;
+  z-index: 99;
+}

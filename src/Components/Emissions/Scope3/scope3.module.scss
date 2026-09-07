@@ -1,0 +1,367 @@
+@import '../../../Styles/variables.module.scss';
+
+.pageSubTitle {
+  color: $primary;
+  font-size: 18px;
+  font-family: $font-stack-primary;
+  font-weight: 500;
+  text-align: left;
+}
+
+//tab styles
+
+.AnttabSty .ant-tabs-tab {
+  color: blue !important;
+  /* Set default color for inactive tabs */
+}
+
+.AnttabSty .ant-tabs-tab-active {
+  color: red !important;
+  /* Set color for active tab */
+}
+
+[class~='ant-tabs'] {
+  padding-left: 0 !important;
+}
+
+[class~='ant-tabs'],
+[class~='ant-tabs-tab'] {
+  // padding: 10px !important;
+  font-family: Arial;
+
+  font-weight: 700;
+  line-height: 23.92px;
+  color: #818181 !important;
+
+  :active {
+    [class~='.ant-tabs-tab-btn'] {
+      color: #61b5de !important;
+    }
+  }
+}
+
+.subTabRow {
+  margin-top: -20px !important;
+}
+
+[class~='ant-tabs-tab-active'] [class~='.ant-tabs-tab-btn'] {
+  color: #61b5de !important;
+}
+
+.cardMargin {
+  margin-top: -40px !important;
+}
+
+.cardDrmargin {
+  margin-top: -10px;
+}
+
+.cat3Margin {
+  margin-top: 8px !important;
+}
+
+.cat3Drmargin {
+  margin-top: -15px;
+}
+
+.first2Tabs {
+  margin-top: 5px !important;
+}
+
+@media (min-width: 2560px) {
+  .cardMargin {
+    margin-top: -40px !important;
+  }
+
+  .cardDrmargin {
+    margin-top: -10px;
+  }
+
+  .cat3Margin {
+    margin-top: 8px !important;
+  }
+
+  .cat3Drmargin {
+    margin-top: -15px;
+  }
+}
+
+@media (min-width: 1921px) and (max-width: 2559px) {
+  .cardMargin {
+    margin-top: -40px !important;
+  }
+
+  .cardDrmargin {
+    margin-top: -10px;
+  }
+
+  .cat3Margin {
+    margin-top: 8px !important;
+  }
+
+  .cat3Drmargin {
+    margin-top: -15px;
+  }
+}
+
+@media (min-width: 1601px) and (max-width: 1920px) {
+  .cardMargin {
+    margin-top: -40px !important;
+  }
+
+  .cardDrmargin {
+    margin-top: -10px;
+  }
+
+  .cat3Margin {
+    margin-top: 8px !important;
+  }
+
+  .cat3Drmargin {
+    margin-top: -15px;
+  }
+}
+
+@media (min-width: 1401px) and (max-width: 1600px) {
+  .pageSubTitle {
+    font-size: 18px;
+  }
+
+  .addRowButton {
+    font-size: 16px !important;
+    height: 40px !important;
+    padding: 5px 15px;
+  }
+
+  .cat3Margin {
+    margin-top: 8px !important;
+  }
+
+  .cardMargin {
+    margin-top: -40px !important;
+  }
+
+  .cardDrmargin {
+    margin-top: -10px;
+  }
+
+  .catMargin {
+    margin-top: -40px !important;
+  }
+
+  .cat3Drmargin {
+    margin-top: 15px;
+  }
+}
+
+@media (min-width: 1201px) and (max-width: 1400px) {
+  .pageSubTitle {
+    font-size: 18px;
+  }
+
+  .addRowButton {
+    padding: 5px 10px;
+    height: 30px !important;
+
+    span {
+      font-size: 12px;
+    }
+  }
+
+  .cardMargin {
+    margin-top: -40px !important;
+  }
+
+  .cardDrmargin {
+    margin-top: -10px;
+  }
+
+  .cat3Margin {
+    margin-top: 8px !important;
+  }
+
+  .cat3Drmargin {
+    margin-top: -15px;
+  }
+}
+
+@media (min-width: 992px) and (max-width: 1200px) {
+  .cardMargin {
+    margin-top: 5px !important;
+  }
+}
+
+@media (min-width: 769px) and (max-width: 991px) {
+  .cardMargin {
+    margin-top: 5px !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .cardMargin {
+    margin-top: 5px !important;
+  }
+}
+
+.addRowButton {
+  float: right;
+  border-radius: 8px !important;
+  color: $primary !important;
+  font-size: 16px !important;
+  border: 1px solid $primary;
+  height: 40px !important;
+  font-weight: 400 !important;
+  padding: 10px 20px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    color: $primary !important;
+    border: 1px solid $primary;
+  }
+
+  span {
+    font-family: $font-stack-secondary;
+  }
+}
+
+.resetButton {
+  display: flex;
+  align-items: center;
+  font-weight: 400 !important;
+  color: $primary !important;
+  font-size: 16px !important;
+  height: 40px !important;
+  padding: 10px 20px;
+  border-radius: 8px !important;
+  border: 2px solid #dbe0e8;
+}
+
+.facilityLabel {
+  font-style: Arial;
+  font-size: 14px;
+  margin-top: 10px !important;
+  margin-right: 5px !important;
+}
+
+.facilityDropdown {
+  height: 44px;
+  width: 200px;
+  margin-right: 15px;
+  z-index: 99;
+}
+
+.fyDropdown {
+  height: 44px;
+  width: 120px;
+  z-index: 100;
+  margin-right: 15px;
+}
+
+.customPaddingTop {
+  padding-top: 15px;
+}
+
+.customPaddingRight {
+  padding-right: 15px;
+}
+
+//cat 13
+.container {
+  display: flex;
+  align-items: center;
+}
+
+.noborder {
+  border: none;
+}
+
+
+.label {
+  font-weight: 600;
+  padding-top: 15px;
+  color: black;
+  margin-right: 8px;
+}
+
+.input {
+  width: 140px;
+  color: black;
+}
+
+.value {
+  color: black;
+  font-weight: 400;
+}
+
+.mainTabs {
+  .ant-tabs-nav {
+    margin-bottom: -20px; // Adjust this value to decrease the gap
+  }
+}
+
+.subTabs {
+  .ant-tabs-nav {
+    margin-bottom: 8px; // Adjust this value to decrease the gap between sub-tabs
+  }
+}
+
+.pageCardStyle {
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  z-index: 3 !important;
+  margin-top: 10px;
+  padding: 20px;
+  border: 1px solid #B6B3B2 !important;
+}
+
+.pageCardStyle2 {
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  z-index: 3 !important;
+  margin-top: 10px;
+  padding: 10px;
+  border: 1px solid #B6B3B2 !important;
+}
+
+.dbDropdown {
+  [class*='ant-select-selection-item'] {
+    font-family: $font-stack-primary;
+  }
+
+  border: 1px solid #d7dce4;
+  min-width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  height: 40px;
+
+  [class='ant-select-arrow'] svg {
+    height: 15px;
+    width: 15px;
+  }
+
+  [class='ant-select-arrow'] {
+    color: #00338d;
+  }
+
+  [class='ant-select-selector'] {
+    border: none !important;
+    background: transparent !important;
+    cursor: pointer !important;
+    padding: 0 !important;
+  }
+}
+
+.TabComponets {
+  width: 60% !important;
+}
+
+.pdfButton {
+  cursor: pointer;
+  background: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  width: 45px !important;
+  height: 45px !important;
+  border: 1px solid #036323;
+  z-index: 99;
+}

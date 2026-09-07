@@ -1,0 +1,3208 @@
+{
+  "category_info": [
+    {
+      "GRI Category Code": "GRI 2",
+      "GRI Category": "GENERAL DISCLOSURES",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "2-1",
+          "Sub-Category": "Organizational Details",
+          "questions": [
+            {
+              "question_id": "GRI2-2-1-a",
+              "question": "What is the legal name of your organization?"
+            },
+            {
+              "question_id": "GRI2-2-1-b1",
+              "question": "What is the nature of ownership of your organization?"
+            },
+            {
+              "question_id": "GRI2-2-1-b2",
+              "question": "What legal form does your organization take (e.g., corporation, partnership, sole proprietorship)?"
+            },
+            {
+              "question_id": "GRI2-2-1-c1",
+              "question": "Where is the headquarters of your organization located?"
+            },
+            {
+              "question_id": "GRI2-2-1-c2",
+              "question": "If there are multiple headquarters or main offices, please specify."
+            },
+            {
+              "question_id": "GRI2-2-1-d1",
+              "question": "In which countries does your organization operate?"
+            },
+            {
+              "question_id": "GRI2-2-1-d2",
+              "question": "Are there any specific regions within those countries where your organization focuses its operations?"
+            },
+            {
+              "question_id": "GRI2-2-1-d3",
+              "question": "Are there any countries where your organization has significant operations or investments that should be highlighted?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-2",
+          "Sub-Category": "Entities included in reporting",
+          "questions": [
+            {
+              "question_id": "GRI2-2-2-a1",
+              "question": "Can you provide a list of entities included in your organization's reporting for the current period?"
+            },
+            {
+              "question_id": "GRI2-2-2-a2",
+              "question": "Are there any criteria used to determine which entities are included in your reporting?"
+            },
+            {
+              "question_id": "GRI2-2-2-b1",
+              "question": "How does the list of entities included in your financial reporting compare to those included in your sustainability reporting?"
+            },
+            {
+              "question_id": "GRI2-2-2-b2",
+              "question": "Are there any entities included in one report but not the other? If so, why?"
+            },
+            {
+              "question_id": "GRI2-2-2-c1",
+              "question": "If your organization has multiple entities, what is your approach for consolidating financial data?"
+            },
+            {
+              "question_id": "GRI2-2-2-c2",
+              "question": "How do you account for minority interests in your consolidated financial statements?"
+            },
+            {
+              "question_id": "GRI2-2-2-c1",
+              "question": "How does your organization approach incorporating newly acquired entities or entities involved in mergers into your reporting?"
+            },
+            {
+              "question_id": "GRI2-2-2-c2",
+              "question": "Are there any specific methodologies or principles followed in these situations?"
+            },
+            {
+              "question_id": "GRI2-2-2-c1",
+              "question": "How does your approach to reporting differ for organizations with multiple entities compared to single-entity organizations?"
+            },
+            {
+              "question_id": "GRI2-2-2-c2",
+              "question": "Are there any unique challenges or considerations you face when reporting for multiple entities?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-3",
+          "Sub-Category": "Reporting period, frequency and contact point",
+          "questions": [
+            {
+              "question_id": "GRI2-2-3-a1",
+              "question": "What is the reporting period for your sustainability reporting?"
+            },
+            {
+              "question_id": "GRI2-2-3-a2",
+              "question": "How frequently do you publish sustainability reports or updates?"
+            },
+            {
+              "question_id": "GRI2-2-3-b1",
+              "question": "What is the reporting period for your financial reporting?"
+            },
+            {
+              "question_id": "GRI2-2-3-b2",
+              "question": "If the reporting period for financial reporting does not align with sustainability reporting, please explain the reason for this misalignment."
+            },
+            {
+              "question_id": "GRI2-2-3-c1",
+              "question": "When was the sustainability report or reported information for the current period published?"
+            },
+            {
+              "question_id": "GRI2-2-3-c2",
+              "question": "Is there a specific schedule or timeline for the publication of your reports?"
+            },
+            {
+              "question_id": "GRI2-2-3-d1",
+              "question": "Please specify the contact point for any questions regarding the sustainability report or reported information."
+            },
+            {
+              "question_id": "GRI2-2-3-d2",
+              "question": "Is there a designated individual or department responsible for handling inquiries related to your reports?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-4",
+          "Sub-Category": "Restatements of information",
+          "questions": [
+            {
+              "question_id": "GRI2-2-4-a1",
+              "question": "Can you provide details of any restatements of information made from previous reporting periods?"
+            },
+            {
+              "question_id": "GRI2-2-4-a2",
+              "question": "If yes, please explain the reasons for the restatements."
+            },
+            {
+              "question_id": "GRI2-2-4-a3",
+              "question": "What is the effect of the restatements on the reported information?"
+            },
+            {
+              "question_id": "GRI2-2-4-a4",
+              "question": "Have these restatements impacted any key performance indicators or financial metrics?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-5",
+          "Sub-Category": "External assurance",
+          "questions": [
+            {
+              "question_id": "GRI2-2-5-a1",
+              "question": "Describe your organization's policy and practice for seeking external assurance."
+            },
+            {
+              "question_id": "GRI2-2-5-a2",
+              "question": "How are the highest governance body and senior executives involved in this process?"
+            },
+            {
+              "question_id": "",
+              "question": "If the organization\u2019s sustainability reporting has been externally assured:"
+            },
+            {
+              "question_id": "GRI2-2-5-b1",
+              "question": "Has your organization's sustainability reporting been externally assured?"
+            },
+            {
+              "question_id": "GRI2-2-5-b2",
+              "question": "If yes, please provide a link or reference to the external assurance report(s) or assurance statement(s)."
+            },
+            {
+              "question_id": "GRI2-2-5-b3",
+              "question": "Describe what has been assured and on what basis."
+            },
+            {
+              "question_id": "GRI2-2-5-b4",
+              "question": "Include details about the assurance standards used, the level of assurance obtained, and any limitations of the assurance process."
+            },
+            {
+              "question_id": "GRI2-2-5-b5",
+              "question": "Describe the relationship between your organization and the assurance provider."
+            },
+            {
+              "question_id": "GRI2-2-5-b6",
+              "question": "How does your organization ensure independence and objectivity in the assurance process?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-6",
+          "Sub-Category": "Activities, value chain and other business relationships",
+          "questions": [
+            {
+              "question_id": "GRI2-2-6-a1",
+              "question": "In which sector(s) is your organization primarily active?"
+            },
+            {
+              "question_id": "GRI2-2-6-b1",
+              "question": "Briefly describe your organization's core activities."
+            },
+            {
+              "question_id": "GRI2-2-6-b2",
+              "question": "List the main products or services your organization provides."
+            },
+            {
+              "question_id": "GRI2-2-6-b3",
+              "question": "What are the primary markets you serve?"
+            },
+            {
+              "question_id": "GRI2-2-6-b4",
+              "question": "Describe the key stages of your supply chain, including sourcing of materials and manufacturing processes."
+            },
+            {
+              "question_id": "GRI2-2-6-b5",
+              "question": "Do you have any significant suppliers (e.g., by volume or impact)? If so, please describe them."
+            },
+            {
+              "question_id": "GRI2-2-6-b6",
+              "question": "Who are the primary types of entities that receive your products or services?"
+            },
+            {
+              "question_id": "GRI2-2-6-b7",
+              "question": "Briefly describe the typical downstream activities involving your products or services."
+            },
+            {
+              "question_id": "GRI2-2-6-c1",
+              "question": "Does your organization have any other significant business relationships beyond traditional suppliers and customers? (e.g., joint ventures, partnerships)"
+            },
+            {
+              "question_id": "GRI2-2-6-c2",
+              "question": "If yes, please describe these relationships and their relevance to your organization."
+            },
+            {
+              "question_id": "GRI2-2-6-d1",
+              "question": "Have there been any significant changes in your activities, products, services, markets, supply chain, downstream entities, or other business relationships compared to the previous reporting period? (Yes/No)"
+            },
+            {
+              "question_id": "GRI2-2-6-d2",
+              "question": "If yes, please describe these changes and their impacts."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-7",
+          "Sub-Category": "Employees",
+          "questions": [
+            {
+              "question_id": "GRI2-2-7-a1",
+              "question": "What is the total number of employees in the organization?"
+            },
+            {
+              "question_id": "GRI2-2-7-a2",
+              "question": "Can you provide a breakdown of the total number of employees by gender?"
+            },
+            {
+              "question_id": "GRI2-2-7-a3",
+              "question": "Can you provide a breakdown of the total number of employees by region?"
+            },
+            {
+              "question_id": "GRI2-2-7-b1",
+              "question": "What is the total number of permanent employees in the organization?"
+            },
+            {
+              "question_id": "GRI2-2-7-b2",
+              "question": "Can you provide a breakdown of the total number of permanent employees by gender?"
+            },
+            {
+              "question_id": "GRI2-2-7-b3",
+              "question": "Can you provide a breakdown of the total number of permanent employees by region?"
+            },
+            {
+              "question_id": "GRI2-2-7-b4",
+              "question": "What is the total number of temporary employees in the organization?"
+            },
+            {
+              "question_id": "GRI2-2-7-b5",
+              "question": "Can you provide a breakdown of the total number of temporary employees by gender?"
+            },
+            {
+              "question_id": "GRI2-2-7-b6",
+              "question": "Can you provide a breakdown of the total number of temporary employees by region?"
+            },
+            {
+              "question_id": "GRI2-2-7-b7",
+              "question": "What is the total number of non-guaranteed hours employees in the organization?\nCan you provide a breakdown of the total number of non-guaranteed hours employees by gender?                                                                                                                                                                                          Can you provide a breakdown of the total number of non-guaranteed hours employees by region?"
+            },
+            {
+              "question_id": "GRI2-2-7-b8",
+              "question": "What is the total number of full-time employees in the organization?\nCan you provide a breakdown of the total number of full-time employees by gender?                                      Can you provide a breakdown of the total number of full-time employees  by region?"
+            },
+            {
+              "question_id": "GRI2-2-7-b9",
+              "question": "What is the total number of part-time employees in the organization?\nCan you provide a breakdown of the total number of part-time employees by gender?                                                                                                                        Can you provide a breakdown of the total number of part-time employees by region?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-8",
+          "Sub-Category": "Workers who are not employees",
+          "questions": [
+            {
+              "question_id": "GRI2-2-8-a1",
+              "question": "What is the total number of workers who are not employees and whose work is controlled by the organization?"
+            },
+            {
+              "question_id": "GRI2-2-8-a2",
+              "question": "What are the most common types of workers who are not employees (e.g., independent contractors, temporary workers, consultants)?"
+            },
+            {
+              "question_id": "GRI2-2-8-a3",
+              "question": "Please describe the typical contractual relationship between these workers and the organization (e.g., written contracts, verbal agreements)?"
+            },
+            {
+              "question_id": "GRI2-2-8-a4",
+              "question": "What types of work do these non-employee workers perform for the organization?"
+            },
+            {
+              "question_id": "GRI2-2-8-b1",
+              "question": "Please describe any methodologies or assumptions used to compile data on non-employee workers."
+            },
+            {
+              "question_id": "GRI2-2-8-b2",
+              "question": "How is the number of non-employee workers calculated (e.g., headcount, FTE, other)?"
+            },
+            {
+              "question_id": "GRI2-2-8-b3",
+              "question": "Is the number of non-employee workers reported at the end of the reporting period, as an average across the period, or using another method?"
+            },
+            {
+              "question_id": "GRI2-2-8-c1",
+              "question": "Were there any significant fluctuations in the number of non-employee workers during the reporting period? If yes, please quantify the fluctuations (e.g., percentage increase/decrease)."
+            },
+            {
+              "question_id": "GRI2-2-8-c2",
+              "question": "Were there any significant fluctuations in the number of non-employee workers between the current and previous reporting periods? If yes, please quantify the fluctuations (e.g., percentage increase/decrease)."
+            },
+            {
+              "question_id": "GRI2-2-8-c3",
+              "question": "If there were significant fluctuations, please explain the reasons for these changes."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-9",
+          "Sub-Category": "Governance structure and composition",
+          "questions": [
+            {
+              "question_id": "GRI2-2-9-a1",
+              "question": "On a scale of 1 to 10, how transparent do you perceive your organization's governance structure to be?"
+            },
+            {
+              "question_id": "GRI2-2-9-b1",
+              "question": "How many committees does the highest governance body have responsible for decision-making and overseeing the management of the organization's impacts on the economy, environment, and people?"
+            },
+            {
+              "question_id": "GRI2-2-9-c1",
+              "question": "How many executive members are part of the highest governance body? How many non-executive members are part of the highest governance body?"
+            },
+            {
+              "question_id": "GRI2-2-9-c2",
+              "question": "How many members of the highest governance body are considered independent?"
+            },
+            {
+              "question_id": "GRI2-2-9-c3",
+              "question": "What is the average tenure of members on the highest governance body?"
+            },
+            {
+              "question_id": "GRI2-2-9-c4",
+              "question": "On average, how many other significant positions and commitments does each member hold?"
+            },
+            {
+              "question_id": "GRI2-2-9-c5",
+              "question": "How many members of the highest governance body are male and female?"
+            },
+            {
+              "question_id": "GRI2-2-9-c6",
+              "question": "How many members of the highest governance body belong to under-represented social groups?"
+            },
+            {
+              "question_id": "GRI2-2-9-c1",
+              "question": "How are the competencies of members on the highest governance body relevant to addressing the impacts of the organization?"
+            },
+            {
+              "question_id": "GRI2-2-9-c2",
+              "question": "How does the highest governance body ensure adequate representation of stakeholders in decision-making processes?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-10",
+          "Sub-Category": "Nomination and selection of the highest governance body",
+          "questions": [
+            {
+              "question_id": "GRI2-2-10-a1",
+              "question": "Please describe the process for nominating and selecting members of the highest governance body (HGB) and its committees."
+            },
+            {
+              "question_id": "GRI2-2-10-a2",
+              "question": "Who is responsible for overseeing the nomination and selection process?"
+            },
+            {
+              "question_id": "GRI2-2-10-a3",
+              "question": "Are there any term limits for HGB members and committee members?"
+            },
+            {
+              "question_id": "GRI2-2-10-a4",
+              "question": "How are potential candidates informed about the nomination and selection process?"
+            },
+            {
+              "question_id": "GRI2-2-10-a5",
+              "question": "Does the organization have a formal nomination form or application process for HGB and committee positions?"
+            },
+            {
+              "question_id": "",
+              "question": "The criteria used for nominating and selecting the highest governance body members, including whether and how the following are taken into consideration:"
+            },
+            {
+              "question_id": "GRI2-2-10-b1",
+              "question": "Does the organization consider the views of stakeholders (including shareholders) in the nomination and selection process? If so, how?"
+            },
+            {
+              "question_id": "GRI2-2-10-b2",
+              "question": "How does the organization consider diversity (e.g., gender, age, ethnicity, experience) in the selection process?"
+            },
+            {
+              "question_id": "GRI2-2-10-b3",
+              "question": "How does the organization ensure the independence of HGB members from management and significant shareholders?"
+            },
+            {
+              "question_id": "GRI2-2-10-b4",
+              "question": "How does the organization ensure HGB members possess the necessary competencies relevant to the organization's impacts (e.g., financial, environmental, social)?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-11",
+          "Sub-Category": "Chair of the highest governance body",
+          "questions": [
+            {
+              "question_id": "GRI2-2-11-a1",
+              "question": "Is the chair of the highest governance body also a senior executive in the organization? (Yes/No)"
+            },
+            {
+              "question_id": "GRI2-2-11-b1",
+              "question": "If the chair is also a senior executive, please explain their specific function within the organization's management structure."
+            },
+            {
+              "question_id": "GRI2-2-11-b2",
+              "question": "If the chair is also a senior executive, please describe the reasons for this arrangement, including any benefits or challenges it presents."
+            },
+            {
+              "question_id": "GRI2-2-11-b3",
+              "question": "If the chair is also a senior executive, please outline the specific measures in place to prevent and mitigate conflicts of interest that may arise due to this dual role."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-12",
+          "Sub-Category": "Role of the highest governance body in overseeing the management of impacts",
+          "questions": [
+            {
+              "question_id": "GRI2-2-12-a1",
+              "question": "Describe the composition and structure of your highest governance body (e.g., board of directors)."
+            },
+            {
+              "question_id": "GRI2-2-12-a2",
+              "question": "How is sustainability integrated into the roles and responsibilities of the highest governance body and senior executives?"
+            },
+            {
+              "question_id": "GRI2-2-12-a3",
+              "question": "Describe the role of the highest governance body and senior executives in developing, approving, and updating the organization's purpose, value statements, strategies, policies, and goals related to sustainable development"
+            },
+            {
+              "question_id": "GRI2-2-12-b1",
+              "question": "Does the highest governance body oversee a process to identify and manage the organization's impacts on the economy, environment, and people? If yes, please describe the process."
+            },
+            {
+              "question_id": "GRI2-2-12-b2",
+              "question": "Does the highest governance body engage with stakeholders to support the due diligence process? If yes, how?"
+            },
+            {
+              "question_id": "GRI2-2-12-b3",
+              "question": "How does the highest governance body consider the outcomes of the due diligence and stakeholder engagement processes in relation to sustainability impacts?"
+            },
+            {
+              "question_id": "GRI2-2-12-c1",
+              "question": "Describe the role of the highest governance body in reviewing the effectiveness of the processes for identifying and managing sustainability impacts."
+            },
+            {
+              "question_id": "GRI2-2-12-b1",
+              "question": "How frequently does this engagement occur?"
+            },
+            {
+              "question_id": "GRI2-2-12-c1",
+              "question": "How often does the highest governance body conduct this review?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-13",
+          "Sub-Category": "Delegation of responsibility for managing impacts",
+          "questions": [
+            {
+              "question_id": "GRI2-2-13-a1",
+              "question": "Does the highest governance body (e.g., board of directors) appoint any senior executives with specific responsibility for managing the organization's impacts on the economy, environment, and people? (Yes/No)\n\nIf yes, please list the titles of these senior executives and briefly describe their specific areas of responsibility related to sustainability impacts."
+            },
+            {
+              "question_id": "GRI2-2-13-a2",
+              "question": "Does the highest governance body delegate responsibility for managing the organization's impacts on the economy, environment, and people to other employees besides senior executives? (Yes/No)\n\nIf yes, please describe the levels and departments of employees who are delegated these responsibilities."
+            },
+            {
+              "question_id": "GRI2-2-13-a3",
+              "question": "Please describe the process for senior executives or other employees to report back to the highest governance body on the management of the organization's impacts on the economy, environment, and people."
+            },
+            {
+              "question_id": "GRI2-2-13-b1",
+              "question": "Does the highest governance body have any specific procedures for addressing or taking action on the information reported by senior executives or other employees regarding the organization's sustainability impacts? (Yes/No)\n\nIf yes, please describe these procedures."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-14",
+          "Sub-Category": "Role of the highest governance body in sustainability reporting",
+          "questions": [
+            {
+              "question_id": "GRI2-2-14-a1",
+              "question": "Is the highest governance body (e.g., Board of Directors) responsible for reviewing and approving the reported sustainability information, including the organization's material topics?"
+            },
+            {
+              "question_id": "GRI2-2-14-a2",
+              "question": "Please describe the process by which the highest governance body reviews and approves the reported sustainability information, including material topics. This may include details such as:\n\nFrequency of review meetings.\nInvolvement of relevant committees or sustainability teams.\nNature of discussions and considerations during review."
+            },
+            {
+              "question_id": "GRI2-2-14-b1",
+              "question": "If the highest governance body is not responsible for reviewing and approving the reported sustainability information, please explain the reason for this delegation. This may include details such as:\nThe body responsible for review and approval.\nThe rationale for delegating responsibility."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-15",
+          "Sub-Category": "Conflicts of interest",
+          "questions": [
+            {
+              "question_id": "GRI2-2-15-a1",
+              "question": "Describe the processes in place for the highest governance body (e.g., Board of Directors) to identify and prevent potential conflicts of interest."
+            },
+            {
+              "question_id": "GRI2-2-15-a2",
+              "question": "How are conflicts of interest addressed and mitigated by the highest governance body?"
+            },
+            {
+              "question_id": "GRI2-2-15-a3",
+              "question": "Does the organization have a conflict of interest policy? Yes/ No  If yes, please summarize the key elements."
+            },
+            {
+              "question_id": "GRI2-2-15-b1",
+              "question": "Does the organization have a process for disclosing conflicts of interest to stakeholders? Yes/ No If yes, please describe the process."
+            },
+            {
+              "question_id": "GRI2-2-15-b2",
+              "question": "How are stakeholders informed about the organization's approach to managing conflicts of interest?"
+            },
+            {
+              "question_id": "GRI2-2-15-b1",
+              "question": "How many members of the highest governance body hold board positions in other organizations that have business relationships with this organization?"
+            },
+            {
+              "question_id": "GRI2-2-15-b2",
+              "question": "Please list any instances of cross-board membership and the nature of the business relationship."
+            },
+            {
+              "question_id": "GRI2-2-15-b3",
+              "question": "Does the organization have any significant cross-shareholding arrangements with its suppliers, customers, or other stakeholders? Yes/ No"
+            },
+            {
+              "question_id": "GRI2-2-15-b4",
+              "question": "Does the organization have any controlling shareholders? If yes, please disclose the identity of the controlling shareholder(s) and their percentage ownership."
+            },
+            {
+              "question_id": "GRI2-2-15-b5",
+              "question": "Does the organization have any significant transactions with related parties (e.g., subsidiaries, joint ventures, key personnel)?  Yes/No If yes, please disclose the nature and value of these transactions for the reporting period."
+            },
+            {
+              "question_id": "GRI2-2-15-b6",
+              "question": "Does the organization have any outstanding balances with related parties? Yes/ No\nIf yes, please disclose the types and amounts of outstanding balances for the reporting period."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-16",
+          "Sub-Category": "Communication of critical concerns",
+          "questions": [
+            {
+              "question_id": "GRI2-2-16-a1",
+              "question": "Does your organization have a defined process for identifying and communicating critical concerns to the highest governance body? (Yes/No)\nIf yes, please describe the process for identifying critical concerns. This may include criteria for what constitutes a critical concern and how these concerns are identified."
+            },
+            {
+              "question_id": "GRI2-2-16-a2",
+              "question": "How are critical concerns communicated to the highest governance body? Please specify the communication channels and frequency (e.g., reports, meetings, etc.)."
+            },
+            {
+              "question_id": "GRI2-2-16-a3",
+              "question": "Does the highest governance body have a documented procedure for receiving, reviewing, and acting upon critical concerns? (Yes/No)\nIf yes, please describe the documented procedure for receiving, reviewing, and acting upon critical concerns."
+            },
+            {
+              "question_id": "GRI2-2-16-b1",
+              "question": "What was the total number of critical concerns communicated to the highest governance body during the reporting period?"
+            },
+            {
+              "question_id": "GRI2-2-16-b2",
+              "question": "Please categorize the nature of the critical concerns communicated to the highest governance body during the reporting period. (e.g., environmental, social, ethical, financial)"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-17",
+          "Sub-Category": "Collective knowledge of the highest governance body",
+          "questions": [
+            {
+              "question_id": "GRI2-2-17-a1",
+              "question": "Does the highest governance body have a documented process for ensuring its members have a sufficient understanding of sustainable development issues relevant to the organization?\tYes/No\nIf yes, please describe the process for ensuring sufficient understanding of sustainable development issues."
+            },
+            {
+              "question_id": "GRI2-2-17-a2",
+              "question": "Does the organization provide training or other learning opportunities for the highest governance body on sustainable development issues?\tYes/No If yes, please describe the types of training or learning opportunities provided."
+            },
+            {
+              "question_id": "GRI2-2-17-a3",
+              "question": "Does the highest governance body regularly receive reports on the organization's sustainability performance?\tYes/No\nIf yes, please describe the frequency and content of these reports."
+            },
+            {
+              "question_id": "GRI2-2-17-a1",
+              "question": "How many times in the past year has the highest governance body received training or participated in learning opportunities on sustainable development issues?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-18",
+          "Sub-Category": "Evaluation of the performance of the highest governance body",
+          "questions": [
+            {
+              "question_id": "GRI2-2-18-a1",
+              "question": "How does the organization evaluate the performance of the highest governance body in overseeing its economic, environmental, and social impacts? (e.g., self-assessment, external review, combination)"
+            },
+            {
+              "question_id": "GRI2-2-18-b1",
+              "question": "Are the evaluations of the highest governance body conducted independently? (e.g., by an external assessor)"
+            },
+            {
+              "question_id": "GRI2-2-18-b2",
+              "question": "If not independent, how are potential conflicts of interest mitigated?"
+            },
+            {
+              "question_id": "GRI2-2-18-b3",
+              "question": "How often are the evaluations conducted? (e.g., annually, biannually)"
+            },
+            {
+              "question_id": "GRI2-2-18-c1",
+              "question": "Describe any actions taken in response to the evaluations of the highest governance body. (e.g., changes in board composition, training programs for board members)"
+            },
+            {
+              "question_id": "GRI2-2-18-c2",
+              "question": "How are these actions communicated to stakeholders?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-19",
+          "Sub-Category": "Remuneration policies",
+          "questions": [
+            {
+              "question_id": "",
+              "question": "The remuneration policies for members of the highest governance body and senior executives, including:"
+            },
+            {
+              "question_id": "GRI2-2-19-a1",
+              "question": "Describe the process for determining the fixed pay for members of the highest governance body and senior executives."
+            },
+            {
+              "question_id": "GRI2-2-19-a2",
+              "question": "If variable pay is offered, how are performance metrics for variable pay established? How do these metrics relate to the organization's impacts on the economy, environment, and people (ESG)?                                 If applicable, disclose the performance targets and metrics used to determine variable pay for senior executives."
+            },
+            {
+              "question_id": "GRI2-2-19-a3",
+              "question": "Are sign-on bonuses or recruitment incentive payments offered? If so, under what circumstances?"
+            },
+            {
+              "question_id": "GRI2-2-19-a4",
+              "question": "Describe the organization's policy on termination payments for members of the highest governance body and senior executives. How does this policy compare to termination payments for other employees?"
+            },
+            {
+              "question_id": "GRI2-2-19-a5",
+              "question": "Does the organization have a clawback policy for recouping remuneration in case of performance failure, misconduct, or a financial restatement? If so, please describe the policy."
+            },
+            {
+              "question_id": "GRI2-2-19-a6",
+              "question": "Describe the retirement benefits offered to members of the highest governance body and senior executives. How do these benefits compare to retirement benefits offered to other employees?"
+            },
+            {
+              "question_id": "GRI2-2-19-b1",
+              "question": "How do the remuneration policies for members of the highest governance body and senior executives incentivize the consideration of the organization's ESG impacts in decision-making?"
+            },
+            {
+              "question_id": "GRI2-2-19-a1",
+              "question": "Please provide a breakdown of the fixed pay structure for members of the highest governance body (e.g., base salary, fees)."
+            },
+            {
+              "question_id": "GRI2-2-19-a3",
+              "question": "Disclose the value of sign-on bonuses or recruitment incentive payments offered to senior executives."
+            },
+            {
+              "question_id": "GRI2-2-19-a4",
+              "question": "Disclose the value of any termination payments made to members of the highest governance body or senior executives in the past year."
+            },
+            {
+              "question_id": "GRI2-2-19-a5",
+              "question": "Disclose the value of any remuneration clawed back from members of the highest governance body or senior executives in the past year."
+            },
+            {
+              "question_id": "GRI2-2-19-a6",
+              "question": "Disclose any differences in contribution rates or benefits between the retirement plan for members of the highest governance body and senior executives compared to the plan for other employees."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-20",
+          "Sub-Category": "Process to determine remuneration",
+          "questions": [
+            {
+              "question_id": "GRI2-2-20",
+              "question": "The process for designing its remuneration policies and for determining remuneration, including:"
+            },
+            {
+              "question_id": "GRI2-2-20-a1",
+              "question": "Does an independent highest governance body member(s) or a dedicated remuneration committee oversee the process for determining remuneration? (Yes/No)\nIf yes, how is the independence of this body/committee ensured?"
+            },
+            {
+              "question_id": "GRI2-2-20-a2",
+              "question": "How does the organization seek and take into consideration the views of stakeholders (including shareholders) regarding remuneration policies and proposals? (e.g., surveys, consultations, shareholder meetings)"
+            },
+            {
+              "question_id": "GRI2-2-20-a3",
+              "question": "Please provide specific examples of how stakeholder input has been incorporated into recent remuneration decisions."
+            },
+            {
+              "question_id": "GRI2-2-20-a4",
+              "question": "Does the organization involve remuneration consultants in determining remuneration? (Yes/No)\nIf yes, are these consultants independent of the organization, its highest governance body, and senior executives? (Yes/No)"
+            },
+            {
+              "question_id": "GRI2-2-20-a5",
+              "question": "If consultants are used, please describe the scope of their services and how their recommendations are considered."
+            },
+            {
+              "question_id": "GRI2-2-20-b1",
+              "question": "In the past year, has there been a vote of stakeholders (including shareholders) on remuneration policies or proposals? (Yes/No)\nIf yes, please provide the following information:\nThe specific remuneration policy or proposal subject to the vote\nThe percentage of votes cast in favor of the policy/proposal\nThe percentage of votes cast against the policy/proposal"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-21",
+          "Sub-Category": "Annual total compensation ratio",
+          "questions": [
+            {
+              "question_id": "GRI2-2-21-a1",
+              "question": "How does your organization define \"highest-paid individual\"? (e.g., CEO, total package including salary, bonus, benefits)"
+            },
+            {
+              "question_id": "GRI2-2-21-a2",
+              "question": "Briefly describe the process used to identify the median annual total compensation for all employees (excluding the highest-paid individual)."
+            },
+            {
+              "question_id": "GRI2-2-21-b1",
+              "question": "How does your organization define \"percentage increase in annual total compensation\"? (e.g., base salary increase only, total package increase)"
+            },
+            {
+              "question_id": "GRI2-2-21-b2",
+              "question": "Briefly describe the methodology used to calculate the median percentage increase for all employees (excluding the highest-paid individual)."
+            },
+            {
+              "question_id": "GRI2-2-21-c1",
+              "question": "What was the annual total compensation for the organization's highest-paid individual for the past reporting period? (e.g., $ in USD)"
+            },
+            {
+              "question_id": "GRI2-2-21-c2",
+              "question": "What was the median annual total compensation for all employees (excluding the highest-paid individual) for the past reporting period? (e.g., $ in USD)"
+            },
+            {
+              "question_id": "GRI2-2-21-c3",
+              "question": "What was the percentage increase in annual total compensation for the organization's highest-paid individual for the past reporting period? (e.g., %)"
+            },
+            {
+              "question_id": "GRI2-2-21-c4",
+              "question": "What was the median percentage increase in annual total compensation for all employees (excluding the highest-paid individual) for the past reporting period? (e.g., %)"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-22",
+          "Sub-Category": "Statement on sustainable development strategy",
+          "questions": [
+            {
+              "question_id": "GRI2-2-22-a1",
+              "question": "How does the concept of sustainable development influence your organization's overall strategy and decision-making processes?"
+            },
+            {
+              "question_id": "GRI2-2-22-a2",
+              "question": "Describe the organization's vision for a sustainable future and its role in achieving it."
+            },
+            {
+              "question_id": "GRI2-2-22-a3",
+              "question": "How does the organization integrate environmental, social, and economic considerations into its operations and strategies?"
+            },
+            {
+              "question_id": "GRI2-2-22-a4",
+              "question": "What are the key challenges and opportunities the organization sees in relation to sustainable development?"
+            },
+            {
+              "question_id": "GRI2-2-22-a5",
+              "question": "How does the organization engage with stakeholders on sustainability issues?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-23",
+          "Sub-Category": "Policy commitments",
+          "questions": [
+            {
+              "question_id": "GRI2-2-23-a1",
+              "question": "Does your organization have publicly available policy commitments for responsible business conduct?\nIf yes, please provide links to these policy commitments.\nIf no, please explain why these policy commitments are not publicly available."
+            },
+            {
+              "question_id": "GRI2-2-23-a2",
+              "question": "Which authoritative intergovernmental instruments do your policy commitments reference?"
+            },
+            {
+              "question_id": "GRI2-2-23-a3",
+              "question": "Do your policy commitments stipulate conducting due diligence? \nIf yes, please elaborate on the due diligence process outlined in the commitments."
+            },
+            {
+              "question_id": "GRI2-2-23-a4",
+              "question": "Do your policy commitments stipulate applying the precautionary principle?"
+            },
+            {
+              "question_id": "GRI2-2-23-a5",
+              "question": "Do your policy commitments stipulate respecting human rights?"
+            },
+            {
+              "question_id": "",
+              "question": "Specific policy commitment to respect human rights:"
+            },
+            {
+              "question_id": "GRI2-2-23-b1",
+              "question": "Which internationally recognized human rights do your commitments cover (e.g., labor rights, freedom of expression)?"
+            },
+            {
+              "question_id": "GRI2-2-23-b2",
+              "question": "Which categories of stakeholders, including at-risk or vulnerable groups, do your human rights commitments give particular attention to?"
+            },
+            {
+              "question_id": "GRI2-2-23-c1",
+              "question": "Provide examples of these groups if applicable."
+            },
+            {
+              "question_id": "GRI2-2-23-d1",
+              "question": "At what level within the organization were each of these policy commitments approved (e.g., board of directors, executive management)?"
+            },
+            {
+              "question_id": "GRI2-2-23-d2",
+              "question": "Does this approval level represent the most senior level within the organization?"
+            },
+            {
+              "question_id": "GRI2-2-23-e1",
+              "question": "To what extent do these policy commitments apply to your organization's activities (e.g., all operations, specific departments)?"
+            },
+            {
+              "question_id": "GRI2-2-23-e2",
+              "question": "Do these policy commitments also apply to your business relationships (e.g., suppliers, contractors)? If yes, to what extent?"
+            },
+            {
+              "question_id": "GRI2-2-23-f1",
+              "question": "How are these policy commitments communicated to workers within your organization?"
+            },
+            {
+              "question_id": "GRI2-2-23-f2",
+              "question": "How are these policy commitments communicated to your business partners?"
+            },
+            {
+              "question_id": "GRI2-2-23-f3",
+              "question": "Are there any other relevant parties to whom these commitments are communicated? Yes/ No\n* If yes, please specify and describe the communication methods used."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-24",
+          "Sub-Category": "Embedding policy commitments",
+          "questions": [
+            {
+              "question_id": "",
+              "question": "Demonstrate your commitment to responsible business conduct by integrating your policies throughout your operations and interactions with others"
+            },
+            {
+              "question_id": "GRI2-2-24-a1",
+              "question": "Describe the process for allocating responsibility for implementing your policy commitments across different levels of the organization (e.g., senior management, department heads, individual employees)."
+            },
+            {
+              "question_id": "GRI2-2-24-a2",
+              "question": "How are employees informed of their responsibilities related to these commitments?"
+            },
+            {
+              "question_id": "GRI2-2-24-a3",
+              "question": "Explain how your policy commitments are integrated into your overall organizational strategies, operational policies, and operational procedures."
+            },
+            {
+              "question_id": "GRI2-2-24-a4",
+              "question": "Provide specific examples of how these commitments are reflected in your strategic planning documents, operational manuals, and daily work practices."
+            },
+            {
+              "question_id": "GRI2-2-24-a5",
+              "question": "Describe how you implement your policy commitments with and through your business relationships (e.g., suppliers, contractors, joint ventures)."
+            },
+            {
+              "question_id": "GRI2-2-24-a6",
+              "question": "Do you have any specific requirements or expectations for your business partners regarding responsible business conduct?"
+            },
+            {
+              "question_id": "GRI2-2-24-a7",
+              "question": "Outline the training programs you provide to employees on how to implement your policy commitments for responsible business conduct"
+            },
+            {
+              "question_id": "GRI2-2-24-a8",
+              "question": "Who is required to participate in this training? How often is it conducted?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-25",
+          "Sub-Category": "Processes to remediate negative impacts",
+          "questions": [
+            {
+              "question_id": "GRI2-2-25-a1",
+              "question": "Does your organization have a formal commitment to providing for or cooperating in the remediation of negative impacts it has caused or contributed to?\nIf yes, please describe this commitment in detail."
+            },
+            {
+              "question_id": "GRI2-2-25-b1",
+              "question": "Describe your organization's approach to identifying and addressing grievances from stakeholders"
+            },
+            {
+              "question_id": "GRI2-2-25-b2",
+              "question": "Please list the different types of grievance mechanisms your organization offers."
+            },
+            {
+              "question_id": "GRI2-2-25-c1",
+              "question": "Please provide specific examples of how your grievance mechanisms or other remediation processes have been effective in addressing negative impacts."
+            },
+            {
+              "question_id": "GRI2-2-25-d1",
+              "question": "Describe how stakeholders are involved in the design, review, operation, and improvement of your grievance mechanisms."
+            },
+            {
+              "question_id": "GRI2-2-25-e1",
+              "question": "Do you have a documented process for incorporating stakeholder feedback into grievance mechanism improvements?"
+            },
+            {
+              "question_id": "GRI2-2-25-e2",
+              "question": "How does your organization track the effectiveness of its grievance mechanisms and other remediation processes?"
+            },
+            {
+              "question_id": "GRI2-2-25-b1",
+              "question": "How many grievance mechanisms (e.g., hotlines, complaint forms) does your organization have in place?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-26",
+          "Sub-Category": "Mechanisms for seeking advice and raising concerns",
+          "questions": [
+            {
+              "question_id": "",
+              "question": "Demonstrate your organization's mechanisms for seeking advice and raising concerns:"
+            },
+            {
+              "question_id": "GRI2-2-26-a1",
+              "question": "Does the organization have a documented code of conduct or policy outlining responsible business practices? (Yes/No)\nIf yes, how are employees informed about the code of conduct or policy? (Multiple Choice)\nDuring onboarding process\nThrough training programs\nThrough company intranet or website\nAll of the above\nOther (Please Specify)"
+            },
+            {
+              "question_id": "GRI2-2-26-a2",
+              "question": "Does the organization have designated personnel to answer questions regarding the implementation of the code of conduct or responsible business practices? (Yes/No)\nIf yes, who are these designated personnel? (Multiple Choice)\nLine managers\nHuman Resources department\nCompliance officers\nEthics committee\nAll of the above\nOther (Please Specify)"
+            },
+            {
+              "question_id": "GRI2-2-26-a3",
+              "question": "How can employees seek advice from these designated personnel? (Multiple Choice)\nIn-person meetings\nEmail communication\nHotline\nAnonymous online portal\nAll of the above\nOther (Please Specify)"
+            },
+            {
+              "question_id": "GRI2-2-26-a4",
+              "question": "Does the organization have a mechanism for employees to anonymously report concerns about potential breaches of the code of conduct or responsible business practices? (Yes/No)\nIf yes, what are the available channels for raising concerns? (Multiple Choice)\nReporting to line managers\nReporting to Human Resources department\nWhistleblowing hotline\nAnonymous online portal\nAll of the above\nOther (Please Specify)"
+            },
+            {
+              "question_id": "GRI2-2-26-a5",
+              "question": "Does the organization have a clear and documented process for investigating reported concerns? (Yes/No)\nIf yes, briefly describe the investigation process."
+            },
+            {
+              "question_id": "GRI2-2-26-a6",
+              "question": "Does the organization have a policy that prohibits retaliation against employees who raise concerns in good faith?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-27",
+          "Sub-Category": "Compliance with laws and regulations",
+          "questions": [
+            {
+              "question_id": "GRI2-2-27-a1",
+              "question": "How many significant instances of non-compliance with laws and regulations occurred during the reporting period?"
+            },
+            {
+              "question_id": "GRI2-2-27-a2",
+              "question": "How many instances resulted in fines being incurred?"
+            },
+            {
+              "question_id": "GRI2-2-27-a3",
+              "question": "How many instances resulted in non-monetary sanctions?"
+            },
+            {
+              "question_id": "GRI2-2-27-b1",
+              "question": "What is the total monetary value (in USD) of all fines paid during the reporting period for non-compliance?"
+            },
+            {
+              "question_id": "GRI2-2-27-b2",
+              "question": "What is the total monetary value (in USD) of fines paid for instances of non-compliance that occurred during the current reporting period?"
+            },
+            {
+              "question_id": "GRI2-2-27-b3",
+              "question": "What is the total monetary value (in USD) of fines paid for instances of non-compliance that occurred in previous reporting periods?"
+            },
+            {
+              "question_id": "GRI2-2-27-c1",
+              "question": "Describe each significant instance of non-compliance with laws and regulations that occurred during the reporting period. Include details such as the specific regulation violated, the nature of the non-compliance, and any corrective actions taken."
+            },
+            {
+              "question_id": "GRI2-2-27-d1",
+              "question": "Explain the criteria used to determine whether an instance of non-compliance is considered significant."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-28",
+          "Sub-Category": "Membership associations",
+          "questions": [
+            {
+              "question_id": "GRI2-2-28-a1",
+              "question": "List all industry associations, other membership associations, and national or international advocacy organizations in which your organization holds a significant role."
+            },
+            {
+              "question_id": "GRI2-2-28-a2",
+              "question": "For each association listed in question 1, describe the nature of your organization's significant role (e.g., board member, committee chair, active participant in working groups)."
+            },
+            {
+              "question_id": "GRI2-2-28-a3",
+              "question": "Explain how your participation in these associations aligns with your organization's sustainability strategy (if applicable)"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-29",
+          "Sub-Category": "Approach to stakeholder engagement",
+          "questions": [
+            {
+              "question_id": "",
+              "question": "Demonstrate your organization's approach to stakeholder engagement"
+            },
+            {
+              "question_id": "GRI2-2-29-a1",
+              "question": "How does your organization define a stakeholder?"
+            },
+            {
+              "question_id": "GRI2-2-29-a2",
+              "question": "Describe the process used to identify your organization's stakeholders."
+            },
+            {
+              "question_id": "GRI2-2-29-a3",
+              "question": "What categories of stakeholders do you engage with (e.g., employees, investors, customers, communities)?"
+            },
+            {
+              "question_id": "GRI2-2-29-a4",
+              "question": "How often do you review and update your stakeholder list?"
+            },
+            {
+              "question_id": "GRI2-2-29-a5",
+              "question": "What are the primary purposes for engaging with stakeholders (e.g., understanding concerns, informing decisions, building trust)?"
+            },
+            {
+              "question_id": "GRI2-2-29-a6",
+              "question": "How do the purposes of stakeholder engagement differ across different stakeholder groups?"
+            },
+            {
+              "question_id": "GRI2-2-29-a7",
+              "question": "How do you consider stakeholder perspectives in your decision-making processes?"
+            },
+            {
+              "question_id": "GRI2-2-29-a8",
+              "question": "Describe the different methods you use to engage with stakeholders (e.g., surveys, meetings, workshops, social media)."
+            },
+            {
+              "question_id": "GRI2-2-29-a9",
+              "question": "How do you tailor your engagement methods to the specific needs and interests of different stakeholder groups?"
+            },
+            {
+              "question_id": "GRI2-2-29-a10",
+              "question": "How do you ensure that stakeholders have the opportunity to provide feedback and have their voices heard?"
+            },
+            {
+              "question_id": "GRI2-2-29-a11",
+              "question": "Describe how you address and respond to stakeholder concerns."
+            },
+            {
+              "question_id": "GRI2-2-29-a12",
+              "question": "What metrics do you use to measure the effectiveness of your stakeholder engagement (e.g., participation rates, feedback received)?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "2-30",
+          "Sub-Category": "Collective bargaining agreements",
+          "questions": [
+            {
+              "question_id": "GRI2-2-30-a1",
+              "question": "What is the total number of employees in your organization?"
+            },
+            {
+              "question_id": "GRI2-2-30-a2",
+              "question": "How many of your employees are covered by collective bargaining agreements?"
+            },
+            {
+              "question_id": "GRI2-2-30-b1",
+              "question": "Do you have any employees who are not covered by a collective bargaining agreement? (Yes/No)\nIf you answered yes to question 2, for those employees not covered by a collective bargaining agreement, on what basis are their working conditions and terms of employment determined?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 201",
+      "GRI Category": "Economic Performance",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "201-1",
+          "Sub-Category": "Direct economic value generated and distributed",
+          "questions": [
+            {
+              "question_id": "",
+              "question": "Disclose the basis of reporting for Direct Economic Value Generated and Distributed (EVG&D) - accrual or cash. If cash basis is used, provide a justification for this decision.\n(All in USD)"
+            },
+            {
+              "question_id": "GRI201-201-1-a1",
+              "question": "What is your organization's total direct economic value gerated (revenues) from your global operations"
+            },
+            {
+              "question_id": "GRI201-201-1-a2",
+              "question": "Disclose the following economic value distributed:\n\nOperating costs:\nEmployee wages and benefits:\nPayments to providers of capital (e.g., interest on loans, dividends):\nPayments to government by country (break down by country if significant):\nCommunity investments:                                       Others:"
+            },
+            {
+              "question_id": "GRI201-201-1-a3",
+              "question": "Disclose the economic value retained by your organization."
+            },
+            {
+              "question_id": "GRI201-201-1-b1",
+              "question": "Do you report EVG&D data separately at country, regional, or market levels? Yes/ No for each selection"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "201-2",
+          "Sub-Category": "Financial implications and other risks and opportunities due to climate change",
+          "questions": [
+            {
+              "question_id": "",
+              "question": "Describe the climate change risk or opportunity that have the potential to generate substantive changes in operations, revenue, or expenditure your organization faces."
+            },
+            {
+              "question_id": "GRI201-201-2-a1",
+              "question": "Classify the risk or opportunity as:\nPhysical (e.g., extreme weather events, rising sea levels)\nRegulatory (e.g., carbon pricing schemes, emission reduction mandates)\nOther (please specify)"
+            },
+            {
+              "question_id": "GRI201-201-2-a2",
+              "question": "Explain the potential impact of this risk or opportunity on your organization's operations, revenue, or expenditure."
+            },
+            {
+              "question_id": "GRI201-201-2-a4",
+              "question": "Describe the methods your organization uses to manage this risk or opportunity."
+            },
+            {
+              "question_id": "GRI201-201-2-a3",
+              "question": "Provide an estimate of the potential financial implications of this risk or opportunity before any action is taken."
+            },
+            {
+              "question_id": "GRI201-201-2-a5",
+              "question": "Provide estimated costs associated with the methods used to manage this risk or opportunity."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "201-3",
+          "Sub-Category": "Defined benefit plan obligations and other retirement plans",
+          "questions": [
+            {
+              "question_id": "GRI201-201-3-a",
+              "question": "Does your organization offer any defined benefit plan or other retirement plan options to its employees? Yes/ No"
+            },
+            {
+              "question_id": "",
+              "question": "Disclose if a separate fund exists to pay the plan\u2019s pension liabilities"
+            },
+            {
+              "question_id": "GRI201-201-3-b1",
+              "question": "To what extent are the scheme's liabilities estimated to be covered by the assets that have been set aside to meet them?"
+            },
+            {
+              "question_id": "GRI201-201-3-b2",
+              "question": "Please explain the methodology used to arrive at this coverage estimate."
+            },
+            {
+              "question_id": "GRI201-201-3-b3",
+              "question": "When was the last estimate of the plan's liability coverage conducted?"
+            },
+            {
+              "question_id": "GRI201-201-3-c1",
+              "question": "Does your organization offer defined benefit pension plans? (Yes/No)"
+            },
+            {
+              "question_id": "GRI201-201-3-e1",
+              "question": "Does your organization offer any other retirement plans in addition to defined benefit plans? (Yes/No)\nIf yes, please describe the types of retirement plans offered (e.g., mandatory or voluntary schemes, regional or country-based schemes)."
+            },
+            {
+              "question_id": "GRI201-201-3-c2",
+              "question": "If yes, what is the estimated value of the liabilities associated with these plans? (in USD)"
+            },
+            {
+              "question_id": "GRI201-201-3-d1",
+              "question": "What percentage of salary do employees contribute towards defined benefit pension plans (if applicable)?"
+            },
+            {
+              "question_id": "GRI201-201-3-d2",
+              "question": "What percentage of salary does your organization contribute towards defined benefit pension plans (if applicable)?"
+            },
+            {
+              "question_id": "GRI201-201-3-e2",
+              "question": "What is the overall participation rate in all your retirement plans (as a percentage of total employees)?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "201-4",
+          "Sub-Category": "Financial assistance received from government",
+          "questions": [
+            {
+              "question_id": "",
+              "question": "Disclose the total monetary value of financial assistance received by the organization from any government during the reporting period (in USD)"
+            },
+            {
+              "question_id": "",
+              "question": "What is the total monetary value of tax relief and tax credits received from all governments?"
+            },
+            {
+              "question_id": "",
+              "question": "What is the total monetary value of subsidies received from all governments?"
+            },
+            {
+              "question_id": "",
+              "question": "What is the total monetary value of these grants received from all governments?"
+            },
+            {
+              "question_id": "",
+              "question": "What is the total monetary value of awards received from all governments?"
+            },
+            {
+              "question_id": "",
+              "question": "What is the total monetary value of royalty holidays received from all governments?"
+            },
+            {
+              "question_id": "",
+              "question": "What is the total monetary value of financial assistance received from Export Credit Agencies (ECAs) during the reporting period? (Please specify the countries of the ECAs)"
+            },
+            {
+              "question_id": "",
+              "question": "What is the total monetary value of other financial incentives received from all governments? (Please specify the types of incentives)"
+            },
+            {
+              "question_id": "",
+              "question": "Mention any other financial benefits received or receivable from any government for any operation."
+            },
+            {
+              "question_id": "GRI201-201-4-c2",
+              "question": "If yes, please specify the government(s) and the extent of their shareholding (e.g., percentage ownership)."
+            },
+            {
+              "question_id": "GRI201-201-4-b",
+              "question": "Please provide a table with the following information for each government that provided financial assistance:\nCountry\nTotal monetary value of assistance received\nBreakdown of assistance by category (corresponding to the categories listed above)"
+            },
+            {
+              "question_id": "GRI201-201-4-c1",
+              "question": "Does any government hold shares in your organization? Yes/ No"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 202",
+      "GRI Category": "Market Presence",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "202-1",
+          "Sub-Category": "Ratios of standard entry level wage by gender compared to local minimum wage",
+          "questions": [
+            {
+              "question_id": "GRI202-202-1-a1",
+              "question": "What is the standard entry level wage for male employees (in USD)?"
+            },
+            {
+              "question_id": "GRI202-202-1-a2",
+              "question": "What is the standard entry level wage for female employees (in USD)?"
+            },
+            {
+              "question_id": "GRI202-202-1-a3",
+              "question": "What is the local minimum wage at each significant location of operation (in USD)?"
+            },
+            {
+              "question_id": "GRI202-202-1-b",
+              "question": "Do a significant proportion of other workers (excluding employees) performing your organization's activities rely on wages subject to minimum wage rules? (Yes/No)\nIf yes, please describe the actions taken to determine whether these workers are paid above the minimum wage."
+            },
+            {
+              "question_id": "GRI202-202-1-c",
+              "question": "Is there a local minimum wage at each of your significant locations of operation? (Yes/No)\nIf no, for which locations is there no local minimum wage?\nIf yes, please specify which minimum wage is used as a reference for each location."
+            },
+            {
+              "question_id": "GRI202-202-1-d",
+              "question": "Please provide a definition used by your organization to identify \"significant locations of operation\" for the purpose of this disclosure."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "202-2",
+          "Sub-Category": "Proportion of senior management hired from the local community",
+          "questions": [
+            {
+              "question_id": "GRI202-202-2-a1",
+              "question": "Please provide the total number of senior management positions within your organization globally."
+            },
+            {
+              "question_id": "GRI202-202-2-a2",
+              "question": "Please provide the number of senior management positions filled by individuals hired from your defined \"local\" communities across all locations."
+            },
+            {
+              "question_id": "GRI202-202-2-b",
+              "question": "Please provide a clear definition of \"senior management\" within your organization. This could include titles, reporting structures, or decision-making authority"
+            },
+            {
+              "question_id": "GRI202-202-2-c",
+              "question": "How does your organization define \"local\" for the purpose of hiring senior management? Does it refer to a specific geographical radius, country, region, or another definition?"
+            },
+            {
+              "question_id": "GRI202-202-2-d",
+              "question": "Please define what constitutes a \"significant location of operation\" for your organization. This could be based on factors such as revenue, number of employees, or environmental impact."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 205",
+      "GRI Category": "Anti-corruption",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "205-1",
+          "Sub-Category": "Operations assessed for risks related to corruption",
+          "questions": [
+            {
+              "question_id": "GRI205-205-1-a1",
+              "question": "How many operations has the organization assessed for risks related to corruption?"
+            },
+            {
+              "question_id": "GRI205-205-1-a2",
+              "question": "What percentage of the organization's operations have been assessed for risks related to corruption?"
+            },
+            {
+              "question_id": "GRI205-205-1-b2",
+              "question": "How many significant risks related to corruption have been identified through the risk assessment process?"
+            },
+            {
+              "question_id": "GRI205-205-1-b1",
+              "question": "Describe the significant risks related to corruption identified through the risk assessment."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "205-2",
+          "Sub-Category": "Communication and training about anti-corruption policies and procedures",
+          "questions": [
+            {
+              "question_id": "GRI205-205-2-a1",
+              "question": "How many governance body members have the organization's anti-corruption policies and procedures been communicated to, broken down by region?"
+            },
+            {
+              "question_id": "GRI205-205-2-a2",
+              "question": "What percentage of governance body members have the organization's anti-corruption policies and procedures been communicated to, broken down by region?"
+            },
+            {
+              "question_id": "GRI205-205-2-b1",
+              "question": "How many employees have the organization's anti-corruption policies and procedures been communicated to, broken down by employee category and region?"
+            },
+            {
+              "question_id": "GRI205-205-2-b2",
+              "question": "What percentage of employees have the organization's anti-corruption policies and procedures been communicated to, broken down by employee category and region?"
+            },
+            {
+              "question_id": "GRI205-205-2-c2",
+              "question": "How many business partners have the organization's anti-corruption policies and procedures been communicated to, broken down by type of business partner and region?"
+            },
+            {
+              "question_id": "GRI205-205-2-c3",
+              "question": "What percentage of business partners have the organization's anti-corruption policies and procedures been communicated to, broken down by type of business partner and region?"
+            },
+            {
+              "question_id": "GRI205-205-2-d1",
+              "question": "How many governance body members have received training on anti-corruption, broken down by region?"
+            },
+            {
+              "question_id": "GRI205-205-2-d2",
+              "question": "What percentage of governance body members have received training on anti-corruption, broken down by region?"
+            },
+            {
+              "question_id": "GRI205-205-2-e2",
+              "question": "How many employees have received training on anti-corruption, broken down by employee category and region?"
+            },
+            {
+              "question_id": "GRI205-205-2-e3",
+              "question": "What percentage of employees have received training on anti-corruption, broken down by employee category and region?"
+            },
+            {
+              "question_id": "GRI205-205-2-c1",
+              "question": "Describe how communication about anti-corruption policies and procedures occurs within the organization.  If applicable, describe how the organization\u2019s anti-corruption policies and procedures have been communicated to any other persons or organizations."
+            },
+            {
+              "question_id": "GRI205-205-2-e1",
+              "question": "Describe the anti-corruption training provided to governance body members and employees."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "205-3",
+          "Sub-Category": "Confirmed incidents of corruption and actions taken",
+          "questions": [
+            {
+              "question_id": "GRI205-205-3-a1",
+              "question": "How were the confirmed incidents of corruption discovered and investigated within the organization?"
+            },
+            {
+              "question_id": "GRI205-205-3-b1",
+              "question": "What measures were taken to dismiss or discipline employees involved in corruption-related incidents?"
+            },
+            {
+              "question_id": "GRI205-205-3-c1",
+              "question": "Can you describe the process followed to terminate or not renew contracts with business partners due to corruption violations?"
+            },
+            {
+              "question_id": "GRI205-205-3-d1",
+              "question": "What were the outcomes of the legal cases regarding corruption? (e.g., fines, settlements, convictions)"
+            },
+            {
+              "question_id": "GRI205-205-3-a2",
+              "question": "How many confirmed incidents of corruption occurred during the reporting period?"
+            },
+            {
+              "question_id": "GRI205-205-3-b2",
+              "question": "What is the nature of these confirmed incidents of corruption? (e.g., bribery, kickbacks, embezzlement);"
+            },
+            {
+              "question_id": "GRI205-205-3-b3",
+              "question": "How many employees were dismissed or disciplined due to involvement in corruption-related incidents?"
+            },
+            {
+              "question_id": "GRI205-205-3-c2",
+              "question": "How many contracts with business partners were terminated or not renewed due to violations related to corruption?"
+            },
+            {
+              "question_id": "GRI205-205-3-d2",
+              "question": "Were there any public legal cases regarding corruption brought against the organization or its employees during the reporting period? If yes, how many legal cases were brought against the organization or its employees regarding corruption?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 206",
+      "GRI Category": "Anti-competitive Behavior",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "206-1",
+          "Sub-Category": "Legal actions for anti-competitive behavior, anti-trust, and monopoly practices",
+          "questions": [
+            {
+              "question_id": "GRI206-206-1-a1",
+              "question": "How many legal actions regarding anti-competitive behavior, anti-trust, or monopoly practices were pending against the organization at the beginning of the reporting period?"
+            },
+            {
+              "question_id": "GRI206-206-1-a2",
+              "question": "How many new legal actions regarding anti-competitive behavior, anti-trust, or monopoly practices were filed against the organization during the reporting period?"
+            },
+            {
+              "question_id": "GRI206-206-1-a3",
+              "question": "How many legal actions regarding anti-competitive behavior, anti-trust, or monopoly practices were completed during the reporting period?"
+            },
+            {
+              "question_id": "GRI206-206-1-b1",
+              "question": "Briefly describe each completed legal action regarding anti-competitive behavior, anti-trust, or monopoly practices during the reporting period, including:\nThe nature of the alleged violation(s)\nThe jurisdiction(s) where the legal action(s) took place"
+            },
+            {
+              "question_id": "GRI206-206-1-b2",
+              "question": "For each completed legal action, what was the main outcome? (e.g., settled, dismissed, judgment for/against the organization)"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 207",
+      "GRI Category": "Tax",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "207-1",
+          "Sub-Category": "Approach to tax",
+          "questions": [
+            {
+              "question_id": "",
+              "question": "A description of the approach to tax"
+            },
+            {
+              "question_id": "GRI207-207-1-a1",
+              "question": "Does your organization have a formal tax strategy?"
+            },
+            {
+              "question_id": "GRI207-207-1-a3",
+              "question": "Which governance body or executive-level position within the organization formally reviews and approves the tax strategy?"
+            },
+            {
+              "question_id": "GRI207-207-1-a5",
+              "question": "Describe your organization's approach to ensuring regulatory compliance with tax laws and regulations in all jurisdictions you operate in."
+            },
+            {
+              "question_id": "GRI207-207-1-a6",
+              "question": "Explain how your approach to tax is linked to the overall business strategy of your organization."
+            },
+            {
+              "question_id": "GRI207-207-1-a2",
+              "question": "If yes, please provide a link to your publicly available tax strategy (if applicable)."
+            },
+            {
+              "question_id": "GRI207-207-1-a4",
+              "question": "How often is the tax strategy reviewed and approved by the designated body/position?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "207-2",
+          "Sub-Category": "Tax governance, control, and risk management",
+          "questions": [
+            {
+              "question_id": "",
+              "question": "A description of the tax governance and control framework"
+            },
+            {
+              "question_id": "GRI207-207-2-a1",
+              "question": "Identify the specific governance body (e.g., Board of Directors) or executive-level position (e.g., Chief Financial Officer) within the organization that is ultimately accountable for compliance with the tax strategy."
+            },
+            {
+              "question_id": "GRI207-207-2-a2",
+              "question": "Describe how the organization's approach to tax is embedded within its overall business strategy and culture."
+            },
+            {
+              "question_id": "GRI207-207-2-a3",
+              "question": "Describe the process used to identify potential tax risks (e.g., transaction complexity, transfer pricing)."
+            },
+            {
+              "question_id": "GRI207-207-2-a5",
+              "question": "Explain how identified tax risks are managed and mitigated (e.g., seeking external advice, internal controls)."
+            },
+            {
+              "question_id": "GRI207-207-2-a6",
+              "question": "Describe how tax risks are monitored on an ongoing basis."
+            },
+            {
+              "question_id": "GRI207-207-2-a7",
+              "question": "Describe the process for evaluating the effectiveness of the tax governance and control framework. This may include frequency of assessments and methods used."
+            },
+            {
+              "question_id": "GRI207-207-2-b",
+              "question": "Describe the mechanisms available for employees or external stakeholders to raise concerns about the organization's business conduct and tax integrity. This may include hotlines, reporting procedures, or designated personnel"
+            },
+            {
+              "question_id": "GRI207-207-2-c",
+              "question": "Describe the process used to assure the accuracy and completeness of disclosures related to tax. This may involve internal reviews, external audits, or a combination of both."
+            },
+            {
+              "question_id": "GRI207-207-2-a4",
+              "question": "Provide the number of identified tax risks in the past year."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "207-3",
+          "Sub-Category": "Stakeholder engagement and management of concerns related to tax",
+          "questions": [
+            {
+              "question_id": "",
+              "question": "A description of the approach to stakeholder engagement and management of stakeholder concerns related to tax"
+            },
+            {
+              "question_id": "GRI207-207-3-a1",
+              "question": "Describe the methods used to maintain open and constructive dialogue with tax authorities (e.g., regular meetings, information exchange protocols)."
+            },
+            {
+              "question_id": "GRI207-207-3-a2",
+              "question": "How do you address any disagreements or disputes that may arise with tax authorities?"
+            },
+            {
+              "question_id": "GRI207-207-3-a3",
+              "question": "Do you participate in any collaborative initiatives with tax authorities (e.g., simplification of tax procedures)? If yes, please elaborate."
+            },
+            {
+              "question_id": "GRI207-207-3-a4",
+              "question": "Does your organization engage in public policy advocacy on tax matters? If yes, please describe your approach (e.g., lobbying efforts, participation in industry forums)."
+            },
+            {
+              "question_id": "GRI207-207-3-a5",
+              "question": "What are the key tax policy issues your organization advocates for or against?"
+            },
+            {
+              "question_id": "GRI207-207-3-a6",
+              "question": "How do you ensure your public policy advocacy on tax is transparent and accountable?"
+            },
+            {
+              "question_id": "GRI207-207-3-a7",
+              "question": "Describe the methods you use to collect stakeholder views and concerns related to tax (e.g., surveys, meetings, feedback mechanisms)."
+            },
+            {
+              "question_id": "GRI207-207-3-a9",
+              "question": "How do you differentiate between internal and external stakeholder concerns regarding tax?"
+            },
+            {
+              "question_id": "GRI207-207-3-a10",
+              "question": "Provide examples of how stakeholder feedback on tax has influenced your organization's practices."
+            },
+            {
+              "question_id": "GRI207-207-3-a8",
+              "question": "Do you conduct any surveys or collect data to measure stakeholder satisfaction with your approach to tax? If yes, please describe the methodology and key findings (e.g., satisfaction scores)."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "207-4",
+          "Sub-Category": "Country-by-country reporting",
+          "questions": [
+            {
+              "question_id": "GRI207-207-4-a",
+              "question": "Please list all tax jurisdictions where entities included in the organization's audited consolidated financial statements or public filings reside for tax purposes."
+            },
+            {
+              "question_id": "",
+              "question": "For each tax jurisdiction reported in Disclosure 207-4"
+            },
+            {
+              "question_id": "GRI207-207-4-b1",
+              "question": "Number of resident entities in the jurisdiction."
+            },
+            {
+              "question_id": "GRI207-207-4-b2",
+              "question": "Primary activities of the organization in the jurisdiction (e.g., manufacturing, sales, distribution)."
+            },
+            {
+              "question_id": "GRI207-207-4-b3",
+              "question": "Number of employees in the jurisdiction (specify the basis of calculation, e.g., full-time equivalents, headcount)."
+            },
+            {
+              "question_id": "GRI207-207-4-b4",
+              "question": "Revenues from third-party sales in the jurisdiction (amount in currency)."
+            },
+            {
+              "question_id": "GRI207-207-4-b5",
+              "question": "Revenues from intra-group transactions with other tax jurisdictions (amount in currency)."
+            },
+            {
+              "question_id": "GRI207-207-4-b6",
+              "question": "Profit/loss before tax in the jurisdiction (amount in currency)."
+            },
+            {
+              "question_id": "GRI207-207-4-b7",
+              "question": "Tangible assets other than cash and cash equivalents in the jurisdiction (amount in currency)."
+            },
+            {
+              "question_id": "GRI207-207-4-b8",
+              "question": "Corporate income tax paid on a cash basis in the jurisdiction (amount in currency)."
+            },
+            {
+              "question_id": "GRI207-207-4-b9",
+              "question": "Corporate income tax accrued on profit/loss in the jurisdiction (amount in currency)."
+            },
+            {
+              "question_id": "GRI207-207-4-b10",
+              "question": "Please explain any significant differences between the corporate income tax accrued on profit/loss and the tax due if the statutory tax rate were applied to profit/loss before tax."
+            },
+            {
+              "question_id": "GRI207-207-4-c",
+              "question": "In which reporting period was the country-by-country information compiled (e.g., calendar year, fiscal year)?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 301",
+      "GRI Category": "Materials",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "301-1",
+          "Sub-Category": "Materials used by weight or volume",
+          "questions": [
+            {
+              "question_id": "GRI301-301-1-a",
+              "question": "Can you provide the total weight or volume of materials used to produce and package the organization\u2019s primary products and services during the reporting period?"
+            },
+            {
+              "question_id": "GRI301-301-1-b",
+              "question": "Mention the total weight of non-renewable materials."
+            },
+            {
+              "question_id": "GRI301-301-1-c",
+              "question": "Mention the total weight of renewable materials."
+            },
+            {
+              "question_id": "GRI301-301-1-a2",
+              "question": "What percentage of recycled input materials were used to manufacture the organization's primary products and services?"
+            },
+            {
+              "question_id": "GRI301-301-1-a1",
+              "question": "How do you define and identify recycled input materials within your production processes?"
+            },
+            {
+              "question_id": "GRI301-301-1-a2",
+              "question": "Can you provide the percentage of reclaimed products and their packaging materials for each product category?"
+            },
+            {
+              "question_id": "GRI301-301-1-b",
+              "question": "How was the data for materials usage collected for this disclosure?\nb. What methodologies or tools were utilized to measure and quantify the weight or volume of materials used, recycled input materials, and reclaimed products?"
+            },
+            {
+              "question_id": "GRI301-301-1-a1",
+              "question": "How do you track and quantify the reclaimed products and their packaging materials?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 302",
+      "GRI Category": "Energy",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "302-1",
+          "Sub-Category": "Energy consumption within the organization",
+          "questions": [
+            {
+              "question_id": "GRI302-302-1-a",
+              "question": "Can you provide the total fuel consumption within the organization from non-renewable sources, in joules or multiples? Please include details of the fuel types used."
+            },
+            {
+              "question_id": "GRI302-302-1-b",
+              "question": "Can you provide the total fuel consumption within the organization from renewable sources, in joules or multiples? Please include details of the fuel types used."
+            },
+            {
+              "question_id": "GRI302-302-1-c",
+              "question": "Please provide the total consumption of the following energy types within the organization, in joules, watt-hours, or multiples:"
+            },
+            {
+              "question_id": "GRI302-302-1-c-i",
+              "question": "Electricity consumption"
+            },
+            {
+              "question_id": "GRI302-302-1-c-ii",
+              "question": "Heating consumption"
+            },
+            {
+              "question_id": "GRI302-302-1-c-iii",
+              "question": "Cooling consumption"
+            },
+            {
+              "question_id": "GRI302-302-1-c-iv",
+              "question": "Steam consumption"
+            },
+            {
+              "question_id": "GRI302-302-1-d",
+              "question": "Can you provide the total energy sold by the organization, in joules, watt-hours, or multiples, for each of the following categories:"
+            },
+            {
+              "question_id": "GRI302-302-1-d-i",
+              "question": "Electricity Sold"
+            },
+            {
+              "question_id": "GRI302-302-1-d-ii",
+              "question": "Heating Sold"
+            },
+            {
+              "question_id": "GRI302-302-1-d-iii",
+              "question": "Cooling Sold"
+            },
+            {
+              "question_id": "GRI302-302-1-d-iv",
+              "question": "Steam Sold"
+            },
+            {
+              "question_id": "GRI302-302-1-e",
+              "question": "What is the total energy consumption within the organization, in joules or multiples?"
+            },
+            {
+              "question_id": "GRI302-302-1-f",
+              "question": "Could you describe the standards, methodologies, assumptions, and/or calculation tools used to measure and quantify energy consumption within the organization?"
+            },
+            {
+              "question_id": "GRI302-302-1-g",
+              "question": "Where did you source the conversion factors used for calculating energy consumption?"
+            },
+            {
+              "question_id": "GRI302-302-1-a",
+              "question": "What is the total energy consumption outside of the organization, in joules or multiples?"
+            },
+            {
+              "question_id": "GRI302-302-1-b",
+              "question": "Can you describe the standards, methodologies, assumptions, and/or calculation tools used to determine the energy consumption outside of the organization?"
+            },
+            {
+              "question_id": "GRI302-302-1-c",
+              "question": "Where did you source the conversion factors used in determining the energy consumption outside of the organization?"
+            },
+            {
+              "question_id": "GRI302-302-1-a",
+              "question": "What is the energy intensity ratio for the organization?"
+            },
+            {
+              "question_id": "GRI302-302-1-b",
+              "question": "What organization-specific metric (the denominator) was chosen to calculate the ratio? Which types of energy are included in the intensity ratio? Is it limited to fuel, electricity, heating, cooling, steam, or all of these?"
+            },
+            {
+              "question_id": "GRI302-302-1-c",
+              "question": "Does the ratio use energy consumption within the organization, outside of it, or both?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 303",
+      "GRI Category": "Water and Effluents",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "303-1",
+          "Sub-Category": "Interactions with water as a shared resource",
+          "questions": [
+            {
+              "question_id": "GRI303-303-1-a1",
+              "question": "Describe the primary ways your organization interacts with water throughout its operations (e.g., withdrawal for production, discharge of wastewater)."
+            },
+            {
+              "question_id": "GRI303-303-1-a2",
+              "question": "In which geographical locations does your organization withdraw, consume, and discharge water?"
+            },
+            {
+              "question_id": "GRI303-303-1-a3",
+              "question": "How does your organization's business model or services impact water resources (e.g., through runoff from products)?"
+            },
+            {
+              "question_id": "GRI303-303-1-b1",
+              "question": "Describe the process used to identify your organization's water-related impacts."
+            },
+            {
+              "question_id": "GRI303-303-1-b2",
+              "question": "What is the timeframe for conducting water impact assessments?"
+            },
+            {
+              "question_id": "GRI303-303-1-b3",
+              "question": "What tools or methodologies are used to assess water-related impacts (e.g., life cycle assessments)?"
+            },
+            {
+              "question_id": "GRI303-GRI303-1-c1",
+              "question": "Explain how your organization addresses identified water-related impacts."
+            },
+            {
+              "question_id": "GRI303-303-1-c2",
+              "question": "How does your organization collaborate with stakeholders on water stewardship initiatives?"
+            },
+            {
+              "question_id": "GRI303-303-1-c3",
+              "question": "Describe your approach to engaging with suppliers or customers with significant water-related impacts."
+            },
+            {
+              "question_id": "GRI303-303-1-d1",
+              "question": "Explain the process for setting water-related goals and targets within your organization."
+            },
+            {
+              "question_id": "GRI303-303-1-d2",
+              "question": "How do your water goals and targets consider national/regional water policies and local water stress levels?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "303-2",
+          "Sub-Category": "Management of water discharge related impacts",
+          "questions": [
+            {
+              "question_id": "GRI303-303-2-a1",
+              "question": "Does your organization have established minimum standards for the quality of effluent discharge? (Yes/No)\nIf yes, please describe the process for determining these standards"
+            },
+            {
+              "question_id": "GRI303-303-2-a2",
+              "question": "Do any of your facilities operate in locations with no established local discharge requirements? (Yes/No)\nIf yes, please explain how your organization determines the minimum standards for effluent quality at these facilities."
+            },
+            {
+              "question_id": "GRI303-303-2-a3",
+              "question": "Does your organization have any internally developed water quality standards or guidelines that are more stringent than local requirements? (Yes/No)\nIf yes, please describe these internal standards and the rationale behind them."
+            },
+            {
+              "question_id": "GRI303-303-2-a4",
+              "question": "Does your organization consider any sector-specific water quality standards or guidelines when establishing its minimum discharge requirements? (Yes/No)\nIf yes, please list the relevant sector-specific standards and how they are incorporated into your approach."
+            },
+            {
+              "question_id": "GRI303-303-2-a5",
+              "question": "Does your organization consider the profile of the receiving water body (e.g., flow rate, aquatic life) when determining its minimum discharge standards? (Yes/No)\nIf yes, please explain how the characteristics of the receiving water body are factored into your standards."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "303-3",
+          "Sub-Category": "Water withdrawal",
+          "questions": [
+            {
+              "question_id": "GRI303-303-3-a",
+              "question": "Total water withdrawal from all areas in megaliters (ML):\nBreakdown of total water withdrawal by source (ML)"
+            },
+            {
+              "question_id": "GRI303-303-3-a-i",
+              "question": "Surface water;"
+            },
+            {
+              "question_id": "GRI303-303-3-a-ii",
+              "question": "Groundwater;"
+            },
+            {
+              "question_id": "GRI303-303-3-a-iii",
+              "question": "Seawater;"
+            },
+            {
+              "question_id": "GRI303-303-3-a-iv",
+              "question": "Produced water;"
+            },
+            {
+              "question_id": "GRI303-303-3-a-v",
+              "question": "Third-party water."
+            },
+            {
+              "question_id": "GRI303-303-3-b",
+              "question": "Total water withdrawal from water-stressed areas in megaliters (ML):\nBreakdown of total water withdrawal from water-stressed areas by source (ML):"
+            },
+            {
+              "question_id": "GRI303-303-3-b-i",
+              "question": "Surface water;"
+            },
+            {
+              "question_id": "GRI303-303-3-b-ii",
+              "question": "Groundwater;"
+            },
+            {
+              "question_id": "GRI303-303-3-b-iii",
+              "question": "Seawater;"
+            },
+            {
+              "question_id": "GRI303-303-3-b-iv",
+              "question": "Produced water;"
+            },
+            {
+              "question_id": "GRI303-303-3-b-v",
+              "question": "Third-party water."
+            },
+            {
+              "question_id": "GRI303-303-3-c1",
+              "question": "Breakdown of total water withdrawal by source and water quality (ML):"
+            },
+            {
+              "question_id": "GRI303-303-3-c2",
+              "question": "Freshwater (\u22641,000 mg/L Total Dissolved Solids):\nSurface water:\nGroundwater:\nThird-party water:"
+            },
+            {
+              "question_id": "GRI303-303-3-c3",
+              "question": "Other water (>1,000 mg/L Total Dissolved Solids):\nSurface water:\nGroundwater:\nThird-party water:"
+            },
+            {
+              "question_id": "GRI303-303-3-d1",
+              "question": "Describe any standards, methodologies, or assumptions used to compile the water withdrawal data."
+            },
+            {
+              "question_id": "GRI303-303-3-d2",
+              "question": "Explain any limitations or challenges encountered in collecting or reporting water withdrawal data."
+            },
+            {
+              "question_id": "GRI303-303-3-d3",
+              "question": "Briefly discuss any contextual information relevant to understanding your organization's water withdrawal practices (e.g., geographic location, water availability in your operating regions)."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "303-4",
+          "Sub-Category": "Water discharge",
+          "questions": [
+            {
+              "question_id": "GRI303-303-4-a1",
+              "question": "What was the total water withdrawal from all areas in megaliters for the reporting period?"
+            },
+            {
+              "question_id": "GRI303-303-4-a2",
+              "question": "Please provide a breakdown of the total water withdrawal by source in megaliters (if applicable):"
+            },
+            {
+              "question_id": "GRI303-303-4-a2-i",
+              "question": "Surface water;"
+            },
+            {
+              "question_id": "GRI303-303-4-a2-ii",
+              "question": "Groundwater;"
+            },
+            {
+              "question_id": "GRI303-303-4-a2-iii",
+              "question": "Seawater;"
+            },
+            {
+              "question_id": "GRI303-303-4-a2-iv",
+              "question": "Third-party water: the total water withdrawn, what volume was sent for use to other organizations in megaliters?"
+            },
+            {
+              "question_id": "GRI303-303-4-b1",
+              "question": "Please provide a breakdown of the total water discharge by category in megaliters:"
+            },
+            {
+              "question_id": "",
+              "question": "Freshwater (\u22641,000 mg/L Total Dissolved Solids):"
+            },
+            {
+              "question_id": "",
+              "question": "Other water (>1,000 mg/L Total Dissolved Solids):"
+            },
+            {
+              "question_id": "GRI303-303-4-c1",
+              "question": "What was the total water discharge to all areas with water stress in megaliters for the reporting period?"
+            },
+            {
+              "question_id": "",
+              "question": "Freshwater (\u22641,000 mg/L Total Dissolved Solids):"
+            },
+            {
+              "question_id": "",
+              "question": "Other water (>1,000 mg/L Total Dissolved Solids):"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "303-5",
+          "Sub-Category": "Water consumption",
+          "questions": [
+            {
+              "question_id": "GRI303-303-5-a",
+              "question": "What is the total water consumption from all areas in megaliters?"
+            },
+            {
+              "question_id": "GRI303-303-5-b",
+              "question": "What is the total water consumption from all areas with water stress in megaliters?"
+            },
+            {
+              "question_id": "GRI303-303-5-c",
+              "question": "If water storage has been identified as having a significant water-related impact, what is the change in water storage in megaliters?"
+            },
+            {
+              "question_id": "GRI303-303-5-d",
+              "question": "Can you provide any contextual information necessary to understand how the data have been compiled?\nWhat standards, methodologies, and assumptions were used in compiling the water consumption data?\nWas the information calculated, estimated, modeled, or sourced from direct measurements?\nWhat approach was taken for this, such as the use of any sector-specific factors?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 305",
+      "GRI Category": "Emissions",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "305-1",
+          "Sub-Category": "Direct (Scope 1) GHG emissions",
+          "questions": [
+            {
+              "question_id": "GRI305-305-1-a",
+              "question": "What are the gross direct (Scope 1) GHG emissions in metric tons of CO2 equivalent for the reporting period?"
+            },
+            {
+              "question_id": "GRI305-305-1-b",
+              "question": "Which gases are included in the calculation of direct (Scope 1) GHG emissions? Is it limited to CO2, CH4, N2O, HFCs, PFCs, SF6, NF3, or all of these?"
+            },
+            {
+              "question_id": "GRI305-305-1-c",
+              "question": "What are the biogenic CO2 emissions in metric tons of CO2 equivalent for the reporting period?"
+            },
+            {
+              "question_id": "GRI305-305-1-d1",
+              "question": "What was the rationale for choosing the base year?"
+            },
+            {
+              "question_id": "GRI305-305-1-d2",
+              "question": "What were the emissions in the base year?"
+            },
+            {
+              "question_id": "GRI305-305-1-d3",
+              "question": "Can you provide the context for any significant changes in emissions that triggered recalculations of base year emissions?"
+            },
+            {
+              "question_id": "GRI305-305-1-e",
+              "question": "What is the source of the emission factors and the global warming potential (GWP) rates used in the calculation of GHG emissions? If applicable, can you provide a reference to the GWP source?"
+            },
+            {
+              "question_id": "GRI305-305-1-f",
+              "question": "What is the consolidation approach used for reporting emissions? Is it based on equity share, financial control, or operational control?"
+            },
+            {
+              "question_id": "GRI305-305-1-g",
+              "question": "Could you describe the standards, methodologies, assumptions, and/or calculation tools used for calculating direct (Scope 1) GHG emissions?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "305-2",
+          "Sub-Category": "Energy indirect (Scope 2) GHG emissions",
+          "questions": [
+            {
+              "question_id": "GRI305-305-2-a",
+              "question": "What are the gross location-based energy indirect (Scope 2) GHG emissions in metric tons of CO2 equivalent for the reporting period?"
+            },
+            {
+              "question_id": "GRI305-305-2-b",
+              "question": "If applicable, what are the gross market-based energy indirect (Scope 2) GHG emissions in metric tons of CO2 equivalent for the reporting period?"
+            },
+            {
+              "question_id": "GRI305-305-2-c",
+              "question": "If available, which gases are included in the calculation of energy indirect (Scope 2) GHG emissions? Is it limited to CO2, CH4, N2O, HFCs, PFCs, SF6, NF3, or all of these?"
+            },
+            {
+              "question_id": "GRI305-305-2-d1",
+              "question": "What is the base year for the calculation of GHG emissions?"
+            },
+            {
+              "question_id": "GRI305-305-2-d2",
+              "question": "What was the rationale for choosing the base year?"
+            },
+            {
+              "question_id": "GRI305-305-2-d3",
+              "question": "Can you provide the emissions in the base year?"
+            },
+            {
+              "question_id": "GRI305-305-2-d4",
+              "question": "Can you provide the context for any significant changes in emissions that triggered recalculations of base year emissions?"
+            },
+            {
+              "question_id": "GRI305-305-2-e",
+              "question": "What is the source of the emission factors and the global warming potential (GWP) rates used in the calculation of GHG emissions?\nIf applicable, can you provide a reference to the GWP source?"
+            },
+            {
+              "question_id": "GRI305-305-2-f",
+              "question": "What is the consolidation approach used for reporting emissions? Is it based on equity share, financial control, or operational control?"
+            },
+            {
+              "question_id": "GRI305-305-2-g",
+              "question": "Could you describe the standards, methodologies, assumptions, and/or calculation tools used for calculating energy indirect (Scope 2) GHG emissions?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "305-3",
+          "Sub-Category": "Other indirect (Scope 3) GHG emissions",
+          "questions": [
+            {
+              "question_id": "GRI305-305-3-a",
+              "question": "What are the gross other indirect (Scope 3) GHG emissions in metric tons of CO2 equivalent for the reporting period?"
+            },
+            {
+              "question_id": "GRI305-305-3-b",
+              "question": "If available, which gases are included in the calculation of other indirect (Scope 3) GHG emissions? Is it limited to CO2, CH4, N2O, HFCs, PFCs, SF6, NF3, or all of these?"
+            },
+            {
+              "question_id": "GRI305-305-3-c",
+              "question": "What are the biogenic CO2 emissions in metric tons of CO2 equivalent for the reporting period?"
+            },
+            {
+              "question_id": "GRI305-305-3-d",
+              "question": "What other indirect (Scope 3) GHG emissions categories and activities are included in the calculation?"
+            },
+            {
+              "question_id": "GRI305-305-3-e1",
+              "question": "What is the base year for the calculation of GHG emissions?"
+            },
+            {
+              "question_id": "GRI305-305-3-e2",
+              "question": "What was the rationale for choosing the base year?"
+            },
+            {
+              "question_id": "GRI305-305-3-e3",
+              "question": "Can you provide the emissions in the base year?"
+            },
+            {
+              "question_id": "GRI305-305-3-e4",
+              "question": "Can you provide the context for any significant changes in emissions that triggered recalculations of base year emissions?"
+            },
+            {
+              "question_id": "GRI305-305-3-f",
+              "question": "What is the source of the emission factors and the global warming potential (GWP) rates used in the calculation of GHG emissions?\nIf applicable, can you provide a reference to the GWP source?"
+            },
+            {
+              "question_id": "GRI305-305-3-g",
+              "question": "Could you describe the standards, methodologies, assumptions, and/or calculation tools used for calculating other indirect (Scope 3) GHG emissions?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "305-4",
+          "Sub-Category": "GHG emissions intensity",
+          "questions": [
+            {
+              "question_id": "GRI305-305-4-a",
+              "question": "What is the GHG emissions intensity ratio for the organization?"
+            },
+            {
+              "question_id": "GRI305-305-4-b",
+              "question": "What organization-specific metric (the denominator) was chosen to calculate the intensity ratio?"
+            },
+            {
+              "question_id": "GRI305-305-4-c",
+              "question": "Which types of GHG emissions are included in the intensity ratio? Is it limited to direct (Scope 1), energy indirect (Scope 2), and/or other indirect (Scope 3) emissions?"
+            },
+            {
+              "question_id": "GRI305-305-4-d",
+              "question": "Which gases are included in the calculation of GHG emissions intensity and reduced emissions? Is it CO2, CH4, N2O, HFCs, PFCs, SF6, NF3, or all of these?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "305-5",
+          "Sub-Category": "Reduction of GHG emissions",
+          "questions": [
+            {
+              "question_id": "GRI305-305-5-a",
+              "question": "How many GHG emissions were reduced as a direct result of reduction initiatives, in metric tons of CO2 equivalent?"
+            },
+            {
+              "question_id": "GRI305-305-5-b",
+              "question": "Which are the gases included in the calculation; whether CO2 , CH4 , N2O, HFCs, PFCs, SF6 , NF3 , or all."
+            },
+            {
+              "question_id": "GRI305-305-5-c",
+              "question": "What is the base year or baseline for calculating GHG emissions reduction? What was the rationale for choosing it?"
+            },
+            {
+              "question_id": "GRI305-305-5-d",
+              "question": "In which scopes did the reductions take place? Were they in direct (Scope 1), energy indirect (Scope 2), and/or other indirect (Scope 3) emissions?"
+            },
+            {
+              "question_id": "GRI305-305-5-e",
+              "question": "Could you describe the standards, methodologies, assumptions, and/or calculation tools used for calculating GHG emissions intensity and reductions?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "305-6",
+          "Sub-Category": "Emissions of ozone-depleting substances (ODS)",
+          "questions": [
+            {
+              "question_id": "GRI305-305-6-a1",
+              "question": "What was the total production of ODS in metric tons for the reporting period?"
+            },
+            {
+              "question_id": "GRI305-305-6-a2",
+              "question": "What was the total quantity of ODS imported in metric tons (CFC-11 equivalent) for the reporting period?"
+            },
+            {
+              "question_id": "GRI305-305-6-a3",
+              "question": "What was the total quantity of ODS exported in metric tons (CFC-11 equivalent) for the reporting period?"
+            },
+            {
+              "question_id": "GRI305-305-6-b",
+              "question": "Which specific ozone-depleting substances are included in the calculation of total ODS production, imports, and exports?"
+            },
+            {
+              "question_id": "GRI305-305-6-c",
+              "question": "What is the source of the emission factors used to convert ODS quantities to CFC-11 equivalents?"
+            },
+            {
+              "question_id": "GRI305-305-6-d1",
+              "question": "Describe the standards and methodologies used to quantify ODS production, imports, and exports."
+            },
+            {
+              "question_id": "GRI305-305-6-d2",
+              "question": "If different standards or methodologies are used for different categories (e.g., production vs. imports), explain the rationale behind the selection."
+            },
+            {
+              "question_id": "GRI305-305-6-d3",
+              "question": "Were there any significant assumptions made during the calculation of ODS quantities or CFC-11 equivalents? If so, please describe them."
+            },
+            {
+              "question_id": "GRI305-305-6-d4",
+              "question": "What specific calculation tools were used to compile the reported data (e.g., software, internal spreadsheets)?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "305-7",
+          "Sub-Category": "Nitrogen oxides (NOx), sulfur oxides (SOx), and other significant air emissions",
+          "questions": [
+            {
+              "question_id": "GRI305-305-7-a1",
+              "question": "Describe how your organization manages nitrogen oxides (NOx), sulfur oxides (SOx), and other significant air emissions. This could include strategies for reduction, control, and monitoring."
+            },
+            {
+              "question_id": "GRI305-305-7-a2",
+              "question": "Report the total annual emissions, in kilograms or multiples of kilograms, for each of the following categories:"
+            },
+            {
+              "question_id": "GRI305-305-7-a2-i",
+              "question": "NOx"
+            },
+            {
+              "question_id": "GRI305-305-7-a2-ii",
+              "question": "SOx"
+            },
+            {
+              "question_id": "GRI305-305-7-a2-iii",
+              "question": "Persistent organic pollutants (POP)"
+            },
+            {
+              "question_id": "GRI305-305-7-a2-iv",
+              "question": "Volatile organic compounds (VOC)"
+            },
+            {
+              "question_id": "GRI305-305-7-a2-v",
+              "question": "Hazardous air pollutants (HAP)"
+            },
+            {
+              "question_id": "GRI305-305-7-a2-vi",
+              "question": "Particulate matter (PM)"
+            },
+            {
+              "question_id": "GRI305-305-7-a2-vii",
+              "question": "Other standard categories of air emissions identified in relevant regulations."
+            },
+            {
+              "question_id": "GRI305-305-7-b",
+              "question": "Describe the source(s) of the emission factors used to calculate your air emissions (e.g., industry association guidelines, government databases)."
+            },
+            {
+              "question_id": "GRI305-305-7-c",
+              "question": "Explain the methodologies and assumptions used to calculate your air emissions. This could include details about measurement techniques, data collection processes, and any limitations."
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 306",
+      "GRI Category": "Waste",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "306-1",
+          "Sub-Category": "Waste generation and significant waste-related impacts",
+          "questions": [
+            {
+              "question_id": "GRI306-306-1-a1",
+              "question": "Describe the main types of waste your organization generates through its activities (e.g., manufacturing, office operations, product use)."
+            },
+            {
+              "question_id": "GRI306-306-1-a2",
+              "question": "Explain the processes or activities that lead to the generation of each type of waste."
+            },
+            {
+              "question_id": "GRI306-306-1-a3",
+              "question": "Are there any potential future activities that could generate new waste streams or increase existing ones? If so, please describe them."
+            },
+            {
+              "question_id": "GRI306-306-1-a4",
+              "question": "How does your organization manage the waste it generates? (e.g., recycling, composting, landfill disposal)"
+            },
+            {
+              "question_id": "GRI306-306-1-a6",
+              "question": "Does your organization have any plans to reduce waste generation or improve waste management practices? If so, please describe them."
+            },
+            {
+              "question_id": "GRI306-306-1-a7",
+              "question": "Do the waste management practices you currently employ have any potential environmental or health impacts? If so, please describe them."
+            },
+            {
+              "question_id": "GRI306-306-1-a8",
+              "question": "Does your organization have any control over the packaging or materials used by its suppliers? If so, how do you influence waste generation upstream in your value chain?"
+            },
+            {
+              "question_id": "GRI306-306-1-a9",
+              "question": "Do your products or services generate waste during their use or disposal by the end consumer? If so, how do you address this downstream waste generation?"
+            },
+            {
+              "question_id": "GRI306-306-1-a5",
+              "question": "What is the total amount (by weight or volume) of each type of waste your organization generated in the past year?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "306-2",
+          "Sub-Category": "Management of significant waste related impacts",
+          "questions": [
+            {
+              "question_id": "GRI306-306-2-a1",
+              "question": "Describe the actions your organization takes to prevent waste generation in its own activities. (e.g., source reduction, product design for reuse, etc.)"
+            },
+            {
+              "question_id": "GRI306-306-2-a3",
+              "question": "Describe the circularity measures your organization implements to prevent waste generation throughout the value chain (upstream and downstream). (e.g., take-back programs, partnerships with suppliers for material reuse, etc.)"
+            },
+            {
+              "question_id": "GRI306-306-2-b1",
+              "question": "Describe the actions your organization takes to manage significant impacts from the waste it generates. (e.g., treatment, recycling, composting, etc.)"
+            },
+            {
+              "question_id": "GRI306-306-2-b3",
+              "question": "If your organization uses third-party services for waste management, describe the processes used to ensure they manage waste in line with contractual and legislative obligations. (e.g., audits, certifications, contractual agreements)."
+            },
+            {
+              "question_id": "GRI306-306-2-c1",
+              "question": "Describe the processes your organization uses to collect data on waste generation and management. (e.g., data collection points, measurement methods, personnel responsible)"
+            },
+            {
+              "question_id": "GRI306-306-2-c2",
+              "question": "Describe how your organization monitors waste-related data to track progress and identify areas for improvement. (e.g., data analysis methods, reporting procedures)."
+            },
+            {
+              "question_id": "GRI306-306-2-a2",
+              "question": "Quantify the impact of these actions on waste generation (e.g., percentage reduction in waste compared to previous year)."
+            },
+            {
+              "question_id": "GRI306-306-2-b2",
+              "question": "Quantify the amount of waste generated by your organization, categorized by type (hazardous, non-hazardous, etc.) (e.g., tons of paper waste recycled)."
+            },
+            {
+              "question_id": "GRI306-306-2-b4",
+              "question": "Quantify the amount of waste managed by each method (treatment, recycling, disposal, etc.) (e.g., percentage of waste diverted from landfill)."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "306-3",
+          "Sub-Category": "Waste generated",
+          "questions": [
+            {
+              "question_id": "GRI306-306-3-a1",
+              "question": "What is the total weight of waste generated in metric tons?"
+            },
+            {
+              "question_id": "GRI306-306-3-a2",
+              "question": "Can you provide a breakdown of the total waste generated by composition? (e.g., organic waste, recyclables, hazardous waste, etc.)"
+            },
+            {
+              "question_id": "GRI306-306-3-b1",
+              "question": "Can you provide any contextual information necessary to understand the data on waste generation?"
+            },
+            {
+              "question_id": "GRI306-306-3-b2",
+              "question": "How was the data on waste generation compiled?"
+            },
+            {
+              "question_id": "GRI306-306-3-b3",
+              "question": "Were any standards, methodologies, or assumptions used in compiling the data?"
+            },
+            {
+              "question_id": "GRI306-306-3-b4",
+              "question": "Is there any additional information about the waste generation process that would be helpful to understand the data?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "306-4",
+          "Sub-Category": "Waste diverted from disposal",
+          "questions": [
+            {
+              "question_id": "GRI306-306-4-a",
+              "question": "What is the total weight of waste diverted from disposal in metric tons for the reporting period?"
+            },
+            {
+              "question_id": "GRI306-306-4-b1",
+              "question": "What is the total weight of hazardous waste diverted from disposal in metric tons for the reporting period?"
+            },
+            {
+              "question_id": "GRI306-306-4-b2",
+              "question": "Break down the total weight of hazardous waste diverted from disposal by the following recovery operations and specify the weight in metric tons for each:"
+            },
+            {
+              "question_id": "GRI306-306-4-b2-i",
+              "question": "Preparation for reuse;"
+            },
+            {
+              "question_id": "GRI306-306-4-b2-ii",
+              "question": "Recycling;"
+            },
+            {
+              "question_id": "GRI306-306-4-b2-iii",
+              "question": "Other recovery operations."
+            },
+            {
+              "question_id": "GRI306-306-4-c1",
+              "question": "What is the total weight of non-hazardous waste diverted from disposal in metric tons for the reporting period?"
+            },
+            {
+              "question_id": "GRI306-306-4-c2",
+              "question": "Break down the total weight of non-hazardous waste diverted from disposal by the following recovery operations and specify the weight in metric tons for each:"
+            },
+            {
+              "question_id": "GRI306-306-4-c2-i",
+              "question": "Preparation for reuse;"
+            },
+            {
+              "question_id": "GRI306-306-4-c2-ii",
+              "question": "Recycling;"
+            },
+            {
+              "question_id": "GRI306-306-4-c2-iii",
+              "question": "Other recovery operations."
+            },
+            {
+              "question_id": "GRI306-306-4-d1",
+              "question": "For each recovery operation listed (preparation for reuse, recycling, and other), provide a breakdown of the total weight of:"
+            },
+            {
+              "question_id": "GRI306-306-4-d2",
+              "question": "Hazardous waste diverted from disposal (metric tons) - onsite vs. offsite"
+            },
+            {
+              "question_id": "GRI306-306-4-d3",
+              "question": "Non-hazardous waste diverted from disposal (metric tons) - onsite vs. offsite"
+            },
+            {
+              "question_id": "GRI306-306-4-e1",
+              "question": "Describe the methods used to collect data on waste diverted from disposal."
+            },
+            {
+              "question_id": "GRI306-306-4-e2",
+              "question": "Explain any limitations or exclusions in the reported data"
+            },
+            {
+              "question_id": "GRI306-306-4-e3",
+              "question": "Briefly discuss any significant changes in waste diversion practices or data collection methods compared to the previous reporting period."
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "306-5",
+          "Sub-Category": "Waste directed to disposal",
+          "questions": [
+            {
+              "question_id": "GRI306-306-5-a",
+              "question": "What is the total weight of all waste directed to disposal in metric tons for the reporting period?"
+            },
+            {
+              "question_id": "GRI306-306-5-b2",
+              "question": "What is the total weight of hazardous waste directed to disposal in metric tons for the reporting period?"
+            },
+            {
+              "question_id": "GRI306-306-5-b3",
+              "question": "Break down the total weight of hazardous waste disposed of (from Q3) by the following disposal operations and weight in metric tons:"
+            },
+            {
+              "question_id": "GRI306-306-5-b3-i",
+              "question": "Incineration (with energy recovery);"
+            },
+            {
+              "question_id": "GRI306-306-5-b3-ii",
+              "question": "Incineration (without energy recovery);"
+            },
+            {
+              "question_id": "GRI306-306-5-b3-iii",
+              "question": "Landfilling;"
+            },
+            {
+              "question_id": "GRI306-306-5-b3-iv",
+              "question": "Other disposal operations."
+            },
+            {
+              "question_id": "GRI306-306-5-c1",
+              "question": "What is the total weight of non-hazardous waste directed to disposal in metric tons for the reporting period?"
+            },
+            {
+              "question_id": "GRI306-306-5-c2",
+              "question": "Break down the total weight of non-hazardous waste disposed of (from Q4) by the following disposal operations and weight in metric tons:"
+            },
+            {
+              "question_id": "GRI306-306-5-c2-i",
+              "question": "Incineration (with energy recovery);"
+            },
+            {
+              "question_id": "GRI306-306-5-c2-ii",
+              "question": "Incineration (without energy recovery);"
+            },
+            {
+              "question_id": "GRI306-306-5-c2-iii",
+              "question": "Landfilling;"
+            },
+            {
+              "question_id": "GRI306-306-5-c2-iv",
+              "question": "Other disposal operations."
+            },
+            {
+              "question_id": "GRI306-306-5-b1",
+              "question": "Briefly describe the methods used to collect and measure waste disposal data."
+            },
+            {
+              "question_id": "GRI306-306-5-d1",
+              "question": "Weight in metric tons of hazardous waste directed to disposal:\nOnsite:\nOffsite:"
+            },
+            {
+              "question_id": "GRI306-306-5-d2",
+              "question": "Weight in metric tons of non-hazardous waste directed to disposal:\nOnsite:\nOffsite:"
+            },
+            {
+              "question_id": "GRI306-306-5-e1",
+              "question": "Describe any significant changes in waste disposal practices compared to the previous reporting period."
+            },
+            {
+              "question_id": "GRI306-306-5-e2",
+              "question": "Are there any ongoing initiatives or plans to reduce waste generation or increase waste diversion from disposal?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 308",
+      "GRI Category": "Supplier Environmental Assessment",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "308-1",
+          "Sub-Category": "New suppliers that were screened using environmental criteria",
+          "questions": [
+            {
+              "question_id": "GRI308-308-1-a2",
+              "question": "Out of the total number of new suppliers added in the reporting period, how many were screened using environmental criteria?"
+            },
+            {
+              "question_id": "GRI308-308-1-a1",
+              "question": "Does your organization have a documented process for screening new suppliers based on environmental criteria? (Yes/No)\nIf yes, please describe the key environmental criteria used in your supplier screening process. (e.g., environmental certifications, waste management practices, energy efficiency)"
+            },
+            {
+              "question_id": "GRI308-308-1-a3",
+              "question": "How are these environmental criteria integrated into the overall supplier selection process?"
+            },
+            {
+              "question_id": "GRI308-308-1-a4",
+              "question": "Who within your organization is responsible for conducting the environmental screening of new suppliers?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "308-2",
+          "Sub-Category": "Negative environmental impacts in the supply chain and actions taken",
+          "questions": [
+            {
+              "question_id": "GRI308-308-2-a1",
+              "question": "Describe the process used to assess environmental impacts within your supply chain."
+            },
+            {
+              "question_id": "GRI308-308-2-a2",
+              "question": "What criteria are used to identify significant actual and potential negative environmental impacts?"
+            },
+            {
+              "question_id": "GRI308-308-2-c1",
+              "question": "List the significant actual and potential negative environmental impacts identified in your supply chain."
+            },
+            {
+              "question_id": "GRI308-308-2-d1",
+              "question": "Please describe the types of improvements agreed upon."
+            },
+            {
+              "question_id": "GRI308-308-2-e1",
+              "question": "Please explain the reasons for termination."
+            },
+            {
+              "question_id": "GRI308-308-2-b",
+              "question": "Number of suppliers assessed for environmental impacts."
+            },
+            {
+              "question_id": "GRI308-308-2-c2",
+              "question": "Number of suppliers identified as having significant actual and potential negative environmental impacts."
+            },
+            {
+              "question_id": "GRI308-308-2-d2",
+              "question": "What percentage had improvements agreed upon as a result of the assessment?"
+            },
+            {
+              "question_id": "GRI308-308-2-e2",
+              "question": "What percentage were terminated due to their environmental impacts?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 401",
+      "GRI Category": "Employment",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "401-1",
+          "Sub-Category": "New employee hires and employee turnover",
+          "questions": [
+            {
+              "question_id": "GRI401-401-1-a1",
+              "question": "What strategies or recruitment initiatives were implemented to attract new hires during the reporting period?"
+            },
+            {
+              "question_id": "GRI401-401-1-a3",
+              "question": "Were there any specific efforts to promote diversity and inclusion in the hiring process?"
+            },
+            {
+              "question_id": "GRI401-401-1-a5",
+              "question": "Are there any notable trends or patterns observed in the distribution of new hires across different age groups, genders, or regions?"
+            },
+            {
+              "question_id": "GRI401-401-1-b1",
+              "question": "What factors contributed to employee turnover during the reporting period?"
+            },
+            {
+              "question_id": "GRI401-401-1-b3",
+              "question": "Were there any retention strategies or initiatives implemented to address employee turnover?"
+            },
+            {
+              "question_id": "GRI401-401-1-b5",
+              "question": "Are there any notable trends or patterns observed in the distribution of employee turnover across different age groups, genders, or regions?"
+            },
+            {
+              "question_id": "GRI401-401-1-a2",
+              "question": "What is the total number of new employee hires during the reporting period?"
+            },
+            {
+              "question_id": "GRI401-401-1-a4",
+              "question": "What is the rate of new employee hires during the reporting period?"
+            },
+            {
+              "question_id": "GRI401-401-1-a6",
+              "question": "Can you provide the breakdown of new employee hires by age group, gender, and region?"
+            },
+            {
+              "question_id": "GRI401-401-1-b2",
+              "question": "What is the total number of employee turnover during the reporting period?"
+            },
+            {
+              "question_id": "GRI401-401-1-b4",
+              "question": "What is the rate of employee turnover during the reporting period?"
+            },
+            {
+              "question_id": "GRI401-401-1-b6",
+              "question": "Can you provide the breakdown of employee turnover by age group, gender, and region?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "401-2",
+          "Sub-Category": "Benefits provided to full-time employees that are not provided to temporary or parttime employees",
+          "questions": [
+            {
+              "question_id": "GRI401-401-2-a",
+              "question": "Please complete the following table for each of your significant locations of operation"
+            },
+            {
+              "question_id": "GRI401-401-2-a-i",
+              "question": "life insurance;"
+            },
+            {
+              "question_id": "GRI401-401-2-a-ii",
+              "question": "health care;"
+            },
+            {
+              "question_id": "GRI401-401-2-a-iii",
+              "question": "disability and invalidity coverage;"
+            },
+            {
+              "question_id": "GRI401-401-2-a-iv",
+              "question": "parental leave;"
+            },
+            {
+              "question_id": "GRI401-401-2-a-v",
+              "question": "retirement provision;"
+            },
+            {
+              "question_id": "GRI401-401-2-a-vi",
+              "question": "stock ownership;"
+            },
+            {
+              "question_id": "GRI401-401-2-a-vii",
+              "question": "others"
+            },
+            {
+              "question_id": "GRI401-401-2-b",
+              "question": "Please provide a definition used by your organization to classify an employee as \"significant location of operation.\""
+            },
+            {
+              "question_id": "GRI401-401-2-a",
+              "question": "Were you entitled to parental leave in the reporting period (Yes/No)?"
+            },
+            {
+              "question_id": "GRI401-401-2-b1",
+              "question": "Did you take parental leave in the reporting period (Yes/No)?"
+            },
+            {
+              "question_id": "GRI401-401-2-c1",
+              "question": "Did you return to work after your parental leave ended (Yes/No)?"
+            },
+            {
+              "question_id": "GRI401-401-2-d",
+              "question": "Were you still employed by the company 12 months after your return to work (Yes/No)?"
+            },
+            {
+              "question_id": "GRI401-401-2-b2",
+              "question": "If yes, How many weeks of parental leave did you take?"
+            },
+            {
+              "question_id": "GRI401-401-2-c2",
+              "question": "If yes, When did you return to work after your parental leave ended (date)?"
+            },
+            {
+              "question_id": "GRI401-401-2-e",
+              "question": "When did you return to work after your parental leave ended (date)?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 403",
+      "GRI Category": "Occupational Health and Safety 2018",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "403-1",
+          "Sub-Category": "Occupational health and safety management system",
+          "questions": [
+            {
+              "question_id": "GRI403-403-1-a1",
+              "question": "On a scale of 1 to 10, how effectively do you believe your organization has implemented the occupational health and safety management system?"
+            },
+            {
+              "question_id": "GRI403-403-1-a2",
+              "question": "How many legal requirements have necessitated the implementation of your occupational health and safety management system?"
+            },
+            {
+              "question_id": "GRI403-403-1-a3",
+              "question": "How many recognized risk management and/or management system standards/guidelines have influenced the implementation of our occupational health and safety management system?"
+            },
+            {
+              "question_id": "GRI403-403-1-b",
+              "question": "How many workers are covered by our occupational health and safety management system? \nHow many activities are covered by our occupational health and safety management system?\nHow many workplaces are covered by our occupational health and safety management system?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "403-2",
+          "Sub-Category": "Hazard identification, risk assessment, and incident investigation",
+          "questions": [
+            {
+              "question_id": "GRI403-403-2-a1",
+              "question": "Can you describe the quality control processes used to ensure the effectiveness of hazard identification, risk assessment, and incident investigation within our occupational health and safety management system?"
+            },
+            {
+              "question_id": "GRI403-403-2-a2",
+              "question": "How are the competency levels of individuals conducting hazard identification, risk assessment, and incident investigation ensured?"
+            },
+            {
+              "question_id": "GRI403-403-2-a3",
+              "question": "How are the results of hazard identification, risk assessment, and incident investigation processes utilized to evaluate and improve the occupational health and safety management system?"
+            },
+            {
+              "question_id": "GRI403-403-2-b",
+              "question": "Can you explain the processes in place for workers to report work-related hazards and hazardous situations? How are workers protected against reprisals for reporting?"
+            },
+            {
+              "question_id": "GRI403-403-2-c",
+              "question": "Describe the policies and procedures allowing workers to remove themselves from potentially harmful work situations. How are workers safeguarded against reprisals?"
+            },
+            {
+              "question_id": "GRI403-403-2-d",
+              "question": "Could you outline the steps involved in investigating work-related incidents within our organization? How are hazards and risks identified and assessed during these investigations? How are corrective actions determined and implemented?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 404",
+      "GRI Category": "Training and Education",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "404-1",
+          "Sub-Category": "Average hours of training per year per employee",
+          "questions": [
+            {
+              "question_id": "GRI404-404-1-a1",
+              "question": "What is the average number of training hours undertaken by employees during the reporting period?"
+            },
+            {
+              "question_id": "GRI404-404-1-a2",
+              "question": "Can you provide the average number of training hours undertaken by employees, categorized by gender?"
+            },
+            {
+              "question_id": "GRI404-404-1-a3",
+              "question": "Can you provide the average number of training hours undertaken by employees, categorized by employee category (e.g., full-time, part-time, contract)?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "404-2",
+          "Sub-Category": "Programs for upgrading employee skills and transition assistance programs",
+          "questions": [
+            {
+              "question_id": "GRI404-404-2-a1",
+              "question": "What types of training programs were implemented to upgrade employee skills during the reporting period?"
+            },
+            {
+              "question_id": "GRI404-404-2-a2",
+              "question": "Can you describe the scope of training programs offered, including topics covered and target audiences?"
+            },
+            {
+              "question_id": "GRI404-404-2-b1",
+              "question": "What transition assistance programs were provided to facilitate continued employability and manage career endings resulting from retirement or termination of employment?"
+            },
+            {
+              "question_id": "GRI404-404-2-b2",
+              "question": "How effective were the training and transition assistance programs in meeting the needs of employees and supporting their career development?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "404-3",
+          "Sub-Category": "Percentage of employees receiving regular performance and career development reviews",
+          "questions": [
+            {
+              "question_id": "GRI404-404-3-a1",
+              "question": "What percentage of total employees received a regular performance and career development review during the reporting period?"
+            },
+            {
+              "question_id": "GRI404-404-3-a2",
+              "question": "Can you provide the percentage of total employees who received a regular performance and career development review, categorized by gender?"
+            },
+            {
+              "question_id": "GRI404-404-3-a3",
+              "question": "Can you provide the percentage of total employees who received a regular performance and career development review, categorized by employee category?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 405",
+      "GRI Category": "Diversity and Equal Opportunity 2016",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "405-1",
+          "Sub-Category": "Diversity of governance bodies and employees",
+          "questions": [
+            {
+              "question_id": "GRI405-405-1-a1",
+              "question": "What is the percentage of individuals within the organization's governance bodies in each diversity category, including gender?"
+            },
+            {
+              "question_id": "GRI405-405-1-a2",
+              "question": "Can you provide the breakdown of percentages by age group (under 30 years old, 30-50 years old, over 50 years old) within the governance bodies?"
+            },
+            {
+              "question_id": "GRI405-405-1-a3",
+              "question": "Are there any other indicators of diversity relevant to the governance bodies, such as representation of minority or vulnerable groups?"
+            },
+            {
+              "question_id": "GRI405-405-1-b1",
+              "question": "What is the percentage of employees per employee category in each diversity category, including gender?"
+            },
+            {
+              "question_id": "GRI405-405-1-b2",
+              "question": "Can you provide the breakdown of percentages by age group (under 30 years old, 30-50 years old, over 50 years old) among employees?"
+            },
+            {
+              "question_id": "GRI405-405-1-b3",
+              "question": "Are there any other indicators of diversity relevant to the employee population, such as representation of minority or vulnerable groups?"
+            }
+          ]
+        },
+        {
+          "Sub-Category Code": "405-2",
+          "Sub-Category": "Ratio of basic salary and remuneration of women to men",
+          "questions": [
+            {
+              "question_id": "GRI405-405-2-a2",
+              "question": "What is the ratio of the average basic salary and remuneration of women to men for all employees in the organization?"
+            },
+            {
+              "question_id": "GRI405-405-2-b2",
+              "question": "For each significant location of operation, what is the ratio of the average basic salary and remuneration of women to men for each employee category?"
+            },
+            {
+              "question_id": "GRI405-405-2-a1",
+              "question": "Briefly describe the methodology used to calculate the overall gender pay gap."
+            },
+            {
+              "question_id": "GRI405-405-2-b1",
+              "question": "How does your organization define \"significant locations of operation\"?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 414",
+      "GRI Category": "Supplier Social Assessment",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "414-1",
+          "Sub-Category": "New suppliers that were screened using social criteria",
+          "questions": [
+            {
+              "question_id": "GRI414-414-1-a1",
+              "question": "Please describe the process used to screen new suppliers based on social criteria."
+            },
+            {
+              "question_id": "GRI414-414-1-a3",
+              "question": "What specific social criteria are used in the supplier screening process? (e.g., labor practices, human rights, diversity & inclusion)"
+            },
+            {
+              "question_id": "GRI414-414-1-a5",
+              "question": "How are the results of the social screening process used in supplier selection decisions?"
+            },
+            {
+              "question_id": "GRI414-414-1-a1",
+              "question": "Describe the process used to identify and assess negative social impacts within your supply chain (e.g., questionnaires, audits, on-site visits)."
+            },
+            {
+              "question_id": "GRI414-414-1-b1",
+              "question": "What are the most significant actual and potential negative social impacts identified in your supply chain (e.g., child labor, forced labor, discrimination, unsafe working conditions)?"
+            },
+            {
+              "question_id": "GRI414-414-1-c",
+              "question": "For each significant negative social impact identified, detail the actions taken to address it (e.g., training programs, remediation plans, collaboration with suppliers)."
+            },
+            {
+              "question_id": "GRI414-414-1-a2",
+              "question": "How many new suppliers did your organization onboard during the reporting period?"
+            },
+            {
+              "question_id": "GRI414-414-1-a4",
+              "question": "Out of the total new suppliers, how many were screened using social criteria?"
+            },
+            {
+              "question_id": "GRI414-414-1-a2",
+              "question": "Number of suppliers assessed for social impacts"
+            },
+            {
+              "question_id": "GRI414-414-1-b2",
+              "question": "Number of suppliers identified as having significant actual and potential negative social impacts:"
+            },
+            {
+              "question_id": "GRI414-414-1-d",
+              "question": "Percentage of suppliers identified as having significant actual and potential negative social impacts with which improvements were agreed upon as a result of assessment:"
+            },
+            {
+              "question_id": "GRI414-414-1-e",
+              "question": "Percentage of suppliers identified as having significant actual and potential negative social impacts with which relationships were terminated as a result of assessment"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 416",
+      "GRI Category": "Customer Health and Safety 2016",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "416-1",
+          "Sub-Category": "Assessment of the health and safety impacts of product and service categories",
+          "questions": [
+            {
+              "question_id": "GRI416-416-1-a1",
+              "question": "Does your organization have a process for assessing the health and safety impacts of your product and service categories? (Yes/No)\nIf yes, please describe the process used to assess these impacts."
+            },
+            {
+              "question_id": "GRI416-416-1-a2",
+              "question": "Who within the organization is responsible for conducting these assessments?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 417",
+      "GRI Category": "Customer Health and Safety 2017",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "416-1",
+          "Sub-Category": "Assessment of the health and safety impacts of product and service categories",
+          "questions": [
+            {
+              "question_id": "GRI417-416-1-a3",
+              "question": "Does your organization consider the entire life cycle of the product or service when assessing health and safety impacts?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 418",
+      "GRI Category": "Customer Health and Safety 2018",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "416-2",
+          "Sub-Category": "Incidents of non-compliance concerning the health and safety impacts of products and services",
+          "questions": [
+            {
+              "question_id": "GRI418-416-2-a2",
+              "question": "During the reporting period, did your organization identify any incidents of non-compliance with regulations or voluntary codes concerning the health and safety impacts of your products and services?"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 419",
+      "GRI Category": "Customer Health and Safety 2019",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "416-2",
+          "Sub-Category": "Incidents of non-compliance concerning the health and safety impacts of products and services",
+          "questions": [
+            {
+              "question_id": "GRI419-416-2-a4",
+              "question": "Total number of incidents of non-compliance with regulations resulting in a fine or penalty:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 420",
+      "GRI Category": "Customer Health and Safety 2020",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "416-2",
+          "Sub-Category": "Incidents of non-compliance concerning the health and safety impacts of products and services",
+          "questions": [
+            {
+              "question_id": "GRI420-416-2-a5",
+              "question": "Total number of incidents of non-compliance with regulations resulting in a warning:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 421",
+      "GRI Category": "Customer Health and Safety 2021",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "416-2",
+          "Sub-Category": "Incidents of non-compliance concerning the health and safety impacts of products and services",
+          "questions": [
+            {
+              "question_id": "GRI421-416-2-a6",
+              "question": "Total number of incidents of non-compliance with voluntary codes concerning the health and safety impacts of products and services:"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "GRI Category Code": "GRI 422",
+      "GRI Category": "Customer Health and Safety 2022",
+      "sub_category_info": [
+        {
+          "Sub-Category Code": "416-2",
+          "Sub-Category": "Incidents of non-compliance concerning the health and safety impacts of products and services",
+          "questions": [
+            {
+              "question_id": "GRI422-416-2-b",
+              "question": "If your organization did not identify any incidents of non-compliance during the reporting period, please state this here."
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

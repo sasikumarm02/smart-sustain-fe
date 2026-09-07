@@ -1,0 +1,215 @@
+@import '../../../Styles/variables.module.scss';
+
+.formBody {
+  background-color: $white;
+}
+.customCard {
+  border: none;
+  width: 100%;
+  width: 80%;
+  margin: 20px auto;
+}
+
+.titleText{
+  font-size: 25px;
+  color: #605B5A;
+}
+
+.loginTitle {
+  color: $primary;
+  font-family: $font-stack-primary;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1.4;
+  letter-spacing: 0em;
+  text-align: left;
+  margin: 1rem 0;
+}
+.inlineInputTextArea {
+  position: relative !important;
+}
+.inlineInput {
+  display: flex;
+  align-items: center;
+}
+.inlineInputFacility {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.facitlityBtn {
+  padding-top: 15px;
+}
+
+.LoginButton {
+  margin-top: 1vh;
+  background-color: $primary;
+  color: $white;
+  font-family: $font-stack-secondary;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 2vh;
+  letter-spacing: 0em;
+  text-align: center;
+  border-radius: 10px;
+  gap: 10px;
+  :disabled {
+    cursor: not-allowed;
+    border-color: #d9d9d9;
+    color: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.04);
+    box-shadow: none;
+  }
+}
+
+.guestButton {
+  margin-top: 1vh;
+  border: 1px solid $primary;
+  color: $primary;
+  font-family: $font-stack-secondary;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 2vh;
+  letter-spacing: 0em;
+  text-align: center;
+  border-radius: 5px;
+  gap: 10px;
+  &:hover {
+    border: 1px solid $primary !important;
+    color: $primary !important;
+  }
+}
+
+.formlabel {
+  color: #413B39 !important;
+  font-family: $font-stack-primary;
+  font-size: 14px !important;
+  font-weight: 400;
+  line-height: normal;
+  letter-spacing: 0em;
+  text-align: left;
+}
+
+.addc_submit {
+  margin-left: 10px !important;
+}
+
+@media (min-width: 1701px) and (max-width: 1920px) {
+  .formlabel {
+    font-size: 16px;
+  }
+}
+@media (min-width: 1601px) and (max-width: 1700px) {
+  .formlabel {
+    font-size: 15px;
+  }
+}
+@media (min-width: 1421px) and (max-width: 1600px) {
+  .formlabel {
+    font-size: 14px;
+  }
+}
+@media (min-width: 1201px) and (max-width: 1420px) {
+  .loginTitle {
+    font-size: 1.4rem;
+  }
+  .formlabel {
+    font-size: 14px;
+  }
+}
+@media (min-width: 992px) and (max-width: 1200px) {
+  .formlabel {
+    font-size: 12px;
+  }
+}
+@media (min-width: 769px) and (max-width: 991px) {
+  .formlabel {
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .loginTitle {
+    font-size: 1.2rem;
+  }
+  .formlabel {
+    font-size: 10px;
+  }
+}
+
+.breadCrumbMain {
+  color: #969ba0;
+  font-size: 20px;
+  font-family: $font-stack-secondary;
+  span {
+    color: #00338d !important;
+    font-size: 24px;
+    font-family: $font-stack-secondary;
+    font-weight: 700;
+  }
+}
+
+.selectOption {
+  width: 100%;
+  font-size: 16px !important;
+  line-height: 24px !important;
+  font-weight: 400 !important;
+  border-radius: 8px !important;
+  border: 1px solid #d0d5dd !important;
+  background-color: #fff;
+
+  [class~='ant-select-item'] {
+    border: none !important;
+  }
+
+  [class~='ant-select-selection-placeholder'] {
+    font-family: 'Arial';
+    color: #667085 !important;
+    font-size: 16px !important;
+    line-height: 24px !important;
+    font-weight: 400 !important;
+    border: none !important;
+  }
+
+  [class~='ant-select-selector'] {
+    border: none !important;
+    box-shadow: none !important;
+  }
+
+  &:hover,
+  &:focus {
+    border-color: #00338d !important;
+  }
+}
+
+.pageCardStyle {
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  z-index: 3 !important;
+  margin-top: 10px;
+  border-radius: 10px;
+}
+
+.pageCardStyleSpecial {
+  box-shadow: 0px 2px 18px 0px rgba(0, 0, 0, 0.25) !important;
+  z-index: 3 !important;
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.styletitle {
+  font-size: 16px;
+  font-weight: bold;
+  font-family: Arial, Helvetica, sans-serif;
+  color: $primary;
+  margin-bottom: 15px !important;
+}
+
+.cardStyle {
+  border: none !important;
+  padding: 0 !important;
+}
+
+.editInput {
+  height: 40px;
+}

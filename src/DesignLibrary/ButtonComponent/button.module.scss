@@ -1,0 +1,293 @@
+.custom-button {
+    border: none;
+    cursor: pointer;
+}
+
+.primary {
+    background-color: #036323;
+    color: #FFFFFF;
+    font-weight: 600;
+    border: none !important;
+}
+
+.primary.destructive {
+    background-color: #D92D20 !important;
+    color: #FFFFFF !important;
+}
+
+.primary.destructive:hover {
+    background-color: #B42318 !important;
+    color: #FFFFFF !important;
+}
+
+.primary.destructive:disabled {
+    background-color: #FECDCA !important;
+    color: #FFFFFF !important;
+}
+
+.primary:hover {
+    background-color: #153D23 !important;
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+    border: none !important;
+}
+
+.primary:disabled {
+    background-color: #98B1A0 !important;
+    color: #FFFFFF !important;
+    font-weight: 600 !important;
+}
+
+.secondary {
+    background-color: #fff;
+    color: #036323;
+    font-weight: 600;
+    border: 1px solid #036323 !important;
+}
+
+
+.secondary.destructive {
+    background-color: #fff !important;
+    color: #B42318 !important;
+    font-weight: 600;
+}
+
+.secondary.destructive:hover {
+    background-color: #fff !important;
+    color: #B42318 !important;
+    font-weight: 600;
+    border: none !important;
+}
+
+.secondary.destructive:disabled {
+    background-color: #fff !important;
+    color: #FDA29B !important;
+    font-weight: 600;
+}
+
+.secondary:hover {
+    background-color: #fff !important;
+    color: #036323 !important;
+    font-weight: 600 !important;
+    border: none !important;
+    border: 1px solid #036323 !important;
+}
+
+.secondary:disabled {
+    background-color: #F8FDFF !important;
+    color: #6077B4 !important;
+    font-weight: 600;
+    border: none !important;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) !important;
+}
+
+
+.secondary-gray {
+    background-color: #FFFFFF;
+    color: #344054;
+    border: 1px solid #D0D5DD;
+    font-weight: 600;
+    z-index: 999999 !important;
+}
+
+.secondary-gray.destructive {
+    background-color: #FFFFFF;
+    color: #B42318 !important;
+    border: 1px solid #B42318 !important;
+    font-weight: 600;
+}
+
+.secondary-gray.destructive:hover {
+    background-color: #FEF3F2;
+    color: #B42318 !important;
+    border: 1px solid #B42318 !important;
+    font-weight: 600;
+}
+
+.secondary-gray.destructive:disabled {
+    background-color: #FFFFFF;
+    color: #FDA29B !important;
+    border: 1px solid #B42318 !important;
+    font-weight: 600;
+}
+
+.secondary-gray:hover {
+    background-color: #F9FAFB !important;
+    color: #153D23 !important;
+    border: 1px solid #D0D5DD !important;
+    font-weight: 600 !important;
+}
+
+.secondary-gray:disabled {
+    background-color: #FFFFFF !important;
+
+    border: 1px solid #D0D5DD;
+    font-weight: 600;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) !important;
+}
+
+
+.tertiary.destructive {
+    background-color: #FFFFFF;
+    color: #B42318;
+    border: none;
+    font-weight: 600;
+    box-shadow: none !important;
+}
+
+.tertiary.destructive:hover {
+    background-color: #FEF3F2 !important;
+    color: #B42318 !important;
+    border: none !important;
+    font-weight: 600;
+    box-shadow: none !important;
+}
+
+.tertiary.destructive:disabled {
+    background-color: #FFFFFF !important;
+    color: #FDA29B;
+    border: none;
+    font-weight: 600;
+    box-shadow: none !important;
+}
+
+.tertiary {
+    background-color: #FFFFFF;
+    color: #036323;
+    border: none;
+    font-weight: 600;
+    box-shadow: none !important;
+}
+
+.tertiary:hover {
+    background-color: #d5e8dc !important;
+    color: #036323 !important;
+    border: 1px solid #D0D5DD !important;
+    font-weight: 600 !important;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) !important;
+}
+
+.tertiary:disabled {
+    background-color: #FFFFFF !important;
+    color: #D0D5DD !important;
+    border: none !important;
+    font-weight: 600;
+    box-shadow: none !important;
+}
+
+.tertiary-gray {
+    color: #475467;
+    background-color: #FFFFFF;
+    border: 1px solid #D0D5DD;
+    font-weight: 600;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.tertiary-gray.destructive {
+    color: #B42318;
+    background-color: #ffffff;
+    font-weight: 600;
+    box-shadow: none !important;
+    border: none !important;
+}
+
+.tertiary-gray.destructive:hover {
+    color: #B42318 !important;
+    background-color: #FEF3F2;
+    font-weight: 600;
+    border: none !important;
+}
+
+
+.tertiary-gray.destructive:disabled {
+    color: #FDA29B !important;
+    background-color: #ffffff !important;
+    font-weight: 600;
+    border: none !important;
+    box-shadow: none !important;
+}
+
+.tertiary-gray:hover {
+    color: #475467 !important;
+    background-color: #FFFFFF;
+    border: 1px solid #D0D5DD;
+    font-weight: 600;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25) !important;
+}
+
+.link {
+    background-color: transparent;
+    color: #1890ff;
+    text-decoration: underline;
+}
+
+.transparent {
+    background-color: transparent;
+    color: #fff;
+    text-decoration: underline;
+    border: none !important;
+    box-shadow: none !important;
+    font-weight: 600;
+}
+
+.transparent:hover {
+    color: #12348F !important;
+    background-color: #FFFFFF;
+}
+
+.sm {
+    height: 36px;
+    // width: 101px;
+    border-radius: 8px;
+    padding: 10px, 16px, 10px, 16px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.md {
+    height: 40px;
+    // width: 105px;
+    border-radius: 8px;
+    padding: 8px, 14px, 8px, 14px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.lg {
+    height: 40px;
+    // width: 109px;
+    border-radius: 8px;
+    padding: 10px, 16px, 10px, 16px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.xl {
+    height: 44px;
+    // width: 113px;
+    // border-radius: 8px;
+    // padding: 10px, 16px, 10px, 16px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.xl2 {
+    height: 52px;
+    // width: 129px;
+    border-radius: 8px;
+}
+
+
+.icon-leading::before {
+    content: "★";
+    margin-right: 5px;
+    margin-left: -8px;
+}
+
+.icon-trailing::after {
+    content: "★";
+    margin-left: 5px;
+}
+
+.icon-dot::before {
+    content: "●";
+    margin-left: -5px;
+    margin-right: 5px;
+}

@@ -1,0 +1,7 @@
+.tableCss th {
+  background: #e9ecf6 !important ;
+  font-family: Arial;
+}
+.tableCss .ant-table-tbody > tr:nth-child(odd) {
+  background: red; /* Apply red background to odd rows */
+}
