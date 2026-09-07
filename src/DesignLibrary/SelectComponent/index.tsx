@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import { Select, ConfigProvider } from 'antd';
 import styles from './select.module.scss';
-import SelectDropdownIcon from '../../assets/Svg/DesignLibrary/SelectDropdownIcon';
-import SelectDropdownUpIcon from '../../assets/Svg/DesignLibrary/SelectDropdownUpIcon';
-import SelectSearchLensIcon from '../../assets/Svg/DesignLibrary/SelectSearchLensIcon';
+import SelectDropdownIcon from '../../assets/svg/DesignLibrary/SelectDropdownIcon';
+import SelectDropdownUpIcon from '../../assets/svg/DesignLibrary/SelectDropdownUpIcon';
+import SelectSearchLensIcon from '../../assets/svg/DesignLibrary/SelectSearchLensIcon';
 
 interface Option {
   label: string;

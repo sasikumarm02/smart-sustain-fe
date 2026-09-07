@@ -1,0 +1,46 @@
+// color
+@import '../DesignLibrary/fonts.scss';
+
+$primary: #0D304A;
+$primaryBg: #EAEDFD;
+$secondary: #54afdb;
+$thirdColor: #797979;
+$fourthColor: #f6f9ff;
+$black: #000;
+$white: #fff;
+$smokewhite: #f1f1f1;
+$gray: #636363;
+$headingGray: rgba(59, 54, 54, 1);
+$grey: #f1f1f1;
+$textColor: rgba(59, 54, 54, 1);
+$backGroundTab: rgba(36, 126, 158, 1);
+$tabBgColor: #eaf0f2;
+$font-stack-primary: 'Arial', sans-seri;
+$font-stack-secondary: 'Rubik';
+
+:root {
+  --font-stack-primary: $font-stack-primary;
+  --font-stack-secondary: $font-stack-secondary;
+  --primary: $primary;
+  --primaryLight: rgba($primary, 0.1);
+  --secondary: $secondary;
+  --secondaryLight: rgba($secondary, 0.1);
+  --gray: $gray;
+  --headingGray: $headingGray;
+  --white: $white;
+  --black: $black;
+  --grey: $grey;
+  --textColor: $textColor;
+  --thirdColor: $thirdColor;
+  --fourthColor: $fourthColor;
+  --backGroundTab: $backGroundTab;
+  --tabBgColor: $tabBgColor;
+}
+
+$baseWhitespace: 8px;
+$whitespace-1: $baseWhitespace;
+$whitespace-2: $baseWhitespace * 2;
+$whitespace-3: $baseWhitespace * 3;
+$whitespace-4: $baseWhitespace * 4;
+$whitespace-5: $baseWhitespace * 5;
+$whitespace-6: $baseWhitespace * 6;

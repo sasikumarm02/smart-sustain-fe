@@ -1,0 +1,18 @@
+const PaginationPrevArrow = ({ className }: any) => (
+  <svg
+    width="14"
+    height="14"
+    viewBox="0 0 14 14"
+    fill="none"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path
+      d="M12.8327 7.00033H1.16602M1.16602 7.00033L6.99935 12.8337M1.16602 7.00033L6.99935 1.16699"
+      stroke="#344054"
+      stroke-width="1.67"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+    />
+  </svg>
+);
+export default PaginationPrevArrow;
