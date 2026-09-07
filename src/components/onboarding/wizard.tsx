@@ -304,7 +304,7 @@ export default function Wizard({ masterData = STATIC_MASTER_DATA }: { masterData
   if (createdOrgName) {
     return (
       <Card className="mx-auto max-w-xl py-10 text-center bg-white border border-slate-200 shadow-sm rounded-xl">
-        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-[#f0fdf4] text-[#0d7a46]">
+        <span className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-cyan-50 text-[#25a5cb]">
           <CheckIcon className="h-7 w-7" />
         </span>
         <h2 className="mt-4 text-xl font-bold text-slate-900">
@@ -318,14 +318,14 @@ export default function Wizard({ masterData = STATIC_MASTER_DATA }: { masterData
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); window.location.hash = '#dashboard'; }}
-            className="inline-flex items-center justify-center gap-1.5 rounded-md bg-[#0d7a46] hover:bg-[#096036] px-5 py-2.5 text-xs font-semibold text-white transition-colors"
+            className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#25a5cb] hover:bg-[#1f93b5] active:bg-[#1a82a1] px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-cyan-500/20 transition-all"
           >
             Go to Dashboard
           </a>
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); window.location.hash = '#context-picker'; }}
-            className="inline-flex items-center justify-center gap-1.5 rounded-md border border-slate-200 bg-white hover:bg-slate-50 px-5 py-2.5 text-xs font-semibold text-slate-700 transition-colors"
+            className="inline-flex items-center justify-center gap-1.5 rounded-xl border border-slate-200 bg-white hover:bg-slate-50 px-5 py-2.5 text-xs font-semibold text-slate-700 transition-colors"
           >
             Switch Organisation
           </a>
@@ -345,7 +345,7 @@ export default function Wizard({ masterData = STATIC_MASTER_DATA }: { masterData
         {/* Main column */}
         <Card className="bg-white border border-slate-200 shadow-sm rounded-xl p-6 flex flex-col justify-between">
           <div>
-            <p className="text-[11px] font-bold uppercase tracking-wider text-[#0d7a46]">
+            <p className="text-[11px] font-bold uppercase tracking-wider text-[#1d769f]">
               Step {step} of {STEPS.length}
             </p>
             <h1 className="mt-1 text-xl font-bold text-slate-900">
@@ -407,19 +407,19 @@ export default function Wizard({ masterData = STATIC_MASTER_DATA }: { masterData
                             aria-pressed={selected}
                             className={`relative rounded-xl border p-4 text-left transition-all disabled:cursor-not-allowed disabled:opacity-40 ${
                               selected
-                                ? "border-[#0d7a46] bg-[#f0fdf4] ring-1 ring-[#0d7a46]"
+                                ? "border-[#25a5cb] bg-cyan-50/70 ring-2 ring-cyan-500/20 shadow-sm"
                                 : "border-slate-200 bg-white hover:border-slate-300"
                             }`}
                           >
                             {selected ? (
-                              <span className="absolute right-2.5 top-2.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#0d7a46] text-white">
+                              <span className="absolute right-2.5 top-2.5 flex h-4 w-4 items-center justify-center rounded-full bg-[#25a5cb] text-white">
                                 <CheckIcon className="h-2.5 w-2.5" />
                               </span>
                             ) : null}
                             <BuildingIcon
-                              className={`h-5 w-5 ${selected ? "text-[#0d7a46]" : "text-slate-400"}`}
+                              className={`h-5 w-5 ${selected ? "text-[#25a5cb]" : "text-slate-400"}`}
                             />
-                            <span className={`mt-2 block text-xs font-semibold ${selected ? "text-[#0d7a46]" : "text-slate-700"}`}>
+                            <span className={`mt-2 block text-xs font-semibold ${selected ? "text-[#1d769f]" : "text-slate-700"}`}>
                               {d.name}
                             </span>
                           </button>
@@ -575,7 +575,7 @@ export default function Wizard({ masterData = STATIC_MASTER_DATA }: { masterData
                       aria-pressed={facilitiesMode === mode}
                       className={`rounded-xl border p-4 text-left transition-all ${
                         facilitiesMode === mode
-                          ? "border-[#0d7a46] bg-[#f0fdf4] ring-1 ring-[#0d7a46]"
+                          ? "border-[#25a5cb] bg-cyan-50/70 ring-2 ring-cyan-500/20 shadow-sm"
                           : "border-slate-200 bg-white hover:border-slate-300"
                       }`}
                     >
@@ -584,7 +584,7 @@ export default function Wizard({ masterData = STATIC_MASTER_DATA }: { masterData
                           aria-hidden
                           className={`flex h-4 w-4 items-center justify-center rounded-full border ${
                             facilitiesMode === mode
-                              ? "border-[#0d7a46] bg-[#0d7a46]"
+                              ? "border-[#25a5cb] bg-[#25a5cb]"
                               : "border-slate-300"
                           }`}
                         >
@@ -592,7 +592,7 @@ export default function Wizard({ masterData = STATIC_MASTER_DATA }: { masterData
                             <span className="h-1.5 w-1.5 rounded-full bg-white" />
                           ) : null}
                         </span>
-                        <span className={`text-xs font-semibold ${facilitiesMode === mode ? "text-[#0d7a46]" : "text-slate-800"}`}>
+                        <span className={`text-xs font-semibold ${facilitiesMode === mode ? "text-[#1d769f]" : "text-slate-800"}`}>
                           {title}
                         </span>
                       </span>
@@ -811,7 +811,7 @@ export default function Wizard({ masterData = STATIC_MASTER_DATA }: { masterData
                       <button
                         type="button"
                         onClick={() => setStep(section.step)}
-                        className="text-xs font-semibold text-[#0d7a46] hover:underline"
+                        className="text-xs font-bold text-cyan-600 hover:text-cyan-700 hover:underline"
                       >
                         Change
                       </button>
@@ -837,7 +837,7 @@ export default function Wizard({ masterData = STATIC_MASTER_DATA }: { masterData
                     <button
                       type="button"
                       onClick={() => setStep(4)}
-                      className="text-xs font-semibold text-[#0d7a46] hover:underline"
+                      className="text-xs font-bold text-cyan-600 hover:text-cyan-700 hover:underline"
                     >
                       Change
                     </button>
@@ -884,7 +884,7 @@ export default function Wizard({ masterData = STATIC_MASTER_DATA }: { masterData
                     <button
                       type="button"
                       onClick={() => setStep(3)}
-                      className="text-xs font-semibold text-[#0d7a46] hover:underline"
+                      className="text-xs font-bold text-cyan-600 hover:text-cyan-700 hover:underline"
                     >
                       Change
                     </button>

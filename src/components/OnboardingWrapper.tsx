@@ -34,7 +34,7 @@ export const OnboardingWrapper: React.FC<OnboardingWrapperProps> = ({ onBackToLo
   }, []);
 
   return (
-    <div className="min-h-screen bg-[#0b0f19] text-gray-100 p-6 max-w-7xl mx-auto space-y-6">
+    <div className="min-h-screen bg-slate-50 text-slate-800 p-6 sm:p-10 max-w-7xl mx-auto space-y-6">
       <div className="flex items-center justify-between">
         <Breadcrumb
           items={[{ label: "Onboarding", href: "#" }, { label: "Create New Organisation" }]}
@@ -42,9 +42,9 @@ export const OnboardingWrapper: React.FC<OnboardingWrapperProps> = ({ onBackToLo
         {onBackToLogin && (
           <button
             onClick={onBackToLogin}
-            className="btn-secondary text-xs flex items-center gap-1.5"
+            className="px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-slate-700 hover:bg-slate-50 text-xs font-semibold flex items-center gap-1.5 shadow-sm transition-all"
           >
-            <ArrowLeft className="h-4 w-4" /> Back to Login
+            <ArrowLeft className="h-4 w-4 text-cyan-600" /> Back to Login
           </button>
         )}
       </div>
@@ -52,7 +52,7 @@ export const OnboardingWrapper: React.FC<OnboardingWrapperProps> = ({ onBackToLo
       {masterData ? (
         <Wizard masterData={masterData} />
       ) : (
-        <div className="p-8 text-center text-xs text-emerald-400 font-mono">
+        <div className="p-8 text-center text-xs text-cyan-600 font-mono">
           Loading Onboarding Reference Master Data...
         </div>
       )}

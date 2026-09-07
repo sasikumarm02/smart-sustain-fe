@@ -1,14 +1,26 @@
+import { Form, Input, Select as AntSelect, Steps, ConfigProvider } from 'antd';
 import React from 'react';
 
+export const cardTheme = {
+  token: {
+    colorPrimary: '#25a5cb',
+    borderRadius: 12,
+    colorBorder: '#cbd5e1',
+    colorText: '#1e293b',
+  },
+};
+
 export const Card: React.FC<any> = ({ children, className = '' }) => (
-  <div className={`bg-white border border-slate-200 rounded-xl p-6 shadow-sm text-slate-800 ${className}`}>
-    {children}
-  </div>
+  <ConfigProvider theme={cardTheme}>
+    <div className={`bg-white border border-slate-100 rounded-2xl p-6 shadow-xl shadow-slate-200/50 text-slate-800 ${className}`}>
+      {children}
+    </div>
+  </ConfigProvider>
 );
 
 export const PrimaryButton: React.FC<any> = ({ children, className = '', ...props }) => (
   <button
-    className={`bg-[#0d7a46] hover:bg-[#096036] disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-semibold py-2 px-5 rounded-md transition-colors shadow-sm ${className}`}
+    className={`bg-[#25a5cb] hover:bg-[#1f93b5] active:bg-[#1a82a1] disabled:opacity-50 disabled:cursor-not-allowed text-white text-xs font-bold py-2.5 px-5 rounded-xl transition-all shadow-md shadow-cyan-500/20 ${className}`}
     {...props}
   >
     {children}
@@ -17,7 +29,7 @@ export const PrimaryButton: React.FC<any> = ({ children, className = '', ...prop
 
 export const SecondaryButton: React.FC<any> = ({ children, className = '', ...props }) => (
   <button
-    className={`bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold py-2 px-4 rounded-md transition-colors shadow-sm ${className}`}
+    className={`bg-white hover:bg-slate-50 border border-slate-200 text-slate-700 text-xs font-semibold py-2.5 px-4 rounded-xl transition-colors shadow-sm ${className}`}
     {...props}
   >
     {children}
@@ -25,47 +37,60 @@ export const SecondaryButton: React.FC<any> = ({ children, className = '', ...pr
 );
 
 export const TextInput: React.FC<any> = ({ label, required, error, className = '', wrapperClassName = '', ...props }) => (
-  <div className={`space-y-1 ${wrapperClassName}`}>
-    {label && (
-      <label className="block text-xs font-semibold text-slate-700">
-        {label}
-        {required && <span className="text-red-500 ml-0.5">*</span>}
-      </label>
-    )}
-    <input
-      className={`w-full bg-white border border-slate-200 rounded-md px-3 py-2 text-xs text-slate-900 placeholder:text-slate-400 focus:outline-none focus:border-[#0d7a46] focus:ring-1 focus:ring-[#0d7a46] transition-colors ${className}`}
-      {...props}
-    />
-    {error && <div className="text-[11px] text-red-500 font-semibold">{error}</div>}
-  </div>
+  <ConfigProvider theme={cardTheme}>
+    <div className={`space-y-1.5 ${wrapperClassName}`}>
+      {label && (
+        <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600">
+          {label}
+          {required && <span className="text-rose-500 ml-0.5">*</span>}
+        </label>
+      )}
+      <Input
+        size="large"
+        className={`w-full !rounded-xl !text-xs !py-2.5 ${className}`}
+        status={error ? 'error' : undefined}
+        {...props}
+      />
+      {error && <div className="text-[11px] text-rose-500 font-semibold">{error}</div>}
+    </div>
+  </ConfigProvider>
 );
 
-export const Select: React.FC<any> = ({ label, required, options = [], placeholder, error, className = '', ...props }) => (
-  <div className="space-y-1">
-    {label && (
-      <label className="block text-xs font-semibold text-slate-700">
-        {label}
-        {required && <span className="text-red-500 ml-0.5">*</span>}
-      </label>
-    )}
-    <select
-      className={`w-full bg-white border border-slate-200 rounded-md px-3 py-2 text-xs text-slate-900 focus:outline-none focus:border-[#0d7a46] focus:ring-1 focus:ring-[#0d7a46] transition-colors ${className}`}
-      {...props}
-    >
-      {placeholder && <option value="">{placeholder}</option>}
-      {options.map((opt: any, idx: number) => {
-        const val = typeof opt === 'object' ? (opt.value ?? opt.id ?? idx) : opt;
-        const lbl = typeof opt === 'object' ? (opt.label ?? opt.name ?? val) : opt;
-        return (
-          <option key={`${val}-${idx}`} value={val}>
-            {lbl}
-          </option>
-        );
-      })}
-    </select>
-    {error && <div className="text-[11px] text-red-500 font-semibold">{error}</div>}
-  </div>
-);
+export const Select: React.FC<any> = ({ label, required, options = [], placeholder, value, onChange, error, className = '', ...props }) => {
+  const formattedOptions = options.map((opt: any, idx: number) => {
+    const val = typeof opt === 'object' ? (opt.value ?? opt.id ?? idx) : opt;
+    const lbl = typeof opt === 'object' ? (opt.label ?? opt.name ?? val) : opt;
+    return { value: val, label: lbl };
+  });
+
+  return (
+    <ConfigProvider theme={cardTheme}>
+      <div className="space-y-1.5">
+        {label && (
+          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600">
+            {label}
+            {required && <span className="text-rose-500 ml-0.5">*</span>}
+          </label>
+        )}
+        <AntSelect
+          size="large"
+          className={`w-full ${className}`}
+          placeholder={placeholder}
+          value={value || undefined}
+          onChange={(val) => {
+            if (onChange) {
+              onChange({ target: { value: val } });
+            }
+          }}
+          options={formattedOptions}
+          status={error ? 'error' : undefined}
+          {...props}
+        />
+        {error && <div className="text-[11px] text-rose-500 font-semibold">{error}</div>}
+      </div>
+    </ConfigProvider>
+  );
+};
 
 export const MultiSelect: React.FC<any> = ({
   label,
@@ -76,102 +101,38 @@ export const MultiSelect: React.FC<any> = ({
   placeholder = "Select facilities...",
   error,
   className = "",
+  ...props
 }) => {
-  const [isOpen, setIsOpen] = React.useState(false);
-  const containerRef = React.useRef<HTMLDivElement>(null);
-
-  React.useEffect(() => {
-    const handleClickOutside = (event: MouseEvent) => {
-      if (containerRef.current && !containerRef.current.contains(event.target as Node)) {
-        setIsOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  const toggleOption = (optVal: string) => {
-    const nextValue = value.includes(optVal)
-      ? value.filter((v: string) => v !== optVal)
-      : [...value, optVal];
-    onChange?.(nextValue);
-  };
+  const formattedOptions = options.map((opt: any, idx: number) => {
+    const val = typeof opt === 'object' ? (opt.value ?? opt.id ?? idx) : opt;
+    const lbl = typeof opt === 'object' ? (opt.label ?? opt.name ?? val) : opt;
+    return { value: val, label: lbl };
+  });
 
   return (
-    <div className={`space-y-1 relative ${className}`} ref={containerRef}>
-      {label && (
-        <label className="block text-xs font-semibold text-slate-700">
-          {label}
-          {required && <span className="text-red-500 ml-0.5">*</span>}
-        </label>
-      )}
-      <div
-        onClick={() => setIsOpen(!isOpen)}
-        className="w-full bg-white border border-slate-200 rounded-md px-3 py-2 text-xs min-h-[38px] cursor-pointer flex items-center justify-between gap-2 focus:outline-none focus:border-[#0d7a46] transition-colors"
-      >
-        <div className="flex flex-wrap gap-1 items-center">
-          {value.length === 0 ? (
-            <span className="text-slate-400">{placeholder}</span>
-          ) : (
-            options
-              .filter((opt: any) => {
-                const val = typeof opt === "object" ? (opt.value ?? opt.id) : opt;
-                return value.includes(val);
-              })
-              .map((opt: any, idx: number) => {
-                const val = typeof opt === "object" ? (opt.value ?? opt.id) : opt;
-                const lbl = typeof opt === "object" ? (opt.label ?? opt.name) : opt;
-                return (
-                  <span
-                    key={`${val}-${idx}`}
-                    className="inline-flex items-center gap-1 bg-[#f0fdf4] text-[#0d7a46] border border-[#0d7a46]/30 px-2 py-0.5 rounded text-[11px] font-medium"
-                  >
-                    {lbl}
-                    <span
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        toggleOption(val);
-                      }}
-                      className="hover:text-red-600 font-bold ml-0.5 cursor-pointer"
-                    >
-                      ×
-                    </span>
-                  </span>
-                );
-              })
-          )}
-        </div>
-        <span className="text-slate-400 text-[10px]">▼</span>
+    <ConfigProvider theme={cardTheme}>
+      <div className={`space-y-1.5 ${className}`}>
+        {label && (
+          <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600">
+            {label}
+            {required && <span className="text-rose-500 ml-0.5">*</span>}
+          </label>
+        )}
+        <AntSelect
+          mode="multiple"
+          size="large"
+          className="w-full"
+          placeholder={placeholder}
+          value={value}
+          onChange={(nextVal) => onChange?.(nextVal)}
+          options={formattedOptions}
+          status={error ? 'error' : undefined}
+          maxTagCount="responsive"
+          {...props}
+        />
+        {error && <div className="text-[11px] text-rose-500 font-semibold">{error}</div>}
       </div>
-
-      {isOpen && (
-        <div className="absolute z-50 w-full mt-1 bg-white border border-slate-200 rounded-md shadow-lg max-h-48 overflow-y-auto py-1">
-          {options.length === 0 ? (
-            <div className="px-3 py-2 text-xs text-slate-400 text-center">No facilities available</div>
-          ) : (
-            options.map((opt: any, idx: number) => {
-              const val = typeof opt === "object" ? (opt.value ?? opt.id ?? idx) : opt;
-              const lbl = typeof opt === "object" ? (opt.label ?? opt.name ?? val) : opt;
-              const selected = value.includes(val);
-
-              return (
-                <div
-                  key={`${val}-${idx}`}
-                  onClick={() => toggleOption(val)}
-                  className={`px-3 py-1.5 text-xs cursor-pointer flex items-center justify-between transition-colors ${
-                    selected ? "bg-[#f0fdf4] text-[#0d7a46] font-semibold" : "hover:bg-slate-50 text-slate-700"
-                  }`}
-                >
-                  <span>{lbl}</span>
-                  {selected && <span className="text-[#0d7a46] font-bold">✓</span>}
-                </div>
-              );
-            })
-          )}
-        </div>
-      )}
-      {error && <div className="text-[11px] text-red-500 font-semibold">{error}</div>}
-    </div>
+    </ConfigProvider>
   );
 };
 
@@ -186,11 +147,11 @@ export const Stepper: React.FC<any> = ({ steps = [], currentStep = 1 }) => (
         <React.Fragment key={idx}>
           <div className="flex items-center gap-2.5 shrink-0">
             <span
-              className={`h-7 w-7 rounded-full flex items-center justify-center text-xs font-semibold transition-colors ${
+              className={`h-8 w-8 rounded-xl flex items-center justify-center text-xs font-bold transition-all shadow-sm ${
                 isCompleted
-                  ? 'bg-[#0d7a46] text-white'
+                  ? 'bg-[#25a5cb] text-white shadow-cyan-500/20'
                   : isActive
-                  ? 'bg-[#0d7a46] text-white'
+                  ? 'bg-[#25a5cb] text-white shadow-cyan-500/30 ring-4 ring-cyan-500/15'
                   : 'bg-white border border-slate-300 text-slate-400'
               }`}
             >
@@ -205,10 +166,10 @@ export const Stepper: React.FC<any> = ({ steps = [], currentStep = 1 }) => (
             <span
               className={`text-xs whitespace-nowrap ${
                 isActive
-                  ? 'text-slate-900 font-bold'
+                  ? 'text-[#1d769f] font-extrabold'
                   : isCompleted
-                  ? 'text-slate-700 font-medium'
-                  : 'text-slate-400 font-normal'
+                  ? 'text-slate-700 font-semibold'
+                  : 'text-slate-400 font-medium'
               }`}
             >
               {st.label}
@@ -218,7 +179,7 @@ export const Stepper: React.FC<any> = ({ steps = [], currentStep = 1 }) => (
           {idx < steps.length - 1 && (
             <div
               className={`flex-1 h-[2px] mx-3 min-w-[20px] transition-colors ${
-                currentStep > stepNumber ? 'bg-[#0d7a46]' : 'bg-slate-200'
+                currentStep > stepNumber ? 'bg-[#25a5cb]' : 'bg-slate-200'
               }`}
             />
           )}
