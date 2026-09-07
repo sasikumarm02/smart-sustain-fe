@@ -38,9 +38,25 @@ export const LeftSidebar: React.FC<NavbarProps> = ({ activeView, setActiveView }
     setShowOrgDropdown(false);
   };
 
+  const [expandedNav, setExpandedNav] = useState<string | null>(null);
+
   const mainNav = [
     { id: 'home', label: 'Home', icon: Home },
     { id: 'analytics', label: 'Dashboard', icon: LayoutDashboard },
+    { id: 'scope-one', label: 'Scope 1 Emissions', icon: Leaf },
+    { id: 'scope-two', label: 'Scope 2 Emissions', icon: Leaf },
+    { 
+      id: 'scope-three', 
+      label: 'Scope 3 Emissions', 
+      icon: Leaf,
+      subItems: [
+        { id: 'scope-three-cat1', label: 'Category 1' },
+        { id: 'scope-three-cat2', label: 'Category 2' },
+        { id: 'scope-three-cat3', label: 'Category 3' },
+        { id: 'scope-three-cat5', label: 'Category 5' },
+        { id: 'scope-three-cat6', label: 'Category 6' },
+      ]
+    },
     { id: 'maturity', label: 'Maturity Assessment', icon: BarChart3 },
     { id: 'facilities', label: 'Environmental', icon: Leaf },
     { id: 'social', label: 'Social', icon: Users },
@@ -112,22 +128,56 @@ export const LeftSidebar: React.FC<NavbarProps> = ({ activeView, setActiveView }
         <div className="space-y-1">
           {mainNav.map((item) => {
             const Icon = item.icon;
-            const isActive = activeView === item.id;
+            const isActive = activeView === item.id || (item.subItems && item.subItems.some(sub => activeView === sub.id || activeView.startsWith(sub.id)));
+            const isExpanded = expandedNav === item.id || isActive;
+
             return (
-              <button
-                key={item.id}
-                onClick={() => setActiveView(item.id)}
-                className={`w-full px-3 py-2.5 rounded-xl text-xs font-medium flex items-center justify-between transition-all cursor-pointer ${
-                  isActive
-                    ? 'bg-[#e6f7ff] text-[#0088cc] font-bold border-r-4 border-[#0088cc] shadow-xs'
-                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
-                }`}
-              >
-                <div className="flex items-center gap-3">
-                  <Icon className={`h-4 w-4 ${isActive ? 'text-[#0088cc]' : 'text-slate-400'}`} />
-                  <span>{item.label}</span>
-                </div>
-              </button>
+              <div key={item.id} className="w-full">
+                <button
+                  onClick={() => {
+                    if (item.subItems) {
+                      setExpandedNav(isExpanded ? null : item.id);
+                    } else {
+                      setActiveView(item.id);
+                    }
+                  }}
+                  className={`w-full px-3 py-2.5 rounded-xl text-xs font-medium flex items-center justify-between transition-all cursor-pointer ${
+                    isActive && !item.subItems
+                      ? 'bg-[#e6f7ff] text-[#0088cc] font-bold border-r-4 border-[#0088cc] shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon className={`h-4 w-4 ${isActive ? 'text-[#0088cc]' : 'text-slate-400'}`} />
+                    <span className={isActive && item.subItems ? 'text-[#0088cc] font-bold' : ''}>{item.label}</span>
+                  </div>
+                  {item.subItems && (
+                    <ChevronDown className={`h-3.5 w-3.5 transition-transform ${isExpanded ? 'rotate-180' : ''}`} />
+                  )}
+                </button>
+                
+                {/* Sub Items Dropdown */}
+                {item.subItems && isExpanded && (
+                  <div className="mt-1 ml-4 pl-3 border-l border-slate-200 space-y-1">
+                    {item.subItems.map(subItem => {
+                      const isSubActive = activeView === subItem.id || activeView.startsWith(subItem.id);
+                      return (
+                        <button
+                          key={subItem.id}
+                          onClick={() => setActiveView(subItem.id)}
+                          className={`w-full px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-all cursor-pointer ${
+                            isSubActive
+                              ? 'bg-[#e6f7ff] text-[#0088cc] font-bold shadow-xs'
+                              : 'text-slate-500 hover:text-slate-800 hover:bg-slate-50'
+                          }`}
+                        >
+                          {subItem.label}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
+              </div>
             );
           })}
         </div>

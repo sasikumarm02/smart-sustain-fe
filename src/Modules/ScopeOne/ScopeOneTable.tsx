@@ -1,17 +1,21 @@
 import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useEmission } from '../../context/EmissionContext';
-import { Flame, CheckCircle2, AlertTriangle, ListFilter } from 'lucide-react';
+import { CheckCircle2, AlertTriangle, ChevronDown, Check, Trash2 } from 'lucide-react';
 import TableComponent from '../../DesignLibrary/TableComponent';
 import ButtonComponent from '../../DesignLibrary/ButtonComponent';
 import PageCardComponent from '../../DesignLibrary/PageCardComponent';
+import TabsComponent from '../../DesignLibrary/TabsComponent';
+import SelectComponent from '../../DesignLibrary/SelectComponent';
 
-export const ScopeOneTable: React.FC = () => {
+export const ScopeOneTable: React.FC<{ setActiveView?: (view: string) => void }> = ({ setActiveView }) => {
   const { activeFacility, currentOrg } = useAuth();
   const { records, submitForReview } = useEmission();
   const [feedbackMessage, setFeedbackMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
+  const [activeTab, setActiveTab] = useState('1');
 
   // Filter records for Scope 1 only, and for the current facility/org
+  // Since we don't have true subcategories in mock data yet, we can filter or just display them all for now.
   const scopeOneRecords = records.filter(
     (r) => r.scope === 'Scope 1' && (r.facilityId === activeFacility?.id || r.organisationId === currentOrg?.id)
   );
@@ -23,83 +27,122 @@ export const ScopeOneTable: React.FC = () => {
   };
 
   const columns = [
-    { title: 'Period', dataIndex: 'reportingPeriod', key: 'reportingPeriod', onFilter: true, sorter: true },
-    { title: 'Category (Source)', dataIndex: 'categoryName', key: 'categoryName', onFilter: true, sorter: true },
-    { 
-      title: 'Activity Qty', 
-      dataIndex: 'activityValue', 
-      key: 'activityValue', 
-      render: (text: any, record: any) => `${record.activityValue} ${record.unit}` 
-    },
-    { title: 'Factor Source', dataIndex: 'factorSource', key: 'factorSource' },
-    { 
-      title: 'Emissions (tCO₂e)', 
-      dataIndex: 'calculatedEmission', 
-      key: 'calculatedEmission',
-      render: (text: any, record: any) => <span className="font-bold text-amber-600">{record.calculatedEmission}</span>
-    },
-    { 
-      title: 'Status', 
-      dataIndex: 'status', 
+    {
+      title: 'Status',
+      dataIndex: 'status',
       key: 'status',
       render: (text: any, record: any) => (
-        <span className={`badge ${
-          record.status === 'APPROVED' ? 'badge-emerald' : record.status === 'SUBMITTED' ? 'badge-amber' : record.status === 'REJECTED' ? 'badge-rose' : 'badge-cyan'
-        }`}>
-          {record.status}
+        <span className="flex items-center gap-1.5 text-xs">
+          <span className={`h-2 w-2 rounded-full ${record.status === 'APPROVED' ? 'bg-emerald-500' : record.status === 'SUBMITTED' ? 'bg-amber-500' : record.status === 'REJECTED' ? 'bg-rose-500' : 'bg-cyan-500'}`}></span>
+          <span className={record.status === 'APPROVED' ? 'text-emerald-700' : record.status === 'SUBMITTED' ? 'text-amber-700' : record.status === 'REJECTED' ? 'text-rose-700' : 'text-cyan-700'}>
+            {record.status === 'APPROVED' ? 'Approved' : record.status === 'DRAFT' ? 'Draft' : record.status === 'SUBMITTED' ? 'Submitted' : 'Rejected'}
+          </span>
         </span>
       )
     },
-    { 
-      title: 'Actions', 
-      dataIndex: 'actions', 
+    { title: 'Fuel Type', dataIndex: 'categoryName', key: 'categoryName' },
+    {
+      title: 'Total Quantity',
+      dataIndex: 'activityValue',
+      key: 'activityValue',
+      render: (text: any, record: any) => <span>{(record.activityValue || 200).toFixed(2)}</span>
+    },
+    {
+      title: 'UOM',
+      dataIndex: 'unit',
+      key: 'unit',
+      render: (text: any, record: any) => <span>{record.unit || 'tonnes'}</span>
+    },
+    {
+      title: 'View More',
+      dataIndex: 'viewMore',
+      key: 'viewMore',
+      render: () => <ChevronDown className="h-4 w-4 text-blue-600 cursor-pointer" />
+    },
+    {
+      title: 'Action',
+      dataIndex: 'actions',
       key: 'actions',
-      render: (text: any, record: any) => record.status === 'DRAFT' ? (
-        <ButtonComponent size="sm" hierarchy="secondary-gray" onClick={() => handleSubmitForReview(record.id)}>
-          Submit
-        </ButtonComponent>
-      ) : null
+      render: (text: any, record: any) => (
+        <div className="flex items-center gap-2">
+          <div className="h-6 w-6 rounded bg-gray-100 flex items-center justify-center cursor-pointer hover:bg-gray-200">
+            <Check className="h-3 w-3 text-gray-400" />
+          </div>
+          <div className="h-6 w-6 rounded bg-gray-100 flex items-center justify-center cursor-pointer hover:bg-gray-200">
+            <Trash2 className="h-3 w-3 text-gray-400" />
+          </div>
+        </div>
+      )
     }
   ];
 
+  const tabs = [
+    { key: '1', tab: 'Stationary Combustion' },
+    { key: '2', tab: 'Mobile Combustion' },
+    { key: '3', tab: 'Process Emissions' },
+    { key: '4', tab: 'Fugitive Emissions' }
+  ];
+
+  const facilityOptions = [
+    { value: 'Facility 1', label: 'Facility 1' },
+    { value: 'Facility 2', label: 'Facility 2' }
+  ];
+
+  const tabBarExtra = (
+    <div className="flex items-center gap-4 py-2">
+      <div className="flex items-center gap-2">
+        <span className="text-sm text-gray-600">Facility:</span>
+        <SelectComponent
+          options={facilityOptions}
+          value="Facility 1"
+        // customClass="w-32 h-8"
+        />
+      </div>
+      <button
+        onClick={() => setActiveView && setActiveView('scope-one-form')}
+        className="bg-[#036323] hover:bg-[#024f1b] text-white px-4 py-1.5 rounded text-sm font-medium flex items-center gap-1 transition-colors"
+      >
+        Add <span>+</span>
+      </button>
+    </div>
+  );
+
   return (
-    <div className="space-y-6">
-      <PageCardComponent>
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 border-l-4 border-amber-500 pl-4">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-semibold text-amber-500 uppercase tracking-wider mb-1">
-              <Flame className="h-4 w-4" /> Scope 1 Emissions Data
-            </div>
-            <h2 className="text-2xl font-bold text-gray-800 m-0">Direct Emissions Inventory</h2>
-            <p className="text-sm text-gray-500 mt-1">
-              Stationary Combustion, Mobile Combustion, Process Emissions, and Fugitive Emissions.
-            </p>
-          </div>
-        </div>
-      </PageCardComponent>
+    <div className="space-y-4">
+      {/* Page Title */}
+      <div className="flex items-center text-sm">
+        <span className="font-bold text-[#001D3D] text-lg">GHG Emission</span>
+        <span className="mx-2 text-gray-400">&gt;</span>
+        <span className="text-[#036323] text-lg">Scope 1</span>
+      </div>
 
       {feedbackMessage && (
-        <div className={`p-4 rounded-xl border text-xs font-semibold flex items-center gap-2 ${
-            feedbackMessage.type === 'success' ? 'bg-emerald-50 border-emerald-200 text-emerald-600' : 'bg-rose-50 border-rose-200 text-rose-600'
-        }`}>
+        <div className={`p-4 rounded-xl border text-xs font-semibold flex items-center gap-2 ${feedbackMessage.type === 'success' ? 'bg-emerald-50 border-emerald-200 text-emerald-600' : 'bg-rose-50 border-rose-200 text-rose-600'
+          }`}>
           {feedbackMessage.type === 'success' ? <CheckCircle2 className="h-4 w-4" /> : <AlertTriangle className="h-4 w-4" />}
           {feedbackMessage.text}
         </div>
       )}
 
-      <PageCardComponent>
-        <div className="flex justify-between items-center mb-4">
-          <h3 className="text-lg font-bold text-gray-800 m-0 flex items-center gap-2">
-            <ListFilter className="h-5 w-5 text-gray-400" /> Activity Records
-          </h3>
+      {/* Main Card with Tabs and Table */}
+      <PageCardComponent customClass="p-0 overflow-hidden bg-white shadow-sm rounded-xl">
+        <div className="px-6 pt-4 border-b border-gray-100">
+          <TabsComponent
+            tabs={tabs}
+            defaultActiveKey="1"
+            onChange={(key) => setActiveTab(key)}
+            tabBarExtraContent={tabBarExtra}
+          />
         </div>
 
-        <TableComponent 
-          data={scopeOneRecords}
-          columnHeader={columns}
-          enableRowSelection={false}
-          noText="No Scope 1 activity data records found."
-        />
+        <div className="p-6 pt-2">
+          <TableComponent
+            data={scopeOneRecords}
+            columnHeader={columns}
+            enableRowSelection={false}
+            noText="No activity records found for this category."
+          />
+        </div>
       </PageCardComponent>
     </div>
   );

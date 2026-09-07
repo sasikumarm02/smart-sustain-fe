@@ -17,7 +17,6 @@ import {
 } from 'lucide-react';
 
 import TabsComponent from '../../DesignLibrary/TabsComponent';
-import ButtonComponent from '../../DesignLibrary/ButtonComponent';
 import InputComponent from '../../DesignLibrary/InputComponent';
 import SelectComponent from '../../DesignLibrary/SelectComponent';
 import PageCardComponent from '../../DesignLibrary/PageCardComponent';
@@ -32,9 +31,12 @@ const TABS: { id: TabType; label: string; icon: React.ElementType }[] = [
   { id: 'Fugitive', label: 'Fugitive Emissions', icon: Wind },
 ];
 
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+const MONTHS = [
+  'May-26', 'Jun-26', 'Jul-26', 'Aug-26', 'Sep-26', 'Oct-26', 
+  'Nov-26', 'Dec-26', 'Jan-27', 'Feb-27', 'Mar-27', 'Apr-27'
+];
 
-export const ScopeOneForm: React.FC = () => {
+export const ScopeOneForm: React.FC<{ setActiveView?: (view: string) => void }> = ({ setActiveView }) => {
   const { activeFacility, currentOrg, role } = useAuth();
   const { addActivityRecord } = useEmission();
   const { factors } = useConfig();
@@ -44,7 +46,6 @@ export const ScopeOneForm: React.FC = () => {
   const [feedbackMessage, setFeedbackMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
   // Form State
-  const [equipmentType, setEquipmentType] = useState('');
   const [fuelOrGas, setFuelOrGas] = useState('');
   const [uom, setUom] = useState('');
   const [monthlyData, setMonthlyData] = useState<Record<string, string>>({});
@@ -84,9 +85,8 @@ export const ScopeOneForm: React.FC = () => {
       return;
     }
 
-    const totalActivity = entryMode === 'Manual' ? calculateTotal() : 0; // In reality, we'd parse Excel here
+    const totalActivity = entryMode === 'Manual' ? calculateTotal() : 0;
 
-    // Find the closest factor based on the selected fuel/gas (simplified for UI demonstration)
     const currentFactor = scopeOneFactors[0] || factors[0];
 
     const res = addActivityRecord({
@@ -95,7 +95,7 @@ export const ScopeOneForm: React.FC = () => {
       organisationId: currentOrg.id,
       scope: 'Scope 1',
       categoryName: `${activeTab} - ${fuelOrGas || 'Bulk Upload'}`,
-      activityValue: totalActivity || 1000, // Dummy value if excel
+      activityValue: totalActivity || 1000, 
       unit: uom || currentFactor.unit.split('/')[1]?.trim() || 'Units',
       reportingPeriod: '2026-FY',
       factorApplied: currentFactor.factorValue,
@@ -104,7 +104,6 @@ export const ScopeOneForm: React.FC = () => {
 
     setFeedbackMessage({ text: res.message, type: 'success' });
     setMonthlyData({});
-    setEquipmentType('');
     setFuelOrGas('');
     setUom('');
     setUploadedFile(null);
@@ -112,36 +111,20 @@ export const ScopeOneForm: React.FC = () => {
   };
 
   const tabItems = TABS.map(t => ({
-    tab: (
-      <div className="flex items-center gap-2">
-        <t.icon className="h-4 w-4" /> {t.label}
-      </div>
-    ),
+    tab: <div className="px-2">{t.label}</div>,
     key: t.id
   }));
 
   return (
-    <div className="space-y-6">
-      {/* Header */}
-      <PageCardComponent>
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <div className="flex items-center gap-2 text-xs font-semibold text-emerald-500 uppercase tracking-wider mb-1">
-              <Flame className="h-4 w-4" /> Scope 1 Data Ingestion
-            </div>
-            <h2 className="text-2xl font-bold text-gray-800 m-0">Direct Emissions Form</h2>
-            <p className="text-sm text-gray-500 mt-1">
-              Manage Stationary, Mobile, Process, and Fugitive emission activity data.
-            </p>
-          </div>
-
-          <div className="flex items-center gap-2">
-            <span className="badge badge-emerald text-xs font-mono">
-              Active Facility: {activeFacility?.name}
-            </span>
-          </div>
-        </div>
-      </PageCardComponent>
+    <div className="space-y-4">
+      {/* Page Title */}
+      <div className="flex items-center text-sm mb-4">
+        <span className="font-bold text-[#001D3D] text-lg">GHG Emission</span>
+        <span className="mx-2 text-gray-400">&gt;</span>
+        <span className="font-bold text-[#001D3D] text-lg cursor-pointer hover:text-[#036323]" onClick={() => setActiveView && setActiveView('scope-one')}>Scope 1</span>
+        <span className="mx-2 text-gray-400">&gt;</span>
+        <span className="text-[#036323] text-lg">Form</span>
+      </div>
 
       {feedbackMessage && (
         <div
@@ -161,9 +144,9 @@ export const ScopeOneForm: React.FC = () => {
       )}
 
       {/* Form Container */}
-      <PageCardComponent>
+      <PageCardComponent customClass="p-8 pb-4 bg-white shadow-sm rounded-xl">
         {/* Main Tabs */}
-        <div className="mb-6">
+        <div className="mb-6 border-b border-gray-100">
           <TabsComponent 
             tabs={tabItems} 
             defaultActiveKey={activeTab} 
@@ -172,115 +155,110 @@ export const ScopeOneForm: React.FC = () => {
         </div>
 
         {/* Entry Mode Toggle */}
-        <div className="flex gap-4 mb-8 bg-gray-100 p-1.5 rounded-lg w-fit">
-          <ButtonComponent
-            hierarchy={entryMode === 'Manual' ? 'primary' : 'secondary-gray'}
+        <div className="flex gap-4 mb-8 w-fit">
+          <button
+            type="button"
+            className={`px-4 py-2 rounded font-semibold text-sm flex items-center gap-2 ${entryMode === 'Manual' ? 'bg-[#036323] text-white' : 'bg-white text-[#036323] border border-[#036323]'}`}
             onClick={() => setEntryMode('Manual')}
-            icon={<FileEdit className="h-4 w-4" />}
           >
-            Manual Data Entry
-          </ButtonComponent>
-          <ButtonComponent
-            hierarchy={entryMode === 'Excel' ? 'primary' : 'secondary-gray'}
+            <FileEdit className="h-4 w-4" /> Input Data Entry
+          </button>
+          <button
+            type="button"
+            className={`px-4 py-2 rounded font-semibold text-sm flex items-center gap-2 ${entryMode === 'Excel' ? 'bg-[#036323] text-white' : 'bg-white text-[#036323] border border-[#036323]'}`}
             onClick={() => setEntryMode('Excel')}
-            icon={<FileSpreadsheet className="h-4 w-4" />}
           >
-            Excel Bulk Upload
-          </ButtonComponent>
+            <FileSpreadsheet className="h-4 w-4" /> Excel Data Entry
+          </button>
         </div>
 
         <form onSubmit={handleSubmit} className="space-y-8">
           {entryMode === 'Manual' ? (
-            <div className="space-y-8 animate-in fade-in duration-500">
+            <div className="space-y-12 animate-in fade-in duration-500">
               {/* Metadata Row */}
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-                <div>
-                  <label className="block text-xs font-semibold text-gray-500 mb-2">
-                    {activeTab === 'Mobile' ? 'Vehicle Type' : 'Equipment Type'}
-                  </label>
-                  <SelectComponent 
-                    options={[
-                      { label: 'Generator', value: 'Generator' },
-                      { label: 'Boiler', value: 'Boiler' },
-                      { label: 'Fleet Vehicle', value: 'Fleet Vehicle' },
-                      { label: 'HVAC System', value: 'HVAC' }
-                    ]}
-                    value={equipmentType}
-                    onChange={(v: string) => setEquipmentType(v)}
-                    placeHolder="Select Type"
-                  />
-                </div>
-                <div>
-                  <label className="block text-xs font-semibold text-gray-500 mb-2">
-                    {activeTab === 'Stationary' || activeTab === 'Mobile' ? 'Fuel Type' : 'Gas/Refrigerant'}
+              <div className="flex items-end gap-6 mb-8">
+                <div className="w-64">
+                  <label className="block text-xs font-semibold text-gray-400 mb-2">
+                    Fuel Type*
                   </label>
                   <SelectComponent 
                     options={[
                       { label: 'Diesel', value: 'Diesel' },
                       { label: 'Petrol', value: 'Petrol' },
                       { label: 'Natural Gas', value: 'Natural Gas' },
-                      { label: 'R-134a', value: 'R-134a' }
                     ]}
                     value={fuelOrGas}
                     onChange={(v: string) => setFuelOrGas(v)}
-                    placeHolder={`Select ${activeTab === 'Stationary' || activeTab === 'Mobile' ? 'Fuel' : 'Gas'}`}
+                    placeHolder=""
                   />
                 </div>
-                <div>
-                  <label className="block text-xs font-semibold text-gray-500 mb-2">Unit of Measure (UOM)</label>
+                <div className="w-64">
+                  <label className="block text-xs font-semibold text-gray-400 mb-2">
+                    UOM*
+                  </label>
                   <SelectComponent 
                     options={[
                       { label: 'Liters', value: 'Liters' },
                       { label: 'Gallons', value: 'Gallons' },
                       { label: 'Kg', value: 'Kg' },
-                      { label: 'm³', value: 'm3' }
                     ]}
                     value={uom}
                     onChange={(v: string) => setUom(v)}
-                    placeHolder="Select UOM"
+                    placeHolder=""
                   />
+                </div>
+                <button type="button" className="bg-[#036323] hover:bg-[#024f1b] text-white h-10 w-10 rounded flex items-center justify-center transition-colors mb-0.5">
+                  <Plus className="h-5 w-5" />
+                </button>
+              </div>
+
+              {/* Monthly Breakdown */}
+              <div className="mb-8 space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-24 text-sm text-gray-500 text-left">Month :</div>
+                  <div className="flex flex-1 gap-2">
+                    {MONTHS.map((month) => (
+                      <div key={`label-${month}`} className="flex-1 text-center text-sm text-gray-500">{month}</div>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-24 text-sm text-gray-500 text-left">Quantity :</div>
+                  <div className="flex flex-1 gap-2">
+                    {MONTHS.map((month) => (
+                      <div key={`input-${month}`} className="flex-1">
+                        <InputComponent
+                          type="text"
+                          value={monthlyData[month] || ''}
+                          onChange={(e: any) => handleMonthChange(month, e.target.value)}
+                          placeHolder="10000"
+                        />
+                      </div>
+                    ))}
+                  </div>
                 </div>
               </div>
 
-              {/* Monthly Breakdown Grid */}
-              <div>
-                <h3 className="text-sm font-bold text-gray-700 mb-4 border-b pb-2">Monthly Activity Breakdown</h3>
-                <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-6 gap-4">
-                  {MONTHS.map((month) => (
-                    <div key={month} className="bg-gray-50 p-3 rounded-xl border border-gray-200">
-                      <label className="block text-[11px] font-bold text-gray-500 uppercase tracking-wider mb-1.5">{month}</label>
-                      <InputComponent
-                        type="number"
-                        value={monthlyData[month] || ''}
-                        onChange={(e: any) => handleMonthChange(month, e.target.value)}
-                        placeHolder="0.00"
-                      />
-                    </div>
-                  ))}
-                </div>
-                
-                <div className="mt-6 flex justify-end">
-                  <div className="bg-emerald-50 border border-emerald-200 px-6 py-3 rounded-lg flex items-center gap-4">
-                    <span className="text-xs font-semibold text-emerald-700 uppercase tracking-widest">Total Activity:</span>
-                    <span className="text-xl font-bold font-mono text-emerald-600">
-                      {calculateTotal().toLocaleString()} {uom || 'Units'}
-                    </span>
+              {/* Attachments */}
+              <div className="flex gap-4 items-center border-t border-gray-100 pt-8">
+                <div className="w-24 text-sm text-gray-500 text-left">Attachments :</div>
+                <div className="flex-1">
+                  <div className="border rounded-lg p-2.5 flex items-center gap-2 cursor-pointer border-gray-300 hover:border-[#036323] transition-colors w-80 text-center justify-center relative bg-white">
+                    <input 
+                      type="file" 
+                      accept=".xlsx, .xls, .csv, .pdf, .png, .jpg" 
+                      onChange={handleFileUpload}
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                    />
+                    <UploadCloud className="h-5 w-5 text-[#036323]" />
+                    <span className="text-sm text-gray-600">Click or drag file to this area to upload</span>
                   </div>
                 </div>
               </div>
             </div>
           ) : (
             <div className="animate-in fade-in duration-500">
-              <div className="text-center mb-6">
-                <p className="text-sm text-gray-500">
-                  Download the template file and fill up the user details in the given format.
-                </p>
-                <button type="button" className="mt-2 text-emerald-600 hover:text-emerald-500 text-xs font-semibold underline underline-offset-4 transition-colors">
-                  Download {activeTab} Template.xlsx
-                </button>
-              </div>
-
-              <div className="relative border-2 border-dashed border-gray-300 hover:border-emerald-400 rounded-2xl p-12 transition-all bg-gray-50 group">
+               <div className="relative border-2 border-dashed border-gray-300 hover:border-emerald-400 rounded-2xl p-12 transition-all bg-gray-50 group">
                 <input 
                   type="file" 
                   accept=".xlsx, .xls, .csv" 
@@ -299,52 +277,42 @@ export const ScopeOneForm: React.FC = () => {
                   </div>
                 </div>
               </div>
-
-              {uploadedFile && (
-                <div className="mt-4 flex items-center justify-between p-4 bg-white border border-emerald-200 rounded-xl">
-                  <div className="flex items-center gap-3">
-                    <FileSpreadsheet className="h-5 w-5 text-emerald-500" />
-                    <div>
-                      <p className="text-sm font-semibold text-gray-700">{uploadedFile.name}</p>
-                      <p className="text-[10px] text-gray-500">{(uploadedFile.size / 1024).toFixed(2)} KB</p>
-                    </div>
-                  </div>
-                  <ButtonComponent 
-                    hierarchy="secondary-gray"
-                    onClick={() => setUploadedFile(null)}
-                    icon={<Trash2 className="h-4 w-4" />}
-                  />
-                </div>
-              )}
             </div>
           )}
 
           {/* Form Actions */}
-          <div className="flex justify-end gap-3 pt-6 border-t border-gray-200">
-            <ButtonComponent 
-              hierarchy="secondary-gray"
+          <div className="flex justify-end gap-3 pt-12 pb-4">
+            <button
+              type="button"
+              className="text-[#036323] font-bold text-sm px-6 py-2"
+              onClick={() => setActiveView && setActiveView('scope-one')}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              className="border border-[#036323] text-[#036323] font-bold text-sm px-6 py-2 rounded"
               onClick={() => {
                 setMonthlyData({});
-                setEquipmentType('');
                 setFuelOrGas('');
                 setUom('');
                 setUploadedFile(null);
               }}
             >
-              Reset Form
-            </ButtonComponent>
-            <ButtonComponent 
-              hierarchy="primary"
-              htmlType="submit"
+              Reset
+            </button>
+            <button
+              type="submit"
               disabled={role === 'DATA_REVIEWER' || (entryMode === 'Excel' && !uploadedFile)}
-              icon={<Plus className="h-4 w-4" />}
+              className="bg-[#94a3b8] text-white font-bold text-sm px-6 py-2 rounded"
             >
-              Submit {activeTab} Data
-            </ButtonComponent>
+              Submit
+            </button>
           </div>
         </form>
       </PageCardComponent>
     </div>
   );
 };
+
 export default ScopeOneForm;
