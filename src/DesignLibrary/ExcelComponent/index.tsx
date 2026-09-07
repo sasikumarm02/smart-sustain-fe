@@ -1,6 +1,6 @@
 import { useRef, useState } from 'react';
 import { DownloadTableExcel } from 'react-export-table-to-excel-xlsx';
-import ExcelIcon from '../../assets/Svg/ExcelIcon';
+import ExcelIcon from '../../assets/svg/ExcelIcon';
 import { isEmpty } from '../../Utils/isEmpty';
 import { Button, message } from 'antd';
 

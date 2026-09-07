@@ -10,8 +10,8 @@ import {
   PageCardComponent,
   TableComponent,
 } from '../index';
-import InputPrefixSampleIcon from '../../assets/Svg/DesignLibrary/InputPrefixSampleIcon';
-import InputSuffixSampleIcon from '../../assets/Svg/DesignLibrary/InputSuffixSampleIcon';
+import InputPrefixSampleIcon from '../../assets/svg/DesignLibrary/InputPrefixSampleIcon';
+import InputSuffixSampleIcon from '../../assets/svg/DesignLibrary/InputSuffixSampleIcon';
 import Styles from './samplerendering.module.scss';
 
 const SampleRenderingComponent: React.FC<any> = () => {

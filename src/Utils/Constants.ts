@@ -1,0 +1,23 @@
+const {
+  REACT_APP_IMAGE_KEY,
+  REACT_APP_API_URL,
+  REACT_APP_API_BASE,
+  REACT_APP_STRIPE_KEY,
+  REACT_APP_STRIPE_DOMAIN,
+  REACT_APP_INACTIVITY_TIMEOUT,
+  REACT_APP_LOGOUT_TIMEOUT,
+  REACT_APP_CURRENCY_CODE,
+  REACT_APP_REFRESH_TIME,
+  REACT_APP_SALT,
+} = process.env;
+
+export const saltCode = REACT_APP_SALT || "",
+  currencyCode = REACT_APP_CURRENCY_CODE || "",
+  logoutTimout = REACT_APP_LOGOUT_TIMEOUT,
+  refreshTokenTime = REACT_APP_REFRESH_TIME,
+  inaAcitvityTimeout = REACT_APP_INACTIVITY_TIMEOUT,
+  stripeDomain = REACT_APP_STRIPE_DOMAIN || "",
+  stripeSecret = REACT_APP_STRIPE_KEY || "",
+  apiURL = REACT_APP_API_URL || "",
+  basePath = REACT_APP_API_BASE || "api",
+  imageKey = REACT_APP_IMAGE_KEY;
