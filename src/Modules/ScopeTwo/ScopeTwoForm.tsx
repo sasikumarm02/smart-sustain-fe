@@ -2,361 +2,326 @@ import React, { useState } from 'react';
 import { useAuth } from '../../context/AuthContext';
 import { useEmission } from '../../context/EmissionContext';
 import { useConfig } from '../../context/ConfigContext';
-import {
-  Zap,
-  UploadCloud,
-  FileEdit,
-  Plus,
-  CheckCircle2,
-  AlertTriangle,
-  FileSpreadsheet,
-  Trash2
+import { 
+  Zap, 
+  UploadCloud, 
+  FileEdit, 
+  Plus, 
+  CheckCircle2, 
+  AlertTriangle, 
+  FileSpreadsheet
 } from 'lucide-react';
 
 import TabsComponent from '../../DesignLibrary/TabsComponent';
-import ButtonComponent from '../../DesignLibrary/ButtonComponent';
 import InputComponent from '../../DesignLibrary/InputComponent';
 import SelectComponent from '../../DesignLibrary/SelectComponent';
 import PageCardComponent from '../../DesignLibrary/PageCardComponent';
 
+type TabType = 'Energy Consumption';
 type EntryMode = 'Manual' | 'Excel';
 
-const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
-
-const ENERGY_SOURCES = [
-  { value: 'Electricity from public utility', label: 'Electricity from public utility' },
-  { value: 'Electricity from third parties (Non-renewable)', label: 'Electricity from third parties (Non-renewable)' },
-  { value: 'Electricity from third parties (Renewable)', label: 'Electricity from third parties (Renewable)' },
-  { value: 'Gas', label: 'Gas' },
-  { value: 'Heating', label: 'Heating' },
-  { value: 'Cooling', label: 'Cooling' },
-  { value: 'Steam', label: 'Steam' },
+const TABS: { id: TabType; label: string; icon: React.ElementType }[] = [
+  { id: 'Energy Consumption', label: 'Energy Consumption', icon: Zap },
 ];
 
-const UOM_OPTIONS = [
-  { value: 'kWh', label: 'kWh' },
-  { value: 'MWh', label: 'MWh' },
-  { value: 'GJ', label: 'GJ' },
-  { value: 'Therms', label: 'Therms' },
+const MONTHS = [
+  'May-26', 'Jun-26', 'Jul-26', 'Aug-26', 'Sep-26', 'Oct-26', 
+  'Nov-26', 'Dec-26', 'Jan-27', 'Feb-27', 'Mar-27', 'Apr-27'
 ];
 
-interface MonthlyData {
-  month: string;
-  quantity: string;
-}
-
-interface EnergyEntry {
-  id: string;
-  energySource: string;
-  vehicleType?: string; // Only for Electricity for EVs if requested
-  uom: string;
-  monthlyData: Record<string, string>;
-  attachments: File[];
-}
-
-export default function ScopeTwoForm() {
-  const { user, activeFacility, currentOrg, role } = useAuth();
+export default function ScopeTwoForm({ setActiveView }: { setActiveView?: (view: string) => void }) {
+  const { activeFacility, currentOrg, role } = useAuth();
   const { addActivityRecord } = useEmission();
   const { factors } = useConfig();
 
+  const [activeTab, setActiveTab] = useState<TabType>('Energy Consumption');
   const [entryMode, setEntryMode] = useState<EntryMode>('Manual');
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
-  const [statusMessage, setStatusMessage] = useState('');
+  const [feedbackMessage, setFeedbackMessage] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
   // Form State
-  const [entries, setEntries] = useState<EnergyEntry[]>([
-    {
-      id: crypto.randomUUID(),
-      energySource: '',
-      uom: '',
-      monthlyData: MONTHS.reduce((acc, month) => ({ ...acc, [month]: '' }), {}),
-      attachments: [],
-    }
-  ]);
+  const [energySource, setEnergySource] = useState('');
+  const [vehicleType, setVehicleType] = useState('');
+  const [uom, setUom] = useState('');
+  const [monthlyData, setMonthlyData] = useState<Record<string, string>>({});
+  const [uploadedFile, setUploadedFile] = useState<File | null>(null);
 
-  const updateEntry = (id: string, field: keyof EnergyEntry, value: any) => {
-    setEntries(entries.map(e => e.id === id ? { ...e, [field]: value } : e));
+  const scopeTwoFactors = factors.filter((f) => f.category === 'Scope 2');
+
+  const handleMonthChange = (month: string, value: string) => {
+    setMonthlyData(prev => ({ ...prev, [month]: value }));
   };
 
-  const updateMonthlyData = (id: string, month: string, value: string) => {
-    setEntries(entries.map(e => {
-      if (e.id === id) {
-        return {
-          ...e,
-          monthlyData: {
-            ...e.monthlyData,
-            [month]: value
-          }
-        };
-      }
-      return e;
-    }));
-  };
-
-  const addEntry = () => {
-    setEntries([
-      ...entries,
-      {
-        id: crypto.randomUUID(),
-        energySource: '',
-        uom: '',
-        monthlyData: MONTHS.reduce((acc, month) => ({ ...acc, [month]: '' }), {}),
-        attachments: [],
-      }
-    ]);
-  };
-
-  const removeEntry = (id: string) => {
-    if (entries.length > 1) {
-      setEntries(entries.filter(e => e.id !== id));
+  const handleFileUpload = (e: React.ChangeEvent<HTMLInputElement>) => {
+    if (e.target.files && e.target.files[0]) {
+      setUploadedFile(e.target.files[0]);
     }
   };
 
-  const handleFileUpload = (id: string, e: React.ChangeEvent<HTMLInputElement>) => {
-    if (e.target.files && e.target.files.length > 0) {
-      const newFiles = Array.from(e.target.files);
-      setEntries(entries.map(entry => {
-        if (entry.id === id) {
-          return { ...entry, attachments: [...entry.attachments, ...newFiles] };
-        }
-        return entry;
-      }));
-    }
+  const calculateTotal = () => {
+    return Object.values(monthlyData).reduce((sum, val) => sum + (parseFloat(val) || 0), 0);
   };
 
-  const removeFile = (entryId: string, fileIndex: number) => {
-    setEntries(entries.map(entry => {
-      if (entry.id === entryId) {
-        const newAttachments = [...entry.attachments];
-        newAttachments.splice(fileIndex, 1);
-        return { ...entry, attachments: newAttachments };
-      }
-      return entry;
-    }));
-  };
+  const handleSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!activeFacility || !currentOrg) return;
 
-  const handleSubmit = () => {
-    // Validate
-    const invalidEntry = entries.find(e => !e.energySource || !e.uom);
-    if (invalidEntry) {
-      setSubmitStatus('error');
-      setStatusMessage('Please fill in Energy Source and UOM for all entries.');
+    if (role === 'DATA_REVIEWER') {
+      setFeedbackMessage({
+        text: 'STRICT BOUNDARY GUARD: Data Reviewers are forbidden from ingesting raw activity data.',
+        type: 'error',
+      });
       return;
     }
 
-    // Submit Logic using standard contextual API
-    let totalRecordsAdded = 0;
+    if (entryMode === 'Excel' && !uploadedFile) {
+      setFeedbackMessage({ text: 'Please select an Excel file to upload.', type: 'error' });
+      setTimeout(() => setFeedbackMessage(null), 3000);
+      return;
+    }
 
-    entries.forEach(entry => {
-      // Find emission factor
-      const factor = factors.find(f =>
-        f.category === 'Scope 2' &&
-        f.name === entry.energySource &&
-        f.unit === entry.uom
-      );
+    const totalActivity = entryMode === 'Manual' ? calculateTotal() : 0;
 
-      const factorValue = factor ? factor.factorValue : 1.5; // Default if not found for mock
+    const currentFactor = scopeTwoFactors[0] || factors[0];
 
-      // Create a record for each month that has data
-      Object.entries(entry.monthlyData).forEach(([month, value]) => {
-        if (value && parseFloat(value) > 0) {
-          const numValue = parseFloat(value);
-          addActivityRecord({
-            facilityId: activeFacility?.id || '',
-            facilityName: activeFacility?.name || '',
-            organisationId: currentOrg?.id || '',
-            scope: 'Scope 2',
-            categoryName: entry.energySource,
-            activityValue: numValue,
-            unit: entry.uom,
-            factorApplied: factorValue,
-            factorSource: factor ? 'EPA/DEFRA' : 'Custom Estimate',
-            reportingPeriod: `2024-${month}`,
-            submittedAt: new Date().toISOString(),
-          });
-          totalRecordsAdded++;
-        }
-      });
+    const res = addActivityRecord({
+      facilityId: activeFacility.id,
+      facilityName: activeFacility.name,
+      organisationId: currentOrg.id,
+      scope: 'Scope 2',
+      categoryName: `${activeTab} - ${energySource || 'Bulk Upload'}`,
+      activityValue: totalActivity || 2020, 
+      unit: uom || currentFactor.unit.split('/')[1]?.trim() || 'kWh',
+      reportingPeriod: '2026-FY',
+      factorApplied: currentFactor.factorValue,
+      factorSource: currentFactor.source,
     });
 
-    setSubmitStatus('success');
-    setStatusMessage(`Successfully processed ${totalRecordsAdded} monthly energy records.`);
-
-    // Reset after success
-    setTimeout(() => {
-      setSubmitStatus('idle');
-      setStatusMessage('');
-      setEntries([{
-        id: crypto.randomUUID(),
-        energySource: '',
-        uom: '',
-        monthlyData: MONTHS.reduce((acc, month) => ({ ...acc, [month]: '' }), {}),
-        attachments: [],
-      }]);
-    }, 3000);
+    setFeedbackMessage({ text: res.message, type: 'success' });
+    setMonthlyData({});
+    setEnergySource('');
+    setVehicleType('');
+    setUom('');
+    setUploadedFile(null);
+    setTimeout(() => setFeedbackMessage(null), 5000);
   };
 
-  return (
-    <PageCardComponent>
-      <div className="flex items-center justify-between mb-8">
-        <div>
-          <h1 className="text-2xl font-bold text-gray-100 flex items-center gap-3">
-            <div className="h-10 w-10 rounded-xl bg-emerald-500/10 flex items-center justify-center border border-emerald-500/20">
-              <Zap className="h-5 w-5 text-emerald-400" />
-            </div>
-            Scope 2: Energy Consumption
-          </h1>
-          <p className="text-gray-400 mt-2 ml-13">Enter electricity, heating, cooling, and steam data for your facilities.</p>
-        </div>
+  const tabItems = TABS.map(t => ({
+    tab: <div className="px-2">{t.label}</div>,
+    key: t.id
+  }));
 
-        <div className="flex bg-gray-900/50 p-1 rounded-xl border border-gray-800">
-          <button
-            onClick={() => setEntryMode('Manual')}
-            className={`px-4 py-2 text-sm font-medium rounded-lg flex items-center gap-2 transition-all ${entryMode === 'Manual'
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800'
-              }`}
-          >
-            <FileEdit className="h-4 w-4" />
-            Manual Entry
-          </button>
-          <button
-            onClick={() => setEntryMode('Excel')}
-            className={`px-4 py-2 text-sm font-medium rounded-lg flex items-center gap-2 transition-all ${entryMode === 'Excel'
-                ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/30'
-                : 'text-gray-400 hover:text-gray-200 hover:bg-gray-800'
-              }`}
-          >
-            <FileSpreadsheet className="h-4 w-4" />
-            Bulk Upload
-          </button>
-        </div>
+  return (
+    <div className="space-y-4">
+      {/* Page Title */}
+      <div className="flex items-center text-sm mb-4">
+        <span className="font-bold text-[#001D3D] text-lg">GHG Emission</span>
+        <span className="mx-2 text-gray-400">&gt;</span>
+        <span className="font-bold text-[#001D3D] text-lg cursor-pointer hover:text-[#036323]" onClick={() => setActiveView && setActiveView('scope-two')}>Scope 2</span>
+        <span className="mx-2 text-gray-400">&gt;</span>
+        <span className="text-[#036323] text-lg">Form</span>
       </div>
 
-      {submitStatus !== 'idle' && (
-        <div className={`mb-6 p-4 rounded-xl border flex items-center gap-3 ${submitStatus === 'success'
-            ? 'bg-emerald-500/10 border-emerald-500/20 text-emerald-400'
-            : 'bg-red-500/10 border-red-500/20 text-red-400'
-          }`}>
-          {submitStatus === 'success' ? <CheckCircle2 className="h-5 w-5" /> : <AlertTriangle className="h-5 w-5" />}
-          <span className="font-medium">{statusMessage}</span>
+      {feedbackMessage && (
+        <div
+          className={`p-4 rounded-xl border text-xs font-semibold flex items-center gap-2 ${
+            feedbackMessage.type === 'success'
+              ? 'bg-emerald-50 text-emerald-600 border-emerald-200'
+              : 'bg-rose-50 text-rose-600 border-rose-200'
+          }`}
+        >
+          {feedbackMessage.type === 'success' ? (
+            <CheckCircle2 className="h-4 w-4 text-emerald-600" />
+          ) : (
+            <AlertTriangle className="h-4 w-4 text-rose-600" />
+          )}
+          {feedbackMessage.text}
         </div>
       )}
 
-      {entryMode === 'Manual' ? (
-        <div className="space-y-6">
-          {entries.map((entry, index) => (
-            <div key={entry.id} className="bg-gray-800/20 border border-gray-800 rounded-xl p-6 relative group transition-all hover:border-gray-700">
+      {/* Form Container */}
+      <PageCardComponent customClass="p-8 pb-4 bg-white shadow-sm rounded-xl">
+        {/* Main Tabs */}
+        <div className="mb-6 border-b border-gray-100">
+          <TabsComponent 
+            tabs={tabItems} 
+            defaultActiveKey={activeTab} 
+            onChange={(key) => setActiveTab(key as TabType)} 
+          />
+        </div>
 
-              {entries.length > 1 && (
-                <button
-                  onClick={() => removeEntry(entry.id)}
-                  className="absolute -right-3 -top-3 p-2 bg-red-500/10 text-red-400 rounded-full border border-red-500/20 opacity-0 group-hover:opacity-100 transition-opacity hover:bg-red-500/20"
-                >
-                  <Trash2 className="h-4 w-4" />
-                </button>
-              )}
+        {/* Entry Mode Toggle */}
+        <div className="flex gap-4 mb-8 w-fit">
+          <button
+            type="button"
+            className={`px-4 py-2 rounded font-semibold text-sm flex items-center gap-2 ${entryMode === 'Manual' ? 'bg-[#036323] text-white' : 'bg-white text-[#036323] border border-[#036323]'}`}
+            onClick={() => setEntryMode('Manual')}
+          >
+            <FileEdit className="h-4 w-4" /> Input Data Entry
+          </button>
+          <button
+            type="button"
+            className={`px-4 py-2 rounded font-semibold text-sm flex items-center gap-2 ${entryMode === 'Excel' ? 'bg-[#036323] text-white' : 'bg-white text-[#036323] border border-[#036323]'}`}
+            onClick={() => setEntryMode('Excel')}
+          >
+            <FileSpreadsheet className="h-4 w-4" /> Excel Data Entry
+          </button>
+        </div>
 
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
-                <div className="lg:col-span-2">
-                  <label className="block text-xs font-semibold text-gray-500 mb-2">Energy Source</label>
-                  <SelectComponent
-                    // placeholder="Select source..."
-                    options={ENERGY_SOURCES}
-                    value={entry.energySource}
-                    onChange={(val: any) => updateEntry(entry.id, 'energySource', val)}
-                  />
-                </div>
-
-                <div className="lg:col-span-2">
-                  <label className="block text-xs font-semibold text-gray-500 mb-2">Unit of Measure (UOM)</label>
-                  <SelectComponent
-                    // placeholder="Select unit..."
-                    options={UOM_OPTIONS}
-                    value={entry.uom}
-                    onChange={(val: any) => updateEntry(entry.id, 'uom', val)}
-                  />
-                </div>
-              </div>
-
-              <div className="mb-4">
-                <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-4">Monthly Consumption</label>
-                <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3">
-                  {MONTHS.map(month => (
-                    <InputComponent
-                      key={month}
-                      label={month}
-                      placeholder="0.00"
-                      type="number"
-                      value={entry.monthlyData[month]}
-                      onChange={(e) => updateMonthlyData(entry.id, month, e.target.value)}
-                    />
-                  ))}
-                </div>
-              </div>
-
-              <div className="mt-6 pt-6 border-t border-gray-800/50">
-                <label className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-3">Evidence Attachments</label>
-
-                <div className="flex flex-wrap gap-3">
-                  {entry.attachments.map((file, fIndex) => (
-                    <div key={fIndex} className="flex items-center gap-2 bg-gray-900/50 border border-gray-700 px-3 py-1.5 rounded-lg text-sm text-gray-300">
-                      <span className="truncate max-w-[150px]">{file.name}</span>
-                      <button onClick={() => removeFile(entry.id, fIndex)} className="text-gray-500 hover:text-red-400">
-                        <Trash2 className="h-3.5 w-3.5" />
-                      </button>
-                    </div>
-                  ))}
-
-                  <label className="flex items-center gap-2 bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 px-3 py-1.5 rounded-lg text-sm font-medium cursor-pointer hover:bg-emerald-500/20 transition-colors">
-                    <UploadCloud className="h-4 w-4" />
-                    <span>Attach Bills</span>
-                    <input
-                      type="file"
-                      className="hidden"
-                      multiple
-                      onChange={(e) => handleFileUpload(entry.id, e)}
-                    />
+        <form onSubmit={handleSubmit} className="space-y-8">
+          {entryMode === 'Manual' ? (
+            <div className="space-y-12 animate-in fade-in duration-500">
+              {/* Metadata Row */}
+              <div className="flex items-end gap-6 mb-8">
+                <div className="w-64">
+                  <label className="block text-xs font-semibold text-gray-400 mb-2">
+                    Source Of Energy*
                   </label>
+                  <SelectComponent 
+                    options={[
+                      { label: 'Electricity from public utility', value: 'Electricity from public utility' },
+                      { label: 'Electricity from third parties (Non-renewable)', value: 'Electricity from third parties (Non-renewable)' },
+                      { label: 'Electricity from third parties (Renewable)', value: 'Electricity from third parties (Renewable)' },
+                      { label: 'Gas', value: 'Gas' },
+                    ]}
+                    value={energySource}
+                    onChange={(v: string) => setEnergySource(v)}
+                    placeHolder=""
+                  />
+                </div>
+                <div className="w-64">
+                  <label className="block text-xs font-semibold text-gray-400 mb-2">
+                    Vehicle Type
+                  </label>
+                  <SelectComponent 
+                    options={[
+                      { label: 'EV', value: 'EV' },
+                      { label: 'Hybrid', value: 'Hybrid' },
+                    ]}
+                    value={vehicleType}
+                    onChange={(v: string) => setVehicleType(v)}
+                    placeHolder=""
+                  />
+                </div>
+                <div className="w-64">
+                  <label className="block text-xs font-semibold text-gray-400 mb-2">
+                    UOM*
+                  </label>
+                  <SelectComponent 
+                    options={[
+                      { label: 'kWh', value: 'kWh' },
+                      { label: 'MWh', value: 'MWh' },
+                      { label: 'GJ', value: 'GJ' },
+                    ]}
+                    value={uom}
+                    onChange={(v: string) => setUom(v)}
+                    placeHolder=""
+                  />
+                </div>
+                <button type="button" className="bg-[#036323] hover:bg-[#024f1b] text-white h-10 w-10 rounded flex items-center justify-center transition-colors mb-0.5">
+                  <Plus className="h-5 w-5" />
+                </button>
+              </div>
+
+              {/* Monthly Breakdown */}
+              <div className="mb-8 space-y-6">
+                <div className="flex items-center gap-4">
+                  <div className="w-24 text-sm text-gray-500 text-left">Month :</div>
+                  <div className="flex flex-1 gap-2">
+                    {MONTHS.map((month) => (
+                      <div key={`label-${month}`} className="flex-1 text-center text-sm text-gray-500">{month}</div>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex items-center gap-4">
+                  <div className="w-24 text-sm text-gray-500 text-left">Quantity :</div>
+                  <div className="flex flex-1 gap-2">
+                    {MONTHS.map((month) => (
+                      <div key={`input-${month}`} className="flex-1">
+                        <InputComponent
+                          type="text"
+                          value={monthlyData[month] || ''}
+                          onChange={(e: any) => handleMonthChange(month, e.target.value)}
+                          placeHolder="10000"
+                        />
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {/* Attachments */}
+              <div className="flex gap-4 items-center border-t border-gray-100 pt-8">
+                <div className="w-24 text-sm text-gray-500 text-left">Attachments :</div>
+                <div className="flex-1">
+                  <div className="border rounded-lg p-2.5 flex items-center gap-2 cursor-pointer border-gray-300 hover:border-[#036323] transition-colors w-80 text-center justify-center relative bg-white">
+                    <input 
+                      type="file" 
+                      accept=".xlsx, .xls, .csv, .pdf, .png, .jpg" 
+                      onChange={handleFileUpload}
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                    />
+                    <UploadCloud className="h-5 w-5 text-[#036323]" />
+                    <span className="text-sm text-gray-600">Click or drag file to this area to upload</span>
+                  </div>
                 </div>
               </div>
             </div>
-          ))}
-
-          <div className="flex justify-between items-center pt-4 border-t border-gray-800">
-            <ButtonComponent
-              hierarchy="secondary"
-              onClick={addEntry}
-              className="flex items-center gap-2 text-emerald-400 border-emerald-500/30 hover:bg-emerald-500/10"
-            >
-              <Plus className="h-4 w-4" /> Add Another Source
-            </ButtonComponent>
-
-            <div className="flex gap-3">
-              <ButtonComponent hierarchy="secondary">Save Draft</ButtonComponent>
-              <ButtonComponent hierarchy="primary" onClick={handleSubmit}>Submit for Review</ButtonComponent>
+          ) : (
+            <div className="animate-in fade-in duration-500">
+               <div className="relative border-2 border-dashed border-gray-300 hover:border-[#036323] rounded-2xl p-12 transition-all bg-gray-50 group">
+                <input 
+                  type="file" 
+                  accept=".xlsx, .xls, .csv" 
+                  onChange={handleFileUpload}
+                  className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
+                />
+                <div className="flex flex-col items-center justify-center text-center space-y-4">
+                  <div className="h-16 w-16 rounded-full bg-white border border-gray-200 flex items-center justify-center group-hover:scale-110 group-hover:bg-emerald-50 transition-all duration-300">
+                    <UploadCloud className="h-8 w-8 text-gray-400 group-hover:text-[#036323] transition-colors" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-gray-700">
+                      {uploadedFile ? 'File Selected' : 'Click or drag file to this area to upload'}
+                    </p>
+                    <p className="text-xs text-gray-500 mt-1">Supports: XLSX, XLS, CSV (Max 2.5MB)</p>
+                  </div>
+                </div>
+              </div>
             </div>
+          )}
+
+          {/* Form Actions */}
+          <div className="flex justify-end gap-3 pt-12 pb-4">
+            <button
+              type="button"
+              className="text-[#036323] font-bold text-sm px-6 py-2"
+              onClick={() => setActiveView && setActiveView('scope-two')}
+            >
+              Cancel
+            </button>
+            <button
+              type="button"
+              className="border border-[#036323] text-[#036323] font-bold text-sm px-6 py-2 rounded"
+              onClick={() => {
+                setMonthlyData({});
+                setEnergySource('');
+                setVehicleType('');
+                setUom('');
+                setUploadedFile(null);
+              }}
+            >
+              Reset
+            </button>
+            <button
+              type="submit"
+              disabled={role === 'DATA_REVIEWER' || (entryMode === 'Excel' && !uploadedFile)}
+              className="bg-[#94a3b8] text-white font-bold text-sm px-6 py-2 rounded"
+            >
+              Submit
+            </button>
           </div>
-        </div>
-      ) : (
-        <div className="py-12 flex flex-col items-center justify-center text-center bg-gray-800/20 rounded-xl border border-dashed border-gray-700">
-          <div className="h-16 w-16 rounded-2xl bg-emerald-500/10 flex items-center justify-center mb-4">
-            <UploadCloud className="h-8 w-8 text-emerald-400" />
-          </div>
-          <h3 className="text-xl font-bold text-gray-200 mb-2">Upload Excel Template</h3>
-          <p className="text-gray-400 max-w-md mb-8">
-            Download our standard Excel template, fill in your 12-month energy consumption data across multiple sources, and upload it here for bulk processing.
-          </p>
-          <div className="flex gap-4">
-            <ButtonComponent hierarchy="secondary" icon={<FileSpreadsheet className="h-4 w-4" />}>
-              Download Template
-            </ButtonComponent>
-            <ButtonComponent hierarchy="primary" icon={<UploadCloud className="h-4 w-4" />}>
-              Select File to Upload
-            </ButtonComponent>
-          </div>
-        </div>
-      )}
-    </PageCardComponent>
+        </form>
+      </PageCardComponent>
+    </div>
   );
 }
