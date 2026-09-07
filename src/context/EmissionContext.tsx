@@ -10,91 +10,10 @@ interface EmissionContextType {
   rejectRecord: (recordId: string, reviewerId: string, reviewerName: string, remarks: string) => CommonResponse<ActivityDataRecord>;
 }
 
-const initialEmissionRecords: ActivityDataRecord[] = [
-  {
-    id: 'em-1001',
-    facilityId: 'fac-101',
-    facilityName: 'MindGraph Solutions Org - Main HQ Facility',
-    organisationId: 'org-001',
-    scope: 'Scope 1',
-    categoryName: 'Stationary Fuel - Diesel Generator',
-    activityValue: 1250,
-    unit: 'Liters',
-    reportingPeriod: '2026-08',
-    factorApplied: 2.68,
-    factorSource: 'UK DEFRA 2024',
-    calculatedEmission: 3.35,
-    status: 'APPROVED',
-    submittedBy: 'usr-prov-1',
-    submittedByName: 'Alex Rivers (Data Ingestion)',
-    submittedAt: '2026-08-31 14:20',
-    reviewedBy: 'usr-rev-9',
-    reviewedByName: 'Sarah Jenkins (Eco Lead)',
-    reviewedAt: '2026-09-01 09:15',
-  },
-  {
-    id: 'em-1002',
-    facilityId: 'fac-101',
-    facilityName: 'MindGraph Solutions Org - Main HQ Facility',
-    organisationId: 'org-001',
-    scope: 'Scope 2',
-    categoryName: 'Purchased Electricity - Location Grid',
-    activityValue: 45200,
-    unit: 'kWh',
-    reportingPeriod: '2026-08',
-    factorApplied: 0.584,
-    factorSource: 'India CEA Baseline',
-    calculatedEmission: 26.4,
-    status: 'SUBMITTED',
-    submittedBy: 'usr-curr-100',
-    submittedByName: 'Sudhir Kumar (ESG Officer)',
-    submittedAt: '2026-09-02 11:00',
-  },
-  {
-    id: 'em-1003',
-    facilityId: 'fac-102',
-    facilityName: 'Cyberjaya Solar Plant Alpha',
-    organisationId: 'org-001',
-    scope: 'Scope 3',
-    categoryName: 'Business Travel - International Flights',
-    activityValue: 18400,
-    unit: 'Passenger-km',
-    reportingPeriod: '2026-08',
-    factorApplied: 0.158,
-    factorSource: 'IPCC AR6',
-    calculatedEmission: 2.91,
-    status: 'DRAFT',
-    submittedBy: 'usr-prov-1',
-    submittedByName: 'Alex Rivers (Data Ingestion)',
-  },
-  {
-    id: 'em-1004',
-    facilityId: 'fac-101',
-    facilityName: 'MindGraph Solutions Org - Main HQ Facility',
-    organisationId: 'org-001',
-    scope: 'Scope 1',
-    categoryName: 'Fugitive Emissions - HVAC Refrigerants',
-    activityValue: 15,
-    unit: 'kg R410A',
-    reportingPeriod: '2026-08',
-    factorApplied: 2088.0,
-    factorSource: 'IPCC AR6',
-    calculatedEmission: 31.32,
-    status: 'REJECTED',
-    submittedBy: 'usr-prov-1',
-    submittedByName: 'Alex Rivers (Data Ingestion)',
-    submittedAt: '2026-08-28 10:00',
-    reviewedBy: 'usr-rev-9',
-    reviewedByName: 'Sarah Jenkins (Eco Lead)',
-    reviewedAt: '2026-08-29 16:30',
-    rejectionRemarks: 'Missing maintenance work order documentation attached. Please re-upload with refrigerant refill invoice.',
-  }
-];
-
 const EmissionContext = createContext<EmissionContextType | undefined>(undefined);
 
 export const EmissionProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [records, setRecords] = useState<ActivityDataRecord[]>(initialEmissionRecords);
+  const [records, setRecords] = useState<ActivityDataRecord[]>([]);
   const { user } = useAuth();
 
   const addActivityRecord = (

@@ -15,126 +15,55 @@ interface AuthContextType {
   logout: () => void;
 }
 
-const initialOrganisations: Organisation[] = [
-  {
-    id: 'org-001',
-    name: 'MindGraph Solutions Org',
-    code: 'MIND-ORG',
-    country: 'Malaysia',
-    role: 'DATA_PROVIDER',
-    facilitiesCount: 3,
-  },
-  {
-    id: 'org-002',
-    name: 'EcoEnergy Renewables Corp',
-    code: 'ECO-RENEW',
-    country: 'Singapore',
-    role: 'DATA_REVIEWER',
-    facilitiesCount: 2,
-  },
-  {
-    id: 'org-003',
-    name: 'Global Heavy Industries',
-    code: 'GLOB-IND',
-    country: 'Germany',
-    role: 'SUPER_ADMIN',
-    facilitiesCount: 4,
-  }
-];
-
-const initialFacilities: Record<string, Facility[]> = {
-  'org-001': [
-    {
-      id: 'fac-101',
-      organisationId: 'org-001',
-      name: 'MindGraph Solutions Org - Main HQ Facility',
-      code: 'MIND-FAC-4A1B',
-      type: 'HEADQUARTERS',
-      country: 'Malaysia',
-      status: 'ACTIVE',
-      assignedReviewerId: 'usr-rev-9',
-      assignedReviewerName: 'Sarah Jenkins (Eco Lead)',
-    },
-    {
-      id: 'fac-102',
-      organisationId: 'org-001',
-      name: 'Cyberjaya Solar Plant Alpha',
-      code: 'MIND-FAC-9F82',
-      type: 'SOLAR_PLANT',
-      country: 'Malaysia',
-      status: 'ACTIVE',
-    },
-    {
-      id: 'fac-103',
-      organisationId: 'org-001',
-      name: 'Penang Manufacturing Logistics',
-      code: 'MIND-FAC-3D4C',
-      type: 'WAREHOUSE',
-      country: 'Malaysia',
-      status: 'ACTIVE',
-    }
-  ],
-  'org-002': [
-    {
-      id: 'fac-201',
-      organisationId: 'org-002',
-      name: 'EcoEnergy Renewables Corp - Main HQ Facility',
-      code: 'ECO-FAC-0A1C',
-      type: 'HEADQUARTERS',
-      country: 'Singapore',
-      status: 'ACTIVE',
-    },
-    {
-      id: 'fac-202',
-      organisationId: 'org-002',
-      name: 'Jurong Island Bio-Refinery',
-      code: 'ECO-FAC-7721',
-      type: 'FACTORY',
-      country: 'Singapore',
-      status: 'ACTIVE',
-    }
-  ],
-  'org-003': [
-    {
-      id: 'fac-301',
-      organisationId: 'org-003',
-      name: 'Global Heavy Industries - Main HQ Facility',
-      code: 'GLOB-FAC-8812',
-      type: 'HEADQUARTERS',
-      country: 'Germany',
-      status: 'ACTIVE',
-    }
-  ]
-};
-
-const defaultSession: UserSession = {
-  id: 'usr-curr-100',
-  email: 'sustain.admin@mindgraph.com',
-  name: 'Sudhir Kumar (ESG Officer)',
-  currentOrganisationId: 'org-001',
-  activeFacilityId: 'fac-101',
-  role: 'DATA_PROVIDER',
-  organisations: initialOrganisations,
-  facilities: initialFacilities['org-001'],
-};
-
 const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [session, setSession] = useState<UserSession | null>(defaultSession);
-  const [facilitiesMap, setFacilitiesMap] = useState<Record<string, Facility[]>>(initialFacilities);
+  const [session, setSession] = useState<UserSession | null>(null);
+  const [facilitiesMap, setFacilitiesMap] = useState<Record<string, Facility[]>>({});
 
-  const currentOrg = session ? (session.organisations.find((o) => o.id === session.currentOrganisationId) || session.organisations[0]) : null;
-  const currentOrgFacilities = session ? (facilitiesMap[session.currentOrganisationId] || []) : [];
+  const currentOrg = session ? (session.organisations.find((o) => o.id === session.currentOrganisationId) || session.organisations[0] || null) : null;
+  const currentOrgFacilities = session && session.currentOrganisationId ? (facilitiesMap[session.currentOrganisationId] || []) : [];
   const activeFacility = session ? (currentOrgFacilities.find((f) => f.id === session.activeFacilityId) || currentOrgFacilities[0] || null) : null;
 
   const login = (email: string, pass: string): boolean => {
     if (!email || !pass) return false;
-    const newSession: UserSession = {
-      ...defaultSession,
-      email,
-      name: email.split('@')[0].toUpperCase() + ' (ESG User)',
+
+    const orgId = `org-${Date.now()}`;
+    const facilityId = `fac-${Date.now()}`;
+    const username = email.split('@')[0];
+
+    const defaultFacility: Facility = {
+      id: facilityId,
+      organisationId: orgId,
+      name: `${username.toUpperCase()} Org - Main HQ Facility`,
+      code: `FAC-${Math.floor(1000 + Math.random() * 9000).toString(16).toUpperCase()}`,
+      type: 'HEADQUARTERS',
+      country: 'Global Jurisdiction',
+      status: 'ACTIVE',
     };
+
+    const defaultOrg: Organisation = {
+      id: orgId,
+      name: `${username.toUpperCase()} Organisation`,
+      code: `${username.substring(0, 4).toUpperCase()}-ORG`,
+      country: 'Global Jurisdiction',
+      role: 'DATA_PROVIDER',
+      facilitiesCount: 1,
+    };
+
+    setFacilitiesMap({ [orgId]: [defaultFacility] });
+
+    const newSession: UserSession = {
+      id: `usr-${Date.now()}`,
+      email,
+      name: email,
+      currentOrganisationId: orgId,
+      activeFacilityId: facilityId,
+      role: 'DATA_PROVIDER',
+      organisations: [defaultOrg],
+      facilities: [defaultFacility],
+    };
+
     setSession(newSession);
     return true;
   };

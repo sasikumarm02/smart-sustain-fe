@@ -26,67 +26,12 @@ const initialQuestions: ESGQuestion[] = [
   { id: 'q-105', code: 'BRSR-SEC-A-P1', framework: 'BRSR', category: 'Governance', questionText: 'Does the organization have a dedicated ESG Steering Board oversight committee?', inputType: 'MULTIPLE_CHOICE' }
 ];
 
-const initialAuditLogs: AuditLogItem[] = [
-  {
-    eventId: 'evt-9001',
-    eventTimestamp: '2026-09-07 10:14:02',
-    eventType: 'AUTHENTICATION',
-    action: 'LOGIN_SUCCESS',
-    description: 'User sustain.admin@mindgraph.com logged in successfully via Redis session store.',
-    severity: 'INFO',
-    actorId: 'usr-curr-100',
-    actorUsername: 'sustain.admin@mindgraph.com',
-    actorRole: 'DATA_PROVIDER',
-    organisationId: 'org-001',
-    entityType: 'UserSession',
-    entityId: 'usr-curr-100',
-    traceId: 'trc-882194-019',
-    serviceName: 'smartsustain-identity',
-    status: 'SUCCESS'
-  },
-  {
-    eventId: 'evt-9002',
-    eventTimestamp: '2026-09-07 10:15:30',
-    eventType: 'ORGANISATION_LIFECYCLE',
-    action: 'FACILITY_AUTO_PROVISIONED',
-    description: 'Default Headquarters facility auto-provisioned for MindGraph Solutions Org context.',
-    severity: 'INFO',
-    actorId: 'usr-curr-100',
-    actorUsername: 'sustain.admin@mindgraph.com',
-    actorRole: 'DATA_PROVIDER',
-    organisationId: 'org-001',
-    entityType: 'Facility',
-    entityId: 'fac-101',
-    traceId: 'trc-882194-020',
-    serviceName: 'smartsustain-identity',
-    status: 'SUCCESS',
-    newValues: { code: 'MIND-FAC-4A1B', type: 'HEADQUARTERS', status: 'ACTIVE' }
-  },
-  {
-    eventId: 'evt-9003',
-    eventTimestamp: '2026-09-07 10:30:11',
-    eventType: 'DATA_MUTATION',
-    action: 'EMISSION_RECORD_INGESTED',
-    description: 'GHG calculation engine evaluated Diesel Generator activity data (1250 L) = 3.35 tCO2e.',
-    severity: 'INFO',
-    actorId: 'usr-prov-1',
-    actorUsername: 'alex.rivers@mindgraph.com',
-    actorRole: 'DATA_PROVIDER',
-    organisationId: 'org-001',
-    entityType: 'ActivityDataRecord',
-    entityId: 'em-1001',
-    traceId: 'trc-882194-025',
-    serviceName: 'smartsustain-emission',
-    status: 'SUCCESS'
-  }
-];
-
 const ConfigContext = createContext<ConfigContextType | undefined>(undefined);
 
 export const ConfigProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [factors] = useState<EmissionFactor[]>(initialFactors);
   const [questions] = useState<ESGQuestion[]>(initialQuestions);
-  const [auditLogs, setAuditLogs] = useState<AuditLogItem[]>(initialAuditLogs);
+  const [auditLogs, setAuditLogs] = useState<AuditLogItem[]>([]);
 
   const addAuditLog = (log: Omit<AuditLogItem, 'eventId' | 'eventTimestamp' | 'traceId'>) => {
     const newLog: AuditLogItem = {
