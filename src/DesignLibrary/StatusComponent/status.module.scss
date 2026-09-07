@@ -1,0 +1,51 @@
+@import '../../Styles//variables.module.scss';
+.status {
+  font-size: 15px;
+  line-height: 18px;
+  font-weight: 500;
+  padding: 5px 10px;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  width:max-content;
+  text-align: center; 
+  height: 25px;
+  font-family: $font-stack-primary;
+  // text-align: center;
+}
+
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 8px; /* or margin-left in dot */
+}
+
+
+.statusSuccess {
+  color: #036323;
+}
+
+.statusWarning {
+  color: #FF9012;
+}
+
+.statusFailure {
+  color: #E11515;
+}
+.dot {
+  height: 5px;
+  width: 5px;
+  padding: 3px;
+  border: 1px solid;
+  border-radius: 50%;
+}
+.dot.statusSuccess {
+  background-color: #036323;
+}
+.dot.statusWarning {
+  background-color: #FF9012;
+}
+.dot.statusFailure {
+  background-color: #E11515;
+}

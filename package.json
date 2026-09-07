@@ -12,10 +12,15 @@
   "dependencies": {
     "@ant-design/icons": "^6.3.4",
     "antd": "^6.6.2",
+    "formik": "^2.4.9",
     "lucide-react": "^1.41.0",
+    "moment": "^2.30.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
-    "react-router-dom": "^7.18.3"
+    "react-redux": "^9.3.0",
+    "react-router-dom": "^7.18.3",
+    "sass": "^1.104.0",
+    "yup": "^1.7.1"
   },
   "devDependencies": {
     "@tailwindcss/vite": "^4.3.3",

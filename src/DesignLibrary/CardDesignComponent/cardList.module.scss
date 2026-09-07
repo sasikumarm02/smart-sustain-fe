@@ -1,0 +1,195 @@
+@import '../../Styles/variables.scss';
+
+.customFontColumn {
+  font-family: 'Arial', 'sans-serif';
+}
+
+.customFontHeader {
+  font-family: 'Arial';
+  font-weight: 600;
+  font-size: 12px;
+  white-space: nowrap;
+  line-height: 18px;
+}
+
+.cardListContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding: 10px;
+}
+
+.searchFilterContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.searchInput {
+  flex-grow: 1;
+  margin-right: 8px;
+  height: 40px;
+  width: 270px;
+  padding: 22px, 10px, 22px, 10px;
+  border-radius: 8px;
+  background-color: #faf9ff;
+}
+
+.cardLists {
+  overflow: auto;
+  padding: 5px;
+  // height: 650px;
+  width: 100%;
+}
+
+.cardHeadContent {
+  color: Black;
+  font-size: 16px;
+  font-weight: 600;
+  letter-spacing: 0.5%;
+  line-height: 27.51px;
+  margin-bottom: 0px !important;
+}
+
+.customMarginL30 {
+  margin-left: -30px;
+}
+
+.font20 {
+  font-size: 21px !important;
+}
+
+.dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  margin-right: 5px;
+  background-color: orange;
+}
+
+// .pad35R {
+//   padding-right: 35px;
+// }
+
+// .pad35L {
+//   padding-left: 35px;
+// }
+
+.mtop5 {
+  margin-top: 5px;
+}
+
+.excalmationB {
+  font-size: 20px;
+  color: #ff0000;
+  margin-bottom: 5px;
+}
+
+.excalmation {
+  position: relative;
+  top: 50px;
+  color: red;
+  display: block;
+  left: -5px;
+  font-size: 20px;
+}
+
+.excalmationCat {
+  color: red;
+  display: block;
+  font-size: 20px;
+}
+
+.rightListInner {
+  height: 70px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.rightListInnerText {
+  font-weight: 400 !important;
+  display: flex;
+  align-items: center;
+  font-family: Arial, sans-serif;
+}
+
+.questionCnt {
+  height: 100px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.questionCntInner {
+  width: 100%;
+  margin-left: -10px;
+  height: 28px;
+  text-align: right;
+  font-weight: bold;
+  font-size: 21px;
+}
+
+.questionColor {
+  color: #8c8c8c;
+  text-align: right;
+}
+
+.lightGrey {
+  color: #B6B3B2;
+}
+
+.filterButton {
+  height: 40px;
+  padding: 8px;
+  border-radius: 4px;
+  background-color: #faf9ff;
+  border: 1px solid #d9d9d9;
+}
+
+.cardStyle {
+  width: 100%;
+  border-bottom: 1px solid #e8e8e8;
+  padding: 15px 0px 15px 0px;
+  cursor: pointer;
+  margin-top: 5px;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.ant-card-bordered {
+  border: none !important;
+}
+
+.cardContent {
+  display: flex;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.percentage {
+  font-size: 17px;
+  margin-left: 10px;
+}
+
+.statusBadge {
+  padding: 6px;
+  display: flex;
+  align-items: center;
+  font-size: 13px;
+  justify-content: center;
+}
+
+.customFontSize15 {
+  font-size: 15px;
+}
+
+.progressBar {
+  flex-grow: 1;
+  margin-left: 16px;
+}
