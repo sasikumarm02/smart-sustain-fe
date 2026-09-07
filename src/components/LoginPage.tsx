@@ -5,9 +5,10 @@ import heroImage from '../assets/login_hero.png';
 
 interface LoginPageProps {
   onLoginSuccess: () => void;
+  onSignUpClick: () => void;
 }
 
-export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
+export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onSignUpClick }) => {
   const { login } = useAuth();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -194,13 +195,13 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
                 {/* Sign Up Link Prompt */}
                 <div className="text-center pt-2 text-xs text-slate-500 font-medium">
                   New to SmartSustain.AI?{' '}
-                  <a
-                    href="#signup"
-                    onClick={(e) => { e.preventDefault(); alert('Redirecting to Sign Up flow (POST /api/v1/auth/signup)...'); }}
-                    className="font-bold text-cyan-600 hover:text-cyan-700 hover:underline transition-colors"
+                  <button
+                    type="button"
+                    onClick={onSignUpClick}
+                    className="font-bold text-cyan-600 hover:text-cyan-700 hover:underline transition-colors cursor-pointer bg-transparent border-none p-0 inline font-sans"
                   >
                     Sign Up
-                  </a>
+                  </button>
                 </div>
               </form>
             </div>
