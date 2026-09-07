@@ -3,18 +3,33 @@ import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
 import {
   Leaf,
-  Building2,
-  MapPin,
-  ShieldCheck,
-  ChevronDown,
-  RefreshCw,
-  UserCheck,
+  Home,
+  LayoutDashboard,
+  BarChart3,
+  Users,
+  Landmark,
+  FileText,
+  Sliders,
+  BookOpen,
+  Layers,
+  Database,
+  HelpCircle,
   LogOut,
-  SlidersHorizontal,
+  Building2,
+  ChevronDown,
+  Search,
+  Bell,
+  UserCheck,
+  RefreshCw,
 } from 'lucide-react';
 
-export const Navbar: React.FC = () => {
-  const { user, currentOrg, activeFacility, role, switchOrganisation, setActiveFacilityId, updateUserRole, logout } = useAuth();
+interface NavbarProps {
+  activeView: string;
+  setActiveView: (view: any) => void;
+}
+
+export const LeftSidebar: React.FC<NavbarProps> = ({ activeView, setActiveView }) => {
+  const { user, currentOrg, role, switchOrganisation, updateUserRole, logout } = useAuth();
   const [showOrgDropdown, setShowOrgDropdown] = useState(false);
   const [showRoleModal, setShowRoleModal] = useState(false);
 
@@ -23,65 +38,68 @@ export const Navbar: React.FC = () => {
     setShowOrgDropdown(false);
   };
 
-  return (
-    <header className="glass-panel sticky top-0 z-50 px-6 py-3 border-b border-gray-800 flex items-center justify-between mb-6">
-      {/* Brand & Logo */}
-      <div className="flex items-center gap-3">
-        <div className="h-10 w-10 rounded-xl bg-gradient-to-tr from-emerald-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-emerald-500/20">
-          <Leaf className="h-6 w-6 text-white" />
-        </div>
-        <div>
-          <h1 className="text-xl font-bold tracking-tight text-white flex items-center gap-2 m-0 leading-tight">
-            SmartSustain<span className="text-emerald-400 font-mono text-sm">.AI</span>
-          </h1>
-          <p className="text-xs text-gray-400 font-medium">Enterprise ESG & Carbon Accounting Platform</p>
-        </div>
-      </div>
+  const mainNav = [
+    { id: 'home', label: 'Home', icon: Home },
+    { id: 'analytics', label: 'Dashboard', icon: LayoutDashboard },
+    { id: 'maturity', label: 'Maturity Assessment', icon: BarChart3 },
+    { id: 'facilities', label: 'Environmental', icon: Leaf },
+    { id: 'social', label: 'Social', icon: Users },
+    { id: 'governance', label: 'Governance', icon: Landmark },
+    { id: 'review', label: 'Reporting & Compliance', icon: FileText },
+  ];
 
-      {/* Center Tenant Controls (Org & Facility Switcher) */}
-      <div className="flex items-center gap-4">
-        {/* Organisation Dropdown */}
+  const configNav = [
+    { id: 'esg-config', label: 'ESG Configuration', icon: Sliders },
+    { id: 'config', label: 'Framework Mapping', icon: Layers },
+    { id: 'framework-lib', label: 'Framework Library', icon: BookOpen },
+    { id: 'ingestion', label: 'Emission Factors', icon: Database },
+    { id: 'audit', label: 'Data Categories', icon: FileText },
+  ];
+
+  return (
+    <aside className="w-64 bg-white border-r border-slate-200 flex flex-col justify-between h-screen sticky top-0 shrink-0 z-40 font-sans text-slate-700">
+      <div className="p-5 space-y-6 overflow-y-auto">
+        {/* Top Brand Logo */}
+        <div className="flex items-center gap-2.5 px-1 py-1">
+          <div className="h-9 w-9 rounded-xl bg-gradient-to-tr from-cyan-500 to-emerald-500 flex items-center justify-center shadow-md shadow-cyan-500/20 shrink-0">
+            <Leaf className="h-5 w-5 text-white" />
+          </div>
+          <div className="font-extrabold text-xl tracking-tight text-slate-800">
+            SmartSustain<span className="text-cyan-600 font-mono text-sm">.AI</span>
+          </div>
+        </div>
+
+        {/* Active Organisation Context Switcher */}
         <div className="relative">
           <button
             onClick={() => setShowOrgDropdown(!showOrgDropdown)}
-            className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-900/80 border border-gray-700 text-sm font-medium hover:border-emerald-500/50 transition-all text-gray-200"
+            className="w-full flex items-center justify-between px-3 py-2 rounded-xl bg-slate-50 border border-slate-200 text-xs font-semibold text-slate-700 hover:bg-slate-100 transition-all cursor-pointer"
           >
-            <Building2 className="h-4 w-4 text-emerald-400" />
-            <div className="text-left">
-              <div className="text-xs text-gray-400 leading-none">Active Organisation</div>
-              <div className="font-semibold text-gray-100 flex items-center gap-1.5 mt-0.5">
-                {currentOrg?.name}
-                <span className="text-[10px] px-1.5 py-0.2 rounded bg-emerald-950 text-emerald-300 font-mono border border-emerald-800">
-                  {currentOrg?.code}
-                </span>
-              </div>
+            <div className="flex items-center gap-2 truncate">
+              <Building2 className="h-4 w-4 text-cyan-600 shrink-0" />
+              <span className="truncate">{currentOrg?.name || 'Select Org'}</span>
             </div>
-            <ChevronDown className="h-4 w-4 text-gray-400 ml-1" />
+            <ChevronDown className="h-3.5 w-3.5 text-slate-400 shrink-0" />
           </button>
 
           {showOrgDropdown && (
-            <div className="absolute left-0 mt-2 w-72 glass-panel shadow-2xl rounded-xl p-2 z-50 border border-gray-700 bg-gray-900/95">
-              <div className="px-3 py-2 text-xs font-semibold text-gray-400 uppercase tracking-wider border-b border-gray-800">
-                Switch Active Organisation Context (POST /auth/switch-organisation)
+            <div className="absolute left-0 mt-2 w-full bg-white shadow-xl rounded-xl p-2 z-50 border border-slate-200">
+              <div className="px-2 py-1 text-[10px] font-bold text-slate-400 uppercase tracking-wider border-b border-slate-100 mb-1">
+                Active Organisation
               </div>
-              <div className="mt-1 space-y-1">
+              <div className="space-y-1 max-h-40 overflow-y-auto">
                 {user?.organisations.map((org) => {
                   const isSelected = org.id === currentOrg?.id;
                   return (
                     <button
                       key={org.id}
                       onClick={() => handleOrgSwitch(org.id)}
-                      className={`w-full text-left px-3 py-2 rounded-lg text-xs font-medium flex items-center justify-between transition-colors ${
-                        isSelected ? 'bg-emerald-500/20 text-emerald-300 border border-emerald-500/40' : 'text-gray-300 hover:bg-gray-800'
+                      className={`w-full text-left px-2.5 py-1.5 rounded-lg text-xs font-medium flex items-center justify-between transition-colors ${
+                        isSelected ? 'bg-cyan-50 text-cyan-700 font-bold' : 'text-slate-600 hover:bg-slate-50'
                       }`}
                     >
-                      <div className="truncate">
-                        <div className="font-semibold text-sm text-gray-100 truncate">{org.name}</div>
-                        <div className="text-[11px] text-gray-400 flex items-center gap-2">
-                          <span>{org.country}</span> • <span>Role: {org.role}</span>
-                        </div>
-                      </div>
-                      {isSelected && <RefreshCw className="h-3.5 w-3.5 text-emerald-400 animate-spin" />}
+                      <span className="truncate">{org.name}</span>
+                      {isSelected && <RefreshCw className="h-3 w-3 text-cyan-600 animate-spin shrink-0" />}
                     </button>
                   );
                 })}
@@ -90,73 +108,100 @@ export const Navbar: React.FC = () => {
           )}
         </div>
 
-        {/* Facility Context Dropdown */}
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-gray-900/80 border border-gray-700 text-sm font-medium text-gray-200">
-          <MapPin className="h-4 w-4 text-cyan-400" />
-          <div className="text-left">
-            <div className="text-xs text-gray-400 leading-none">Facility Scope</div>
-            <select
-              value={activeFacility?.id || ''}
-              onChange={(e) => setActiveFacilityId(e.target.value)}
-              className="bg-transparent text-gray-100 font-semibold text-xs border-none focus:outline-none focus:ring-0 cursor-pointer pr-2 mt-0.5"
-            >
-              {user?.facilities.map((fac) => (
-                <option key={fac.id} value={fac.id} className="bg-gray-900 text-gray-200">
-                  {fac.name} ({fac.code})
-                </option>
-              ))}
-            </select>
+        {/* Main Navigation Menu */}
+        <div className="space-y-1">
+          {mainNav.map((item) => {
+            const Icon = item.icon;
+            const isActive = activeView === item.id;
+            return (
+              <button
+                key={item.id}
+                onClick={() => setActiveView(item.id)}
+                className={`w-full px-3 py-2.5 rounded-xl text-xs font-medium flex items-center justify-between transition-all cursor-pointer ${
+                  isActive
+                    ? 'bg-[#e6f7ff] text-[#0088cc] font-bold border-r-4 border-[#0088cc] shadow-xs'
+                    : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                }`}
+              >
+                <div className="flex items-center gap-3">
+                  <Icon className={`h-4 w-4 ${isActive ? 'text-[#0088cc]' : 'text-slate-400'}`} />
+                  <span>{item.label}</span>
+                </div>
+              </button>
+            );
+          })}
+        </div>
+
+        {/* CONFIGURATION Section */}
+        <div className="pt-2 border-t border-slate-100">
+          <div className="text-[10px] font-bold uppercase tracking-wider text-slate-400 px-3 mb-2">
+            CONFIGURATION
+          </div>
+          <div className="space-y-1">
+            {configNav.map((item) => {
+              const Icon = item.icon;
+              const isActive = activeView === item.id;
+              return (
+                <button
+                  key={item.id}
+                  onClick={() => setActiveView(item.id)}
+                  className={`w-full px-3 py-2.5 rounded-xl text-xs font-medium flex items-center justify-between transition-all cursor-pointer ${
+                    isActive
+                      ? 'bg-[#e6f7ff] text-[#0088cc] font-bold border-r-4 border-[#0088cc] shadow-xs'
+                      : 'text-slate-600 hover:text-slate-900 hover:bg-slate-50'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <Icon className={`h-4 w-4 ${isActive ? 'text-[#0088cc]' : 'text-slate-400'}`} />
+                    <span>{item.label}</span>
+                  </div>
+                </button>
+              );
+            })}
           </div>
         </div>
       </div>
 
-      {/* User & Role Badge */}
-      <div className="flex items-center gap-3">
-        <div className="text-right">
-          <div className="text-sm font-semibold text-gray-200 flex items-center justify-end gap-1.5">
-            {user?.name}
-          </div>
-          <div className="flex items-center justify-end gap-1.5 mt-0.5">
-            <span
-              onClick={() => setShowRoleModal(true)}
-              title="Click to simulate RBAC role switch"
-              className={`badge cursor-pointer ${
-                role === 'SUPER_ADMIN'
-                  ? 'badge-rose'
-                  : role === 'DATA_REVIEWER'
-                  ? 'badge-amber'
-                  : 'badge-emerald'
-              }`}
-            >
-              <ShieldCheck className="h-3 w-3" />
-              {role}
-              <SlidersHorizontal className="h-3 w-3 ml-1 text-gray-400 hover:text-white" />
-            </span>
-          </div>
-        </div>
+      {/* Bottom Actions */}
+      <div className="p-4 border-t border-slate-100 space-y-1">
+        <button
+          onClick={() => setShowRoleModal(true)}
+          className="w-full px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 flex items-center gap-3 cursor-pointer"
+        >
+          <Sliders className="h-4 w-4 text-slate-400" />
+          <span>Settings</span>
+        </button>
+
+        <button
+          onClick={() => setActiveView('help')}
+          className="w-full px-3 py-2 rounded-xl text-xs font-medium text-slate-600 hover:bg-slate-50 flex items-center gap-3 cursor-pointer"
+        >
+          <HelpCircle className="h-4 w-4 text-slate-400" />
+          <span>Help Center</span>
+        </button>
 
         <button
           onClick={logout}
-          title="Logout Session"
-          className="p-2 rounded-lg text-gray-400 hover:text-rose-400 hover:bg-gray-800 transition-colors"
+          className="w-full px-3 py-2 rounded-xl text-xs font-medium text-rose-600 hover:bg-rose-50 flex items-center gap-3 cursor-pointer"
         >
-          <LogOut className="h-5 w-5" />
+          <LogOut className="h-4 w-4 text-rose-500" />
+          <span>Sign Out</span>
         </button>
       </div>
 
       {/* Role Switch Simulator Modal */}
       {showRoleModal && (
-        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm z-50 flex items-center justify-center p-4">
-          <div className="glass-panel w-full max-w-md p-6 bg-gray-900 border border-gray-700 rounded-xl shadow-2xl">
-            <h3 className="text-lg font-bold text-gray-100 flex items-center gap-2 mb-2">
-              <UserCheck className="h-5 w-5 text-emerald-400" />
-              Simulate Role Switch (RBAC Test)
+        <div className="fixed inset-0 bg-slate-900/40 backdrop-blur-sm z-50 flex items-center justify-center p-4">
+          <div className="bg-white w-full max-w-md p-6 rounded-2xl shadow-2xl border border-slate-200 text-left">
+            <h3 className="text-base font-bold text-slate-800 flex items-center gap-2 mb-2">
+              <UserCheck className="h-5 w-5 text-cyan-600" />
+              Simulate Role Switch (RBAC)
             </h3>
-            <p className="text-xs text-gray-400 mb-4">
-              Test system boundaries by switching between platform roles for the active session context.
+            <p className="text-xs text-slate-500 mb-4">
+              Switch platform roles for testing session permissions.
             </p>
 
-            <div className="space-y-3">
+            <div className="space-y-2">
               {(['DATA_PROVIDER', 'DATA_REVIEWER', 'SUPER_ADMIN'] as UserRole[]).map((r) => (
                 <button
                   key={r}
@@ -164,31 +209,83 @@ export const Navbar: React.FC = () => {
                     updateUserRole(r);
                     setShowRoleModal(false);
                   }}
-                  className={`w-full text-left p-3 rounded-lg border text-sm font-medium transition-all ${
+                  className={`w-full text-left p-3 rounded-xl border text-xs font-medium transition-all cursor-pointer ${
                     role === r
-                      ? 'bg-emerald-500/20 border-emerald-500 text-emerald-300'
-                      : 'bg-gray-800/50 border-gray-700 text-gray-300 hover:border-gray-600'
+                      ? 'bg-cyan-50 border-cyan-500 text-cyan-800 font-bold'
+                      : 'bg-slate-50 border-slate-200 text-slate-700 hover:border-slate-300'
                   }`}
                 >
                   <div className="font-bold">{r}</div>
-                  <div className="text-xs text-gray-400 mt-1">
-                    {r === 'SUPER_ADMIN' && 'Full platform management, overrides, and regulatory audit API access.'}
-                    {r === 'DATA_PROVIDER' && 'Can enter facility activity data & run GHG calculations. Cannot approve own submissions.'}
-                    {r === 'DATA_REVIEWER' && 'Validates emission traces. Approves or rejects submissions with remarks.'}
-                  </div>
                 </button>
               ))}
             </div>
 
             <button
               onClick={() => setShowRoleModal(false)}
-              className="mt-5 w-full btn-secondary justify-center text-xs"
+              className="mt-4 w-full py-2 bg-slate-100 hover:bg-slate-200 text-slate-700 font-semibold text-xs rounded-xl transition-all cursor-pointer"
             >
               Close Simulator
             </button>
           </div>
         </div>
       )}
+    </aside>
+  );
+};
+
+export const Header: React.FC = () => {
+  const { user, currentOrg, role } = useAuth();
+
+  return (
+    <header className="bg-white border-b border-slate-200 px-6 py-3.5 flex items-center justify-between sticky top-0 z-30 shadow-xs">
+      {/* Left Search Bar */}
+      <div className="w-80">
+        <div className="relative">
+          <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none text-slate-400">
+            <Search className="h-4 w-4" />
+          </div>
+          <input
+            type="text"
+            placeholder="Search metrics, logs, or compliance..."
+            className="w-full pl-9 pr-4 py-1.5 bg-slate-50 border border-slate-200 rounded-full text-xs text-slate-800 placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:bg-white transition-all"
+          />
+        </div>
+      </div>
+
+      {/* Right Header User Status & Profile */}
+      <div className="flex items-center gap-4">
+        {/* Platform Active Status Badge */}
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-50 border border-emerald-200 text-[11px] font-semibold text-emerald-700">
+          <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
+          Platform Active
+        </div>
+
+        {/* Notification Icon */}
+        <button
+          title="Notifications"
+          className="relative p-2 rounded-full text-slate-500 hover:bg-slate-100 hover:text-slate-700 transition-colors cursor-pointer"
+        >
+          <Bell className="h-4 w-4" />
+          <span className="absolute top-1.5 right-1.5 h-2 w-2 rounded-full bg-cyan-500 ring-2 ring-white" />
+        </button>
+
+        {/* User Details & Avatar */}
+        <div className="flex items-center gap-3 pl-2 border-l border-slate-200">
+          <div className="h-9 w-9 rounded-full bg-gradient-to-tr from-slate-700 to-slate-900 text-white flex items-center justify-center font-bold text-xs shadow-sm overflow-hidden">
+            {user?.name ? user.name.split(' ').map(n => n[0]).join('').toUpperCase() : 'JD'}
+          </div>
+          <div className="text-left">
+            <div className="text-xs font-bold text-slate-800 leading-tight">
+              {user?.name || 'Jane Doe'}
+            </div>
+            <div className="text-[10px] text-slate-400 font-medium">
+              {role === 'SUPER_ADMIN' ? 'Admin' : role} {currentOrg?.name || 'Company A'}
+            </div>
+          </div>
+        </div>
+      </div>
     </header>
   );
 };
+
+export const Navbar = LeftSidebar;

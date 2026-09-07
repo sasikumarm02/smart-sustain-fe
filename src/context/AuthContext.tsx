@@ -249,12 +249,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
       setSession((prev) =>
         prev
           ? {
-              ...prev,
-              role: newRole,
-              organisations: prev.organisations.map((o) =>
-                o.id === prev.currentOrganisationId ? { ...o, role: newRole } : o
-              ),
-            }
+            ...prev,
+            role: newRole,
+            organisations: prev.organisations.map((o) =>
+              o.id === prev.currentOrganisationId ? { ...o, role: newRole } : o
+            ),
+          }
           : null
       );
     }
@@ -296,13 +296,13 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           setSession((prev) =>
             prev
               ? {
-                  ...prev,
-                  id: refreshUser.id || prev.id,
-                  email: refreshUser.email || prev.email,
-                  name: refreshUser.fullName || prev.name,
-                  role: (refreshUser.role as UserRole) || prev.role,
-                  currentOrganisationId: refreshUser.currentOrganisationId || prev.currentOrganisationId,
-                }
+                ...prev,
+                id: refreshUser.id || prev.id,
+                email: refreshUser.email || prev.email,
+                name: refreshUser.fullName || prev.name,
+                role: (refreshUser.role as UserRole) || prev.role,
+                currentOrganisationId: refreshUser.currentOrganisationId || prev.currentOrganisationId,
+              }
               : null
           );
         }
