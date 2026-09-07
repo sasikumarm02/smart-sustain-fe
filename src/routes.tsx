@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
 import { LoginPage } from './components/LoginPage';
+import { SignUpPage } from './components/SignUpPage';
 import OnboardingPage from './components/onboarding/page';
 import { ExecutiveAnalytics } from './components/ExecutiveAnalytics';
 import { FacilityManager } from './components/FacilityManager';
@@ -69,10 +70,14 @@ export const protectRoutes: ProtectedRoutes[] = [
 export const globalRoutes = [
   {
     path: '/auth/login',
-    element: <LoginPage onLoginSuccess={() => { }} onSignUpClick={() => { }} />,
+    element: <LoginPage onLoginSuccess={() => { }} onNavigateToOnboarding={() => { }} onSignUpClick={() => { }} />,
   },
   {
-    path: '/signup',
+    path: '/auth/signup',
+    element: <SignUpPage onSignUpSuccess={() => { }} onBackToLogin={() => { }} />,
+  },
+  {
+    path: '/onboarding',
     element: <OnboardingPage onBackToLogin={() => { }} onCompleteOnboarding={() => { }} />,
   },
 ];

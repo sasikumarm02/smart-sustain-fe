@@ -1,0 +1,226 @@
+import { apiURL, basePath } from '../Utils/Constants';
+
+export interface SignupPayload {
+  email: string;
+  password: string;
+  fullName: string;
+  phone?: string;
+  jobTitle: string;
+}
+
+export interface SignupResponse {
+  status: string;
+  response?: {
+    action: string;
+    data: {
+      accessToken: string;
+      refreshToken: string;
+      tokenType: string;
+      expiresIn: number;
+      user: {
+        id: string;
+        email: string;
+        fullName: string;
+        role: string;
+        currentOrganisationId?: string | null;
+        facilityIds?: string[];
+      };
+    };
+  };
+  message: string;
+}
+
+export interface FacilityApiItem {
+  id: string;
+  organisationId: string;
+  name: string;
+  code: string;
+  facilityType: string;
+  country: string;
+  state?: string;
+  city?: string;
+  status: string;
+}
+
+export interface OrganisationApiItem {
+  organisationId: string;
+  organisationName: string;
+  role: string;
+  status: string;
+  facilities?: FacilityApiItem[];
+}
+
+export interface LoginUserResponse {
+  id: string;
+  email: string;
+  fullName: string;
+  role: string;
+  currentOrganisationId?: string | null;
+  facilityIds?: string[] | null;
+  organisations?: OrganisationApiItem[] | null;
+}
+
+export interface LoginResponse {
+  status: string;
+  response?: {
+    action: string;
+    data: {
+      accessToken: string;
+      refreshToken: string;
+      tokenType: string;
+      expiresIn: number;
+      user: LoginUserResponse;
+    };
+  };
+  message: string;
+}
+
+// Compute base API url
+const getApiEndpoint = (path: string): string => {
+  if (apiURL) {
+    const cleanApiUrl = apiURL.endsWith('/') ? apiURL.slice(0, -1) : apiURL;
+    const cleanPath = path.startsWith('/') ? path : `/${path}`;
+    return `${cleanApiUrl}${cleanPath}`;
+  }
+  return path;
+};
+
+/**
+ * Sign up API call: POST /api/v1/auth/signup
+ */
+export const signupUserApi = async (payload: SignupPayload): Promise<SignupResponse> => {
+  const url = getApiEndpoint('/api/v1/auth/signup');
+  const bodyData = {
+    email: payload.email,
+    password: payload.password,
+    fullName: payload.fullName,
+    phone: payload.phone || '+1-555-0199',
+    jobTitle: payload.jobTitle,
+  };
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(bodyData),
+  });
+
+  const data = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    const errorMsg = data?.message || data?.error || `Signup failed with status ${response.status}`;
+    throw new Error(errorMsg);
+  }
+
+  return data as SignupResponse;
+};
+
+/**
+ * Login API call: POST /api/v1/auth/login
+ */
+export const loginUserApi = async (email: string, password: string): Promise<LoginResponse> => {
+  const url = getApiEndpoint('/api/v1/auth/login');
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ email, password }),
+  });
+
+  const data = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    const errorMsg = data?.message || data?.error || `Login failed with status ${response.status}`;
+    throw new Error(errorMsg);
+  }
+
+  return data as LoginResponse;
+};
+
+export interface RefreshTokenResponse {
+  status: string;
+  response?: {
+    action: string;
+    data: {
+      accessToken: string;
+      refreshToken: string;
+      tokenType: string;
+      expiresIn: number;
+      user: {
+        id: string;
+        email: string;
+        fullName: string;
+        role: string;
+        currentOrganisationId?: string | null;
+        facilityIds?: string[];
+      };
+    };
+  };
+  message: string;
+}
+
+export interface LogoutResponse {
+  status: string;
+  response?: {
+    action: string;
+    data: null;
+  };
+  message: string;
+}
+
+/**
+ * Refresh Token Rotation API call: POST /api/v1/auth/refresh
+ */
+export const refreshTokenApi = async (refreshToken: string): Promise<RefreshTokenResponse> => {
+  const url = getApiEndpoint('/api/v1/auth/refresh');
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({ refreshToken }),
+  });
+
+  const data = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    const errorMsg = data?.message || data?.error || `Refresh token failed with status ${response.status}`;
+    throw new Error(errorMsg);
+  }
+
+  return data as RefreshTokenResponse;
+};
+
+/**
+ * User Logout API call: POST /api/v1/auth/logout
+ */
+export const logoutUserApi = async (token?: string): Promise<LogoutResponse> => {
+  const url = getApiEndpoint('/api/v1/auth/logout');
+  const headers: Record<string, string> = {
+    'Content-Type': 'application/json',
+  };
+
+  const authToken = token || localStorage.getItem('accessToken');
+  if (authToken) {
+    headers['Authorization'] = `Bearer ${authToken}`;
+  }
+
+  const response = await fetch(url, {
+    method: 'POST',
+    headers,
+  });
+
+  const data = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    const errorMsg = data?.message || data?.error || `Logout failed with status ${response.status}`;
+    throw new Error(errorMsg);
+  }
+
+  return data as LogoutResponse;
+};
+

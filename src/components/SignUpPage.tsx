@@ -1,18 +1,20 @@
 import React, { useState } from 'react';
 import { useAuth } from '../context/AuthContext';
-import { Mail, Lock, Eye, EyeOff, Leaf } from 'lucide-react';
+import { Mail, Lock, Eye, EyeOff, Leaf, User, Briefcase, ArrowLeft, Phone } from 'lucide-react';
 import heroImage from '../assets/login_hero.png';
 import mindgraphLogo from '../assets/mindgraph-logo.png';
 
-interface LoginPageProps {
-  onLoginSuccess: () => void;
-  onNavigateToOnboarding: () => void;
-  onSignUpClick: () => void;
+interface SignUpPageProps {
+  onSignUpSuccess: () => void;
+  onBackToLogin: () => void;
 }
 
-export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onNavigateToOnboarding, onSignUpClick }) => {
-  const { login } = useAuth();
+export const SignUpPage: React.FC<SignUpPageProps> = ({ onSignUpSuccess, onBackToLogin }) => {
+  const { signup } = useAuth();
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
+  const [phone, setPhone] = useState('');
+  const [jobTitle, setJobTitle] = useState('');
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
@@ -22,8 +24,28 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onNavigate
     e.preventDefault();
     setError('');
 
-    if (!email || !password) {
-      setError('Please enter both email and password.');
+    if (!fullName.trim()) {
+      setError('Please enter your full name.');
+      return;
+    }
+
+    if (!email.trim()) {
+      setError('Please enter your email address.');
+      return;
+    }
+
+    if (!phone.trim()) {
+      setError('Please enter your phone number.');
+      return;
+    }
+
+    if (!jobTitle.trim()) {
+      setError('Please enter your job title.');
+      return;
+    }
+
+    if (!password) {
+      setError('Please enter a password.');
       return;
     }
 
@@ -35,21 +57,19 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onNavigate
     setLoading(true);
 
     try {
-      const res = await login(email, password);
+      const res = await signup(fullName, email, password, jobTitle, phone);
       setLoading(false);
 
       if (res.success) {
-        if (res.needsOnboarding) {
-          onNavigateToOnboarding();
-        } else {
-          onLoginSuccess();
-        }
+        // If API succeeds, navigate to login page for user to sign in
+        onSignUpSuccess();
       } else {
-        setError(res.message || 'Invalid email or password.');
+        // Throw / show error message
+        setError(res.message || 'Registration failed. Please try again.');
       }
     } catch (err: any) {
       setLoading(false);
-      setError(err?.message || 'Login failed. Please try again.');
+      setError(err?.message || 'Registration failed. Please check your network and try again.');
     }
   };
 
@@ -83,11 +103,11 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onNavigate
           {/* Hero Content */}
           <div className="relative z-10 max-w-xl my-auto py-12">
             <h1 className="text-4xl lg:text-5xl font-extrabold text-white tracking-tight leading-tight mb-4">
-              AI -Powered ESG <br />
+              AI-Powered ESG <br />
               reporting Platform
             </h1>
             <p className="text-sm lg:text-base text-slate-300 font-normal leading-relaxed max-w-md">
-              Smartsustain.AI helps you track emissions automate ESG reporting, and impress investors
+              Join thousands of enterprises tracking emissions, automating ESG reporting, and achieving net-zero goals.
             </p>
           </div>
 
@@ -99,24 +119,33 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onNavigate
 
         {/* Right Form Section */}
         <div className="lg:col-span-5 relative flex flex-col justify-between p-6 sm:p-10 lg:p-16 bg-gradient-to-b from-slate-50 via-white to-sky-50/40">
-          {/* Top Right Status Badge */}
-          <div className="flex justify-end">
+          {/* Top Header Bar */}
+          <div className="flex justify-between items-center">
+            <button
+              type="button"
+              onClick={onBackToLogin}
+              className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-white hover:bg-slate-100 shadow-sm border border-slate-200 text-xs font-semibold text-slate-700 transition-all cursor-pointer"
+            >
+              <ArrowLeft className="h-3.5 w-3.5 text-slate-500" />
+              Back to Login
+            </button>
+
             <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white shadow-sm border border-slate-100 text-[11px] font-medium text-slate-500">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
               Platform Status: <span className="font-semibold text-slate-700">Active</span>
             </div>
           </div>
 
-          {/* Login Card */}
-          <div className="w-full max-w-md mx-auto my-auto py-8">
+          {/* Sign Up Card */}
+          <div className="w-full max-w-md mx-auto my-auto py-6">
             <div className="bg-white rounded-3xl p-8 sm:p-10 shadow-xl shadow-slate-200/60 border border-slate-100/80 transition-all">
               {/* Header Titles */}
-              <div className="text-center mb-8">
+              <div className="text-center mb-6">
                 <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1d769f] tracking-tight mb-1">
-                  Sustainability Simplified
+                  Create Account
                 </h2>
-                <p className="text-[11px] font-bold tracking-wider text-cyan-600 uppercase mb-4">
-                  YOUR ESG GROWTH PARTNER
+                <p className="text-[11px] font-bold tracking-wider text-cyan-600 uppercase mb-2">
+                  START YOUR ESG JOURNEY
                 </p>
                 <p className="text-xs text-slate-500 font-medium">
                   Sustainability Measurement And Reporting Tool (SMART)
@@ -130,11 +159,31 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onNavigate
                 </div>
               )}
 
-              {/* Login Form */}
-              <form onSubmit={handleSubmit} className="space-y-5">
+              {/* Sign Up Form */}
+              <form onSubmit={handleSubmit} className="space-y-4">
+                {/* Full Name Input */}
+                <div>
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
+                    FULL NAME
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                      <User className="h-4 w-4" />
+                    </div>
+                    <input
+                      type="text"
+                      required
+                      value={fullName}
+                      onChange={(e) => setFullName(e.target.value)}
+                      placeholder="Enter your full name"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                    />
+                  </div>
+                </div>
+
                 {/* Email Input */}
                 <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
                     EMAIL
                   </label>
                   <div className="relative">
@@ -152,9 +201,49 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onNavigate
                   </div>
                 </div>
 
+                {/* Phone Number Input */}
+                <div>
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
+                    PHONE NUMBER
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                      <Phone className="h-4 w-4" />
+                    </div>
+                    <input
+                      type="tel"
+                      required
+                      value={phone}
+                      onChange={(e) => setPhone(e.target.value)}
+                      placeholder="e.g. +1-555-0199"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                    />
+                  </div>
+                </div>
+
+                {/* Job Title Input */}
+                <div>
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
+                    JOB TITLE
+                  </label>
+                  <div className="relative">
+                    <div className="absolute inset-y-0 left-0 pl-3.5 flex items-center pointer-events-none text-slate-400">
+                      <Briefcase className="h-4 w-4" />
+                    </div>
+                    <input
+                      type="text"
+                      required
+                      value={jobTitle}
+                      onChange={(e) => setJobTitle(e.target.value)}
+                      placeholder="e.g. ESG Lead / Manager"
+                      className="w-full pl-10 pr-4 py-2.5 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                    />
+                  </div>
+                </div>
+
                 {/* Password Input */}
                 <div>
-                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1.5">
+                  <label className="block text-[11px] font-bold uppercase tracking-wider text-slate-600 mb-1">
                     PASSWORD
                   </label>
                   <div className="relative">
@@ -167,25 +256,15 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onNavigate
                       value={password}
                       onChange={(e) => setPassword(e.target.value)}
                       placeholder="Min. 8 Characters"
-                      className="w-full pl-10 pr-10 py-2.5 bg-white border border-rose-400/80 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
+                      className="w-full pl-10 pr-10 py-2.5 bg-white border border-slate-300 rounded-xl text-xs sm:text-sm text-slate-800 placeholder-slate-400 focus:outline-none focus:border-cyan-500 focus:ring-2 focus:ring-cyan-500/20 transition-all"
                     />
                     <button
                       type="button"
                       onClick={() => setShowPassword(!showPassword)}
-                      className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 focus:outline-none"
+                      className="absolute inset-y-0 right-0 pr-3.5 flex items-center text-slate-400 hover:text-slate-600 focus:outline-none cursor-pointer"
                     >
                       {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                     </button>
-                  </div>
-
-                  <div className="flex justify-end mt-1.5">
-                    <a
-                      href="#forgot"
-                      onClick={(e) => { e.preventDefault(); alert('Password reset email sent.'); }}
-                      className="text-[11px] font-semibold text-cyan-500 hover:text-cyan-600 transition-colors"
-                    >
-                      Forgot Password
-                    </a>
                   </div>
                 </div>
 
@@ -193,31 +272,31 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess, onNavigate
                 <button
                   type="submit"
                   disabled={loading}
-                  className="w-full py-3 px-4 rounded-xl bg-[#25a5cb] hover:bg-[#1f93b5] active:bg-[#1a82a1] text-white font-bold text-sm tracking-wide shadow-md shadow-cyan-500/25 transition-all duration-200 flex items-center justify-center gap-2 mt-6 cursor-pointer"
+                  className="w-full py-3 px-4 rounded-xl bg-[#25a5cb] hover:bg-[#1f93b5] active:bg-[#1a82a1] text-white font-bold text-sm tracking-wide shadow-md shadow-cyan-500/25 transition-all duration-200 flex items-center justify-center gap-2 mt-5 cursor-pointer"
                 >
                   {loading ? (
                     <span className="inline-block h-4 w-4 border-2 border-white border-t-transparent rounded-full animate-spin" />
                   ) : (
-                    'Login'
+                    'Sign Up'
                   )}
                 </button>
 
-                {/* Sign Up Link Prompt */}
+                {/* Back to Login Link Prompt */}
                 <div className="text-center pt-2 text-xs text-slate-500 font-medium">
-                  New to SmartSustain.AI?{' '}
+                  Already have an account?{' '}
                   <button
                     type="button"
-                    onClick={onSignUpClick}
+                    onClick={onBackToLogin}
                     className="font-bold text-cyan-600 hover:text-cyan-700 hover:underline transition-colors cursor-pointer bg-transparent border-none p-0 inline font-sans"
                   >
-                    Sign Up
+                    Login
                   </button>
                 </div>
               </form>
             </div>
 
             {/* Copyright Note under Card */}
-            <div className="text-center mt-6 text-[11px] text-slate-400">
+            <div className="text-center mt-4 text-[11px] text-slate-400">
               © 2026 Smart Sustain.AI All Rights Reserved
             </div>
           </div>

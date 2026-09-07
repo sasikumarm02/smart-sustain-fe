@@ -34,6 +34,7 @@ export interface UserSession {
   id: string;
   email: string;
   name: string;
+  jobTitle?: string;
   currentOrganisationId: string;
   activeFacilityId: string;
   role: UserRole;

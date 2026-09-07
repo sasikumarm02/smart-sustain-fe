@@ -1,3 +1,5 @@
+const env = (typeof process !== "undefined" && process.env) ? process.env : ((import.meta as any).env || {});
+
 const {
   REACT_APP_IMAGE_KEY,
   REACT_APP_API_URL,
@@ -9,7 +11,9 @@ const {
   REACT_APP_CURRENCY_CODE,
   REACT_APP_REFRESH_TIME,
   REACT_APP_SALT,
-} = process.env;
+  VITE_API_URL,
+  VITE_API_BASE,
+} = env;
 
 export const saltCode = REACT_APP_SALT || "",
   currencyCode = REACT_APP_CURRENCY_CODE || "",
@@ -18,6 +22,6 @@ export const saltCode = REACT_APP_SALT || "",
   inaAcitvityTimeout = REACT_APP_INACTIVITY_TIMEOUT,
   stripeDomain = REACT_APP_STRIPE_DOMAIN || "",
   stripeSecret = REACT_APP_STRIPE_KEY || "",
-  apiURL = REACT_APP_API_URL || "",
-  basePath = REACT_APP_API_BASE || "api",
+  apiURL = REACT_APP_API_URL || VITE_API_URL || "",
+  basePath = REACT_APP_API_BASE || VITE_API_BASE || "api",
   imageKey = REACT_APP_IMAGE_KEY;

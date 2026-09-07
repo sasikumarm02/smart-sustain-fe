@@ -1,8 +1,10 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { BrowserRouter, useNavigate, useLocation } from 'react-router-dom';
 import { AuthProvider, useAuth } from './context/AuthContext';
 import { EmissionProvider } from './context/EmissionContext';
 import { ConfigProvider } from './context/ConfigContext';
 import { LoginPage } from './components/LoginPage';
+import { SignUpPage } from './components/SignUpPage';
 import OnboardingPage from './components/onboarding/page';
 import { Navbar } from './components/Navbar';
 import { FacilityManager } from './components/FacilityManager';
@@ -24,28 +26,59 @@ import {
 
 export const AppContent: React.FC = () => {
   const { user } = useAuth();
-  const [authMode, setAuthMode] = useState<'login' | 'onboarding'>('login');
+  const location = useLocation();
+  const navigate = useNavigate();
   const [activeView, setActiveView] = useState<
     'analytics' | 'facilities' | 'ingestion' | 'review' | 'config' | 'audit'
   >('analytics');
 
-  if (!user) {
-    if (authMode === 'onboarding') {
-      return (
-        <div className="min-h-screen bg-[#f4f7f6] text-slate-900 p-6 font-sans">
-          <div className="max-w-7xl mx-auto space-y-6">
-            <OnboardingPage
-              onBackToLogin={() => setAuthMode('login')}
-              onCompleteOnboarding={() => setActiveView('analytics')}
-            />
-          </div>
-        </div>
-      );
+  const currentPath = location.pathname;
+
+  // Auto-redirect legacy paths if needed
+  useEffect(() => {
+    if (currentPath === '/signup') {
+      navigate('/auth/signup', { replace: true });
+    } else if (currentPath === '/login') {
+      navigate('/auth/login', { replace: true });
     }
+  }, [currentPath, navigate]);
+
+  // Sign Up page route
+  if (currentPath === '/auth/signup' || currentPath === '/signup') {
+    return (
+      <SignUpPage
+        onSignUpSuccess={() => navigate('/auth/login')}
+        onBackToLogin={() => navigate('/auth/login')}
+      />
+    );
+  }
+
+  // Onboarding page route
+  if (currentPath === '/onboarding') {
+    return (
+      <div className="min-h-screen bg-[#f4f7f6] text-slate-900 p-6 font-sans">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <OnboardingPage
+            onBackToLogin={() => navigate('/auth/login')}
+            onCompleteOnboarding={() => navigate(user ? '/' : '/auth/login')}
+          />
+        </div>
+      </div>
+    );
+  }
+
+  // Login page route / Unauthenticated state
+  if (!user || currentPath === '/auth/login') {
     return (
       <LoginPage
-        onLoginSuccess={() => setActiveView('analytics')}
-        onSignUpClick={() => setAuthMode('onboarding')}
+        onLoginSuccess={() => {
+          setActiveView('analytics');
+          if (currentPath === '/auth/login') {
+            navigate('/');
+          }
+        }}
+        onNavigateToOnboarding={() => navigate('/onboarding')}
+        onSignUpClick={() => navigate('/auth/signup')}
       />
     );
   }
@@ -155,13 +188,15 @@ export const AppContent: React.FC = () => {
 
 export function App() {
   return (
-    <AuthProvider>
-      <ConfigProvider>
-        <EmissionProvider>
-          <AppContent />
-        </EmissionProvider>
-      </ConfigProvider>
-    </AuthProvider>
+    <BrowserRouter>
+      <AuthProvider>
+        <ConfigProvider>
+          <EmissionProvider>
+            <AppContent />
+          </EmissionProvider>
+        </ConfigProvider>
+      </AuthProvider>
+    </BrowserRouter>
   );
 }
 
