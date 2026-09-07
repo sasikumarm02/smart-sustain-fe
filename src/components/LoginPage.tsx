@@ -190,6 +190,18 @@ export const LoginPage: React.FC<LoginPageProps> = ({ onLoginSuccess }) => {
                     'Login'
                   )}
                 </button>
+
+                {/* Sign Up Link Prompt */}
+                <div className="text-center pt-2 text-xs text-slate-500 font-medium">
+                  New to SmartSustain.AI?{' '}
+                  <a
+                    href="#signup"
+                    onClick={(e) => { e.preventDefault(); alert('Redirecting to Sign Up flow (POST /api/v1/auth/signup)...'); }}
+                    className="font-bold text-cyan-600 hover:text-cyan-700 hover:underline transition-colors"
+                  >
+                    Sign Up
+                  </a>
+                </div>
               </form>
             </div>
 
