@@ -7,7 +7,7 @@ interface OnboardingPageProps {
   onCompleteOnboarding?: () => void;
 }
 
-export default function OnboardingPage({ onBackToLogin }: OnboardingPageProps = {}) {
+export default function OnboardingPage({ onBackToLogin, onCompleteOnboarding }: OnboardingPageProps = {}) {
   return (
     <div className="space-y-5">
       <div className="flex items-center justify-between mb-2">
@@ -27,7 +27,7 @@ export default function OnboardingPage({ onBackToLogin }: OnboardingPageProps = 
           </button>
         )}
       </div>
-      <Wizard />
+      <Wizard onCompleteOnboarding={onCompleteOnboarding} />
     </div>
   );
 }

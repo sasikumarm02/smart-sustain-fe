@@ -10,7 +10,7 @@ interface OnboardingWrapperProps {
   onCompleteOnboarding?: () => void;
 }
 
-export const OnboardingWrapper: React.FC<OnboardingWrapperProps> = ({ onBackToLogin }) => {
+export const OnboardingWrapper: React.FC<OnboardingWrapperProps> = ({ onBackToLogin, onCompleteOnboarding }) => {
   const [masterData, setMasterData] = useState<OnboardingMasterData | null>(null);
 
   useEffect(() => {
@@ -50,7 +50,7 @@ export const OnboardingWrapper: React.FC<OnboardingWrapperProps> = ({ onBackToLo
       </div>
 
       {masterData ? (
-        <Wizard masterData={masterData} />
+        <Wizard masterData={masterData} onCompleteOnboarding={onCompleteOnboarding} />
       ) : (
         <div className="p-8 text-center text-xs text-cyan-600 font-mono">
           Loading Onboarding Reference Master Data...

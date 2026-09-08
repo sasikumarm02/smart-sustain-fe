@@ -7,7 +7,7 @@ export interface CommonResponse<T = any> {
   message: string;
 }
 
-export type UserRole = 'SUPER_ADMIN' | 'DATA_PROVIDER' | 'DATA_REVIEWER';
+export type UserRole = 'SUPER_ADMIN' | 'DATA_PROVIDER' | 'DATA_REVIEWER' | string;
 
 export interface Organisation {
   id: string;
@@ -23,9 +23,9 @@ export interface Facility {
   organisationId: string;
   name: string;
   code: string;
-  type: 'HEADQUARTERS' | 'SOLAR_PLANT' | 'FACTORY' | 'WAREHOUSE' | 'REGIONAL_OFFICE';
+  type: 'HEADQUARTERS' | 'SOLAR_PLANT' | 'FACTORY' | 'WAREHOUSE' | 'REGIONAL_OFFICE' | string;
   country: string;
-  status: 'ACTIVE' | 'INACTIVE';
+  status: 'ACTIVE' | 'INACTIVE' | string;
   assignedReviewerId?: string;
   assignedReviewerName?: string;
 }
@@ -40,6 +40,8 @@ export interface UserSession {
   role: UserRole;
   organisations: Organisation[];
   facilities: Facility[];
+  permissions?: string[];
+  entity_Id?: string;
 }
 
 export interface EmissionFactor {
