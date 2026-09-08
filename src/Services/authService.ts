@@ -76,7 +76,7 @@ export interface LoginResponse {
   message: string;
 }
 
-import { get } from './api.service';
+import { get, post } from './api.service';
 
 export interface UserProfileResponse {
   status: string;
@@ -248,11 +248,95 @@ export const logoutUserApi = async (token?: string): Promise<LogoutResponse> => 
 
   const data = await response.json().catch(() => null);
 
-  if (!response.ok) {
-    const errorMsg = data?.message || data?.error || `Logout failed with status ${response.status}`;
-    throw new Error(errorMsg);
-  }
-
   return data as LogoutResponse;
 };
+
+/**
+ * Unified Create Organisation API call: POST /api/v1/organisations
+ */
+export interface CreateOrganisationFacilityPayload {
+  facilityName: string;
+  facilityCode: string;
+  facilityType: string;
+  city?: string;
+}
+
+export interface CreateOrganisationUserPayload {
+  fullName: string;
+  jobTitle?: string;
+  email: string;
+  phone?: string;
+  facilityNames?: string[];
+}
+
+export interface CreateOrganisationPayload {
+  country: string;
+  domain: string;
+  domainDetail?: string;
+  organisationName: string;
+  registrationNumber?: string;
+  size?: string;
+  sector?: string;
+  noofemployee?: string;
+  website?: string;
+  address?: string;
+  contactName?: string;
+  contactEmail?: string;
+  contactNo?: string;
+  facilities?: CreateOrganisationFacilityPayload[];
+  users?: CreateOrganisationUserPayload[];
+}
+
+export interface CreateOrganisationResponse {
+  status: string;
+  response?: {
+    action: string;
+    data: {
+      id: string;
+      name: string;
+      registrationNumber?: string;
+      country?: string;
+      sector?: string;
+      domain?: string;
+      domainDetail?: string;
+      size?: string;
+      noOfEmployees?: string;
+      website?: string;
+      address?: string;
+      contactName?: string;
+      contactEmail?: string;
+      contactNo?: string;
+      status?: string;
+      createdAt?: string;
+      updatedAt?: string;
+      facilities?: Array<{
+        id: string;
+        organisationId: string;
+        name: string;
+        code: string;
+        facilityType: string;
+        city?: string;
+        status?: string;
+      }>;
+      members?: Array<{
+        userId: string;
+        email: string;
+        fullName: string;
+        jobTitle?: string | null;
+        phone?: string;
+        role: string;
+        status: string;
+        assignedFacilityNames?: string[];
+      }>;
+    };
+  };
+  message: string;
+}
+
+export const createOrganisationApi = async (
+  payload: CreateOrganisationPayload
+): Promise<CreateOrganisationResponse> => {
+  return await post('/api/v1/organisations', payload);
+};
+
 

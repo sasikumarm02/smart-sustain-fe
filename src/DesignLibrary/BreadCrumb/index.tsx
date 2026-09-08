@@ -1,5 +1,5 @@
 import { useLocation, Link } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { JSX, useEffect, useState } from "react";
 import { breadcrumbConfig, pathRoutes } from "../../Utils/BreadCrumbConfig";
 import Styles from "./breadcrumb.module.scss";
 import { useAuth } from "../../Hooks/useAuth";
@@ -41,7 +41,8 @@ const ApplicationContent = [
 const Breadcrumb = () => {
   const location = useLocation();
   const { pathname, search } = location;
-  const { user } = useAuth();
+  const authContext = useAuth();
+  const user = authContext?.user || null;
   const assessmentType = useSelector((state: any) => state.assessmentType);
 
   const [routes, setRoutes] = useState<string[]>([]);
@@ -82,7 +83,7 @@ const Breadcrumb = () => {
     }
 
     if (pathname === "/add-company") {
-      if (user.role === "ADMIN") {
+      if (user?.role === "ADMIN") {
         pathnames = `Manage Company Profile / Edit`;
       } else {
         pathnames = `Company Profiles / Create`;

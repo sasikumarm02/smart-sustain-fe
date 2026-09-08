@@ -97,7 +97,7 @@ const getStatusStyle = (status: string) => {
 };
 
 const getDotStyle = (status: string) => {
-  const colors = statusColors[status as keyof typeof statusColors] || {
+  const colors: any = statusColors[status as keyof typeof statusColors] || {
     backgroundColor: "red",
   };
   return {
@@ -139,8 +139,8 @@ const CardlistComponent: React.FC<CardlistComponentProps> = ({
   const [maxDaLevel, setMaxDaLevel] = useState();
   const { Option } = Select;
   const navigate = useNavigate();
-  const query: any = useQuery();
-  const { user } = useAuth();
+  const authContext = useAuth();
+  const user = authContext?.user || null;
 
   function extractQuestions(questions: Question[]): ExtractedQuestion[] {
     let extractedQuestions: ExtractedQuestion[] = [];
@@ -215,37 +215,37 @@ const CardlistComponent: React.FC<CardlistComponentProps> = ({
 
   const onActionUser = (val: any) => {
     if (
-      user.role === "DATA_PROVIDER" &&
+      user?.role === "DATA_PROVIDER" &&
       (val.update.status === null ||
         val.update.status?.trim() === "For DP Revision" ||
         val.update.status?.trim() === "For DP Submission")
     ) {
       return true;
     } else if (
-      user.role === "L1_DATA_REVIEWER" &&
+      user?.role === "L1_DATA_REVIEWER" &&
       (val.update.status?.trim() === "For L1 Review" ||
         val.update.status?.trim() === "For L1 DR Revision")
     ) {
       return true;
     } else if (
-      (user.role === "L2_DATA_REVIEWER" &&
+      (user?.role === "L2_DATA_REVIEWER" &&
         val.update.status?.trim() === "For L2 Review") ||
       val.update.status?.trim() === "For L2 DR Revision"
     ) {
       return true;
     } else if (
-      user.role === "L3_DATA_REVIEWER" &&
+      user?.role === "L3_DATA_REVIEWER" &&
       (val.update.status?.trim() === "For L3 Review" ||
         val.update.status?.trim() === "For L3 DR Revision")
     ) {
       return true;
     } else if (
-      user.role === "L2_DATA_APPROVER" &&
+      user?.role === "L2_DATA_APPROVER" &&
       val.update.status?.trim() === "For L2 Approval"
     ) {
       return true;
     } else if (
-      user.role === "L1_DATA_APPROVER" &&
+      user?.role === "L1_DATA_APPROVER" &&
       (val.update.status?.trim() === "For L1 Approval" ||
         val.update.status?.trim() === "For L1 DA Re-approval")
     ) {
@@ -289,7 +289,7 @@ const CardlistComponent: React.FC<CardlistComponentProps> = ({
     if (record) {
       try {
         get(
-          `/report/get_category_summary/?categoryName=${record.category_name}&category_id=${record.category_id}&entityID=${user.entity_Id}`,
+          `/report/get_category_summary/?categoryName=${record.category_name}&category_id=${record.category_id}&entityID=${user?.entity_Id || user?.currentOrganisationId}`,
         ).then((res: any) => {
           const data = res?.response?.data;
           const categoryData: Category = {
@@ -379,14 +379,14 @@ const CardlistComponent: React.FC<CardlistComponentProps> = ({
                       borderBottom: "none",
                       backgroundColor:
                         selectedCategory ===
-                        (user.role === "DATA_PROVIDER"
+                        (user?.role === "DATA_PROVIDER"
                           ? item["sub_category_name"]
                           : item["category_name"])
                           ? "#036323"
                           : "transparent",
                       color:
                         selectedCategory ===
-                        (user.role === "DATA_PROVIDER"
+                        (user?.role === "DATA_PROVIDER"
                           ? item["sub_category_name"]
                           : item["category_name"])
                           ? "white"

@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useAuth } from "../../context/AuthContext";
 
 import {
   Card,
@@ -93,7 +94,14 @@ function stripEmpty<T extends Record<string, unknown>>(obj: T): Partial<T> {
   ) as Partial<T>;
 }
 
-export default function Wizard({ masterData = STATIC_MASTER_DATA }: { masterData?: OnboardingMasterData }) {
+export default function Wizard({
+  masterData = STATIC_MASTER_DATA,
+  onCompleteOnboarding,
+}: {
+  masterData?: OnboardingMasterData;
+  onCompleteOnboarding?: () => void;
+}) {
+  const { fetchUserProfile } = useAuth();
   const { countries, domains, cities, sectors, subSectors, facilityTypes } =
     masterData;
 
@@ -315,13 +323,20 @@ export default function Wizard({ masterData = STATIC_MASTER_DATA }: { masterData
           administrators. Activation emails are on their way.
         </p>
         <div className="mt-6 flex items-center justify-center gap-3">
-          <a
-            href="#"
-            onClick={(e) => { e.preventDefault(); window.location.hash = '#dashboard'; }}
-            className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#25a5cb] hover:bg-[#1f93b5] active:bg-[#1a82a1] px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-cyan-500/20 transition-all"
+          <button
+            type="button"
+            onClick={async () => {
+              await fetchUserProfile();
+              if (onCompleteOnboarding) {
+                onCompleteOnboarding();
+              } else {
+                window.location.href = '/';
+              }
+            }}
+            className="inline-flex items-center justify-center gap-1.5 rounded-xl bg-[#25a5cb] hover:bg-[#1f93b5] active:bg-[#1a82a1] px-5 py-2.5 text-xs font-bold text-white shadow-md shadow-cyan-500/20 transition-all cursor-pointer"
           >
             Go to Dashboard
-          </a>
+          </button>
           <a
             href="#"
             onClick={(e) => { e.preventDefault(); window.location.hash = '#context-picker'; }}

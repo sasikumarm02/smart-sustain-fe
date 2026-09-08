@@ -105,20 +105,20 @@ export const AppContent: React.FC = () => {
   }
 
   // Login page route / Unauthenticated state
-  // if (!user || currentPath === "/auth/login") {
-  //   return (
-  //     <LoginPage
-  //       onLoginSuccess={() => {
-  //         setActiveView("analytics");
-  //         if (currentPath === "/auth/login") {
-  //           navigate("/");
-  //         }
-  //       }}
-  //       onNavigateToOnboarding={() => navigate("/onboarding")}
-  //       onSignUpClick={() => navigate("/auth/signup")}
-  //     />
-  //   );
-  // }
+  if (!user || currentPath === "/auth/login") {
+    return (
+      <LoginPage
+        onLoginSuccess={() => {
+          setActiveView("analytics");
+          if (currentPath === "/auth/login") {
+            navigate("/");
+          }
+        }}
+        onNavigateToOnboarding={() => navigate("/onboarding")}
+        onSignUpClick={() => navigate("/auth/signup")}
+      />
+    );
+  }
 
   return (
     <div className="min-h-screen bg-[#f8fafc] text-slate-800 flex font-sans">
@@ -180,16 +180,11 @@ export const AppContent: React.FC = () => {
           {activeView === "scope-three-cat13" && (
             <CategoryThirteenTable setActiveView={setActiveView} />
           )}
-          {activeView === "scope-three-cat13-form" &&
-            (
-              <CategoryThirteenForm setActiveView={setActiveView} />
-            )}
-          {activeView === "esg-config" && (
-            <EsgConfigurationPage />
+          {activeView === "scope-three-cat13-form" && (
+            <CategoryThirteenForm setActiveView={setActiveView} />
           )}
-          {activeView === "facilities" && (
-            <FacilityManager />
-          )}
+          {activeView === "esg-config" && <EsgConfigurationPage />}
+          {activeView === "facilities" && <FacilityManager />}
           {(activeView === "ingestion" || activeView === "maturity") && (
             <ActivityDataIngestion />
           )}
@@ -202,7 +197,6 @@ export const AppContent: React.FC = () => {
           {(activeView === "audit" || activeView === "social") && (
             <AuditLogsExplorer />
           )}
-
         </main>
 
         {/* Footer */}

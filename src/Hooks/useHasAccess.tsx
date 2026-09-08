@@ -2,9 +2,10 @@ import { getPermissions } from '../Utils/Roles';
 import { useAuth } from './useAuth';
 import { isNull } from 'lodash';
 export const useHasAccess = () => {
-  const { user } = useAuth();
+  const authContext = useAuth();
+  const user = authContext?.user || null;
   const hasPermissions = (Roles: string[]) => {
-    if (!user.role) {
+    if (!user || !user.role) {
       return false;
     }
     if (user) {
