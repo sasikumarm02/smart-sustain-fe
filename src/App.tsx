@@ -188,7 +188,9 @@ export const AppContent: React.FC = () => {
           {activeView === "scope-three-cat13-form" && (
             <CategoryThirteenForm setActiveView={setActiveView} />
           )}
-          {activeView === "esg-config" && <EsgConfigurationPage />}
+          {(activeView === "esg-config" || activeView === "esg-config-create" || activeView === "esg-config/create") && (
+            <EsgConfigurationPage activeView={activeView} setActiveView={setActiveView} />
+          )}
           {activeView === "facilities" && <FacilityManager />}
           {(activeView === "ingestion" || activeView === "maturity") && (
             <ActivityDataIngestion />

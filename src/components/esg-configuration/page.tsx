@@ -23,8 +23,32 @@ interface EsgConfigurationItem {
   updatedOn: string;
 }
 
-export const EsgConfigurationOverview: React.FC = () => {
-  const [viewMode, setViewMode] = useState<'overview' | 'create'>('overview');
+export const EsgConfigurationOverview: React.FC<{ activeView?: string; setActiveView?: (v: string) => void }> = ({ activeView, setActiveView }) => {
+  const [viewMode, setViewMode] = useState<'overview' | 'create'>(() => {
+    if (typeof window !== 'undefined' && window.location.pathname.includes('/esg-config/create')) {
+      return 'create';
+    }
+    return activeView === 'esg-config-create' ? 'create' : 'overview';
+  });
+
+  // Sync viewMode changes to URL
+  React.useEffect(() => {
+    if (viewMode === 'create') {
+      if (window.location.pathname !== '/emission/esg-config/create') {
+        window.history.pushState(null, '', '/emission/esg-config/create');
+      }
+      if (setActiveView && activeView !== 'esg-config-create') {
+        setActiveView('esg-config-create');
+      }
+    } else {
+      if (window.location.pathname !== '/emission/esg-config') {
+        window.history.pushState(null, '', '/emission/esg-config');
+      }
+      if (setActiveView && activeView !== 'esg-config') {
+        setActiveView('esg-config');
+      }
+    }
+  }, [viewMode]);
 
   // Wizard state
   const [currentStep, setCurrentStep] = useState(1);
@@ -36,13 +60,14 @@ export const EsgConfigurationOverview: React.FC = () => {
   const [startMonth, setStartMonth] = useState('January');
   const [startYear, setStartYear] = useState('2026');
 
-  // Step 2 Form Data (Frameworks)
+  // Step 2 Form Data (Frameworks - Only GRI and ISSB allowed)
   const [selectedFrameworks, setSelectedFrameworks] = useState<string[]>(['GRI', 'ISSB']);
 
   // Step 3 Form Data (Topics)
+  const [activeFrameworkTab, setActiveFrameworkTab] = useState<'GRI' | 'ISSB'>('GRI');
   const [activeTopicTab, setActiveTopicTab] = useState<'Environmental' | 'Social' | 'Governance' | 'City-Specific'>('Environmental');
   const [searchTopic, setSearchTopic] = useState('');
-  const [selectedTopics, setSelectedTopics] = useState<string[]>(['301', '302', '303', '305']);
+  const [selectedTopics, setSelectedTopics] = useState<string[]>(['301', '302', '303', '305', 'IFRS-S1', 'IFRS-S2']);
 
   // Step 4 Form Data (Emission Factor Databases per Scope)
   const [scope1Ef, setScope1Ef] = useState('IPCC 2019');
@@ -123,7 +148,10 @@ export const EsgConfigurationOverview: React.FC = () => {
   const [selectedStatus, setSelectedStatus] = useState('All statuses');
 
   const toggleFramework = (code: string) => {
+    // Only GRI and ISSB can be toggled
+    if (code !== 'GRI' && code !== 'ISSB') return;
     if (selectedFrameworks.includes(code)) {
+      if (selectedFrameworks.length === 1) return; // Must keep at least one
       setSelectedFrameworks(selectedFrameworks.filter((f) => f !== code));
     } else {
       setSelectedFrameworks([...selectedFrameworks, code]);
@@ -139,21 +167,57 @@ export const EsgConfigurationOverview: React.FC = () => {
   };
 
   const frameworksList = [
-    { code: 'GPC', name: 'Global Protocol for Community-Scale Greenhouse Gas Inventories', desc: 'GHG accounting and reporting standard for cities and communities.', ver: 'v2014' },
-    { code: 'GRI', name: 'Global Reporting Initiative Standards', desc: 'Modular sustainability reporting standards covering environmental, social and governance topics.', ver: 'v2021' },
-    { code: 'ISSB', name: 'IFRS Sustainability Disclosure Standards', desc: 'IFRS S1 General Requirements and IFRS S2 Climate-related Disclosures.', ver: 'vS1/S2 2023' },
-    { code: 'LGF', name: 'Local Government Framework', desc: 'Local government sustainability reporting framework with city-specific topics.', ver: 'v1.0' },
-    { code: 'SASB', name: 'Sustainability Accounting Standards Board Standards', desc: 'Industry-specific sustainability disclosure standards.', ver: 'v2023' },
-    { code: 'TCFD', name: 'Task Force on Climate-related Financial Disclosures', desc: 'Climate-related financial risk disclosure recommendations.', ver: 'v2017' },
+    { code: 'GPC', name: 'Global Protocol for Community-Scale Greenhouse Gas Inventories', desc: 'GHG accounting and reporting standard for cities and communities.', ver: 'v2014', disabled: true },
+    { code: 'GRI', name: 'Global Reporting Initiative Standards', desc: 'Modular sustainability reporting standards covering environmental, social and governance topics.', ver: 'v2021', disabled: false },
+    { code: 'ISSB', name: 'IFRS Sustainability Disclosure Standards', desc: 'IFRS S1 General Requirements and IFRS S2 Climate-related Disclosures.', ver: 'vS1/S2 2023', disabled: false },
+    { code: 'LGF', name: 'Local Government Framework', desc: 'Local government sustainability reporting framework with city-specific topics.', ver: 'v1.0', disabled: true },
+    { code: 'SASB', name: 'Sustainability Accounting Standards Board Standards', desc: 'Industry-specific sustainability disclosure standards.', ver: 'v2023', disabled: true },
+    { code: 'TCFD', name: 'Task Force on Climate-related Financial Disclosures', desc: 'Climate-related financial risk disclosure recommendations.', ver: 'v2017', disabled: true },
   ];
 
-  const topicsList = [
-    { code: '301', title: '301 Materials', source: 'GRI', req: 'Recommended', reqColor: 'text-amber-600' },
-    { code: '302', title: '302 Energy', source: 'GRI', req: 'Required', reqColor: 'text-rose-500' },
-    { code: '303', title: '303 Water and Effluents', source: 'GRI', req: 'Recommended', reqColor: 'text-amber-600' },
-    { code: '305', title: '305 Emissions', source: 'GRI', req: 'Required', reqColor: 'text-rose-500' },
-    { code: '306', title: '306 Waste', source: 'GRI', req: 'Optional', reqColor: 'text-slate-400' },
-  ];
+  // Topics divided by Framework and Category
+  const topicsData: Record<'GRI' | 'ISSB', Record<'Environmental' | 'Social' | 'Governance' | 'City-Specific', { code: string; title: string; source: string; req: string; reqColor: string }[]>> = {
+    GRI: {
+      Environmental: [
+        { code: '301', title: '301 Materials', source: 'GRI', req: 'Recommended', reqColor: 'text-amber-600' },
+        { code: '302', title: '302 Energy', source: 'GRI', req: 'Required', reqColor: 'text-rose-500' },
+        { code: '303', title: '303 Water and Effluents', source: 'GRI', req: 'Recommended', reqColor: 'text-amber-600' },
+        { code: '305', title: '305 Emissions', source: 'GRI', req: 'Required', reqColor: 'text-rose-500' },
+        { code: '306', title: '306 Waste', source: 'GRI', req: 'Optional', reqColor: 'text-slate-400' },
+      ],
+      Social: [
+        { code: '401', title: '401 Employment', source: 'GRI', req: 'Recommended', reqColor: 'text-amber-600' },
+        { code: '403', title: '403 Occupational Health & Safety', source: 'GRI', req: 'Required', reqColor: 'text-rose-500' },
+        { code: '405', title: '405 Diversity and Equal Opportunity', source: 'GRI', req: 'Recommended', reqColor: 'text-amber-600' },
+      ],
+      Governance: [
+        { code: '205', title: '205 Anti-corruption', source: 'GRI', req: 'Required', reqColor: 'text-rose-500' },
+        { code: '206', title: '206 Anti-competitive Behavior', source: 'GRI', req: 'Optional', reqColor: 'text-slate-400' },
+      ],
+      'City-Specific': [
+        { code: 'CS-GRI-01', title: 'Urban Density & Green Canopy', source: 'GRI City', req: 'Recommended', reqColor: 'text-amber-600' },
+        { code: 'CS-GRI-02', title: 'Municipal Waste Management', source: 'GRI City', req: 'Required', reqColor: 'text-rose-500' },
+      ],
+    },
+    ISSB: {
+      Environmental: [
+        { code: 'IFRS-S2-1', title: 'IFRS S2 Climate-related Governance', source: 'ISSB', req: 'Required', reqColor: 'text-rose-500' },
+        { code: 'IFRS-S2-2', title: 'IFRS S2 Physical & Transition Climate Risks', source: 'ISSB', req: 'Required', reqColor: 'text-rose-500' },
+        { code: 'IFRS-S2-3', title: 'IFRS S2 Scope 1, 2, & 3 GHG Disclosures', source: 'ISSB', req: 'Required', reqColor: 'text-rose-500' },
+        { code: 'IFRS-S2-4', title: 'IFRS S2 Climate Targets & Transition Plan', source: 'ISSB', req: 'Recommended', reqColor: 'text-amber-600' },
+      ],
+      Social: [
+        { code: 'IFRS-S1-SOC', title: 'IFRS S1 Human Capital & Social Risks', source: 'ISSB', req: 'Recommended', reqColor: 'text-amber-600' },
+      ],
+      Governance: [
+        { code: 'IFRS-S1-GOV', title: 'IFRS S1 General Sustainability Governance', source: 'ISSB', req: 'Required', reqColor: 'text-rose-500' },
+        { code: 'IFRS-S1-RM', title: 'IFRS S1 Risk Management Architecture', source: 'ISSB', req: 'Required', reqColor: 'text-rose-500' },
+      ],
+      'City-Specific': [
+        { code: 'CS-ISSB-01', title: 'Public Infrastructure Climate Resiliency', source: 'ISSB City', req: 'Recommended', reqColor: 'text-amber-600' },
+      ],
+    },
+  };
 
   const efOptions = {
     scope1: [
@@ -197,13 +261,21 @@ export const EsgConfigurationOverview: React.FC = () => {
   if (viewMode === 'create') {
     return (
       <div className="min-h-screen bg-[#f8fafc] p-6 lg:p-8 font-sans text-slate-800 space-y-6">
-        {/* Breadcrumb */}
-        <Breadcrumb
-          items={[
-            { label: 'ESG Configuration', href: '#' },
-            { label: 'Create New' },
-          ]}
-        />
+        {/* Header with Back to List Button */}
+        <div className="flex items-center justify-between">
+          <Breadcrumb
+            items={[
+              { label: 'ESG Configuration', href: '#' },
+              { label: 'Create New' },
+            ]}
+          />
+          <SecondaryButton
+            onClick={() => setViewMode('overview')}
+            className="inline-flex items-center gap-1.5 text-xs font-bold"
+          >
+            ← Back to List
+          </SecondaryButton>
+        </div>
 
         {/* Stepper Header */}
         <div className="bg-white rounded-2xl p-4 shadow-sm border border-slate-100">
@@ -338,31 +410,40 @@ export const EsgConfigurationOverview: React.FC = () => {
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     {frameworksList.map((fw) => {
                       const isChecked = selectedFrameworks.includes(fw.code);
+                      const isDisabled = fw.disabled;
                       return (
                         <div
                           key={fw.code}
-                          onClick={() => toggleFramework(fw.code)}
-                          className={`p-4 rounded-xl border transition-all cursor-pointer flex flex-col justify-between space-y-3 ${
-                            isChecked
-                              ? 'border-cyan-500 bg-cyan-50/20 shadow-sm ring-1 ring-cyan-500/30'
-                              : 'border-slate-200 bg-white hover:border-slate-300'
+                          onClick={() => !isDisabled && toggleFramework(fw.code)}
+                          className={`p-4 rounded-xl border transition-all flex flex-col justify-between space-y-3 ${
+                            isDisabled
+                              ? 'border-slate-200 bg-slate-50/70 opacity-55 cursor-not-allowed'
+                              : isChecked
+                              ? 'border-cyan-500 bg-cyan-50/20 shadow-sm ring-1 ring-cyan-500/30 cursor-pointer'
+                              : 'border-slate-200 bg-white hover:border-slate-300 cursor-pointer'
                           }`}
                         >
                           <div className="flex items-start justify-between">
                             <div className="flex items-center gap-2">
-                              <FileText className="h-4 w-4 text-slate-400" />
-                              <span className="font-extrabold text-slate-900 text-sm">{fw.code}</span>
+                              <FileText className={`h-4 w-4 ${isDisabled ? 'text-slate-300' : 'text-slate-400'}`} />
+                              <span className={`font-extrabold text-sm ${isDisabled ? 'text-slate-400' : 'text-slate-900'}`}>{fw.code}</span>
+                              {isDisabled && (
+                                <span className="text-[9px] font-semibold uppercase tracking-wide bg-slate-200 text-slate-500 px-1.5 py-0.5 rounded">
+                                  Disabled
+                                </span>
+                              )}
                             </div>
                             <input
                               type="checkbox"
+                              disabled={isDisabled}
                               checked={isChecked}
                               onChange={() => {}}
-                              className="h-4 w-4 rounded border-slate-300 text-cyan-600 focus:ring-cyan-500"
+                              className="h-4 w-4 rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 cursor-pointer disabled:cursor-not-allowed"
                             />
                           </div>
                           <div>
-                            <div className="text-[11px] font-semibold text-slate-700 leading-snug">{fw.name}</div>
-                            <div className="text-[10px] text-slate-500 leading-relaxed mt-1">{fw.desc}</div>
+                            <div className={`text-[11px] font-semibold leading-snug ${isDisabled ? 'text-slate-400' : 'text-slate-700'}`}>{fw.name}</div>
+                            <div className="text-[10px] text-slate-400 leading-relaxed mt-1">{fw.desc}</div>
                           </div>
                           <div className="text-[10px] font-mono text-slate-400">{fw.ver}</div>
                         </div>
@@ -370,7 +451,7 @@ export const EsgConfigurationOverview: React.FC = () => {
                     })}
                   </div>
                   <p className="text-[11px] text-slate-400 pt-1">
-                    Select at least one framework — topics are derived from your selection in the next step.
+                    Only GRI and ISSB frameworks are available — other frameworks are disabled.
                   </p>
                 </div>
 
@@ -397,7 +478,25 @@ export const EsgConfigurationOverview: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Tabs & Search */}
+                {/* Primary Framework Tabs (GRI vs ISSB if both selected) */}
+                <div className="flex items-center gap-2 p-1 bg-slate-100/80 rounded-xl w-fit">
+                  {selectedFrameworks.map((fw) => (
+                    <button
+                      key={fw}
+                      type="button"
+                      onClick={() => setActiveFrameworkTab(fw as 'GRI' | 'ISSB')}
+                      className={`px-5 py-2 rounded-lg text-xs font-extrabold transition-all cursor-pointer ${
+                        activeFrameworkTab === fw
+                          ? 'bg-white text-cyan-700 shadow-sm'
+                          : 'text-slate-500 hover:text-slate-800'
+                      }`}
+                    >
+                      {fw} Topics
+                    </button>
+                  ))}
+                </div>
+
+                {/* Secondary Category Subtabs & Search */}
                 <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 border-b border-slate-200 pb-3">
                   <div className="flex items-center gap-4 text-xs font-semibold">
                     {(['Environmental', 'Social', 'Governance', 'City-Specific'] as const).map((tab) => (
@@ -427,7 +526,7 @@ export const EsgConfigurationOverview: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Topics Table */}
+                {/* Topics Table for active framework tab and category subtab */}
                 <div className="border border-slate-200 rounded-xl overflow-hidden">
                   <table className="w-full text-left text-xs border-collapse">
                     <thead>
@@ -439,31 +538,33 @@ export const EsgConfigurationOverview: React.FC = () => {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-100">
-                      {topicsList.map((tp) => {
-                        const isChecked = selectedTopics.includes(tp.code);
-                        return (
-                          <tr key={tp.code} className="hover:bg-slate-50/60">
-                            <td className="py-3 px-4 font-bold text-slate-800 flex items-center gap-3">
-                              <input
-                                type="checkbox"
-                                checked={isChecked}
-                                onChange={() => toggleTopic(tp.code)}
-                                className="h-4 w-4 rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 cursor-pointer"
-                              />
-                              <span>{tp.title}</span>
-                            </td>
-                            <td className="py-3 px-4 text-slate-500 font-medium">{tp.source}</td>
-                            <td className={`py-3 px-4 font-semibold ${tp.reqColor}`}>{tp.req}</td>
-                            <td className="py-3 px-4 text-slate-500">{isChecked ? 'Included' : 'Not Included'}</td>
-                          </tr>
-                        );
-                      })}
+                      {((topicsData[activeFrameworkTab] && topicsData[activeFrameworkTab][activeTopicTab]) || [])
+                        .filter((tp) => tp.title.toLowerCase().includes(searchTopic.toLowerCase()))
+                        .map((tp) => {
+                          const isChecked = selectedTopics.includes(tp.code);
+                          return (
+                            <tr key={tp.code} className="hover:bg-slate-50/60">
+                              <td className="py-3 px-4 font-bold text-slate-800 flex items-center gap-3">
+                                <input
+                                  type="checkbox"
+                                  checked={isChecked}
+                                  onChange={() => toggleTopic(tp.code)}
+                                  className="h-4 w-4 rounded border-slate-300 text-cyan-600 focus:ring-cyan-500 cursor-pointer"
+                                />
+                                <span>{tp.title}</span>
+                              </td>
+                              <td className="py-3 px-4 text-slate-500 font-medium">{tp.source}</td>
+                              <td className={`py-3 px-4 font-semibold ${tp.reqColor}`}>{tp.req}</td>
+                              <td className="py-3 px-4 text-slate-500">{isChecked ? 'Included' : 'Not Included'}</td>
+                            </tr>
+                          );
+                        })}
                     </tbody>
                   </table>
                 </div>
 
                 <div className="text-[11px] text-slate-400 font-medium">
-                  {selectedTopics.length} of 7 topics included.
+                  {selectedTopics.length} topics included across selected frameworks.
                 </div>
 
                 <div className="flex items-center justify-between pt-4 border-t border-slate-100">
