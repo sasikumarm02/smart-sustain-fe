@@ -55,6 +55,7 @@ export const LeftSidebar: React.FC<NavbarProps> = ({ activeView, setActiveView }
         { id: 'scope-three-cat3', label: 'Category 3' },
         { id: 'scope-three-cat5', label: 'Category 5' },
         { id: 'scope-three-cat6', label: 'Category 6' },
+        { id: 'scope-three-cat13', label: 'Category 13' },
       ]
     },
     { id: 'maturity', label: 'Maturity Assessment', icon: BarChart3 },
