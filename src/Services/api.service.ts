@@ -1,133 +1,151 @@
-import axios, { AxiosError, AxiosResponse } from 'axios';
-import { isEmpty, get as _get } from 'lodash';
 import { apiURL, basePath } from '../Utils/Constants';
 import { message as notificationMessage } from 'antd';
 import { strings } from '../Utils/Strings';
 
 export const apiBaseUrl = `${apiURL}/${basePath}`;
 
-const extractErrMsg = (err: AxiosError, reject: Function) => {
-  if (err) {
-    const message = err.response?.data as any;
-    if (message) {
-      notificationMessage.error(message.message);
-      reject(message);
-    }
-    notificationMessage.error(strings.someThingWentWrong);
-    reject(strings.someThingWentWrong);
-  }
-};
-
-const handleErr = (err: AxiosError, reject: Function) => {
-  if (err.response?.status === 401) {
-    localStorage.removeItem('user');
-    window.location.reload();
-  }
-  return extractErrMsg(err, reject);
-};
-
-const api = axios.create({
-  baseURL: apiBaseUrl,
-});
-
-const updateHeader = (endpoint?: any) => {
-  const user = JSON.parse(localStorage.getItem('user') as any) || {};
-  if (!isEmpty(user)) {
-    const { token } = user;
-    api.defaults.headers.common['Authorization'] = `Bearer ${token} `;
-    if (
-      endpoint !== '/entity/getEntitiesListByUserId/' &&
-      endpoint !== '/invite/accept_reject_notification/'
-    ) {
-      api.defaults.headers.common['Entityid'] = user?.entity_Id;
-      api.defaults.headers.common['Role'] = user?.role;
-    }
-    return;
-  }
-  api.defaults.headers.common['Authorization'] = '';
-};
-
-const validateResponse = (res: AxiosResponse<any>) => {
-  const { data } = res;
-
-  if (data && (data.status === 'Success' || data.status === 'CREATED')) {
-    return data;
-  } else {
-    const errorMessage =
-      data && data.message ? data.message : 'Unknown error occurred';
-    console.error(errorMessage);
-    throw new Error(errorMessage);
-  }
-};
-
-// Updated Get function
+// Updated Get function using native fetch API
 export const get = async (
   endpoint: string,
   headers?: { [key in string]: any }
 ) => {
-  updateHeader(endpoint);
-  try {
-    const res: AxiosResponse<any> = await api.get(endpoint);
-    return validateResponse(res);
-  } catch (err: any) {
-    console.error('Error in GET request:', err);
-    throw err;
+  const token = localStorage.getItem('accessToken');
+  const fullUrl = endpoint.startsWith('http')
+    ? endpoint
+    : `${apiURL ? (apiURL.endsWith('/') ? apiURL.slice(0, -1) : apiURL) : ''}${endpoint.startsWith('/') ? endpoint : `/${endpoint}`}`;
+
+  const requestHeaders: Record<string, string> = {
+    'Content-Type': 'application/json',
+    ...(headers || {}),
+  };
+
+  if (token) {
+    requestHeaders['Authorization'] = `Bearer ${token}`;
   }
+
+  const response = await fetch(fullUrl, {
+    method: 'GET',
+    headers: requestHeaders,
+  });
+
+  const data = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    const errorMessage = data?.message || data?.error || `GET request failed with status ${response.status}`;
+    console.error(errorMessage);
+    throw new Error(errorMessage);
+  }
+
+  return data;
 };
 
-// Updated Post function
+// Updated Post function using native fetch API
 export const post = async (
   endpoint: string,
   payload: any,
   headers?: { [key: string]: any }
 ) => {
-  updateHeader();
+  const token = localStorage.getItem('accessToken');
+  const fullUrl = endpoint.startsWith('http')
+    ? endpoint
+    : `${apiURL ? (apiURL.endsWith('/') ? apiURL.slice(0, -1) : apiURL) : ''}${endpoint.startsWith('/') ? endpoint : `/${endpoint}`}`;
 
-  try {
-    const res: AxiosResponse<any> = await api.post(endpoint, payload, {
-      headers,
-    });
-    return validateResponse(res);
-  } catch (err: any) {
-    console.error('Error in POST request:', err);
-    throw err;
+  const requestHeaders: Record<string, string> = {
+    'Content-Type': 'application/json',
+    ...(headers || {}),
+  };
+
+  if (token) {
+    requestHeaders['Authorization'] = `Bearer ${token}`;
   }
+
+  const response = await fetch(fullUrl, {
+    method: 'POST',
+    headers: requestHeaders,
+    body: JSON.stringify(payload),
+  });
+
+  const data = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    const errorMessage = data?.message || data?.error || `POST request failed with status ${response.status}`;
+    console.error(errorMessage);
+    throw new Error(errorMessage);
+  }
+
+  return data;
 };
 
-// Updated Put function
+// Updated Put function using native fetch API
 export const put = async (endpoint: string, payload: any) => {
-  updateHeader();
+  const token = localStorage.getItem('accessToken');
+  const fullUrl = endpoint.startsWith('http')
+    ? endpoint
+    : `${apiURL ? (apiURL.endsWith('/') ? apiURL.slice(0, -1) : apiURL) : ''}${endpoint.startsWith('/') ? endpoint : `/${endpoint}`}`;
 
-  try {
-    const res: AxiosResponse<any> = await api.put(endpoint, payload);
-    return validateResponse(res);
-  } catch (err: any) {
-    console.error('Error in PUT request:', err);
-    throw err;
+  const requestHeaders: Record<string, string> = {
+    'Content-Type': 'application/json',
+  };
+
+  if (token) {
+    requestHeaders['Authorization'] = `Bearer ${token}`;
   }
+
+  const response = await fetch(fullUrl, {
+    method: 'PUT',
+    headers: requestHeaders,
+    body: JSON.stringify(payload),
+  });
+
+  const data = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    const errorMessage = data?.message || data?.error || `PUT request failed with status ${response.status}`;
+    console.error(errorMessage);
+    throw new Error(errorMessage);
+  }
+
+  return data;
 };
 
-// Updated Remove function
+// Updated Remove function using native fetch API
 export const remove = async (endpoint: string, payload?: any) => {
-  updateHeader();
+  const token = localStorage.getItem('accessToken');
+  const fullUrl = endpoint.startsWith('http')
+    ? endpoint
+    : `${apiURL ? (apiURL.endsWith('/') ? apiURL.slice(0, -1) : apiURL) : ''}${endpoint.startsWith('/') ? endpoint : `/${endpoint}`}`;
 
-  try {
-    const res: AxiosResponse<any> = await api.delete(endpoint, {
-      data: payload,
-    });
-    return validateResponse(res);
-  } catch (err: any) {
-    console.error('Error in DELETE request:', err);
-    throw err;
+  const requestHeaders: Record<string, string> = {
+    'Content-Type': 'application/json',
+  };
+
+  if (token) {
+    requestHeaders['Authorization'] = `Bearer ${token}`;
   }
+
+  const response = await fetch(fullUrl, {
+    method: 'DELETE',
+    headers: requestHeaders,
+    body: payload ? JSON.stringify(payload) : undefined,
+  });
+
+  const data = await response.json().catch(() => null);
+
+  if (!response.ok) {
+    const errorMessage = data?.message || data?.error || `DELETE request failed with status ${response.status}`;
+    console.error(errorMessage);
+    throw new Error(errorMessage);
+  }
+
+  return data;
 };
 
 export const upload = (endpoint: string, payload: any) => {
   return new Promise((resolve, reject) => {
-    const user = JSON.parse(localStorage.getItem('user') as any) || {};
-    if (!user) reject('Unauthorized User');
+    const token = localStorage.getItem('accessToken');
+    if (!token) reject('Unauthorized User');
     const myHeaders = new Headers();
-    myHeaders.append('Authorization', `Bearer ${user.token}`);
+    myHeaders.append('Authorization', `Bearer ${token}`);
 
     fetch(`${apiURL}/${endpoint}`, {
       method: 'POST',
@@ -139,8 +157,8 @@ export const upload = (endpoint: string, payload: any) => {
       .then((res: any) => {
         resolve(res);
       })
-      .catch((err: AxiosError) => {
-        reject(handleErr(err, reject));
+      .catch((err: any) => {
+        reject(err);
       });
   });
 };

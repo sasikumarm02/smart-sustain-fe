@@ -1,6 +1,6 @@
 import type { UserSession, UserRole, Organisation, Facility, CommonResponse } from '../types/domain';
-import React, { createContext, useContext, useState } from 'react';
-import { loginUserApi, signupUserApi, refreshTokenApi, logoutUserApi } from '../Services/authService';
+import React, { createContext, useContext, useState, useEffect } from 'react';
+import { loginUserApi, signupUserApi, refreshTokenApi, logoutUserApi, getCurrentUserProfileApi } from '../Services/authService';
 
 export interface AuthResult {
   success: boolean;
@@ -16,6 +16,7 @@ interface AuthContextType {
   login: (email: string, pass: string) => Promise<AuthResult>;
   signup: (fullName: string, email: string, pass: string, jobTitle: string, phone?: string) => Promise<AuthResult>;
   refreshToken: () => Promise<boolean>;
+  fetchUserProfile: () => Promise<boolean>;
   switchOrganisation: (orgId: string) => CommonResponse<UserSession>;
   setActiveFacilityId: (facilityId: string) => void;
   updateUserRole: (newRole: UserRole) => void;
@@ -24,7 +25,7 @@ interface AuthContextType {
   logout: () => Promise<void>;
 }
 
-const AuthContext = createContext<AuthContextType | undefined>(undefined);
+export const AuthContext = createContext<AuthContextType | undefined>(undefined);
 
 export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [session, setSession] = useState<UserSession | null>(null);
@@ -33,6 +34,76 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
   const currentOrg = session ? (session.organisations.find((o) => o.id === session.currentOrganisationId) || session.organisations[0] || null) : null;
   const currentOrgFacilities = session && session.currentOrganisationId ? (facilitiesMap[session.currentOrganisationId] || []) : [];
   const activeFacility = session ? (currentOrgFacilities.find((f) => f.id === session.activeFacilityId) || currentOrgFacilities[0] || null) : null;
+
+  const fetchUserProfile = async (): Promise<boolean> => {
+    try {
+      const profileRes = await getCurrentUserProfileApi();
+      if (profileRes && (profileRes.status === 'OK' || profileRes.response)) {
+        const userData = profileRes.response?.data;
+        if (!userData) return false;
+
+        const apiOrgs = userData.organisations || [];
+        let allFacilities: Facility[] = [];
+        const newFacilitiesMap: Record<string, Facility[]> = {};
+
+        const orgsList: Organisation[] = apiOrgs.map((o) => {
+          const facs: Facility[] = (o.facilities || []).map((f) => ({
+            id: f.id,
+            organisationId: f.organisationId,
+            name: f.name,
+            code: f.code,
+            type: (f.facilityType as any) || 'HEADQUARTERS',
+            country: f.country || 'Global Jurisdiction',
+            status: (f.status as any) || 'ACTIVE',
+          }));
+          newFacilitiesMap[o.organisationId] = facs;
+          allFacilities = [...allFacilities, ...facs];
+
+          return {
+            id: o.organisationId,
+            name: o.organisationName,
+            code: `${o.organisationName.substring(0, 4).toUpperCase()}-ORG`,
+            country: o.country || facs[0]?.country || 'Global Jurisdiction',
+            role: (o.role as UserRole) || 'DATA_PROVIDER',
+            facilitiesCount: facs.length,
+          };
+        });
+
+        setFacilitiesMap(newFacilitiesMap);
+
+        const currentOrgId = userData.currentOrganisationId || orgsList[0]?.id || '';
+        const activeFacId = userData.facilityIds?.[0] || newFacilitiesMap[currentOrgId]?.[0]?.id || '';
+
+        const newSession: UserSession = {
+          id: userData.id || `usr-${Date.now()}`,
+          email: userData.email,
+          name: userData.fullName || userData.email,
+          currentOrganisationId: currentOrgId,
+          activeFacilityId: activeFacId,
+          role: (userData.role as UserRole) || 'DATA_PROVIDER',
+          organisations: orgsList,
+          facilities: allFacilities,
+        };
+
+        // Also update local storage user token details for api.service.ts updateHeader compatibility
+        localStorage.setItem('user', JSON.stringify({ token: localStorage.getItem('accessToken'), entity_Id: currentOrgId, role: userData.role }));
+        setSession(newSession);
+        return true;
+      }
+      return false;
+    } catch (err) {
+      console.warn('Error fetching current user profile:', err);
+      return false;
+    }
+  };
+
+  // Fetch current user profile on app load / page refresh if accessToken exists
+  useEffect(() => {
+    const token = localStorage.getItem('accessToken');
+    if (token) {
+      fetchUserProfile();
+    }
+  }, []);
 
   const login = async (email: string, pass: string): Promise<AuthResult> => {
     if (!email || !pass) {
@@ -104,7 +175,12 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
           facilities: allFacilities,
         };
 
+        localStorage.setItem('user', JSON.stringify({ token: authData?.accessToken, entity_Id: currentOrgId, role: apiUser?.role }));
         setSession(newSession);
+
+        // Fetch full profile via GET /api/v1/users/me
+        await fetchUserProfile();
+
         return { success: true, needsOnboarding, message: apiRes.message || 'Login successful' };
       } else {
         return { success: false, message: apiRes?.message || 'Login failed.' };
@@ -337,6 +413,7 @@ export const AuthProvider: React.FC<{ children: React.ReactNode }> = ({ children
         login,
         signup,
         refreshToken,
+        fetchUserProfile,
         switchOrganisation,
         setActiveFacilityId,
         updateUserRole,

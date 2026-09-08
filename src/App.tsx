@@ -8,6 +8,7 @@ import { SignUpPage } from "./components/SignUpPage";
 import OnboardingPage from "./components/onboarding/page";
 import { LeftSidebar, Header } from "./components/Navbar";
 import { FacilityManager } from "./components/FacilityManager";
+import { EsgConfigurationOverview as EsgConfigurationPage } from "./components/esg-configuration/page";
 import { ActivityDataIngestion } from "./components/ActivityDataIngestion";
 import { ReviewStateMachine } from "./components/ReviewStateMachine";
 import { MasterConfigEngine } from "./components/MasterConfigEngine";
@@ -167,7 +168,10 @@ export const AppContent: React.FC = () => {
           {activeView === "scope-three-cat6-form" && (
             <CategorySixForm setActiveView={setActiveView} />
           )}
-          {(activeView === "facilities" || activeView === "esg-config") && (
+          {activeView === "esg-config" && (
+            <EsgConfigurationPage />
+          )}
+          {activeView === "facilities" && (
             <FacilityManager />
           )}
           {(activeView === "ingestion" || activeView === "maturity") && (
@@ -182,6 +186,12 @@ export const AppContent: React.FC = () => {
           {(activeView === "audit" || activeView === "social") && (
             <AuditLogsExplorer />
           )}
+          {(activeView === 'analytics' || activeView === 'home') && <ExecutiveAnalytics />}
+          {activeView === 'facilities' && <FacilityManager />}
+          {(activeView === 'ingestion' || activeView === 'maturity') && <ActivityDataIngestion />}
+          {(activeView === 'review' || activeView === 'governance') && <ReviewStateMachine />}
+          {(activeView === 'config' || activeView === 'framework-lib') && <MasterConfigEngine />}
+          {(activeView === 'audit' || activeView === 'social') && <AuditLogsExplorer />}
         </main>
 
         {/* Footer */}

@@ -47,6 +47,7 @@ export interface OrganisationApiItem {
   organisationName: string;
   role: string;
   status: string;
+  country?: string;
   facilities?: FacilityApiItem[];
 }
 
@@ -74,6 +75,37 @@ export interface LoginResponse {
   };
   message: string;
 }
+
+import { get } from './api.service';
+
+export interface UserProfileResponse {
+  status: string;
+  response?: {
+    action: string;
+    data: {
+      id: string;
+      email: string;
+      fullName: string;
+      phone?: string;
+      authProvider?: string;
+      status?: string;
+      role: string;
+      currentOrganisationId?: string | null;
+      organisations?: OrganisationApiItem[] | null;
+      facilityIds?: string[] | null;
+      createdAt?: string;
+      updatedAt?: string;
+    };
+  };
+  message: string;
+}
+
+/**
+ * Get Current User Profile API call: GET /api/v1/users/me
+ */
+export const getCurrentUserProfileApi = async (): Promise<UserProfileResponse> => {
+  return await get('/api/v1/users/me');
+};
 
 // Compute base API url
 const getApiEndpoint = (path: string): string => {
