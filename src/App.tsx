@@ -90,20 +90,6 @@ export const AppContent: React.FC = () => {
     );
   }
 
-  // Onboarding page route
-  if (currentPath === "/onboarding") {
-    return (
-      <div className="min-h-screen bg-[#f4f7f6] text-slate-900 p-6 font-sans">
-        <div className="max-w-7xl mx-auto space-y-6">
-          <OnboardingPage
-            onBackToLogin={() => navigate("/auth/login")}
-            onCompleteOnboarding={() => navigate(user ? "/" : "/auth/login")}
-          />
-        </div>
-      </div>
-    );
-  }
-
   // Login page route / Unauthenticated state
   if (!user || currentPath === "/auth/login") {
     return (
@@ -114,9 +100,26 @@ export const AppContent: React.FC = () => {
             navigate("/");
           }
         }}
-        onNavigateToOnboarding={() => navigate("/onboarding")}
+        onNavigateToOnboarding={() => {
+          // Unauthenticated user clicking onboarding should be sent to signup/login or login first
+          navigate("/auth/signup");
+        }}
         onSignUpClick={() => navigate("/auth/signup")}
       />
+    );
+  }
+
+  // Onboarding page route (Protected: requires authenticated user)
+  if (currentPath === "/onboarding") {
+    return (
+      <div className="min-h-screen bg-[#f4f7f6] text-slate-900 p-6 font-sans">
+        <div className="max-w-7xl mx-auto space-y-6">
+          <OnboardingPage
+            onBackToLogin={() => navigate("/auth/login")}
+            onCompleteOnboarding={() => navigate("/")}
+          />
+        </div>
+      </div>
     );
   }
 

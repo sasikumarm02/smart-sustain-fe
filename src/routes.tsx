@@ -48,6 +48,10 @@ export const protectRoutes: ProtectedRoutes[] = [
     path: '/audit',
     element: <AuditLogsExplorer />,
   },
+  {
+    path: '/onboarding',
+    element: <OnboardingPage onBackToLogin={() => { }} onCompleteOnboarding={() => { }} />,
+  },
   // Scopes modules we have built so far
   {
     path: '/emission/scope-one-form',
@@ -75,9 +79,5 @@ export const globalRoutes = [
   {
     path: '/auth/signup',
     element: <SignUpPage onSignUpSuccess={() => { }} onBackToLogin={() => { }} />,
-  },
-  {
-    path: '/onboarding',
-    element: <OnboardingPage onBackToLogin={() => { }} onCompleteOnboarding={() => { }} />,
   },
 ];
