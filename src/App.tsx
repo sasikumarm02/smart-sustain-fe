@@ -46,14 +46,16 @@ export const AppContent: React.FC = () => {
   const [activeView, setActiveView] = useState<string>(getInitialView);
   const navigate = useNavigate();
 
-  // Auto-redirect legacy paths if needed
+  // Auto-redirect unauthenticated users or legacy paths
   useEffect(() => {
     if (currentPath === "/signup") {
       navigate("/auth/signup", { replace: true });
     } else if (currentPath === "/login") {
       navigate("/auth/login", { replace: true });
+    } else if (!user && !currentPath.startsWith("/auth/")) {
+      navigate("/auth/login", { replace: true });
     }
-  }, [currentPath, navigate]);
+  }, [currentPath, user, navigate]);
 
   // Sync activeView to URL
   useEffect(() => {
