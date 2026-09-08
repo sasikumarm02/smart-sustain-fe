@@ -28,14 +28,23 @@ import CategoryFiveTable from "./Modules/ScopeThree/CategoryFiveTable";
 import CategoryFiveForm from "./Modules/ScopeThree/CategoryFiveForm";
 import CategorySixTable from "./Modules/ScopeThree/CategorySixTable";
 import CategorySixForm from "./Modules/ScopeThree/CategorySixForm";
+import CategoryThirteenTable from "./Modules/ScopeThree/CategoryThirteenTable";
+import CategoryThirteenForm from "./Modules/ScopeThree/CategoryThirteenForm";
 
 export const AppContent: React.FC = () => {
   const { user } = useAuth();
   const location = useLocation();
-  const navigate = useNavigate();
-  const [activeView, setActiveView] = useState<string>("analytics");
-
   const currentPath = location.pathname;
+
+  const getInitialView = () => {
+    if (currentPath.startsWith("/emission/")) {
+      return currentPath.split("/emission/")[1] || "analytics";
+    }
+    return "analytics";
+  };
+
+  const [activeView, setActiveView] = useState<string>(getInitialView);
+  const navigate = useNavigate();
 
   // Auto-redirect legacy paths if needed
   useEffect(() => {
@@ -96,20 +105,20 @@ export const AppContent: React.FC = () => {
   }
 
   // Login page route / Unauthenticated state
-  if (!user || currentPath === "/auth/login") {
-    return (
-      <LoginPage
-        onLoginSuccess={() => {
-          setActiveView("analytics");
-          if (currentPath === "/auth/login") {
-            navigate("/");
-          }
-        }}
-        onNavigateToOnboarding={() => navigate("/onboarding")}
-        onSignUpClick={() => navigate("/auth/signup")}
-      />
-    );
-  }
+  // if (!user || currentPath === "/auth/login") {
+  //   return (
+  //     <LoginPage
+  //       onLoginSuccess={() => {
+  //         setActiveView("analytics");
+  //         if (currentPath === "/auth/login") {
+  //           navigate("/");
+  //         }
+  //       }}
+  //       onNavigateToOnboarding={() => navigate("/onboarding")}
+  //       onSignUpClick={() => navigate("/auth/signup")}
+  //     />
+  //   );
+  // }
 
   return (
     <div className="min-h-screen bg-[#f8fafc] text-slate-800 flex font-sans">
@@ -168,6 +177,13 @@ export const AppContent: React.FC = () => {
           {activeView === "scope-three-cat6-form" && (
             <CategorySixForm setActiveView={setActiveView} />
           )}
+          {activeView === "scope-three-cat13" && (
+            <CategoryThirteenTable setActiveView={setActiveView} />
+          )}
+          {activeView === "scope-three-cat13-form" &&
+            (
+              <CategoryThirteenForm setActiveView={setActiveView} />
+            )}
           {activeView === "esg-config" && (
             <EsgConfigurationPage />
           )}
@@ -186,12 +202,7 @@ export const AppContent: React.FC = () => {
           {(activeView === "audit" || activeView === "social") && (
             <AuditLogsExplorer />
           )}
-          {(activeView === 'analytics' || activeView === 'home') && <ExecutiveAnalytics />}
-          {activeView === 'facilities' && <FacilityManager />}
-          {(activeView === 'ingestion' || activeView === 'maturity') && <ActivityDataIngestion />}
-          {(activeView === 'review' || activeView === 'governance') && <ReviewStateMachine />}
-          {(activeView === 'config' || activeView === 'framework-lib') && <MasterConfigEngine />}
-          {(activeView === 'audit' || activeView === 'social') && <AuditLogsExplorer />}
+
         </main>
 
         {/* Footer */}
